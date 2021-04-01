@@ -1,0 +1,74 @@
+\documentclass[a4paper, 12pt, twoside, openright]{mythesis}
+
+\include{macros}
+
+\renewcommand{\baselinestretch}{1.5}
+
+%\hypersetup{
+%    colorlinks=true,       % false: boxed links; true: colored links
+%    linkcolor=blue,          % color of internal links
+%    citecolor=blue,        % color of links to bibliography
+%    filecolor=blue,      % color of file links
+%    urlcolor=blue           % color of external links
+%}
+
+%------------------------------------
+% Thesis boundary Setting
+%-------------------------------------
+
+\textwidth      = 137.0mm
+\textheight     = 224.0mm
+\topmargin      =  -3.0mm
+\headheight     =   7.0mm
+\headsep        =  10.0mm
+\footskip       =   8.0mm
+\oddsidemargin  =  10.6mm
+\evensidemargin =  10.6mm
+\hoffset = -0.2cm
+%\overfullrule=5pt%%
+
+\pagenumbering{roman}% \thispagestyle{myheadings}
+\setcounter{page}{1}
+%\thispagestyle{empty}
+
+\begin{document}
+\title{\textbf{Study for Robot-Assisted Endodontic Treatment}}
+
+\author{ \\  \\ \\
+{\it Yi-Chan Li}\\
+{\it Advisor: Cheng-Wei Chen} \\ \\ \\ \\  \\ \\
+{\it Graduate Institute of Electronics Engineering}\\
+{\it National Taiwan University} \\
+{\it Taipei, Taiwan}\\ }
+
+{\date{May 2021}}
+
+\maketitle
+
+\frontmatter
+\input{Chapters/0_Abstract.tex}
+\tableofcontents
+\listoffigures
+\listoftables
+
+%------------------------------------
+% Thesis Body -- begin
+%------------------------------------
+
+\mainmatter
+
+\input{Chapters/1_Introduction.tex}
+\input{Chapters/2_Related Work and Literature Review}
+\input{Chapters/3_Robot-Assisted System.tex}
+\input{Chapters/4_Kinematics Analysis and Admittance Control.tex}
+\input{Chapters/5_Self-Alignment of Root Canal Direction for Automatic Navigation Based on Force and Torque Feedback.tex}
+\input{Chapters/6_Precausion of Endodontic Files Fracture Based on Current Feedback.tex}
+\input{Chapters/7_Preliminary Experiment Result.tex}
+\input{Chapters/8_Conclusions and Future Works.tex}
+%------------------------------------
+% Thesis Body -- end
+%------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{thesis}
+\end{document}

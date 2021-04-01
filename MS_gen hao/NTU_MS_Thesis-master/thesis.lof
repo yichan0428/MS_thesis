@@ -1,0 +1,19 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The structure of feedback control system.}}{2}{figure.1.1}% 
+\contentsline {figure}{\numberline {1.2}{\ignorespaces The structure of feedforward control system. $F(z)$ is the feedforward compemsator of the closed-loop system $G(z)$, and the optimal design of $F(z)$ is $F(z)=G^{-1}(z)$, which make the overall system $\frac {Y}{R}:=F(z)G(z)=1$ if the disturbance $d(k)$ is not considered.}}{3}{figure.1.2}% 
+\contentsline {figure}{\numberline {1.3}{\ignorespaces The structure of repetitive control system. $F(z)$ is the inversion-based filter of the stable system $G(z)$. The stability condition of RC is $\left \| I-Q(z)F(z)G(z) \right \|_\infty <1$, where $Q(z)$ is a zero-phase low pass filter, hence the optimal design of the $F(z)$ is $F(z)=G^{-1}(z)$.}}{4}{figure.1.3}% 
+\contentsline {figure}{\numberline {1.4}{\ignorespaces The control architecture of iterative learning control. $L(z)$ is the learning filter of ILC and $G(z)$ is a stable system. The stability condition of ILC is $\left \| I-L(z)G(z) \right \|_\infty <1$, hence the optimal design of the $L(z)$ is $L(z)=F(z)=G^{-1}(z)$.}}{4}{figure.1.4}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The control architecture of the proposed algorithm. The learning is switched to the acceleration filter $\frac {U_j(z)}{R(z)}$ for every $n\in \mathbb {N}$ iterations; otherwise, the control input is updated by the time-reversal based ILC.}}{15}{figure.3.1}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The chirp reference with the amplitude of 100 mm and a maximum frequency component of 100 Hz.}}{22}{figure.3.2}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The convergence of the ILC tracking error. (a) The case with no output disturbance. (b)The case with the output disturbance $d(k)\in \mathit {N}(0,1)$.}}{26}{figure.3.3}% 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{26}{figure.3.3}% 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{26}{figure.3.3}% 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The convergence of the ILC tracking error when the output disturbance $d(k)\in \mathit {N}(0,80)$. Both MFIIC and NLIIC do not converge.}}{27}{figure.3.4}% 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The ILC tracking error in steady-state. (a) The case with no output disturbance. (b) The case with the output disturbance $d(k)\in \mathit {N}(0,1)$. }}{28}{figure.3.5}% 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}{figure.3.5}% 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}{figure.3.5}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The schematic diagram of the galvo scanner system.}}{30}{figure.4.1}% 
