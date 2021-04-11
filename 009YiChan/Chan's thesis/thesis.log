@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  1 APR 2021 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  11 APR 2021 22:54
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -983,67 +983,152 @@ l.50 \tableofcontents
 Chapter 1.
 [1
 
-]) ("Chapters/2_Related Work and Literature Review.tex" [2]
-Chapter 2.
-) ("Chapters/3_Robot-Assisted System.tex" [3
+] [2]) (Chapters/2_State-of-the-Art.tex [3] [4
 
-] [4
+]
+Chapter 2.
+) ("Chapters/3_Design and Analysis of the Dental Surgical Robot - DentiBot.tex"
+[5] [6
 
 ]
 Chapter 3.
-) ("Chapters/4_Kinematics Analysis and Admittance Control.tex" [5] [6
+[7]
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
+2.
+
+("C:\Users\yicha\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+<Images/Coordinates1.png, id=185, 304.0158pt x 313.17pt>
+File: Images/Coordinates1.png Graphic file (type png)
+<use Images/Coordinates1.png>
+Package pdftex.def Info: Images/Coordinates1.png  used on input line 15.
+(pdftex.def)             Requested size: 311.84338pt x 321.24501pt.
+
+Underfull \vbox (badness 3088) has occurred while \output is active []
+
+ [8]
+[9 <./Images/Coordinates1.png>]
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+ [10]
+[11]
+<Images/rot_inf.png, id=220, 279.9258pt x 238.0092pt>
+File: Images/rot_inf.png Graphic file (type png)
+<use Images/rot_inf.png>
+Package pdftex.def Info: Images/rot_inf.png  used on input line 165.
+(pdftex.def)             Requested size: 233.88402pt x 198.86226pt.
+) ("Chapters/4_Force-Guided Robot Alignment.tex" [12] [13 <./Images/rot_inf.png
+>] [14
 
 ]
 Chapter 4.
-[7])
-("Chapters/5_Self-Alignment of Root Canal Direction for Automatic Navigation Ba
-sed on Force and Torque Feedback.tex" [8]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+<Images/adm ctrl.png, id=253, 597.432pt x 207.174pt>
+File: Images/adm ctrl.png Graphic file (type png)
+<use Images/adm ctrl.png>
+Package pdftex.def Info: Images/adm ctrl.png  used on input line 18.
+(pdftex.def)             Requested size: 389.80275pt x 135.17677pt.
+
+[16 <./Images/adm ctrl.png>] [17])
+("Chapters/5_Control of Endodontic File Rotation.tex" [18]
 Chapter 5.
-[9
+) ("Chapters/6_Experiment Results.tex" [19
 
-])
-("Chapters/6_Precausion of Endodontic Files Fracture Based on Current Feedback.
-tex" [10]
+] [20
+
+]
 Chapter 6.
-) ("Chapters/7_Preliminary Experiment Result.tex" [11
-
-] [12
+) ("Chapters/7_Conclusions and Future Works.tex" [21] [22
 
 ]
 Chapter 7.
-) ("Chapters/8_Conclusions and Future Works.tex" [13] [14
+) (Chapters/8_Appendix.tex [23] [24
 
 ]
 Chapter 8.
-)
-No file thesis.bbl.
+[25]
+Overfull \hbox (69.73549pt too wide) detected at line 43
+[]
+ []
+
+
+Overfull \hbox (61.09297pt too wide) detected at line 86
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+Overfull \vbox (296.45247pt too high) has occurred while \output is active []
+
+
+[28]
+Overfull \hbox (71.66283pt too wide) detected at line 127
+[]
+ []
+
+
+Overfull \vbox (266.40826pt too high) has occurred while \output is active []
+
+
+[29]) (thesis.bbl (thesis.brf)
+\tf@brf=\write7
+\openout7 = `thesis.brf'.
+
+ [30
+
+])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
-[15]
+ [31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
+Package rerunfilecheck Info: File `thesis.brf' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 15350 strings out of 481165
- 278796 string characters out of 2902091
- 565688 words of memory out of 3000000
- 30393 multiletter control sequences out of 15000+200000
- 620958 words of font info for 178 fonts, out of 3000000 for 9000
+ 15601 strings out of 481165
+ 281356 string characters out of 2902091
+ 594121 words of memory out of 3000000
+ 30477 multiletter control sequences out of 15000+200000
+ 630686 words of font info for 262 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,6n,50p,330b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-maths
-y.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r
-.enc}<C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lm
-sy10.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/time
-s/utmb8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/
-times/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-urw/times/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (25 pages, 109559 bytes).
+ 61i,23n,50p,1053b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
+c}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
+t.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
+athex.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
+lm-mathsy.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips
+/base/8r.enc}<C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/lm/lmbx12.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/lm/lmex10.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/yicha/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/yicha/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/yicha/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/yicha/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/yicha/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/yicha/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Users/yicha/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/yicha/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/yicha
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/y
+icha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (41 pages, 492424 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 67881 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
+ 82272 words of extra memory for PDF output out of 89155 (max. 10000000)
 

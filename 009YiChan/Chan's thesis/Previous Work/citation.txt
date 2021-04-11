@@ -1,0 +1,80 @@
+1.file breakge
+McGuigan, M., Louca, C. & Duncan, H. Endodontic instrument fracture: causes and prevention. Br Dent J 214, 341–348 (2013).
+
+2.NCTU	https://www.semanticscholar.org/paper/WIP%3A-A-Study-on-the-Development-of-Endodontic-Micro-Dong-Hong/a1b08e5871f43b2e6990fb5e372c7f8ce95edf85
+Dong, J., Hong, S., & Hesselgren, G. (2007). WIP: A Study on the Development of Endodontic Micro Robot.
+BibTex:
+@inproceedings{Dong2007WIPAS,
+  title={WIP: A Study on the Development of Endodontic Micro Robot},
+  author={J. Dong and S. Hong and Gannar Hesselgren},
+  year={2007}
+}
+
+
+3.two main causes    https://www.sciencedirect.com/science/article/pii/S0099239905609478?via%3Dihub
+
+Boonrat Sattapan, Garry J. Nervo, Joseph E.A. Palamara, Harold H. Messer,
+Defects in Rotary Nickel-Titanium Files After Clinical Use,
+Journal of Endodontics,
+Volume 26, Issue 3,
+2000,
+Pages 161-165,
+
+Bib:
+@article{SATTAPAN2000161,
+title = {Defects in Rotary Nickel-Titanium Files After Clinical Use},
+journal = {Journal of Endodontics},
+volume = {26},
+number = {3},
+pages = {161-165},
+year = {2000},
+issn = {0099-2399},
+doi = {https://doi.org/10.1097/00004770-200003000-00008},
+url = {https://www.sciencedirect.com/science/article/pii/S0099239905609478},
+author = {Boonrat Sattapan and Garry J. Nervo and Joseph E.A. Palamara and Harold H. Messer},
+abstract = {The purpose of this study was to analyze the type and frequency of defects in nickel-titanium rotary endodontic files after routine clinical use, and to draw conclusions regarding the reasons for failure. All of the files (total: 378, Quantec Series 2000) discarded after normal use from a specialist endodontic practice over 6 months were analyzed. Almost 50% of the files showed some visible defect; 21% were fractured and 28% showed other defects without fracture. Fractured files could be divided into two groups according to the characteristics of the defects observed. Torsional fracture occurred in 55.7% of all fractured files, whereas flexural fatigue occurred in 44.3%. The results indicated that torsional failure, which may be caused by using too much apical force during instrumentation, occurred more frequently than flexural fatigue, which may result from use in curved canals.}
+}
+
+4.torsion threshold 6.02 	https://www.sciencedirect.com/science/article/pii/S0099239908008443?via%3Dihub
+
+Boessler C, Paque F, Peters OA. The effect of electropolishing on torque and force during simulated root canal preparation with ProTaper shaping files. J Endod. 2009
+
+5.CACS
+C. J. Kuo, Y. C. Li, and C. W. Chen, “Preliminary Study for Robot-Assisted Endodontic Treatment,” International Automatic Control Conference (CACS), Hsinchu, Taiwan, Nov. 2020
+
+6.Dental robot Review https://www.clinicalkey.com/#!/content/playContent/1-s2.0-S1042369919300299?returnurl=https:%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1042369919300299%3Fshowall%3Dtrue&referrer=https:%2F%2Fpubmed.ncbi.nlm.nih.gov%2F
+Wu Y, Wang F, Fan S, Chow JK. Robotics in Dental Implantology. Oral Maxillofac Surg Clin North Am. 2019
+
+7.6DOF USA https://ieeexplore.ieee.org/document/9026216
+T. Iijima, T. Matsunaga, T. Shimono, K. Ohnishi, S. Usuda and H. Kawana, "Development of a Multi DOF Haptic Robot for Dentistry and Oral Surgery," 2020 IEEE/SICE International Symposium on System Integration (SII), Honolulu, HI, USA, 2020, pp. 52-57,
+Bib:
+@INPROCEEDINGS{9026216,  author={T. {Iijima} and T. {Matsunaga} and T. {Shimono} and K. {Ohnishi} and S. {Usuda} and H. {Kawana}},  booktitle={2020 IEEE/SICE International Symposium on System Integration (SII)},   title={Development of a Multi DOF Haptic Robot for Dentistry and Oral Surgery},   year={2020},  volume={},  number={},  pages={52-57},  doi={10.1109/SII46433.2020.9026216}}
+
+8.Hongkong
+Li, J. et al. “A Compact Dental Robotic System Using Soft Bracing Technique.” IEEE Robotics and Automation Letters 4 (2019): 1271-1278.
+Bib
+@article{Li2019ACD,
+  title={A Compact Dental Robotic System Using Soft Bracing Technique},
+  author={J. Li and Z. Shen and W. Xu and W. Y. Lam and R. T. C. Hsung and E. H. Pow and K. Kosuge and Zheng Wang},
+  journal={IEEE Robotics and Automation Letters},
+  year={2019},
+  volume={4},
+  pages={1271-1278}
+}
+
+9.Korea 
+Kim, G. et al. “A study on simulator of human-robot cooperative manipulator for dental implant surgery.” 2009 IEEE International Symposium on Industrial Electronics (2009): 2159-2164.
+Bib
+@article{Kim2009ASO,
+  title={A study on simulator of human-robot cooperative manipulator for dental implant surgery},
+  author={G. Kim and Hojin Seo and Sungbeen Im and Dongwan Kang and Sanghwa Jeong},
+  journal={2009 IEEE International Symposium on Industrial Electronics},
+  year={2009},
+  pages={2159-2164}
+}
+
+
+
+10.RCT procedure
+Goldberg M (a). Dentin, pulp, and tooth pain. In “Fundamentals of oral histology and physiology”. First edition. AR Hand and Marion E Frank. Chapter 5. John Wiley & sons, Blackwell inc. 2014; 85-112.
+Goldberg M (b). Pulp anatomy and characterization of pulp cells. in: “Biology, pathology, and regenerative therapies”. Springer Verlag, Berlin, Heidelberg 2014. 13-33.
