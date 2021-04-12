@@ -3,7 +3,7 @@
 (Payload, resolution and workspace)														\\
 (Why not RCM mechanism)																	
 \section{Design of the DentiBot}
-As discussed in previous section, we have to select correct devices according to those requirement. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 $\mu m$) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.\\
+As discussed in previous section, we have to select suitable devices according to those requirements. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 $\mu m$) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.\\
 DentiBot has seven degree of freedom. 6 DOF is come from Meca500, and the other DOF is owing to our modified handpiece. The rotation of root canal file is driven by a servo motor whose maximum rotation speed is more than 600 rpm.																		
 \section{Kinematics Analysis}
 \label{sec:kinematics}
@@ -12,7 +12,7 @@ The purpose of this section and section \ref{sec:ref_robot} is to serve as a tut
 In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axis of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=0.8\linewidth]{Images/Coordinates1.png}
+\includegraphics[width=1\linewidth]{Images/Coordinates1.png}
 \end{center}
 \caption{
 Coordinate Definition
@@ -20,7 +20,7 @@ Coordinate Definition
 \end{figure} 
 \subsection{Forward and Inverse Kinematics}
 \label{sec:forward}
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Denavit-Hartenberg parameters of Meca500}
 \label{tab:DHtable}
@@ -38,21 +38,403 @@ $i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			
 Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the forward kinematics of Meca500 is derived as
 \begin{equation*}
 \begin{split}
-^0_6\text{T} =
-\ ^0_1\text{T} \cdot \ ^1_2\text{T} \cdot \ ^2_3\text{T} \cdot \ ^3_4\text{T} \cdot \ ^4_5\text{T} \cdot \ ^5_6\text{T} =
+^0_6\mathbf{T} =
+\ ^0_1\mathbf{T} \cdot \ ^1_2\mathbf{T} \cdot \ ^2_3\mathbf{T} \cdot \ ^3_4\mathbf{T} \cdot \ ^4_5\mathbf{T} \cdot \ ^5_6\mathbf{T} =
 \begin{bmatrix}
-^0_6\text{R}_{3\times 3} 	&^0\vec{P}_{6org}\\
-0_{1\times 3}				&1\\
-\end{bmatrix}
+^0_6\mathbf{R}	&^0\boldsymbol{p}_\mathrm{6org}\\
+0				&1\\
+\end{bmatrix}\\
 \end{split}
-\end{equation*}
-where $^0_6\text{R}_{3\times 3}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\vec{P}_{6org}$ is the origin of the frame\{6\} observed from frame\{0\}.\\
-All detailed indexes of $^0_6\text{T}$ are shown as Appendix \ref{appendix:forward}
-
+\end{equation*}\label{eq:translation matrix}
+where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}.\\
+All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
 \subsection{Jacobian matrix} 
 \label{sec:jacobian}
-(variables are shown in appendix because they are too long)												\\
-(How to obtain Jacobian matrix in frame 6 by Jacobian matrix in frame 0)
+Here we will derive geometric Jacobian based on frame\{0\}, geometric Jacobian based on frame\{6\} and analytical Jacobian. \\
+The difference between geometric Jacobian and analytical Jacobian is the angular velocities they considered. The angular velocities Geometric Jacobian considers is relevant to the axis angles ($\theta _x$,$\theta _y$,$\theta _z$). In contrast, it is related to the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector.
+\subsubsection{Geometric Jacobian Based on Frame\{0\}}
+Before proceeding to examine the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the axis angle and the joints' angles.\\
+On the basis of the translation matrix in Equation \ref{eq:translation matrix}, we obtain the relationship between the position and joints' angles.
+\begin{equation}
+\begin{split}
+^0\boldsymbol{p}_\mathrm{6org}
+= 
+\begin{bmatrix}
+x\\
+y\\
+z\\
+\end{bmatrix} 
+=
+\begin{bmatrix}
+x(\theta _1, \theta _2, \cdots, \theta _6)\\
+y(\theta _1, \theta _2, \cdots, \theta _6)\\
+z(\theta _1, \theta _2, \cdots, \theta _6)
+\end{bmatrix} 
+\end{split}
+\end{equation}\label{eq:lin vel}
+Moreover, we explain the relationship between the axis angle and joints' angles.
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\theta _x \\
+\theta _y \\
+\theta _z 
+\end{bmatrix}
+=
+\ ^0_1\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _1
+\end{bmatrix}
++
+\ ^0_2\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _2
+\end{bmatrix}
++
+\ ^0_3\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _3
+\end{bmatrix}
++
+\ ^0_4\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _4
+\end{bmatrix}
++
+\ ^0_5\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _5
+\end{bmatrix}
++
+\ ^0_6\mathbf{R}
+\begin{bmatrix}
+0 \\ 
+0 \\ 
+\theta _6
+\end{bmatrix}
+\end{split}
+\end{equation}\label{eq:ang vel_axis}
+We can differentiate Equation \ref{eq:lin vel} and \ref{eq:ang vel_axis} to obtain Jacobian matrices.
+\begin{equation}
+\begin{split}
+\boldsymbol{v} 
+= 
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}
+\end{bmatrix}
+=
+\mathbf{J_{gv}} \cdot \boldsymbol{\dot{\theta }}
+,\ 
+\boldsymbol{w} 
+= 
+\begin{bmatrix}
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}
+=
+\mathbf{J_{gw}} \cdot \boldsymbol{\dot{\theta }}
+\end{split}
+\end{equation}
+where
+\begin{equation*}
+\begin{split}
+\mathbf{J_{gv}} =
+\begin{bmatrix}
+\frac{\partial x}{\partial \theta _1}	&\frac{\partial x}{\partial \theta _2}	&\cdots		&\frac{\partial x}{\partial \theta _6}\\
+\frac{\partial y}{\partial \theta _1}	&\frac{\partial y}{\partial \theta _2}	&\cdots		&\frac{\partial y}{\partial \theta _6}\\
+\frac{\partial z}{\partial \theta _1}	&\frac{\partial z}{\partial \theta _2}	&\cdots		&\frac{\partial z}{\partial \theta _6}
+\end{bmatrix}
+,\ \mathbf{J_{gw}} = 
+\begin{bmatrix}
+\frac{\partial \theta _x}{\partial \theta _1}	&\frac{\partial \theta _x}{\partial \theta _2}	&\cdots		&\frac{\partial \theta _x}{\partial \theta _6}\\
+\frac{\partial \theta _y}{\partial \theta _1}	&\frac{\partial \theta _y}{\partial \theta _2}	&\cdots		&\frac{\partial \theta _y}{\partial \theta _6}\\
+\frac{\partial \theta _z}{\partial \theta _1}	&\frac{\partial \theta _z}{\partial \theta _2}	&\cdots		&\frac{\partial \theta _z}{\partial \theta _6}
+\end{bmatrix} 
+,\ \boldsymbol{\dot{\theta }}
+=
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}\\
+\end{split}
+\end{equation*}
+As a result, the geometric Jacobian matrix based on frame{0} $\mathbf{^0J_g}$ is derived as
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}\\
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}
+=
+\mathbf{^0J_g} \cdot 
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}\\
+\end{split}
+\end{equation}\label{eq:jg0}
+There is a further derivation. In terms of the Jacobian matrix, we can derive the other property.
+\begin{equation}
+\begin{split}
+\boldsymbol{\tau } = \mathbf{^0J^\top _g} \cdot \boldsymbol{f}\ \ \ \ 
+\Leftrightarrow \ \ \ \ 
+\begin{bmatrix}
+\tau_{\theta _1} \\ 
+\tau_{\theta _2} \\ 
+\tau_{\theta _3} \\ 
+\tau_{\theta _4} \\ 
+\tau_{\theta _5} \\ 
+\tau_{\theta _6} \\ 
+\end{bmatrix}
+=
+\mathbf{^0J^\top _g} 
+\cdot
+\begin{bmatrix}
+f_x \\ 
+f_y \\ 
+f_z \\ 
+\tau_{x} \\ 
+\tau_{y} \\ 
+\tau_{z}
+\end{bmatrix}
+\end{split}
+\end{equation}
+where $\boldsymbol{\tau }$ is the vector of joints' torques and $\boldsymbol{f}$ is the vector composed of inertial forces and torques of the robot arm.
+\subsubsection{Geometric Jacobian Based on Frame\{6\}}
+\label{sec:jg6}
+Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:adm ctrl} we will use admittance control and it will use F/T sensor mounted on frame\{6\} instead of  frame\{0\}. First, we start from Equation \ref{eq:jg0}
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}\\
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}_{\!\{0\}}
+=
+\mathbf{^0J_g} \cdot 
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}\\
+\end{split}
+\end{equation}
+Then, left-multiply a matrix. 
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^0_6\mathbf{R}
+\end{bmatrix}
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}\\
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}_{\!\{0\}}
+=
+\begin{bmatrix}
+^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^0_6\mathbf{R}
+\end{bmatrix}
+\mathbf{^0J_g} \cdot 
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}\\
+\end{split}
+\end{equation}\label{eq:jg6_leftmul}
+According to the transformation coordinate relationship between frame\{0\} and frame\{6\},
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\dot{x}\\ 
+\dot{y}\\ 
+\dot{z}\\ 
+\dot{\theta_x}\\ 
+\dot{\theta_y}\\
+\dot{\theta_z} 
+\end{bmatrix}_{\!\{6\}}
+=
+\begin{bmatrix}
+^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^0_6\mathbf{R}
+\end{bmatrix}
+\begin{bmatrix}
+\dot{x}\\ 
+\dot{y}\\ 
+\dot{z}\\ 
+\dot{\theta_x}\\ 
+\dot{\theta_y}\\
+\dot{\theta_z} 
+\end{bmatrix}_{\!\{0\}}
+\end{split}
+\end{equation}
+substitute it into Eq \ref{eq:jg6_leftmul}, we can observe that the final equation is
+\begin{equation}
+\begin{split}
+\mathbf{^6J_g}
+= 
+\begin{bmatrix}
+^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^0_6\mathbf{R}
+\end{bmatrix}
+\cdot
+\mathbf{^0J_g}
+\end{split}
+\end{equation}
+\subsubsection{Analytical Jacobian}
+The linear velocity of analytical Jacobian and of geometric Jacobian is the same shown in Eq \ref{eq:lin vel}. However, as for angular velocity, analytical Jacobian takes the the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector as consideration. First of all, we explain the relationship between the axis angle and the orientation of the end effector as following.
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\theta _x \\ 
+\theta _y \\ 
+\theta _z
+\end{bmatrix}
+&=
+\begin{bmatrix}
+\alpha \\ 
+0\\ 
+0
+\end{bmatrix}
++
+R_x(\alpha)
+\begin{bmatrix}
+0 \\ 
+\beta \\ 
+0
+\end{bmatrix}
++
+R_x(\alpha)R_y(\beta)
+\begin{bmatrix}
+0 \\ 
+0\\ 
+\gamma
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+1 & 0 & S_\beta \\ 
+0 & C_\alpha & -S_\alpha C_\beta \\ 
+0 & S_\alpha & C_\alpha C_\beta
+\end{bmatrix}
+\begin{bmatrix}
+\alpha \\ 
+\beta\\ 
+\gamma
+\end{bmatrix}
+\end{split}
+\end{equation}
+Then, utilize this generalized vector to get its Jacobian matrix $\mathbf{J_{we}}$.
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\dot{\theta _x} \\ 
+\dot{\theta _y} \\ 
+\dot{\theta _z}
+\end{bmatrix}
+=
+\mathbf{J_{\!we}}
+\cdot
+\begin{bmatrix}
+\dot{\alpha} \\ 
+\dot{\beta} \\ 
+\dot{\gamma}
+\end{bmatrix}
+\end{split}
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+\mathbf{J_{we}}
+=
+\begin{bmatrix}
+1														& \gamma C_{\beta}							& S_{\beta}\\
+- \beta S_{\alpha} -  \gamma C_{\alpha}C_{\beta}		& C_{\alpha} +  \gamma S_{\alpha}S_{\beta}	& -C_{\beta}S_{\alpha}\\
+\beta C_{\alpha} -  \gamma C_{\beta}S_{\alpha}			& S_{\alpha} -  \gamma C_{\alpha}S_{\beta}	&  C_{\alpha}C_{\beta}
+\end{bmatrix}
+\end{split}
+\end{equation}
+Therefore,
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\dot{x} \\
+\dot{y} \\
+\dot{z} \\
+\dot{\theta _x} \\
+\dot{\theta _y} \\
+\dot{\theta _z} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbf{I}_{3\times 3} & 0_{3\times 3}\\
+0_{3\times 3} & \mathbf{J_{we}}
+\end{bmatrix}
+\begin{bmatrix}
+\dot{x} \\
+\dot{y} \\
+\dot{z} \\
+\dot{\alpha} \\ 
+\dot{\beta} \\ 
+\dot{\gamma} 
+\end{bmatrix}
+\end{split}
+\end{equation}
+Finally, we obtain the relationship between geometric and analytical Jacobian.
+\begin{equation}
+\begin{split}
+\mathbf{J_g} = 
+\begin{bmatrix}
+\mathbf{I}_{3\times 3} & 0_{3\times 3}\\
+0_{3\times 3} & \mathbf{J_{we}}
+\end{bmatrix}
+\mathbf{J_a},\ 
+\mathbf{J_g} = 
+\begin{bmatrix}
+\mathbf{I}_{3\times 3} & 0_{3\times 3}\\
+0_{3\times 3} & \mathbf{J_{we}^{-1}}
+\end{bmatrix}
+\mathbf{J_a}
+\end{split}
+\end{equation}
 \section{Reference Frame Changing of the Robot Arm}
 \label{sec:ref_robot}
 So far, with forward and inverse kinematics the robot arm can translate and rotate around frame\{6\}. However the origin of the frame\{6\} is not considered to be an operating point. Because the F/T sensor and a detachable end effector will be both mounted on the wrist, the position of the tool tip is exactly what we want. That means we should let the robot arm know how to translate and rotate in frame\{T\} instead of frame\{6\}. If we have translation and rotation information of the tool tip, there is an easy way to directly give these above information to the robot arm. SetTRF (x,y,z,$\alpha$,$\beta$,$\gamma$) is the command of the robot arm, whose (x,y,z) is translation vector and ($\alpha$,$\beta$,$\gamma$) is rotation vector in representation of Euler angle .\\	
@@ -64,28 +446,28 @@ To overcome this problem, we demonstrate four-points method to obtain the positi
 From Fig \ref{fig:frames}, we can obtain the following transformation matrix,
 \begin{equation}
 \begin{split}
-_{H}^{B}\textrm{T} &=\  _{F}^{B}\textrm{T}\ _{H}^{F}\textrm{T}\\
+_{\mathrm{H}}^{\mathrm{B}}\mathbf{T} &=\ _{\mathrm{F}}^{\mathrm{B}}\mathbf{T}\cdot \ _{\mathrm{H}}^{\mathrm{F}}\mathbf{T}\\
 \end{split}
 \end{equation}		
 and it can be rewritten as
 \begin{equation}
 \begin{split}																												
 \begin{bmatrix}
-_{H}^{B}\textrm{R} & ^{B}\vec{P}_{H_{org}}\\ 
+_{\mathrm{H}}^{\mathrm{B}}\mathbf{R} & ^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
 0 & 1
 \end{bmatrix} &=
 \begin{bmatrix}
-_{F}^{B}\textrm{R} & ^{B}\vec{P}_{F_{org}}\\ 
+_{\mathrm{F}}^{\mathrm{B}}\mathbf{R} & ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\ 
 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-_{H}^{F}\textrm{R} & ^{F}\vec{P}_{H_{org}}\\ 
+_{\mathrm{H}}^{\mathrm{F}}\mathbf{R} & ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
 0 & 1
 \end{bmatrix}\\
 %----------------------------------------------------------------------------------------------------------------------------
 &= 
 \begin{bmatrix}
-_{F}^{B}\textrm{R}_{H}^{F}\textrm{R} & _{F}^{B}\textrm{R}^{F}\textrm{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}\\ 
+_{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{F}}\mathbf{R} & _{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot ^\mathrm{F}\!\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\ 
 0 & 1
 \end{bmatrix}\\
 \end{split}
@@ -93,70 +475,70 @@ _{F}^{B}\textrm{R}_{H}^{F}\textrm{R} & _{F}^{B}\textrm{R}^{F}\textrm{P}_{H_{org}
 Therefore, we get a crucial equation:
 \begin{equation}
 \begin{split}
-^{B}\vec{P}_{H_{org}} &=\  _{F}^{B}\textrm{R}\cdot\ ^{F}\vec{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}\\
+^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}} &=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}\cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\
 \end{split}
 \end{equation}
 Now, we can move the tool tip to a fixed point with four different pose (position and orientation). Then, we will get four different rotation matrix and vectors in real time. 
 \begin{equation}
 \begin{split}																									
-^{B}\vec{P}_{H_{org}} &=\  _{F}^{B}\textrm{R}^{1}\cdot\ ^{F}\vec{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}^{1}\\
+^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}}&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^1 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^1\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  &=\  _{F}^{B}\textrm{R}^{2}\cdot\ ^{F}\vec{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}^{2}\\
+					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^2 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^2\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  &=\  _{F}^{B}\textrm{R}^{3}\cdot\ ^{F}\vec{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}^{3}\\
+					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^3 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^3\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  &=\  _{F}^{B}\textrm{R}^{4}\cdot\ ^{F}\vec{P}_{H_{org}} +\ ^{B}\vec{P}_{F_{org}}^{4}\\
+					 					 	&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^4 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^4\\
 %----------------------------------------------------------------------------------------------------------------------------
 \end{split}\label{eq:four-points}
 \end{equation}
-In order to extract $^{F}\vec{P}_{H_{org}}$ from Eq.\ref{eq:four-points}, we subtract the second to forth equation from the first equation.
+In order to extract $^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Eq.\ref{eq:four-points}, we subtract the second to forth equation from the first equation.
 \begin{equation}
 \begin{split}	
 \begin{bmatrix}
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{2}\\ 
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{3}\\ 
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{4}
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{4}
 \end{bmatrix}
-\cdot\ ^{F}\vec{P}_{H_{org}} 
+\cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}
 =
 \begin{bmatrix}
-\ ^{B}\vec{P}_{F_{org}}^{2} -\ ^{B}\vec{P}_{F_{org}}^{1} \\ 
-\ ^{B}\vec{P}_{F_{org}}^{3} -\ ^{B}\vec{P}_{F_{org}}^{1} \\ 
-\ ^{B}\vec{P}_{F_{org}}^{4} -\ ^{B}\vec{P}_{F_{org}}^{1} 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} 
 \end{bmatrix}
 \end{split}
 \end{equation}
 where
 \begin{equation*}
 \begin{split}
-\textbf{R} =  
+\mathbf{R} =  
 \begin{bmatrix}
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{2}\\ 
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{3}\\ 
-\  _{F}^{B}\textrm{R}^{1} - \  _{F}^{B}\textrm{R}^{4}
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
+\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{4}
 \end{bmatrix}_{9 \times 3}, 
-\textbf{P} = 
+\mathbf{P} = 
 \begin{bmatrix}
-\ ^{B}\vec{P}_{F_{org}}^{2} -\ ^{B}\vec{P}_{F_{org}}^{1} \\ 
-\ ^{B}\vec{P}_{F_{org}}^{3} -\ ^{B}\vec{P}_{F_{org}}^{1} \\ 
-\ ^{B}\vec{P}_{F_{org}}^{4} -\ ^{B}\vec{P}_{F_{org}}^{1} 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} 
 \end{bmatrix}_{9 \times 1}
 \end{split}
 \end{equation*}
 Therefore,
 \begin{equation*}
 \begin{split}
-^{F}\vec{P}_{H_{org}} &= \textbf{R}^{\dagger} \cdot \textbf{P}\\
-					  &= \left( \textbf{R}^T\textbf{R}\right) ^{-1}\cdot \textbf{R}^T\cdot \textbf{P}
+^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \bf{P}\\
+					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\cdot \mathbf{R}^\top \cdot \mathbf{P}
 \end{split}
 \end{equation*}
 Hence, we can utilize four-points method to obtain the translation vector.
 \subsection{Rotation Information}
 \label{sec:rot inf}
-First, we have to find the vector of tool insertion direction $\vec{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Therefore we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
+Turning now to the discussion about the rotation vector. In the first place, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Therefore we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
 \begin{equation}
 \begin{split}
-\vec{t} =\ ^{F}\vec{P}_{H_{org},\ long} -\ ^{F}\vec{P}_{H_{org},\ short}
+\boldsymbol{t} =\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,short}}
 \end{split}
 \end{equation}
 For analyze it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation.
@@ -167,12 +549,32 @@ For analyze it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we 
 \caption{
 Illustration of finding rotation matrix
 }\label{fig:rot_inf}
-Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Therefore, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector is [1,1,1], whose projection to YZ frame is [0,1,1]. First, we rotate $\alpha$ degree around X axis to make original Z axis align the projection [0,1,1]. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. 
+\end{figure} 
+Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Therefore, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. First, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
 \begin{equation}
 \begin{split}
-\ ^T_6R = R_x\left(\alpha \right) R_y\left(\beta \right)  
+\ \  _{\mathrm{6}}^{\mathrm{T}}\mathbf{R} = \mathbf{R_x(\alpha)} \cdot \mathbf{R_y(\beta)}
 \end{split}
 \end{equation}
-where $\alpha$ and $\beta$ are Euler angles, which meet the command demand.
-\end{figure} 
-We have described two key aspects of reference frame changing of the robot arm. Finally, input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF to make the robot arm recognize frame\{T\}.
+where
+\begin{equation}
+\begin{split}
+\alpha &= 
+\mathrm{sign}(t_y)\cdot \cos^{-1} \left( \frac{\hat{k}						\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}				}
+								  {\left \| \hat{k} \right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|	} \right)\ \\
+\beta  &= 
+\mathrm{sign}(t_x)\cdot \cos^{-1} \left( \frac{\textbf{t}							\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}				}
+								  {\left \| \textbf{t}\right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|	} \right)\ 
+\end{split}
+\end{equation}
+Assume $\boldsymbol{t} = [x,y,z]$,
+\begin{equation}
+\begin{split}
+\alpha &= 
+\mathrm{sign}(y)\cdot \cos^{-1}	\left( \frac{z^2}{\sqrt{y^2+z^2}} \right) \mathrm{rad}\\
+\beta  &= 
+\mathrm{sign}(x)\cdot \cos^{-1} \left( \frac{y^2+z^2}{\sqrt{x^2+y^2+z^2}\sqrt{x^2+y^2+z^2}} \right) \mathrm{rad}
+\end{split}
+\end{equation}
+$\alpha$ and $\beta$ are Euler angles, which meet the command demand.\\
+In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm will recognize frame\{T\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.

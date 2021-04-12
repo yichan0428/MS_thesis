@@ -1,5 +1,5 @@
 \chapter{Force-Guided Robot Alignment}
-This chapter follows on from the previous chapter, we continue to demonstrate some technical solutions of system integration. On top of that, F/T sensor will be included to discuss. Therefore, you can see it as a operating manual when you simultaneously own a robot arm, an F/T sensor and an end effector. Firstm, we explain why we will use F/T sensor in our project in section \ref{sec:pro def}. Furthermore, we introduce how to do gravity compensation in senction \ref{sec:grav compen}. Admittance control based on F/T sensor is described in section \ref{sec:adm ctrl}. Reference Frame Changing of F/T sensor is explained in section \ref{sec:rfc}. And finally we discuss affection of setting admittance control parameters in section \ref{sec:affection}.
+This chapter follows on from the previous chapter, we continue to demonstrate some technical solutions of system integration. On top of that, F/T sensor will be included to discuss. Therefore, you can see the chapter as a operating manual when you simultaneously own a robot arm, an F/T sensor and an end effector. First of all, we explain why we will use F/T sensor in our project in section \ref{sec:pro def}. Furthermore, we introduce how to do gravity compensation in senction \ref{sec:grav compen}. Admittance control based on F/T sensor is described in section \ref{sec:adm ctrl}. Reference Frame Changing of F/T sensor is explained in section \ref{sec:rfc}. And finally we discuss affection of setting admittance control parameters in section \ref{sec:affection}.
 \section{Problem Definition}
 \label{sec:pro def}
 (Main cause of surgical failure)
@@ -13,7 +13,7 @@ Gravity compensation is a standard technical issue when combining an F/T sensor,
 \subsection{Admittance Control based on F/T sensor}
 \label{sec:adm ctrl}
 Admittance control make the robot move like a spring-mass-damper system. Forces and torques can be mapped into the movements such as position or velocity. Therefore, Admittance control allows an robot arm to cooperate with human in a safe work environment. In this section we propose a control scheme depicted as Figure \ref{fig:adm ctrl}.
-\begin{figure}[H]
+\begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{Images/adm ctrl.png}
 \end{center}
@@ -22,7 +22,6 @@ Control scheme. Where $\text{F}_{\text{d}}$ denotes the desired forces and torqu
 }\label{fig:adm ctrl}
 \end{figure} 
 Since Meca500 is an industrial robot arm without admittance control, we combine the robot arm with the F/T sensor to enable admittance control. With force and torque feedback, F/T sensor make Meca500 like a cooperative robot arm. It's worth noting that in this approach the admittance control function is triggered by the end effector mounted on F/T sensor instead of each wrist of the robot arm.\\
-A standard equation of admittance control is represented as Eq \ref{eq:adm}. The values we obtain from the F/T sensor are $\left[F_x, F_y, F_z,\tau _x, \tau _y, \tau _z \right]$, whose forces $ \left[F_x, F_y, F_z\right]$ are related to the translations $ \left[x, y, z\right]$ and torques $ \left[\tau _x, \tau _y, \tau _z\right]$ are related to the axis angle $ \left[\theta _x,\theta _y,\theta _z\right]$. In our approach we ignore parameter $K$ which is relevant to spring stiffness because our system should behave like just a mass-damper system and   bounce like a spring is not necessary in whole project.   
 \begin{equation}
 \label{eq:adm}
 \begin{split}
@@ -37,17 +36,18 @@ z \\
 =
 \frac{1}{MS^2+BS+K}
 \begin{bmatrix}
-F_x \\
-F_y \\
-F_z \\
+f_x \\
+f_y \\
+f_z \\
 \tau x \\
 \tau y \\
 \tau z \\
 \end{bmatrix}
 \end{split}
 \end{equation}
-where M,B,K are diagonal positive definite matrices. Affections of these parameters will be discussed in next section.
-There are few commands of moving the robot arm. Such as position command MoveJoints(\text{$\theta _1,\theta _2,\theta _3,\theta _4,\theta _5,\theta _6$})and MovePose(x,y,z,\text{$\alpha$} $\beta$ $\gamma$); velocity command MoveJointsVel
+where M,B,K are diagonal positive definite matrices. Affections of these parameters will be discussed in next section. \\
+A standard equation of admittance control is represented as Eq \ref{eq:adm}. The values we obtain from the F/T sensor are $\left[f_x, f_y, f_z,\tau _x, \tau _y, \tau _z \right]$, whose forces $ \left[f_x, f_y, f_z\right]$ are related to the translations $ \left[x, y, z\right]$ and torques $ \left[\tau _x, \tau _y, \tau _z\right]$ are related to the axis angle $ \left[\theta _x,\theta _y,\theta _z\right]$. In our approach we ignore parameter $K$ which is relevant to spring stiffness because our system should behave like a mass-damper system. Bounce similar to a spring is not necessary in whole project. \\
+There are few commands of moving the robot arm. Such as position command MoveJoints(\text{$\theta _1,\theta _2,\theta _3,\theta _4,\theta _5,\theta _6$})and MovePose(x,y,z,\text{$\alpha$} $\beta$ $\gamma$); velocity command MoveJointsVel\\
 \section{Alignment to the Root Canal (Drilling and self-alignment)}
 \subsection{Reference Frame Changing of F/T sensor}
 \label{sec:rfc}
