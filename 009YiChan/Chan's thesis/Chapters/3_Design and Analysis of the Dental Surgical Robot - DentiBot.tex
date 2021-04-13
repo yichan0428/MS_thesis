@@ -12,7 +12,7 @@ The purpose of this section and section \ref{sec:ref_robot} is to serve as a tut
 In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axis of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=1\linewidth]{Images/Coordinates1.png}
+\includegraphics[width=0.6\linewidth]{Images/Coordinates1.png}
 \end{center}
 \caption{
 Coordinate Definition
@@ -46,12 +46,37 @@ Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the fo
 \end{bmatrix}\\
 \end{split}
 \end{equation*}\label{eq:translation matrix}
-where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}.\\
-All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
+where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
+
+Additionally, there is an alternative to calculate the transformation matrix of Meca500. We can use command "GetPose" to obtain (x,y,z,$\alpha$,$\beta$,$\gamma$). Then, we can use this information to derive the following equation.
+\begin{equation}
+\begin{split}
+^0_6\mathbf{T} 
+&= 
+\begin{bmatrix}
+\mathbf{R_x(\alpha ) \cdot R_y(\beta ) \cdot R_z(\gamma )} 
+& \begin{matrix}
+x\\ 
+y\\ 
+z
+\end{matrix}\\ 
+0 & 1
+\end{bmatrix}\\
+&= 
+\begin{bmatrix} 
+c_\beta c_\gamma 										& -c_\beta s_\gamma 									& s_\beta 					&x\\ 
+c_\alpha s_\gamma +  s_\alpha s_\beta c_\gamma 			& c_\alpha c_\gamma -  s_\alpha s_\beta s_\gamma		& -s_\alpha c_\beta			&y\\ 
+s_\alpha s_\gamma -  c_\alpha s_\beta c_\gamma 			& s_\alpha c_\gamma +  c_\alpha s_\beta s_\gamma 		& c_\alpha c_\beta 			&z\\ 
+0 														&0 														&0							&1
+\end{bmatrix}
+\end{split}
+\end{equation}
+where $C_{\star} $, $ S_{\star}$ denote $\cos \left(\star \right)$, $\sin \left(\star \right)$; $\alpha ,\beta ,\gamma$ are in representation of Euler angle.
 \subsection{Jacobian matrix} 
 \label{sec:jacobian}
-Here we will derive geometric Jacobian based on frame\{0\}, geometric Jacobian based on frame\{6\} and analytical Jacobian. \\
-The difference between geometric Jacobian and analytical Jacobian is the angular velocities they considered. The angular velocities Geometric Jacobian considers is relevant to the axis angles ($\theta _x$,$\theta _y$,$\theta _z$). In contrast, it is related to the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector.
+Here we evaluate geometric Jacobian based on frame\{0\}, geometric Jacobian based on frame\{6\} and analytical Jacobian.
+
+First and foremost, we should clarify the difference between geometric Jacobian and analytical Jacobian. They both use the same linear velocity but consider different angular velocity. The angular velocity which geometric Jacobian applies is relevant to the axis angles ($\theta _x$,$\theta _y$,$\theta _z$). In contrast, the angular velocity analytical which Jacobian contemplates is related to the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector.
 \subsubsection{Geometric Jacobian Based on Frame\{0\}}
 Before proceeding to examine the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the axis angle and the joints' angles.\\
 On the basis of the translation matrix in Equation \ref{eq:translation matrix}, we obtain the relationship between the position and joints' angles.
@@ -72,7 +97,7 @@ z(\theta _1, \theta _2, \cdots, \theta _6)
 \end{bmatrix} 
 \end{split}
 \end{equation}\label{eq:lin vel}
-Moreover, we explain the relationship between the axis angle and joints' angles.
+Moreover, we dissect the relationship between the axis angle and joints' angles.
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -135,7 +160,7 @@ We can differentiate Equation \ref{eq:lin vel} and \ref{eq:ang vel_axis} to obta
 \dot{z}
 \end{bmatrix}
 =
-\mathbf{J_{gv}} \cdot \boldsymbol{\dot{\theta }}
+\mathbf{J_{gv}} \cdot \boldsymbol{\dot{q}}
 ,\ 
 \boldsymbol{w} 
 = 
@@ -145,7 +170,7 @@ We can differentiate Equation \ref{eq:lin vel} and \ref{eq:ang vel_axis} to obta
 \dot{\theta _z}
 \end{bmatrix}
 =
-\mathbf{J_{gw}} \cdot \boldsymbol{\dot{\theta }}
+\mathbf{J_{gw}} \cdot \boldsymbol{\dot{q}}
 \end{split}
 \end{equation}
 where
@@ -163,7 +188,7 @@ where
 \frac{\partial \theta _y}{\partial \theta _1}	&\frac{\partial \theta _y}{\partial \theta _2}	&\cdots		&\frac{\partial \theta _y}{\partial \theta _6}\\
 \frac{\partial \theta _z}{\partial \theta _1}	&\frac{\partial \theta _z}{\partial \theta _2}	&\cdots		&\frac{\partial \theta _z}{\partial \theta _6}
 \end{bmatrix} 
-,\ \boldsymbol{\dot{\theta }}
+,\ \boldsymbol{\dot{q}}
 =
 \begin{bmatrix}
 \dot{\theta _1} \\ 
@@ -177,7 +202,18 @@ where
 \end{equation*}
 As a result, the geometric Jacobian matrix based on frame{0} $\mathbf{^0J_g}$ is derived as
 \begin{equation}
+\label{eq:jg0}
 \begin{split}
+\boldsymbol{\dot{x}} = \ \mathbf{^0\!J_g} \cdot \boldsymbol{\dot{q}}
+,\ \ 
+\boldsymbol{\dot{q}} = \ \mathbf{^0\!J_g^{-1}} \cdot \boldsymbol{\dot{x}}
+\end{split}
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+\boldsymbol{\dot{x}}
+=
 \begin{bmatrix}
 \dot{x}\\
 \dot{y}\\
@@ -185,9 +221,10 @@ As a result, the geometric Jacobian matrix based on frame{0} $\mathbf{^0J_g}$ is
 \dot{\theta _x}\\
 \dot{\theta _y}\\
 \dot{\theta _z}
-\end{bmatrix}
+\end{bmatrix}_{\!\{0\}}
+,\ 
+\boldsymbol{\dot{q}}
 =
-\mathbf{^0J_g} \cdot 
 \begin{bmatrix}
 \dot{\theta _1} \\ 
 \dot{\theta _2} \\ 
@@ -195,13 +232,13 @@ As a result, the geometric Jacobian matrix based on frame{0} $\mathbf{^0J_g}$ is
 \dot{\theta _4} \\ 
 \dot{\theta _5} \\ 
 \dot{\theta _6} 
-\end{bmatrix}\\
+\end{bmatrix}
 \end{split}
-\end{equation}\label{eq:jg0}
+\end{equation}
 There is a further derivation. In terms of the Jacobian matrix, we can derive the other property.
 \begin{equation}
 \begin{split}
-\boldsymbol{\tau } = \mathbf{^0J^\top _g} \cdot \boldsymbol{f}\ \ \ \ 
+\boldsymbol{\tau } = \mathbf{^0\!J^\top _g} \cdot \boldsymbol{f}\ \ \ \ 
 \Leftrightarrow \ \ \ \ 
 \begin{bmatrix}
 \tau_{\theta _1} \\ 
@@ -212,7 +249,7 @@ There is a further derivation. In terms of the Jacobian matrix, we can derive th
 \tau_{\theta _6} \\ 
 \end{bmatrix}
 =
-\mathbf{^0J^\top _g} 
+\mathbf{^0\!J^\top _g} 
 \cdot
 \begin{bmatrix}
 f_x \\ 
@@ -227,7 +264,7 @@ f_z \\
 where $\boldsymbol{\tau }$ is the vector of joints' torques and $\boldsymbol{f}$ is the vector composed of inertial forces and torques of the robot arm.
 \subsubsection{Geometric Jacobian Based on Frame\{6\}}
 \label{sec:jg6}
-Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:adm ctrl} we will use admittance control and it will use F/T sensor mounted on frame\{6\} instead of  frame\{0\}. First, we start from Equation \ref{eq:jg0}
+Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:adm ctrl} we will apply admittance control and it will use F/T sensor mounted on frame\{6\} instead of frame\{0\} to detect forces and torques. To start with Equation \ref{eq:jg0}
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -239,7 +276,7 @@ Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:a
 \dot{\theta _z}
 \end{bmatrix}_{\!\{0\}}
 =
-\mathbf{^0J_g} \cdot 
+\mathbf{^0\!J_g} \cdot 
 \begin{bmatrix}
 \dot{\theta _1} \\ 
 \dot{\theta _2} \\ 
@@ -252,6 +289,7 @@ Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:a
 \end{equation}
 Then, left-multiply a matrix. 
 \begin{equation}
+\label{eq:jg6_leftmul}
 \begin{split}
 \begin{bmatrix}
 ^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
@@ -270,7 +308,7 @@ Then, left-multiply a matrix.
 ^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
 0_{ 3\times 3} & ^0_6\mathbf{R}
 \end{bmatrix}
-\mathbf{^0J_g} \cdot 
+\mathbf{^0\!J_g} \cdot 
 \begin{bmatrix}
 \dot{\theta _1} \\ 
 \dot{\theta _2} \\ 
@@ -280,7 +318,7 @@ Then, left-multiply a matrix.
 \dot{\theta _6} 
 \end{bmatrix}\\
 \end{split}
-\end{equation}\label{eq:jg6_leftmul}
+\end{equation}
 According to the transformation coordinate relationship between frame\{0\} and frame\{6\},
 \begin{equation}
 \begin{split}
@@ -307,21 +345,56 @@ According to the transformation coordinate relationship between frame\{0\} and f
 \end{bmatrix}_{\!\{0\}}
 \end{split}
 \end{equation}
-substitute it into Eq \ref{eq:jg6_leftmul}, we can observe that the final equation is
+substitute it into Eq \ref{eq:jg6_leftmul}, we can observe a essential equation.
 \begin{equation}
 \begin{split}
-\mathbf{^6J_g}
+\mathbf{^6\!J_g}
 = 
 \begin{bmatrix}
 ^0_6\mathbf{R} & 0_{ 3\times 3} \\ 
 0_{ 3\times 3} & ^0_6\mathbf{R}
 \end{bmatrix}
 \cdot
-\mathbf{^0J_g}
+\mathbf{^0\!J_g}
 \end{split}
 \end{equation}
+Notably,
+\begin{equation}
+\label{eq:jg6}
+\begin{split}
+\boldsymbol{\dot{x}} = \ \mathbf{^6\!J_g} \cdot \boldsymbol{\dot{q}}
+,\ \ 
+\boldsymbol{\dot{q}} = \ \mathbf{^6\!J_g^{-1}} \cdot \boldsymbol{\dot{x}}
+\end{split}
+\end{equation}
+where
+\begin{equation*}
+\begin{split}
+\boldsymbol{\dot{x}}
+=
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}\\
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}_{\!\{6\}}
+,\ 
+\boldsymbol{\dot{q}}
+=
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}
+\end{split}
+\end{equation*}
 \subsubsection{Analytical Jacobian}
-The linear velocity of analytical Jacobian and of geometric Jacobian is the same shown in Eq \ref{eq:lin vel}. However, as for angular velocity, analytical Jacobian takes the the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector as consideration. First of all, we explain the relationship between the axis angle and the orientation of the end effector as following.
+The linear velocity of analytical Jacobian and of geometric Jacobian is the same shown in Eq \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector into consideration. First of all, we investigate the relationship between the axis angle and the orientation of the end effector as following.
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -437,12 +510,14 @@ Finally, we obtain the relationship between geometric and analytical Jacobian.
 \end{equation}
 \section{Reference Frame Changing of the Robot Arm}
 \label{sec:ref_robot}
-So far, with forward and inverse kinematics the robot arm can translate and rotate around frame\{6\}. However the origin of the frame\{6\} is not considered to be an operating point. Because the F/T sensor and a detachable end effector will be both mounted on the wrist, the position of the tool tip is exactly what we want. That means we should let the robot arm know how to translate and rotate in frame\{T\} instead of frame\{6\}. If we have translation and rotation information of the tool tip, there is an easy way to directly give these above information to the robot arm. SetTRF (x,y,z,$\alpha$,$\beta$,$\gamma$) is the command of the robot arm, whose (x,y,z) is translation vector and ($\alpha$,$\beta$,$\gamma$) is rotation vector in representation of Euler angle .\\	
-In order to obtain translation and rotation vector, we respectively introduce Tool Center Point in section \ref{sec:tcp} to find the translation vector and propose an approach in section \ref{sec:rot inf} to find the rotation vector.							
+So far, with forward and inverse kinematics the robot arm can translate and rotate around frame\{6\}. However the origin of the frame\{6\} is not considered to be an operating point. Because the F/T sensor and a detachable end effector will be both mounted on the wrist, the position of the tool tip is exactly what we want. That means we should let the robot arm know how to translate and rotate in frame\{T\} instead of frame\{6\}. If we have translation and rotation information of the tool tip, there is an easy way to directly give these above information to the robot arm. SetTRF (x,y,z,$\alpha$,$\beta$,$\gamma$) is the command of the robot arm, whose (x,y,z) is translation vector and ($\alpha$,$\beta$,$\gamma$) is rotation vector in representation of Euler angle .
+
+For the purpose of obtaining translation and rotation vector, we respectively introduce Tool Center Point in section \ref{sec:tcp} to find the translation vector and propose an approach in section \ref{sec:rot inf} to find the rotation vector.							
 \subsection{Tool Center Point}
 \label{sec:tcp}
-Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).\\
-To overcome this problem, we demonstrate four-points method to obtain the position of the tool tip which is also the translation vector.\\
+Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
+
+In order to overcome this problem, we interpret four-points method to obtain the position of the tool tip which is also the translation vector.\\
 From Fig \ref{fig:frames}, we can obtain the following transformation matrix,
 \begin{equation}
 \begin{split}
@@ -472,13 +547,13 @@ _{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{F}}\mathbf{R} 
 \end{bmatrix}\\
 \end{split}
 \end{equation}
-Therefore, we get a crucial equation:
+Consequently, we get a crucial equation:
 \begin{equation}
 \begin{split}
 ^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}} &=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}\cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\
 \end{split}
 \end{equation}
-Now, we can move the tool tip to a fixed point with four different pose (position and orientation). Then, we will get four different rotation matrix and vectors in real time. 
+Now, we move the tool tip to a fixed point with four different pose (position and orientation). Then, we will get four different rotation matrix and vectors in real time. 
 \begin{equation}
 \begin{split}																									
 ^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}}&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^1 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^1\\
@@ -532,16 +607,16 @@ Therefore,
 					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\cdot \mathbf{R}^\top \cdot \mathbf{P}
 \end{split}
 \end{equation*}
-Hence, we can utilize four-points method to obtain the translation vector.
+As a result, we can utilize four-points method to obtain the translation vector.
 \subsection{Rotation Information}
 \label{sec:rot inf}
-Turning now to the discussion about the rotation vector. In the first place, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Therefore we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
+Turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Accordingly we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
 \begin{equation}
 \begin{split}
 \boldsymbol{t} =\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,short}}
 \end{split}
 \end{equation}
-For analyze it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation.
+For analyzing it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.6\linewidth]{Images/rot_inf.png}
@@ -550,7 +625,7 @@ For analyze it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we 
 Illustration of finding rotation matrix
 }\label{fig:rot_inf}
 \end{figure} 
-Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Therefore, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. First, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
+Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Nevertheless, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. Initially, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
 \begin{equation}
 \begin{split}
 \ \  _{\mathrm{6}}^{\mathrm{T}}\mathbf{R} = \mathbf{R_x(\alpha)} \cdot \mathbf{R_y(\beta)}
@@ -560,21 +635,22 @@ where
 \begin{equation}
 \begin{split}
 \alpha &= 
-\mathrm{sign}(t_y)\cdot \cos^{-1} \left( \frac{\hat{k}						\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}				}
-								  {\left \| \hat{k} \right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|	} \right)\ \\
+-\mathrm{sign}(t_y)\cdot \cos^{-1} \left(  \frac{\hat{k}						\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}				}
+								 				{\left \| \hat{k} \right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|} \right)\ \\
 \beta  &= 
-\mathrm{sign}(t_x)\cdot \cos^{-1} \left( \frac{\textbf{t}							\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}				}
-								  {\left \| \textbf{t}\right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|	} \right)\ 
+\mathrm{sign}(t_x)\cdot \cos^{-1} \left( \frac{\textbf{t}							\cdot 		\mathrm{proj_{(y-z)}}\boldsymbol{t}			}
+								  			  {\left \| \textbf{t}\right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|} \right)\ 
 \end{split}
 \end{equation}
 Assume $\boldsymbol{t} = [x,y,z]$,
 \begin{equation}
 \begin{split}
 \alpha &= 
-\mathrm{sign}(y)\cdot \cos^{-1}	\left( \frac{z^2}{\sqrt{y^2+z^2}} \right) \mathrm{rad}\\
+-\mathrm{sign}(y)\cdot \cos^{-1}	\left( \frac{z^2}{\sqrt{y^2+z^2}} \right) \mathrm{rad}\\
 \beta  &= 
 \mathrm{sign}(x)\cdot \cos^{-1} \left( \frac{y^2+z^2}{\sqrt{x^2+y^2+z^2}\sqrt{x^2+y^2+z^2}} \right) \mathrm{rad}
 \end{split}
 \end{equation}
-$\alpha$ and $\beta$ are Euler angles, which meet the command demand.\\
+$\alpha$ and $\beta$ are Euler angles, which meet the command demand.
+
 In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm will recognize frame\{T\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.

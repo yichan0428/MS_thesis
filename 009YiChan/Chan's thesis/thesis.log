@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  13 APR 2021 02:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  14 APR 2021 02:41
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -1001,61 +1001,60 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
-<Images/Coordinates1.png, id=185, 304.0158pt x 313.17pt>
+<Images/Coordinates1.png, id=188, 304.0158pt x 313.17pt>
 File: Images/Coordinates1.png Graphic file (type png)
 <use Images/Coordinates1.png>
 Package pdftex.def Info: Images/Coordinates1.png  used on input line 15.
-(pdftex.def)             Requested size: 389.80275pt x 401.55867pt.
-[8] [9 <./Images/Coordinates1.png>]
+(pdftex.def)             Requested size: 233.88402pt x 240.93616pt.
+[8 <./Images/Coordinates1.png>] [9]
 LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 55.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 80.
  [10] [11] [12] [13] [14] [15]
-<Images/rot_inf.png, id=267, 279.9258pt x 238.0092pt>
+<Images/rot_inf.png, id=269, 279.9258pt x 238.0092pt>
 File: Images/rot_inf.png Graphic file (type png)
 <use Images/rot_inf.png>
-Package pdftex.def Info: Images/rot_inf.png  used on input line 547.
+Package pdftex.def Info: Images/rot_inf.png  used on input line 622.
 (pdftex.def)             Requested size: 233.88402pt x 198.86226pt.
- [16 <./Images/rot_inf.png>]) ("Chapters/4_Force-Guided Robot Alignment.tex" [1
-7] [18
+ [16])
+("Chapters/4_Force-Guided Robot Alignment.tex" [17 <./Images/rot_inf.png>]
+[18]
+Chapter 4.
+
+Underfull \vbox (badness 2772) has occurred while \output is active []
+
+ [19
 
 ]
-Chapter 4.
+<Images/adm ctrl.png, id=303, 597.9138pt x 206.2104pt>
+File: Images/adm ctrl.png Graphic file (type png)
+<use Images/adm ctrl.png>
+Package pdftex.def Info: Images/adm ctrl.png  used on input line 20.
+(pdftex.def)             Requested size: 389.80275pt x 134.43477pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19]
-<Images/adm ctrl.png, id=300, 597.432pt x 207.174pt>
-File: Images/adm ctrl.png Graphic file (type png)
-<use Images/adm ctrl.png>
-Package pdftex.def Info: Images/adm ctrl.png  used on input line 18.
-(pdftex.def)             Requested size: 389.80275pt x 135.17677pt.
+ [20]
+[21 <./Images/adm ctrl.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--25
+ [22])
+("Chapters/5_Control of Endodontic File Rotation.tex" [23] [24
 
- []
-
-[20 <./Images/adm ctrl.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 47--51
-
- []
-
-[21]) ("Chapters/5_Control of Endodontic File Rotation.tex" [22]
+]
 Chapter 5.
-) ("Chapters/6_Experiment Results.tex" [23
-
-] [24
+) ("Chapters/6_Experiment Results.tex" [25] [26
 
 ]
 Chapter 6.
-) ("Chapters/7_Conclusions and Future Works.tex" [25] [26
+) ("Chapters/7_Conclusions and Future Works.tex" [27] [28
 
 ]
 Chapter 7.
-) (Chapters/8_Appendix.tex [27] [28
+) (Chapters/8_Appendix.tex [29] [30
 
 ]
 Chapter 8.
-[29]
+[31]
 Overfull \hbox (69.73549pt too wide) detected at line 43
 []
  []
@@ -1068,14 +1067,14 @@ Overfull \hbox (61.09297pt too wide) detected at line 86
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30]
+ [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [33]
 Overfull \vbox (296.45247pt too high) has occurred while \output is active []
 
 
-[32]
+[34]
 Overfull \hbox (71.66283pt too wide) detected at line 127
 []
  []
@@ -1084,15 +1083,15 @@ Overfull \hbox (71.66283pt too wide) detected at line 127
 Overfull \vbox (266.40826pt too high) has occurred while \output is active []
 
 
-[33]) (thesis.bbl (thesis.brf)
+[35]) (thesis.bbl (thesis.brf)
 \tf@brf=\write7
 \openout7 = `thesis.brf'.
 
- [34
+ [36
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
- [35]
+ [37]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
@@ -1102,13 +1101,13 @@ Package rerunfilecheck Info: File `thesis.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 15651 strings out of 481165
- 282001 string characters out of 2902091
- 594554 words of memory out of 3000000
- 30490 multiletter control sequences out of 15000+200000
- 632024 words of font info for 272 fonts, out of 3000000 for 9000
+ 15663 strings out of 481165
+ 282130 string characters out of 2902091
+ 594687 words of memory out of 3000000
+ 30492 multiletter control sequences out of 15000+200000
+ 631171 words of font info for 275 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,25n,50p,1053b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,25n,50p,1522b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
 t.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-r
 m.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1134,9 +1133,9 @@ ers/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C
 mr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/time
 s/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on thesis.pdf (45 pages, 581038 bytes).
+Output written on thesis.pdf (47 pages, 590263 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
- 88416 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 606 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 86368 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -18,32 +18,9 @@
 \begin{CJK}{UTF8}{bsmi}
 
 \section{Kinematics Analysis}
-Therefore,
-\begin{equation}
-\begin{split}
-\begin{bmatrix}
-\dot{x} \\
-\dot{y} \\
-\dot{z} \\
-\dot{\theta _x} \\
-\dot{\theta _y} \\
-\dot{\theta _z} 
-\end{bmatrix}
-=
-\begin{bmatrix}
-\mathbf{I}_{3\times 3} & 0_{3\times 3}\\
-0_{3\times 3} & J_{we}
-\end{bmatrix}
-\begin{bmatrix}
-\dot{x} \\
-\dot{y} \\
-\dot{z} \\
-\dot{\alpha} \\ 
-\dot{\beta} \\ 
-\dot{\gamma} 
-\end{bmatrix}
-\end{split}
-\end{equation}
+Control scheme. Where $\boldsymbol{f_d}$ denotes the desired forces and torques vector. $\boldsymbol{f_s}$ denotes the real value detected by F/T sensor and is also a forces and torques vector. $\boldsymbol{\dot{x}}$ denotes [$\dot{x}, \dot{y}, \dot{z}, \dot{\theta _x}, \dot{\theta _y}, \dot{\theta _z}$]. $\mathbf{J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol{\dot{q}}$ denotes [$\dot{\theta _1}, \dot{\theta _2}, \dot{\theta _3}, \dot{\theta _4}, \dot{\theta _5}, \dot{\theta _6}$]. $\boldsymbol{q}$ denotes $\left[\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 \right] $
+
+
 \begin{table}[h]
 \centering
 \caption{DHtable}
