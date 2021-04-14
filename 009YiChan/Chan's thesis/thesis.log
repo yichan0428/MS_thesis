@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  14 APR 2021 02:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  15 APR 2021 02:33
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -1001,7 +1001,7 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
-<Images/Coordinates1.png, id=188, 304.0158pt x 313.17pt>
+<Images/Coordinates1.png, id=192, 304.0158pt x 313.17pt>
 File: Images/Coordinates1.png Graphic file (type png)
 <use Images/Coordinates1.png>
 Package pdftex.def Info: Images/Coordinates1.png  used on input line 15.
@@ -1010,7 +1010,7 @@ Package pdftex.def Info: Images/Coordinates1.png  used on input line 15.
 LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 80.
  [10] [11] [12] [13] [14] [15]
-<Images/rot_inf.png, id=269, 279.9258pt x 238.0092pt>
+<Images/rot_inf.png, id=273, 279.9258pt x 238.0092pt>
 File: Images/rot_inf.png Graphic file (type png)
 <use Images/rot_inf.png>
 Package pdftex.def Info: Images/rot_inf.png  used on input line 622.
@@ -1025,24 +1025,21 @@ Underfull \vbox (badness 2772) has occurred while \output is active []
  [19
 
 ]
-<Images/adm ctrl.png, id=303, 597.9138pt x 206.2104pt>
+<Images/adm ctrl.png, id=307, 597.9138pt x 206.2104pt>
 File: Images/adm ctrl.png Graphic file (type png)
 <use Images/adm ctrl.png>
 Package pdftex.def Info: Images/adm ctrl.png  used on input line 20.
 (pdftex.def)             Requested size: 389.80275pt x 134.43477pt.
 
+[20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20]
-[21 <./Images/adm ctrl.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22])
-("Chapters/5_Control of Endodontic File Rotation.tex" [23] [24
-
-]
+ [21 <./Images/adm ctrl.png>] [22] [23])
+("Chapters/5_Control of Endodontic File Rotation.tex" [24]
 Chapter 5.
-) ("Chapters/6_Experiment Results.tex" [25] [26
+) ("Chapters/6_Experiment Results.tex" [25
+
+] [26
 
 ]
 Chapter 6.
@@ -1054,40 +1051,15 @@ Chapter 7.
 
 ]
 Chapter 8.
-[31]
-Overfull \hbox (69.73549pt too wide) detected at line 43
-[]
- []
-
-
-Overfull \hbox (61.09297pt too wide) detected at line 86
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
+[31] [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
-Overfull \vbox (296.45247pt too high) has occurred while \output is active []
-
-
-[34]
-Overfull \hbox (71.66283pt too wide) detected at line 127
-[]
- []
-
-
-Overfull \vbox (266.40826pt too high) has occurred while \output is active []
-
-
-[35]) (thesis.bbl (thesis.brf)
+[34]) (thesis.bbl (thesis.brf)
 \tf@brf=\write7
 \openout7 = `thesis.brf'.
 
- [36
+ [35] [36
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
@@ -1101,13 +1073,13 @@ Package rerunfilecheck Info: File `thesis.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 15663 strings out of 481165
- 282130 string characters out of 2902091
- 594687 words of memory out of 3000000
- 30492 multiletter control sequences out of 15000+200000
+ 15668 strings out of 481165
+ 282195 string characters out of 2902091
+ 584397 words of memory out of 3000000
+ 30495 multiletter control sequences out of 15000+200000
  631171 words of font info for 275 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,25n,50p,1522b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,25n,50p,1485b,856s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
 t.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-r
 m.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1133,9 +1105,9 @@ ers/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C
 mr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/time
 s/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on thesis.pdf (47 pages, 590263 bytes).
+Output written on thesis.pdf (47 pages, 594482 bytes).
 PDF statistics:
- 606 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 86368 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 620 PDF objects out of 1000 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
+ 86384 words of extra memory for PDF output out of 89155 (max. 10000000)
 

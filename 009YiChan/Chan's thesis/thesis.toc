@@ -28,8 +28,8 @@
 \contentsline {subsection}{\numberline {4.3.1}Admittance Control based on F/T sensor}{20}{subsection.4.3.1}%
 \contentsline {section}{\numberline {4.4}Alignment to the Root Canal (Drilling and self-alignment)}{23}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Reference Frame Changing of F/T sensor}{23}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{23}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Discussion about Affection of Parameter Setting}{23}{section.4.5}%
+\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{24}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Discussion about Affection of Parameter Setting}{24}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Control of Endodontic File Rotation}{25}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Problem Definition}{25}{section.5.1}%
 \contentsline {section}{\numberline {5.2}The Proposed Method and Theorem}{25}{section.5.2}%
@@ -40,6 +40,8 @@
 \contentsline {section}{\numberline {6.4}Repetitive Experiment}{27}{section.6.4}%
 \contentsline {chapter}{\numberline {7}Conclusions and Future works}{29}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Appendix}{31}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Forward Kinematics}{32}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Jacobian matrix}{34}{section.8.2}%
+\contentsline {section}{\numberline {8.1}Forward Kinematics}{31}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Jacobian matrix}{32}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1} \textbf {Jg0} }{32}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2} \textbf {Jg6} }{34}{subsection.8.2.2}%
 \contentsline {chapter}{Reference}{37}{chapter*.8}%
