@@ -12,7 +12,7 @@ The purpose of this section and section \ref{sec:ref_robot} is to serve as a tut
 In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axis of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=0.6\linewidth]{Images/Coordinates1.png}
+\includegraphics[width=0.72\linewidth]{Images/Coordinates.png}
 \end{center}
 \caption{
 Coordinate Definition
@@ -515,13 +515,21 @@ So far, with forward and inverse kinematics the robot arm can translate and rota
 For the purpose of obtaining translation and rotation vector, we respectively introduce Tool Center Point in section \ref{sec:tcp} to find the translation vector and propose an approach in section \ref{sec:rot inf} to find the rotation vector.							
 \subsection{Translation Analysis - Tool Center Point}
 \label{sec:tcp}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Images/TCP.png}
+\end{center}
+\caption{
+Schematic diagram for Tool Center Point. The translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ denotes the origin position relative to the frame\{6\}.
+}\label{fig:tcp}
+\end{figure}
 Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
 
 In order to overcome this problem, we interpret four-points method to obtain the position of the tool tip which is also the translation vector.\\
 From Fig \ref{fig:frames}, we can obtain the following transformation matrix,
 \begin{equation}
 \begin{split}
-_{\mathrm{H}}^{\mathrm{B}}\mathbf{T} &=\ _{\mathrm{F}}^{\mathrm{B}}\mathbf{T}\cdot \ _{\mathrm{H}}^{\mathrm{F}}\mathbf{T}\\
+_{\mathrm{H}}^{\mathrm{B}}\mathbf{T} &=\ _{\mathrm{6}}^{\mathrm{B}}\mathbf{T}\cdot \ _{\mathrm{H}}^{\mathrm{6}}\mathbf{T}\\
 \end{split}
 \end{equation}		
 and it can be rewritten as
@@ -532,17 +540,17 @@ _{\mathrm{H}}^{\mathrm{B}}\mathbf{R} & ^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{or
 0 & 1
 \end{bmatrix} &=
 \begin{bmatrix}
-_{\mathrm{F}}^{\mathrm{B}}\mathbf{R} & ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\ 
+_{\mathrm{6}}^{\mathrm{B}}\mathbf{R} & ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}\\ 
 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-_{\mathrm{H}}^{\mathrm{F}}\mathbf{R} & ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
+_{\mathrm{H}}^{\mathrm{6}}\mathbf{R} & ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
 0 & 1
 \end{bmatrix}\\
 %----------------------------------------------------------------------------------------------------------------------------
 &= 
 \begin{bmatrix}
-_{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{F}}\mathbf{R} & _{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot ^\mathrm{F}\!\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\ 
+_{\mathrm{6}}^{\mathrm{B}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{6}}\!\mathbf{R} & _{\mathrm{6}}^{\mathrm{B}}\mathbf{R} \cdot ^\mathrm{6}\!\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}\\ 
 0 & 1
 \end{bmatrix}\\
 \end{split}
@@ -550,36 +558,36 @@ _{\mathrm{F}}^{\mathrm{B}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{F}}\mathbf{R} 
 Consequently, we get a crucial equation:
 \begin{equation}
 \begin{split}
-^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}} &=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}\cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}\\
+^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}} &=\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}\\
 \end{split}
 \end{equation}
-Now, we move the tool tip to a fixed point with four different pose (position and orientation). Then, we will get four different rotation matrix and vectors in real time. 
+Now, we move the tool tip to a fixed point with four different poses including position and orientation. Then, we will get four different rotation matrix and vectors in real time. 
 \begin{equation}
 \begin{split}																									
-^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}}&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^1 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^1\\
+^\mathrm{B}\!\boldsymbol{p}_\mathrm{H_{org}}&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^1 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^1\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^2 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^2\\
+					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^2 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^2\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^3 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^3\\
+					  						&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^3 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^3\\
 %----------------------------------------------------------------------------------------------------------------------------
-					 					 	&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^4 \cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^4\\
+					 					 	&=\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^4 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^4\\
 %----------------------------------------------------------------------------------------------------------------------------
 \end{split}\label{eq:four-points}
 \end{equation}
-In order to extract $^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Eq.\ref{eq:four-points}, we subtract the second to forth equation from the first equation.
+In order to extract $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Eq.\ref{eq:four-points}, we subtract the second to forth equation from the first equation.
 \begin{equation}
 \begin{split}	
 \begin{bmatrix}
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{4}
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{4}
 \end{bmatrix}
-\cdot\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}
+\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}
 =
 \begin{bmatrix}
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} 
 \end{bmatrix}
 \end{split}
 \end{equation}
@@ -588,44 +596,51 @@ where we define
 \begin{split}
 \mathbf{R} =  
 \begin{bmatrix}
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
-\  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{4}
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{2}\\ 
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
+\  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{B}}\mathbf{R}^{4}
 \end{bmatrix}_{9 \times 3}, 
 \boldsymbol{p} = 
 \begin{bmatrix}
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
-\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
+\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{4} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} 
 \end{bmatrix}_{9 \times 1}
 \end{split}
 \end{equation*}
 Therefore,
 \begin{equation*}
 \begin{split}
-^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \boldsymbol{p}\\
+^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \boldsymbol{p}\\
 					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\mathbf{R}^\top \cdot \boldsymbol{p}
 \end{split}
 \end{equation*}
 As a result, we can utilize four-points method to obtain the translation vector.
 \subsection{Rotation Analysis}
 \label{sec:rot inf}
-Turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Accordingly we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Images/TCP2.png}
+\end{center}
+\caption{ 
+Schematic diagram for obtaining the tool vector. 
+}\label{fig:tcp2}
+\end{figure}
+Turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Accordingly we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig \ref{fig:tcp2}. Hence, 
 \begin{equation}
 \begin{split}
-\boldsymbol{t} =\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org,short}}
+\boldsymbol{t} =\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,short}}
 \end{split}
 \end{equation}
-For analyzing it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation.
-\begin{figure}[htbp]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.6\linewidth]{Images/rot_inf.png}
 \end{center}
 \caption{
-Illustration of finding rotation matrix
+Illustration of finding the rotation matrix
 }\label{fig:rot_inf}
 \end{figure} 
-Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Nevertheless, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. Initially, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
+For analyzing it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation, so we assume that we have done translation and matched the frame\{S\} with frame\{6\}. Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Nevertheless, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. Initially, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
 \begin{equation}
 \begin{split}
 \ \  _{\mathrm{6}}^{\mathrm{T}}\mathbf{R} = \mathbf{R_x(\alpha)} \cdot \mathbf{R_y(\beta)}

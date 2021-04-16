@@ -18,22 +18,16 @@ Data Analysis of F/T sensor.
 \end{figure}
 Gravity compensation is a critical technical issue when combining an F/T sensor with a robot arm and an end effector. Fundamentally, we should receive stable data when a static F/T sensor bears the same load or force. Nevertheless, our F/T sensor is installed on the robot arm and move with the pose of the robot arm. On account of its mobility, the gravity of the end effector will significantly affect the actual value we received. Moreover, starting without resetting the F/T sensor to zero would lead to an initial value. If we could not analyze the actual value to an initial value and a gravity load, we would obtain an unstable actual value, not to mention obtain the external force caused by contact force.
 
-Therefore, we illustrate a method, which is to analyze the actual value of the F/T sensor to an initial value and gravity load in real-time. It's worth noting that with this approach, we can get the installation angle between the F/T sensor and the robot arm including assembly error, and we no longer need to reset the F/T sensor to zero every time. \\
+Therefore, we illustrate a method, which is to analyze the actual value of the F/T sensor to an initial value and gravity load in real-time. It's worth noting that with this approach, we can get the installation angle between the F/T sensor and the robot arm including assembly error, and we no longer need to reset the F/T sensor to zero every time.
+\subsubsection{The Centroid Position of End Effector}
 To start with the first equation in Figure \ref{fig:gravity compensation},
 \begin{equation}\label{eq:gc_iga}
 \begin{split}
-\text{Initial value}	+ \text{Gravity Load} 		&= \text{Actual Value} \\
+\text{Initial value}	+ \text{Gravity Load} 		= \text{Actual Value} \\
 \Rightarrow \left\{\begin{matrix}
 \boldsymbol{f_0}		+\boldsymbol{f_g}			&= \boldsymbol{f}\\ 
 \boldsymbol{\tau_0}	+\boldsymbol{\tau_g}		&= \boldsymbol{\tau}	
-\end{matrix}\right.	\\
-\end{split}
-\end{equation}
-
-where $\boldsymbol{f}$ and $\boldsymbol{\tau}$ are force and torque vector respectively and the equation could be extended as 
-\begin{equation*}
-\begin{split}
-\left\{\begin{matrix}
+\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
 f_{0x} 				+f_{gx} 			&= f_x\\ 
 f_{0y}				+f_{gz} 			&= f_y\\ 
 f_{0z}				+f_{gy} 			&= f_z\\ 
@@ -42,7 +36,8 @@ f_{0z}				+f_{gy} 			&= f_z\\
 \tau_{0z}			+\tau_{gz} 			&=\tau _z 
 \end{matrix}\right.	\\
 \end{split}
-\end{equation*}
+\end{equation}
+where $\boldsymbol{f}$ and $\boldsymbol{\tau}$ are force and torque vector respectively.\\
 And, by terms of moment arm formula,
 \begin{equation}
 \begin{split}
@@ -165,7 +160,8 @@ As a consequence of the full column rank of $\mathbf{F}$, we can apply Moore-Pen
 \end{split}
 \end{equation*}
 
-From now on, we have already known the centroid position of the end effector in the sensor frame and values of the constants $k_1,k_2,k_3$.\\
+From now on, we have already known the centroid position of end effector in the sensor frame and values of the constants $k_1,k_2,k_3$.
+\subsubsection{Gravity Compensation and Initial Value Reset}
 Next, let us come back to the first equation in Figure \ref{fig:gravity compensation}. We continue to use this formula and contemplate it from the perspective of coordinate transformation relation. Here we hypothesize that the end effector weighs $g$ kilograms relative to the frame\{0\} which is also the world frame. That means the gravity vector of the end effector $\boldsymbol{^0\!g}$ is $[0,0,-g]$ in the frame\{0\}. Then, we can derive it as following.
 \begin{equation}
 \begin{split}
@@ -278,42 +274,62 @@ As for installation angle $\theta$ including assembly error,  there is an furthe
 In theory, By either arccos function or arcsin function we can derive the same value. However, we estimate $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ by using the least square solution which produce a approximated answer rather than the correct answer. A subtle bias caused by the least square solution will be enlarged through the arc function. 
 Thankfully, we originally designed an adapter to connect the robot arm and F/T sensor and the installation angle is exactly zero degree. Therefore, here we only need to concern about the subtle bias result from assembly errors.\\
 For example, here we compare arccos and arcsin with the same biases.
-\begin{equation}\label{eq:arc}
-\begin{split}
-\left\{\begin{matrix}
-\cos^{-1}(1) = 0\\
-\cos^{-1}(0.999) = 2.56\\
-\cos^{-1}(0.99) = 8.11\\
-\cos^{-1}(0.9) = 25.84
-\end{matrix}\right.,\ \ \ \ \    
-\left\{\begin{matrix}
-\sin^{-1}(0) = 0\\
-\sin^{-1}(0.001) = 0.057\\
-\sin^{-1}(0.01) = 0.57\\
-\sin^{-1}(0.1) = 5.7\\
-\end{matrix}\right.\ \  
-\text{(degree)}
-\end{split}
-\end{equation}
-Obviously, if we separately give the same bias (0.1) into arccos and arcsin , arccos function will enlarge the bias significantly larger than arcsin fuction. Hence we should use
+\begin{table}[htbp]
+\centering
+\caption{Arc-function Comparison}
+\label{tab:arc}
+\begin{tabular}{c|c|c} 
+\hline \hline
+bias $n$ (rad)	&$\sin^{-1}(n)$	(degree)	&$\cos^{-1}(1-n)$ (degree)\\
+\hline
+0				&0							&0\\
+0.001			&0.057						&2.56\\
+0.01			&0.57						&8.11\\
+0.1				&5.7						&25.84
+\end{tabular}
+\end{table}
+Obviously, if we separately give the same bias ( $0.1$ rad) into arccos and arcsin function, arccos function will enlarge the bias significantly larger than arcsin function. Hence we should use
 \begin{equation}
 \begin{split}
-\sin^{-1}\left(\frac{g\sin(\theta)}{g}\right)\
+\theta = \sin^{-1}\left(\frac{g\sin(\theta)}{g}\right)\
 \end{split}
 \end{equation}
-Notably, as a result of the zero installation angle which we originally designed, from Equation \ref{eq:arc} we could infer to use arcsin function. In contrast, if the installation angle is not zero, the above assumption will be invalid.
+Notably, as a result of the zero installation angle which we originally designed, from Table \ref{tab:arc} we could infer to use arcsin function. In contrast, if the installation angle is not zero, the above assumption will be invalid.
 
-Ultimately, we have successfully dissected the actual value of F/T sensor into the initial value of F/T sensor and the gravity of the end effector. Next, we continue to review the second equation in  Figure \ref{fig:gravity compensation}.
+Ultimately, we have successfully dissected the actual value of F/T sensor into the initial value of F/T sensor and the gravity of the end effector. 
+\subsubsection{External Force Evaluation}
+Next, we continue to review the second equation in  Figure \ref{fig:gravity compensation}.
 \begin{equation}
 \begin{split}
 \text{Initial value}	+ \text{Gravity Load} 		+ \text{External Force}		&= \text{Actual Value} \\
 \Rightarrow \left\{\begin{matrix}
 \boldsymbol{f_0}		+\boldsymbol{f_g}		+\boldsymbol{f_e}		&= \boldsymbol{f}\\ 
-\boldsymbol{\tau_0}		+\boldsymbol{\tau_g}	+\boldsymbol{f_e}		&= \boldsymbol{\tau}	
+\boldsymbol{\tau_0}		+\boldsymbol{\tau_g}	+\boldsymbol{\tau_e}		&= \boldsymbol{\tau}	
 \end{matrix}\right.	\\
 \end{split}
 \end{equation}
-
+Therefore,
+\begin{equation}
+\begin{split}
+\boldsymbol{f_e}		&= \boldsymbol{f} 		- \boldsymbol{f_0}		-\boldsymbol{f_g}\\
+						&= \boldsymbol{f} 		- \boldsymbol{f_0}		- ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g}\\
+\boldsymbol{\tau_e}		&= \boldsymbol{\tau}	- \boldsymbol{\tau_0}		-\boldsymbol{\tau_g}\\
+						&= \boldsymbol{\tau}	- \boldsymbol{\tau_0}		-\boldsymbol{r} \times \boldsymbol{f_g}
+\end{split}
+\end{equation}
+\begin{equation*}
+\begin{split}
+\Rightarrow 
+\left\{\begin{matrix}
+f_{ex} = f_x - f_{0x} 	+ g\cos(\theta)r_{13} 	+ g\sin(\theta)r_{23}\\
+f_{ey} = f_y - f_{0y} 	- g\sin(\theta)r_{13} 	+ g\cos(\theta)r_{23}\\
+f_{ez} = f_z - f_{0z} 	+ gr_{33}\\
+\tau_{ex} = f_x - \tau_{0x} - \left( g_z\cdot y - g_y\cdot z \right)\\
+\tau_{ey} = f_y - \tau_{0y} - \left( g_x\cdot z - g_z\cdot x \right)\\
+\tau_{ez} = f_z - \tau_{0z} - \left( g_y\cdot x - g_x\cdot y \right)
+\end{matrix}\right.
+\end{split}
+\end{equation*}
 \section{Alignment to the Root Canal (Dragging for alignment)}
 In the hope that dentist could drag our system to the infected teeth by holding the end effector, we usher in admittance control based on F/T sensor.
 \subsection{Admittance Control based on F/T sensor}

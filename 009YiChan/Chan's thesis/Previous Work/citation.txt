@@ -78,3 +78,6 @@ Bib
 10.RCT procedure
 Goldberg M (a). Dentin, pulp, and tooth pain. In “Fundamentals of oral histology and physiology”. First edition. AR Hand and Marion E Frank. Chapter 5. John Wiley & sons, Blackwell inc. 2014; 85-112.
 Goldberg M (b). Pulp anatomy and characterization of pulp cells. in: “Biology, pathology, and regenerative therapies”. Springer Verlag, Berlin, Heidelberg 2014. 13-33.
+
+
+11. An approach for Peg in Hole....(Gravity compensation)
