@@ -5,7 +5,8 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Coordinate Definition }}{8}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Illustration of finding rotation matrix }}{17}{figure.3.2}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Control scheme. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value detected by F/T sensor and is also a forces and torques vector. $\boldsymbol {\dot {x}}$ denotes [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$]. $\mathbf {J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol {\dot {q}}$ denotes [$\dot {\theta _1}, \dot {\theta _2}, \dot {\theta _3}, \dot {\theta _4}, \dot {\theta _5}, \dot {\theta _6}$]. $\boldsymbol {q}$ denotes $\left [\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 \right ] $. }}{21}{figure.4.1}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Data Analysis of F/T sensor. }}{20}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Control scheme. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value detected by F/T sensor and is also a forces and torques vector. $\boldsymbol {\dot {x}}$ denotes [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$]. $\mathbf {J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol {\dot {q}}$ denotes [$\dot {\theta _1}, \dot {\theta _2}, \dot {\theta _3}, \dot {\theta _4}, \dot {\theta _5}, \dot {\theta _6}$]. $\boldsymbol {q}$ denotes $\left [\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 \right ] $. }}{26}{figure.4.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

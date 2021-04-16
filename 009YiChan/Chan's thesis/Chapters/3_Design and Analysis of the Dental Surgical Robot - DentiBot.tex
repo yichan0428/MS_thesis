@@ -36,7 +36,7 @@ $i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			
 \end{tabular}
 \end{table}
 Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the forward kinematics of Meca500 is derived as
-\begin{equation*}
+\begin{equation}
 \begin{split}
 ^0_6\mathbf{T} =
 \ ^0_1\mathbf{T} \cdot \ ^1_2\mathbf{T} \cdot \ ^2_3\mathbf{T} \cdot \ ^3_4\mathbf{T} \cdot \ ^4_5\mathbf{T} \cdot \ ^5_6\mathbf{T} =
@@ -45,7 +45,7 @@ Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the fo
 0				&1\\
 \end{bmatrix}\\
 \end{split}
-\end{equation*}\label{eq:translation matrix}
+\end{equation}\label{eq:translation matrix}
 where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
 
 Additionally, there is an alternative to calculate the transformation matrix of Meca500. We can use command "GetPose" to obtain (x,y,z,$\alpha$,$\beta$,$\gamma$). Then, we can use this information to derive the following equation.
@@ -513,7 +513,7 @@ Finally, we obtain the relationship between geometric and analytical Jacobian.
 So far, with forward and inverse kinematics the robot arm can translate and rotate around frame\{6\}. However the origin of the frame\{6\} is not considered to be an operating point. Because the F/T sensor and a detachable end effector will be both mounted on the wrist, the position of the tool tip is exactly what we want. That means we should let the robot arm know how to translate and rotate in frame\{T\} instead of frame\{6\}. If we have translation and rotation information of the tool tip, there is an easy way to directly give these above information to the robot arm. SetTRF (x,y,z,$\alpha$,$\beta$,$\gamma$) is the command of the robot arm, whose (x,y,z) is translation vector and ($\alpha$,$\beta$,$\gamma$) is rotation vector in representation of Euler angle .
 
 For the purpose of obtaining translation and rotation vector, we respectively introduce Tool Center Point in section \ref{sec:tcp} to find the translation vector and propose an approach in section \ref{sec:rot inf} to find the rotation vector.							
-\subsection{Tool Center Point}
+\subsection{Translation Analysis - Tool Center Point}
 \label{sec:tcp}
 Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
 
@@ -583,7 +583,7 @@ In order to extract $^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Eq.\ref{
 \end{bmatrix}
 \end{split}
 \end{equation}
-where
+where we define
 \begin{equation*}
 \begin{split}
 \mathbf{R} =  
@@ -592,7 +592,7 @@ where
 \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{3}\\ 
 \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{1} - \  _{\mathrm{F}}^{\mathrm{B}}\mathbf{R}^{4}
 \end{bmatrix}_{9 \times 3}, 
-\mathbf{P} = 
+\boldsymbol{p} = 
 \begin{bmatrix}
 \ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{2} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
 \ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{3} -\ ^\mathrm{B}\!\boldsymbol{p}_\mathrm{F_{org}}^{1} \\ 
@@ -603,12 +603,12 @@ where
 Therefore,
 \begin{equation*}
 \begin{split}
-^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \bf{P}\\
-					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\cdot \mathbf{R}^\top \cdot \mathbf{P}
+^\mathrm{F}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \boldsymbol{p}\\
+					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\mathbf{R}^\top \cdot \boldsymbol{p}
 \end{split}
 \end{equation*}
 As a result, we can utilize four-points method to obtain the translation vector.
-\subsection{Rotation Information}
+\subsection{Rotation Analysis}
 \label{sec:rot inf}
 Turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Accordingly we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig . Hence, 
 \begin{equation}

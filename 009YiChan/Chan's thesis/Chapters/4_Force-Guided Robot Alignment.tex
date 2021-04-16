@@ -8,7 +8,312 @@ This chapter follows on from the previous chapter, we continue to demonstrate so
 how to compensate the gravity affection in section \ref{sec:grav compen}; how to use admittance control in section with F/T sensor \ref{sec:adm ctrl}; and how to obtain the real force and torque values in the tool tip frame in section \ref{sec:rfc}
 \section{Integration of F/T sensor}
 \label{sec:grav compen}
-Gravity compensation is a critical technical issue when combining an F/T sensor with a robot arm and an end effector. Fundamentally, we receive a stable data when an immobile F/T sensor bear a same load or force. Nevertheless, our F/T sensor is installed on the the robot arm and move with the pose of the robot arm. On account of its mobility, the gravity of end effector will significantly affect the value we received. If we didn't solve this problem, we would obtain an unstable value not mention to analyze the correct contact force caused by external force. In order to obtain a pure value without 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/gravity compensation.png}
+\end{center}
+\caption{
+Data Analysis of F/T sensor.
+}\label{fig:gravity compensation}
+\end{figure}
+Gravity compensation is a critical technical issue when combining an F/T sensor with a robot arm and an end effector. Fundamentally, we should receive stable data when a static F/T sensor bears the same load or force. Nevertheless, our F/T sensor is installed on the robot arm and move with the pose of the robot arm. On account of its mobility, the gravity of the end effector will significantly affect the actual value we received. Moreover, starting without resetting the F/T sensor to zero would lead to an initial value. If we could not analyze the actual value to an initial value and a gravity load, we would obtain an unstable actual value, not to mention obtain the external force caused by contact force.
+
+Therefore, we illustrate a method, which is to analyze the actual value of the F/T sensor to an initial value and gravity load in real-time. It's worth noting that with this approach, we can get the installation angle between the F/T sensor and the robot arm including assembly error, and we no longer need to reset the F/T sensor to zero every time. \\
+To start with the first equation in Figure \ref{fig:gravity compensation},
+\begin{equation}\label{eq:gc_iga}
+\begin{split}
+\text{Initial value}	+ \text{Gravity Load} 		&= \text{Actual Value} \\
+\Rightarrow \left\{\begin{matrix}
+\boldsymbol{f_0}		+\boldsymbol{f_g}			&= \boldsymbol{f}\\ 
+\boldsymbol{\tau_0}	+\boldsymbol{\tau_g}		&= \boldsymbol{\tau}	
+\end{matrix}\right.	\\
+\end{split}
+\end{equation}
+
+where $\boldsymbol{f}$ and $\boldsymbol{\tau}$ are force and torque vector respectively and the equation could be extended as 
+\begin{equation*}
+\begin{split}
+\left\{\begin{matrix}
+f_{0x} 				+f_{gx} 			&= f_x\\ 
+f_{0y}				+f_{gz} 			&= f_y\\ 
+f_{0z}				+f_{gy} 			&= f_z\\ 
+\tau_{0x}			+\tau_{gx} 			&=\tau _x\\ 
+\tau_{0y}			+\tau_{gy} 			&=\tau _y \\ 
+\tau_{0z}			+\tau_{gz} 			&=\tau _z 
+\end{matrix}\right.	\\
+\end{split}
+\end{equation*}
+And, by terms of moment arm formula,
+\begin{equation}
+\begin{split}
+\because
+\boldsymbol{\tau_g}	&= \boldsymbol{r} \times \boldsymbol{f_g} \\
+\end{split}
+\end{equation}
+
+where $\boldsymbol{r}$ denotes the centroid position of the end effector in the sensor frame.
+\begin{equation}
+\begin{split}
+\therefore\ 
+\boldsymbol{\tau}		&= \boldsymbol{\tau_0}	+\boldsymbol{\tau_g}\\
+						&= \boldsymbol{\tau_0}	+
+						   \boldsymbol{r} \times \boldsymbol{f_g}\\
+\end{split}
+\end{equation}
+Then, Substitute the first line of Equation \ref{eq:gc_iga} into the above equation, we will obtain
+\begin{equation}
+\begin{split}
+\boldsymbol{\tau}	&=  \boldsymbol{\tau_0}+ 
+						\boldsymbol{p}	\times \left( \boldsymbol{f} - \boldsymbol{f_0} \right) 
+\end{split}
+\end{equation}
+, which could be extended as
+\begin{equation}
+\begin{split}
+\left\{\begin{matrix}
+\tau _{x}	=	\tau _{0x} 	+ \left( f_z - f_{0z}\right) \cdot y - \left( f_y - f_{0y}\right) \cdot z\\
+\tau _{y}	=	\tau _{0y}	+ \left( f_x - f_{0x}\right) \cdot z - \left( f_z - f_{0z}\right) \cdot x\\
+\tau _{z}	=	\tau _{0z}	+ \left( f_y - f_{0y}\right) \cdot x - \left( f_x - f_{0x}\right) \cdot y& 
+\end{matrix}\right.	\\
+\end{split}
+\end{equation}
+and be overwritten as
+\begin{equation}\label{eq:matrix_mfrk}
+\begin{split}
+\begin{bmatrix}
+\tau _x\\
+\tau _y\\
+\tau _z
+\end{bmatrix}
+=
+\begin{bmatrix}
+0		&f_z	&-f_y	&1	&0	&0\\
+-f_z	&0		&f_x	&0	&1	&0\\
+f_y		&-f_x	&0		&0	&0	&1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+z\\
+k_1\\
+k_2\\
+k_3
+\end{bmatrix}\\
+\end{split}
+\end{equation}
+
+where
+\begin{equation}\label{eq:k1k2k3}
+\begin{split}
+\left\{\begin{matrix}
+k_1 = \tau _{0x} - \left( f_{0z} \cdot y + f_{0y} \cdot z \right)  &  \\
+k_2 = \tau _{0y} - \left( f_{0x} \cdot z + f_{0z} \cdot x \right)  &\text{are all constant} \\
+k_3 = \tau _{0z} - \left( f_{0y} \cdot x + f_{0x} \cdot y \right)  & 
+\end{matrix}\right.\\
+\end{split}
+\end{equation}
+With extracting $[x,y,z,k_1,k_2,k_3]$ in mind, we move the robot arm to $n\ (n\geq3)$ positions with different poses. By recording $n$ torque vector and corresponding $n$ force vector from F/T sensor, we can expand Equation \ref{eq:matrix_mfrk} as
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\tau _{1x}\\
+\tau _{1y}\\
+\tau _{1z}\\
+\tau _{2x}\\
+\tau _{2y}\\
+\tau _{2z}\\
+\vdots\\
+\tau _{nx}\\
+\tau _{ny}\\
+\tau _{nz}\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0			&f_{1z}		&-f_{1y}	&1	&0	&0\\
+-f_{1z}		&0			&f_{1x}		&0	&1	&0\\
+f_{1y}		&-f_{1x}	&0			&0	&0	&1\\
+0			&f_{2z}		&-f_{2y}	&1	&0	&0\\
+-f_{2z}		&0			&f_{2x}		&0	&1	&0\\
+f_{2y}		&-f_{2x}	&0			&0	&0	&1\\
+ 			& 			&\vdots		& 	& 	& \\
+0			&f_{nz}		&-f_{ny}	&1	&0	&0\\
+-f_{nz}		&0			&f_{nx}		&0	&1	&0\\
+f_{ny}		&-f_{nx}	&0			&0	&0	&1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+z\\
+k_1\\
+k_2\\
+k_3
+\end{bmatrix}\\
+\end{split}
+\end{equation}
+
+, which is defined as 
+\begin{equation}
+\begin{split}
+\boldsymbol{m}_{\left(3n \times 1\right)} = \mathbf{F}_{\left(3n \times 6\right)} \cdot \boldsymbol{p}_{\left(6 \times 1\right)}
+\end{split}
+\end{equation}
+As a consequence of the full column rank of $\mathbf{F}$, we can apply Moore-Penrose pseudoinverse. Then, 
+\begin{equation*}
+\begin{split}
+\boldsymbol{p} 	&= \mathbf{F}^{\dagger} \cdot \boldsymbol{m}\\
+				&= \left( \mathbf{F}^\top\mathbf{F}\right) ^{-1}\mathbf{F}^\top \cdot \boldsymbol{m}
+\end{split}
+\end{equation*}
+
+From now on, we have already known the centroid position of the end effector in the sensor frame and values of the constants $k_1,k_2,k_3$.\\
+Next, let us come back to the first equation in Figure \ref{fig:gravity compensation}. We continue to use this formula and contemplate it from the perspective of coordinate transformation relation. Here we hypothesize that the end effector weighs $g$ kilograms relative to the frame\{0\} which is also the world frame. That means the gravity vector of the end effector $\boldsymbol{^0\!g}$ is $[0,0,-g]$ in the frame\{0\}. Then, we can derive it as following.
+\begin{equation}
+\begin{split}
+\text{Initial value}	+ \text{Gravity Load} 		&= \text{Actual Value} \\
+\Rightarrow
+\boldsymbol{f_0} +\  ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g} &= \boldsymbol{f}
+\end{split}
+\end{equation}
+
+which is relative to frame \{6\}.
+Hence, we assume an installation angle $\theta$ including assembly error.
+\begin{equation}
+\begin{split}
+ ^\mathrm{S}_6\mathbf{R}
+=
+\begin{bmatrix}
+\cos(\theta)	&\sin(\theta)	&0 \\
+-\sin(\theta)	&\cos(\theta)	&0 \\
+0				&0				&1
+\end{bmatrix}
+\end{split}
+\end{equation}
+Besides, we can easily calculate $^6_0\mathbf{R}$ from Equation \ref{eq:translation matrix}.
+\begin{equation}
+\begin{split}
+^6_0\mathbf{R} 	&=\ ^0_6\mathbf{R}^\top\\
+				&\coloneqq
+\begin{bmatrix}
+r_{11}		&r_{12}		&r_{13} \\
+r_{21}		&r_{22}		&r_{23} \\
+r_{31}		&r_{32}		&r_{33}
+\end{bmatrix}
+\end{split}
+\end{equation}
+Therefore,
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+f_{0x}\\
+f_{0y}\\
+f_{0z}
+\end{bmatrix}
++
+\begin{bmatrix}
+\cos(\theta)	&\sin(\theta)	&0 \\
+-\sin(\theta)	&\cos(\theta)	&0 \\
+0				&0				&1
+\end{bmatrix}
+\begin{bmatrix}
+r_{11}		&r_{12}		&r_{13} \\
+r_{21}		&r_{22}		&r_{23} \\
+r_{31}		&r_{32}		&r_{33}
+\end{bmatrix}
+\begin{bmatrix}
+0\\
+0\\
+-g
+\end{bmatrix}
+=
+\begin{bmatrix}
+f_x\\
+f_y\\
+f_z
+\end{bmatrix}
+\end{split}
+\end{equation}
+
+Further, we rewrite it as 
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+-r_{13}		&-r_{23} 	&0			&1		&0		&0\\
+-r_{23}		&r_{13}		&0			&0		&1		&0\\
+0			&0			&-r_{33}	&0		&0		&1
+\end{bmatrix}
+\begin{bmatrix}
+g\cos(\theta)\\
+g\sin(\theta)\\
+g\\
+f_{0x}\\
+f_{0y}\\
+f_{0z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+f_x\\
+f_y\\
+f_z
+\end{bmatrix}
+\end{split}
+\end{equation}
+In the same way as Equation \ref{eq:matrix_mfrk}, we can extract $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ by the least square solution. Apparently, we can directly obtain $g,f_{0x},f_{0y},f_{0z}$. Afterwards, we substitute them into Equation \ref{eq:k1k2k3} to calculate 
+\begin{equation}
+\begin{split}
+\left\{\begin{matrix}
+\tau _{0x}	=	k_1	+ \left( f_{0z} \cdot y + f_{0y} \cdot z \right) \\
+\tau _{0y} 	=	k_2	+ \left( f_{0x} \cdot z + f_{0z} \cdot x \right) \\
+\tau _{0z} 	=	k_3 + \left( f_{0y} \cdot x + f_{0x} \cdot y \right)
+\end{matrix}\right.\\
+\end{split}
+\end{equation}
+Finally, we successfully obtain the weight of the end effector $g$, the initial value of the F/T sensor $[f_{0x},f_{0y},f_{0z},\tau_{0x},\tau_{0y},\tau_{0z}]$.
+
+As for installation angle $\theta$ including assembly error,  there is an further discussion. Undoubtedly, we can derive it as
+\begin{equation}
+\begin{split}
+\theta = \cos^{-1}\left(\frac{g\cos(\theta)}{g}\right)\ \text{or} \ \sin^{-1}\left(\frac{g\sin(\theta)}{g}\right)\
+\end{split}
+\end{equation}
+In theory, By either arccos function or arcsin function we can derive the same value. However, we estimate $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ by using the least square solution which produce a approximated answer rather than the correct answer. A subtle bias caused by the least square solution will be enlarged through the arc function. 
+Thankfully, we originally designed an adapter to connect the robot arm and F/T sensor and the installation angle is exactly zero degree. Therefore, here we only need to concern about the subtle bias result from assembly errors.\\
+For example, here we compare arccos and arcsin with the same biases.
+\begin{equation}\label{eq:arc}
+\begin{split}
+\left\{\begin{matrix}
+\cos^{-1}(1) = 0\\
+\cos^{-1}(0.999) = 2.56\\
+\cos^{-1}(0.99) = 8.11\\
+\cos^{-1}(0.9) = 25.84
+\end{matrix}\right.,\ \ \ \ \    
+\left\{\begin{matrix}
+\sin^{-1}(0) = 0\\
+\sin^{-1}(0.001) = 0.057\\
+\sin^{-1}(0.01) = 0.57\\
+\sin^{-1}(0.1) = 5.7\\
+\end{matrix}\right.\ \  
+\text{(degree)}
+\end{split}
+\end{equation}
+Obviously, if we separately give the same bias (0.1) into arccos and arcsin , arccos function will enlarge the bias significantly larger than arcsin fuction. Hence we should use
+\begin{equation}
+\begin{split}
+\sin^{-1}\left(\frac{g\sin(\theta)}{g}\right)\
+\end{split}
+\end{equation}
+Notably, as a result of the zero installation angle which we originally designed, from Equation \ref{eq:arc} we could infer to use arcsin function. In contrast, if the installation angle is not zero, the above assumption will be invalid.
+
+Ultimately, we have successfully dissected the actual value of F/T sensor into the initial value of F/T sensor and the gravity of the end effector. Next, we continue to review the second equation in  Figure \ref{fig:gravity compensation}.
+\begin{equation}
+\begin{split}
+\text{Initial value}	+ \text{Gravity Load} 		+ \text{External Force}		&= \text{Actual Value} \\
+\Rightarrow \left\{\begin{matrix}
+\boldsymbol{f_0}		+\boldsymbol{f_g}		+\boldsymbol{f_e}		&= \boldsymbol{f}\\ 
+\boldsymbol{\tau_0}		+\boldsymbol{\tau_g}	+\boldsymbol{f_e}		&= \boldsymbol{\tau}	
+\end{matrix}\right.	\\
+\end{split}
+\end{equation}
+
 \section{Alignment to the Root Canal (Dragging for alignment)}
 In the hope that dentist could drag our system to the infected teeth by holding the end effector, we usher in admittance control based on F/T sensor.
 \subsection{Admittance Control based on F/T sensor}
@@ -79,7 +384,7 @@ After determining our admittance control model, we should select a correspondent
 Finally, we designate MoveJointsVel $\left(\dot{\theta}_1, \dot{\theta}_2,\cdots , \dot{\theta}_6 \right)$ as our main command. Thanks to the property of Jacobian matrix shown in Equation \ref{eq:jg6}, we can transform $\boldsymbol{\dot{x}}$ into $\boldsymbol{\dot{q}}$. Then we multiply it an integrator $\frac{1}{\mathrm{S}}$
 to obtain $\boldsymbol{q}$. Note that, As F/T sensor is mounted on the frame\{6\}, we should use Equation \ref{eq:jg6} rather than Equation \ref{eq:jg0}. 
 \section{Alignment to the Root Canal (Drilling and self-alignment)}
-The purpose of this section is developing a framework for robot self-alignment regarding the position and orientation of root canal, which is one of the main contributions of the thesis. This function assists endodontists to automatically operate the cleaning procedure and ensures a postoperative recovery for patients.
+The purpose of this section is developing a framework for robot self-alignment regarding the position and orientation of root canal, which is one of the main contributions of the thesis. This function assists endodontists to automatically operate the cleaning procedure and ensures a postoperative recovery for patients. The main idea is to amend the direction of insertion by itself to lower the contact resistance.
 
 We propose a complete robotic procedure. First and foremost, the main role of this procedure is the root canal reamer. We rotate the root canal reamer to clean a pulp, move it to do reciprocation and self-alignment. All of things we care about are all on the root canal such as it position, orientation , rotation speed and contact force. Nevertheless, the robot arm and the F/T sensor have their own coordinates initially. They originally recognize its own coordinate rather than the root canal reamer's frame, so they do their work themselves respectively. Therefore, we need to let them understand the tool frame. Thanks to section \ref{sec:ref_robot}, we have demonstrated how to change the reference frame of the robot arm. After that, we are capable of identifying the translation and rotation information of the root canal reamer and subsequently obtaining the transformation matrix from the robot arm to the tool. As for F/T sensor, we have explained how to do gravity compensation in section \ref{sec:grav compen}, we will interpret how to change its fiducial to the tool tip in section \ref{sec:rfc}. Besides, we will advance a motion planning in accordance with dentist's motion and standard surgical solution in section \ref{sec:motion planning} 
 \subsection{Reference Frame Changing of F/T sensor}
@@ -93,5 +398,6 @@ By the same token, the F/T sensor originally recognize its own coordinate rather
 (Block diagram, robot command choice)
 \section{Discussion about Affection of Parameter Setting}
 \label{sec:affection}
+Tune Bi parameters separately because the velocities of the axis are discrepant
 (K, Bi, Mi- without numbers)
 (Modes: Doctor Dragging and Self-alignment - with numbers; get reasonable and suitable parameters first)

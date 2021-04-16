@@ -18,6 +18,41 @@
 \begin{CJK}{UTF8}{bsmi}
 
 \section{Kinematics Analysis}
+\begin{equation}
+\begin{split}
+\begin{bmatrix}
+\tau _x\\
+\tau _y\\
+\tau _z
+\end{bmatrix}
+=
+\begin{bmatrix}
+0		&f_z	&-f_y	&1	&0	&0\\
+-f_z	&0		&f_x	&0	&1	&0\\
+f_y		&-f_x	&0		&0	&0	&1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+z\\
+k_1\\
+k_2\\
+k_3
+\end{bmatrix}\\
+\end{split}
+\end{equation}
+where
+\begin{equation*}
+\begin{split}
+\left\{\begin{matrix}
+k_1 = \tau _{x0} - \left( f_{z0} \cdot y + f_{y0} \cdot z \right) \\
+k_2 = \tau _{y0} - \left( f_{x0} \cdot z + f_{z0} \cdot x \right) \\
+k_3 = \tau _{z0} - \left( f_{y0} \cdot x + f_{x0} \cdot y \right) 
+\end{matrix}\right.\\
+\end{split}
+\end{equation*}
+
+
 Control scheme. Where $\boldsymbol{f_d}$ denotes the desired forces and torques vector. $\boldsymbol{f_s}$ denotes the real value detected by F/T sensor and is also a forces and torques vector. $\boldsymbol{\dot{x}}$ denotes [$\dot{x}, \dot{y}, \dot{z}, \dot{\theta _x}, \dot{\theta _y}, \dot{\theta _z}$]. $\mathbf{J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol{\dot{q}}$ denotes [$\dot{\theta _1}, \dot{\theta _2}, \dot{\theta _3}, \dot{\theta _4}, \dot{\theta _5}, \dot{\theta _6}$]. $\boldsymbol{q}$ denotes $\left[\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 \right] $
 
 
