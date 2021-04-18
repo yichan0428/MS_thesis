@@ -1,13 +1,16 @@
 \chapter{Design and Analysis of the Dental Surgical Robot - DentiBot}
 \section{Requirement and Specification}
-(Payload, resolution and workspace)														\\
-(Why not RCM mechanism)																	
+(Payload, resolution and workspace)														\par\noindent
+(Why not RCM mechanism)		
+															
 \section{Design of the DentiBot}
-As discussed in previous section, we have to select suitable devices according to those requirements. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 $\mu m$) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.\\
+As discussed in previous section, we have to select suitable devices according to those requirements. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 $\mu m$) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.
+\par\noindent
 DentiBot has seven degree of freedom. 6 DOF is come from Meca500, and the other DOF is owing to our modified handpiece. The rotation of root canal file is driven by a servo motor whose maximum rotation speed is more than 600 rpm.																		
 \section{Kinematics Analysis}
 \label{sec:kinematics}
 The purpose of this section and section \ref{sec:ref_robot} is to serve as a tutorial and provide some important approaches when combining a robot arm and an end effector. We derive the forward and inverse kinematics in section \ref{sec:forward} and describe Jacobian matrix in section \ref{sec:jacobian}. 
+
 \subsection{Coordinate Definition}
 In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axis of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
 \begin{figure}[htbp]
@@ -26,13 +29,14 @@ Coordinate Definition
 \label{tab:DHtable}
 \begin{tabular}{ccccc} 
 \hline \hline
-$i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			&$d_i$ (mm)	\\\hline
+$i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			&$d_i$ (mm)	\\
+\hline
 1   					&0    					&0				&$\theta _1$				&135 \\
 2   					&-90   					&0				&$\theta _2$				&0 \\
 3  						&0    					&135			&$\theta _3$ 				&0 \\
 4   					&-90    				&38				&$\theta _4$ 				&120 \\
 5   					&90   					&0				&$\theta _5$ 				&0 \\
-6						&-90  					&0				&$\theta _6$ 				&70 \\
+6						&-90  					&0				&$\theta _6$ 				&70
 \end{tabular}
 \end{table}
 Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the forward kinematics of Meca500 is derived as
@@ -47,7 +51,7 @@ Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the fo
 \end{split}
 \end{equation}\label{eq:translation matrix}
 where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
-
+\par
 Additionally, there is an alternative to calculate the transformation matrix of Meca500. We can use command "GetPose" to obtain (x,y,z,$\alpha$,$\beta$,$\gamma$). Then, we can use this information to derive the following equation.
 \begin{equation}
 \begin{split}
@@ -75,10 +79,11 @@ where $C_{\star} $, $ S_{\star}$ denote $\cos \left(\star \right)$, $\sin \left(
 \subsection{Jacobian matrix} 
 \label{sec:jacobian}
 Here we evaluate geometric Jacobian based on frame\{0\}, geometric Jacobian based on frame\{6\} and analytical Jacobian.
-
+\par
 First and foremost, we should clarify the difference between geometric Jacobian and analytical Jacobian. They both use the same linear velocity but consider different angular velocity. The angular velocity which geometric Jacobian applies is relevant to the axis angles ($\theta _x$,$\theta _y$,$\theta _z$). In contrast, the angular velocity analytical which Jacobian contemplates is related to the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector.
 \subsubsection{Geometric Jacobian Based on Frame\{0\}}
-Before proceeding to examine the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the axis angle and the joints' angles.\\
+Before proceeding to examine the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the axis angle and the joints' angles.
+\par\noindent
 On the basis of the translation matrix in Equation \ref{eq:translation matrix}, we obtain the relationship between the position and joints' angles.
 \begin{equation}
 \begin{split}
@@ -508,10 +513,11 @@ Finally, we obtain the relationship between geometric and analytical Jacobian.
 \mathbf{J_a}
 \end{split}
 \end{equation}
-\section{Reference Frame Changing of the Robot Arm}
+
+\section{Coordinate Transformation of the Robot Arm}
 \label{sec:ref_robot}
 So far, with forward and inverse kinematics the robot arm can translate and rotate around frame\{6\}. However the origin of the frame\{6\} is not considered to be an operating point. Because the F/T sensor and a detachable end effector will be both mounted on the wrist, the position of the tool tip is exactly what we want. That means we should let the robot arm know how to translate and rotate in frame\{T\} instead of frame\{6\}. If we have translation and rotation information of the tool tip, there is an easy way to directly give these above information to the robot arm. SetTRF (x,y,z,$\alpha$,$\beta$,$\gamma$) is the command of the robot arm, whose (x,y,z) is translation vector and ($\alpha$,$\beta$,$\gamma$) is rotation vector in representation of Euler angle .
-
+\par
 For the purpose of obtaining translation and rotation vector, we respectively introduce Tool Center Point in section \ref{sec:tcp} to find the translation vector and propose an approach in section \ref{sec:rot inf} to find the rotation vector.							
 \subsection{Translation Analysis - Tool Center Point}
 \label{sec:tcp}
@@ -524,8 +530,9 @@ Schematic diagram for Tool Center Point. The translation vector $^\mathrm{6}\!\b
 }\label{fig:tcp}
 \end{figure}
 Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
-
-In order to overcome this problem, we interpret four-points method to obtain the position of the tool tip which is also the translation vector.\\
+\par
+In order to overcome this problem, we interpret four-points method to obtain the position of the tool tip which is also the translation vector.
+\par\noindent
 From Fig \ref{fig:frames}, we can obtain the following transformation matrix,
 \begin{equation}
 \begin{split}
@@ -667,5 +674,5 @@ Assume $\boldsymbol{t} = [x,y,z]$,
 \end{split}
 \end{equation}
 $\alpha$ and $\beta$ are Euler angles, which meet the command demand.
-
+\par
 In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm will recognize frame\{T\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.
