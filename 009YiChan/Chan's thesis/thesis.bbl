@@ -27,4 +27,19 @@ C.~Yang, J.~Wang, L.~Mi, X.~Liu, Y.~Xia, Y.~Li, S.~Ma, and Q.~Teng, ``A
   its influence factor analysis,'' \emph{Industrial Robot: An International
   Journal}, 2017.
 
+\bibitem{7743375}
+T.~{Tang}, H.~{Lin}, {Yu Zhao}, {Wenjie Chen}, and M.~{Tomizuka}, ``Autonomous
+  alignment of peg and hole by force/torque measurement for robotic assembly,''
+  in \emph{2016 IEEE International Conference on Automation Science and
+  Engineering (CASE)}, 2016, pp. 162--167.
+
+\bibitem{8997006}
+P.~{Zou}, Q.~{Zhu}, J.~{Wu}, and J.~{Jin}, ``An approach for peg-in-hole
+  assembling based on force feedback control,'' in \emph{2019 Chinese
+  Automation Congress (CAC)}, 2019, pp. 3269--3273.
+
+\bibitem{erdogan2016planning}
+C.~Erdogan, ``Planning in constraint space for multi-body manipulation tasks,''
+  Ph.D. dissertation, Georgia Institute of Technology, 2016.
+
 \end{thebibliography}

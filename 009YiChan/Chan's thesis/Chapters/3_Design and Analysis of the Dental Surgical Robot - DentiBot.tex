@@ -16,10 +16,10 @@ In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent eac
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.72\linewidth]{Images/Coordinates.png}
-\end{center}
 \caption{
 Coordinate Definition
 }\label{fig:frames}
+\end{center}
 \end{figure} 
 \subsection{Forward and Inverse Kinematics}
 \label{sec:forward}
@@ -52,7 +52,7 @@ Denavit-Hartenberg parameters are shown as Table \ref{tab:DHtable}. Then, the fo
 \end{equation}\label{eq:translation matrix}
 where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown as Appendix \ref{appendix:forward}
 \par
-Additionally, there is an alternative to calculate the transformation matrix of Meca500. We can use command "GetPose" to obtain (x,y,z,$\alpha$,$\beta$,$\gamma$). Then, we can use this information to derive the following equation.
+Incidentally, there is an alternative to calculate the transformation matrix of Meca500. We can use command "GetPose" to obtain (x,y,z,$\alpha$,$\beta$,$\gamma$). Then, we can use this information to derive the following equation.
 \begin{equation}
 \begin{split}
 ^0_6\mathbf{T} 
@@ -399,7 +399,7 @@ where
 \end{split}
 \end{equation*}
 \subsubsection{Analytical Jacobian}
-The linear velocity of analytical Jacobian and of geometric Jacobian is the same shown in Eq \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector into consideration. First of all, we investigate the relationship between the axis angle and the orientation of the end effector as following.
+The linear velocity of analytical Jacobian and of geometric Jacobian is the same as shown in Eq \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector into consideration. First of all, we investigate the relationship between the axis angle and the orientation of the end effector as following.
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -524,12 +524,12 @@ For the purpose of obtaining translation and rotation vector, we respectively in
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.7\linewidth]{Images/TCP.png}
-\end{center}
 \caption{
 Schematic diagram for Tool Center Point. The translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ denotes the origin position relative to the frame\{6\}.
 }\label{fig:tcp}
+\end{center}
 \end{figure}
-Tool Center Point (TCP) is a critical problem for robot arm control. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
+Tool Center Point (TCP) is a critical problem for robot arm control \cite{yang2017four}. In previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has capability to translate and rotate with the origin of the frame\{6\}. These above motions is like a remote center motion (RCM). We should find the position of the tool tip and make it be a RCM point. Nevertheless, it's not efficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
 \par
 In order to overcome this problem, we interpret four-points method to obtain the position of the tool tip which is also the translation vector.
 \par\noindent
@@ -628,10 +628,10 @@ As a result, we can utilize four-points method to obtain the translation vector.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.7\linewidth]{Images/TCP2.png}
-\end{center}
 \caption{ 
 Schematic diagram for obtaining the tool vector. 
 }\label{fig:tcp2}
+\end{center}
 \end{figure}
 Turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. By means of TCP method, we can obtain the translation vector from the origin of frame\{6\} to the tool tip. Accordingly we use two root canal files with different lengths and apply TCP method to separately obtain two vector illustrated as Fig \ref{fig:tcp2}. Hence, 
 \begin{equation}
@@ -642,10 +642,10 @@ Turning now to the discussion about the rotation vector. Above all, we have to f
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.6\linewidth]{Images/rot_inf.png}
-\end{center}
 \caption{
 Illustration of finding the rotation matrix
 }\label{fig:rot_inf}
+\end{center}
 \end{figure} 
 For analyzing it easily, we depict it in Fig \ref{fig:rot_inf}. Note that here we only discuss rotation, so we assume that we have done translation and matched the frame\{S\} with frame\{6\}. Because we hope to send z axis command to achieve tool insertion, we should align original Z axis to the target vector. Nevertheless, Z axis alignment without other restrictions will produce many solutions. We choose one of solutions to align Z axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is $\left[x,y,z\right]$, whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is $\left[0,y,z\right]$. Initially, we rotate $\alpha$ degree around X axis to make original Z axis align the projection $\left[0,y,z\right]$. Next, we rotate $\beta$ degree around Y' axis and finally align original Z axis to the target vector [1,1,1]. The following equation 
 \begin{equation}
