@@ -4,7 +4,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Coordinate Definition }}{8}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematic diagram for Tool Center Point. The translation vector $^\mathrm {6}\tmspace -\thinmuskip {.1667em}\boldsymbol {p}_\mathrm {H_{org}}$ denotes the origin position relative to the frame\{6\}. }}{15}{figure.3.2}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schematic diagram for Tool Center Point. The translation vector $^\mathrm {6}\!\boldsymbol {p}_\mathrm {H_{org}}$ denotes the origin position relative to the frame\{6\}. }}{15}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic diagram for obtaining the tool vector. }}{17}{figure.3.3}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Illustration of finding the rotation matrix }}{18}{figure.3.4}%
 \addvspace {10\p@ }

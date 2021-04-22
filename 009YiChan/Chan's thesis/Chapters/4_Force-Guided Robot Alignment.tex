@@ -344,7 +344,8 @@ bias $n$ (rad)	&$\sin^{-1}(n)$	(degree)	&$\cos^{-1}(1-n)$ (degree)\\
 0				&0							&0\\
 0.001			&0.057						&2.56\\
 0.01			&0.57						&8.11\\
-0.1				&5.7						&25.84
+0.1				&5.7						&25.84\\
+\hline\hline
 \end{tabular}
 \end{table}
 Obviously, if we separately give the same bias ( $0.1$ rad) into arccos and arcsin function, arccos function will enlarge the bias significantly larger than arcsin function. Hence we should use
@@ -649,9 +650,9 @@ In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\mathbf{T}
 \centering
 \caption{Parameters setting of Admittance control.}
 \label{tab: para_adm}
-\begin{tabular}{c|c|c} 
+\begin{tabular}{ccc} 
 \hline \hline
-			&Dragging Mode		&Self-Alignment Mode	\\
+Parameter	&Dragging Mode		&Self-Alignment Mode	\\
 \hline
 k			&$1200$				&$500$					\\
 $b_1$		&$0.4$				&$1.2$					\\
