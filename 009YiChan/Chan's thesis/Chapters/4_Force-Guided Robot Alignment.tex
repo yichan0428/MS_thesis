@@ -2,13 +2,9 @@
 This chapter follows on from the previous issue about the integration, we continue to demonstrate some technical solutions of system integration. On top of that, Forces and Torques (F/T) sensor will be included to discuss. Therefore, you can see the chapter as a operating manual when you simultaneously own a robot arm, an F/T sensor and an end effector. First of all, we will explain why we need to use F/T sensor in our project in section \ref{sec:pro def}. Furthermore, we will introduce how to compensate the gravity affection while moving the robot in senction \ref{sec:grav compen}. Admittance control based on F/T sensor will be described in section \ref{sec:adm ctrl}. Coordinate transformation of F/T sensor will be interpreted in section \ref{sec:rfc}. Last but not least, we will discuss affection of setting admittance control parameters in section \ref{sec:affection}.
 \section{Problem Definition}
 \label{sec:pro def}
-A.	Problem definition:
-1. why not Image processing				2. How to cooperate with a dentist
-\par\noindent
-B.	Proposed method
-1. Like Peg-in-hole method based on F/T feedback \cite{7743375} 	2. Two modes - Dragging mode and Self-alignment mode
-\par\noindent
-how to compensate the gravity affection in section \ref{sec:grav compen}; how to use admittance control in section with F/T sensor \ref{sec:adm ctrl}; and how to obtain the real force and torque values in the tool tip frame in section \ref{sec:rfc}
+In modern robot-assisted surgery, to simulate the eyes of doctors,  image processing is often considered. with the information of the image, the surgeon can obtain real-time data which human can not observe clearly. Surgeons use the image process to do many things, such as tracking whether the patient is moving, positioning an incision point, and navigating an insertion path. As for root canal treatment, the endodontist checks the number of root canals with computed tomography.  Before starting to clean the pulp, the endodontist tries to insert root files into root canals. Then the endodontist takes the patient to have computed tomography(CT). CT scan can clearly show the tooth with the root files. With the preoperative image, the endodontist can check whether all root canals are all found and determine all root canals' lengths. However, the above image application is preoperative. The endodontist can only use the preoperative image to guess the direction of the insertion. The intraoperative image processing is absent due to the dimension restriction of a tooth. It is difficult to get a real-time image when the dentist inserts a root file into the opened tooth because it will obstacle the observation. Besides, the diameter of a root canal is $1$ mm and is smaller than a root file. It is impossible to get the image from any shooting angle.
+\par
+To solve the first problem - without image processing, we propose a method based on force-guided. We surveyed the peg-in-hole based on F/T sensor feedback \cite{7743375} because the cleaning procedure is similar to it. On the other hand, we provide two operating modes - "Dragging Mode" and "Self-Alignment Mode" to cooperate with a dentist. In "Dragging Mode", we can hold the handpiece to the desired position and orientation. We hope to use this mode to let the dentist move the handpiece to the injured tooth. In "Self-Alignment Mode", the handpiece can automatically align the root canal direction even though there are many complicated conditions with different teeth.
 
 \section{Integration of F/T sensor}
 \label{sec:grav compen}
@@ -485,7 +481,7 @@ The purpose of this section is developing a framework for robot self-alignment r
 We propose a complete robotic procedure. First and foremost, the main role of this procedure is the root canal reamer. We rotate the root canal reamer to clean a pulp, move it to do reciprocation and self-alignment. All of things we care about are all on the root canal such as it position, orientation , rotation speed and contact force. Nevertheless, the robot arm and the F/T sensor have their own coordinates initially. They originally recognize its own coordinate rather than the root canal reamer's frame, so they do their work themselves respectively. Therefore, we need to let them understand the tool frame. Thanks to section \ref{sec:ref_robot}, we have demonstrated how to change the reference frame of the robot arm. After that, we are capable of identifying the translation and rotation information of the root canal reamer and subsequently obtaining the transformation matrix from the robot arm to the tool. As for F/T sensor, we have explained how to do gravity compensation in section \ref{sec:grav compen}, we will interpret how to change its fiducial to the tool tip in section \ref{sec:rfc}. Besides, we will advance a motion planning in accordance with dentist's motion and standard surgical solution in section \ref{sec:motion planning} 
 \subsection{Coordinate Transformation of F/T sensor}
 \label{sec:rfc}
-Similar to Coordinate transformation of F/T sensor in section \ref{sec:ref_robot}. The F/T sensor originally recognize its own coordinate rather than the root canal reamer's frame. Namely, F/T sensor receives unmatched data when the tool contacts an obstacle due to the wrong reference frame. Hence, here we illustrate how to obtain the coordinate transformation of F/T sensor so as to decouple the force and toque from frame\{S\} to the frame\{T\}. We analyze it in two perspective - reference frame changing and measurement point changing.
+Similar to Coordinate transformation of F/T sensor in section \ref{sec:ref_robot}. The F/T sensor originally recognizes its coordinate rather than the root canal reamer's frame. Namely, the F/T sensor receives unmatched data when the tool contacts an obstacle due to the wrong reference frame. Hence, here we illustrate how to obtain the coordinate transformation of the F/T sensor to decouple the force and toque from frame\{S\} to the frame\{T\}. We analyze it from two perspectives - reference frame changing and measurement point changing.
 \par
 \begin{figure}[htbp]
 \begin{center}
@@ -594,6 +590,7 @@ _{\{ \mathrm{S}\}}
 \end{equation}
 \subsection{Motion Planning: Based on Admittance Control}
 \label{sec:motion planning} 
+Finally, we plan a series of motions to simulate the cleaning procedure of the root canal treatment. Endodontist uses their professional experience to determine how many force to apply and when to reverse the file to release the torque caused by the contact force. Because the root canal resembles a cone, the profundity of the file is larger, the resultant force composed of contact forces is more significant. Namely, the endodontist will apply more and more pressure in the insertion direction during the surgery. To simulate this series of motions, we could directly command the robot arm to move with the series of actions. However, commanding the robot arm is a dilemma because we have already use admittance control which also commands the robot arm to move. Therefore,  to solve the conflict, we continue to utilize admittance control and propose a method based on admittance control to simulate the series of motions shown in Fig \ref{fig:motion planning_flow chart}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.5\linewidth]{Images/motion planning_flow chart.png}
@@ -633,7 +630,8 @@ It is a first-order control system and its step response is
 From the above derivation, we can know 
 \begin{equation}
 \begin{split}
-\text{time constant } \mathbf{T} = \frac{\mathbf{M}}{\mathbf{B}}
+\text{time constant } \mathbf{T} &= \frac{\mathbf{M}}{\mathbf{B}}\\
+\text{gain} &= \frac{\mathbf{K}}{\mathbf{B}}
 \end{split}
 \end{equation}
 Hence,the transient response can be derived as 
@@ -643,9 +641,10 @@ Hence,the transient response can be derived as
 &\text{Settling time} = 4\mathbf{T} =  \frac{4 \mathbf{M}}{\mathbf{B}}\\
 \end{split}
 \end{equation}
-when $\mathrm{T}$ is larger, the pole is farer from origin in $\mathrm{S}$ domain, the system is more stable. Besides, when $\mathbf{T}$ is larger, the response speed is faster. Furthermore, we coarse-tune parameter $\mathbf{K}$ to adjust the whole gain of the system and determine the mode of the system is "Dragging Mode" or "Self-Alignment Mode". Last but not least, we fine-tune diagonal parameters of $\mathbf{B}$ separately because the inertial and spring properties of each axis are discrepant
 \par
-In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\mathbf{T} = \frac{\mathbf{M}}{\mathbf{B}} = 0.001)$, then the system rises up to $98\%$ after $0.003$ second. Further,. In Table \ref{tab: para_adm}, where $\mathbf{K} = \text{diag}(k,k,k,k,k,k)$, $\mathbf{B} = \text{diag}(b_1,b_2,b_3,b_4,b_5,b_6)$, we show detailed parameters with "Dragging Mode" and "Self-Alignment Mode".
+In theory,when $\mathrm{T}$ is larger, the pole is farer from origin in $\mathrm{S}$ domain, the system is more stable. Besides, when $\mathbf{T}$ is larger, the response speed is faster. Furthermore, when gain $\frac{\mathbf{K}}{\mathbf{B}}$ is larger, the robot arm move more. Therefore, coarse-tune parameter $\mathbf{K}$ to adjust the whole gain of the system and determine the mode of the system is "Dragging Mode" or "Self-Alignment Mode". Last but not least, we fine-tune diagonal parameters of $\mathbf{B}$ separately because the inertial and spring properties of each axis are discrepant. 
+\par
+In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\mathbf{T} = \frac{\mathbf{M}}{\mathbf{B}} = 0.001)$, then the system rises up to $98\%$ after $0.003$ second. Further, we can utilize $\mathbf{K}$ to easily . In Table \ref{tab: para_adm}, we show detailed parameters with "Dragging Mode" and "Self-Alignment Mode".
 \begin{table}[htbp]
 \centering
 \caption{Parameters setting of Admittance control.}
@@ -654,19 +653,23 @@ In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\mathbf{T}
 \hline \hline
 Parameter	&Dragging Mode		&Self-Alignment Mode	\\
 \hline
-k			&$1200$				&$500$					\\
-$b_1$		&$0.4$				&$1.2$					\\
-$b_2$		&$0.4$				&$0.6$					\\
-$b_3$		&$0.4$				&$1.1$					\\
-$b_4$		&$0.8$				&$1.7$					\\
-$b_5$		&$0.8$				&$4$					\\
-$b_6$		&$0.8$				&$1.8$					\\
+k			&$1200$				&$350$					\\
+$b_1$		&$0.4$				&$0.7$					\\
+$b_2$		&$0.4$				&$0.7$					\\
+$b_3$		&$0.4$				&$0.7$					\\
+$b_4$		&$0.8$				&$2$					\\
+$b_5$		&$0.8$				&$2$					\\
+$b_6$		&$0.8$				&$2$					\\
 %$m_1$		&$0.004$			&$0.012$				\\
 %$m_2$		&$0.004$			&$0.006$				\\
 %$m_3$		&$0.004$			&$0.011$				\\
 %$m_4$		&$0.008$			&$0.017$				\\
 %$m_5$		&$0.008$			&$0.04$					\\
 %$m_6$		&$0.008$			&$0.018$		
-\hline\hline			
+\hline	
+&$\mathbf{K} = \text{diag}(k,k,k,k,k,k),$ &$\mathbf{B} = \text{diag}(b_1,b_2,b_3,b_4,b_5,b_6)$\\
+\hline\hline	
 \end{tabular}
 \end{table}
+\par
+In "Dragging Mode", we hold the handpiece to move such as shown in Fig. Due to different level arm, the forces we apply in each axis are all different. Therefore, in order to provide users a good experience, we set each parameter of $mathbf{B}$ of "Dragging mode" different value. With these different values, the users can comfortably move the robot arm to the desired position and orientation. On the other hand, in "Self-Alignment Mode", because external force is applied at the tool and we have already transform the reference frame of F/T sensor, we set the the first three variables which is relative to the linear velocity as the same values and set the last three variables which is relative to the angular velocity as the other same values.

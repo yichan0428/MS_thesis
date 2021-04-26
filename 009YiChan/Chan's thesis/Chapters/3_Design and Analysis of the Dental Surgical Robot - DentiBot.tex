@@ -1,12 +1,20 @@
 \chapter{Design and Analysis of the Dental Surgical Robot - DentiBot}
 \section{Requirement and Specification}
-(Payload, resolution and workspace)														\par\noindent
-(Why not RCM mechanism)		
-															
+(Payload, resolution and workspace)														
+(Why not RCM mechanism)		\par\noindent
+The dental surgical robot should enable dentists to perform delicate and complicated surgery operations because the average diameter of a root canal is $0.28 (\pm 0.08)$ mm \cite{wu2002does}. Therefore, our system should have a high resolution. Next, an appropriate workspace is required. In dental anatomy, teeth are located on the maxillary (lower jaw) and the mandibular (upper jaw ). To perform surgery with both side, the end effector should be rotated at least $180$ degrees. Also, There is a previous research, which shows the average range of maximum mouth opening is 50.3 mm ± 6.26 mm \cite{agrawal2015evaluation}. Hence, the end effector of our system should be less than the range. To achieve the workspace, we build a system composed of a robot arm, an F/T sensor, and a modified handpiece. We choose a robot arm and an F/T sensor because we want to mimic the dentist's motion. Due to six degrees of freedom (DOF) with the robot arm and the F/T sensor, we can achieve the action with less hardware restriction. Besides, by modifying the existing handpiece, which is a dental instrument for oral surgery, we do not worry about the workspace in the mouth.		
 \section{Design of the DentiBot}
-As discussed in previous section, we have to select suitable devices according to those requirements. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 $\mu m$) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.
+As discussed in previous section, we have to select suitable devices according to those requirements. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm. Its feature is high repeatability (precision: 5 \textmu m) and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections. As for the end effector, we modify a existing dental handpiece which equips a tool change mechanism. The modified handpiece weights around 139 grams. We also design  adapters so as to assemble these devices.
 \par\noindent
-DentiBot has seven degree of freedom. 6 DOF is come from Meca500, and the other DOF is owing to our modified handpiece. The rotation of root canal file is driven by a servo motor whose maximum rotation speed is more than 600 rpm.																		
+DentiBot has seven degree of freedom. 6 DOF is come from Meca500, and the other DOF is owing to our modified handpiece. The rotation of root canal file is driven by a servo motor whose maximum rotation speed is more than 600 rpm.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.72\linewidth]{Images/meca500_workspace.png}
+\caption{
+Workspace of Meca500
+}\label{fig:meca500_workspace}
+\end{center}
+\end{figure} 																	
 \section{Kinematics Analysis}
 \label{sec:kinematics}
 The purpose of this section and section \ref{sec:ref_robot} is to serve as a tutorial and provide some important approaches when combining a robot arm and an end effector. We derive the forward and inverse kinematics in section \ref{sec:forward} and describe Jacobian matrix in section \ref{sec:jacobian}. 
