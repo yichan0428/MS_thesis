@@ -32,10 +32,11 @@
 \contentsline {subsubsection}{Control Scheme}{30}{section*.11}%
 \contentsline {subsubsection}{Selection of Admittance Control Model}{31}{section*.12}%
 \contentsline {subsubsection}{Robot Command Decision}{32}{section*.13}%
-\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{33}{section.4.4}%
+\contentsline {subsubsection}{Implementation In Discrete Time}{33}{section*.14}%
+\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{34}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Coordinate Transformation of F/T sensor}{34}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{36}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Affections of Parameters Setting}{36}{section.4.5}%
+\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{37}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Affections of Parameters Setting}{38}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Control of Endodontic File Rotation}{41}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Problem Definition}{41}{section.5.1}%
 \contentsline {section}{\numberline {5.2}The Proposed Method and Theorem}{41}{section.5.2}%
@@ -50,4 +51,4 @@
 \contentsline {section}{\numberline {8.2}Jacobian matrix}{48}{section.8.2}%
 \contentsline {subsection}{\numberline {8.2.1} Jg0 }{48}{subsection.8.2.1}%
 \contentsline {subsection}{\numberline {8.2.2} Jg6 }{50}{subsection.8.2.2}%
-\contentsline {chapter}{Reference}{53}{chapter*.14}%
+\contentsline {chapter}{Reference}{53}{chapter*.15}%

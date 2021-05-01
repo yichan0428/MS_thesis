@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  27 APR 2021 01:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.19)  2 MAY 2021 07:34
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -1017,6 +1017,13 @@ Chapter 2.
 
 ]
 Chapter 3.
+
+Overfull \hbox (0.78905pt too wide) in paragraph at lines 4--6
+\OT1/ptm/m/n/12 (-20) cated surgery op-er-a-tions be-cause the av-er-age di-am-
+e-ter of a root canal is $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 28
+(\OMS/lmsy/m/n/12 \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 08)$
+ []
+
 [7]
 <Images/meca500_workspace.png, id=231, 525.46312pt x 410.2828pt>
 File: Images/meca500_workspace.png Graphic file (type png)
@@ -1030,39 +1037,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Images/Coordinates.png, id=241, 532.389pt x 510.2262pt>
 File: Images/Coordinates.png Graphic file (type png)
 <use Images/Coordinates.png>
-Package pdftex.def Info: Images/Coordinates.png  used on input line 26.
+Package pdftex.def Info: Images/Coordinates.png  used on input line 25.
 (pdftex.def)             Requested size: 280.65845pt x 268.97829pt.
 
 Underfull \vbox (badness 3492) has occurred while \output is active []
 
  [9 <./Images/Coordinates.png>] [10]
 LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 93.
-
-Underfull \vbox (badness 1147) has occurred while \output is active []
-
- [11]
-[12] [13] [14] [15]
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 92.
+ [11] [12] [13] [14] [15]
 <Images/TCP.png, id=309, 542.77782pt x 452.4403pt>
 File: Images/TCP.png Graphic file (type png)
 <use Images/TCP.png>
-Package pdftex.def Info: Images/TCP.png  used on input line 535.
+Package pdftex.def Info: Images/TCP.png  used on input line 534.
 (pdftex.def)             Requested size: 272.86073pt x 227.45535pt.
- [16 <./Images/TCP.png>] [17]
+ [16 <./Images/TCP.png>]
+[17]
 <Images/TCP2.png, id=328, 550.30594pt x 458.46281pt>
 File: Images/TCP2.png Graphic file (type png)
 <use Images/TCP2.png>
-Package pdftex.def Info: Images/TCP2.png  used on input line 639.
+Package pdftex.def Info: Images/TCP2.png  used on input line 638.
 (pdftex.def)             Requested size: 272.86073pt x 227.32803pt.
  [18 <./Images/TCP2.png>]
 <Images/rot_inf.png, id=335, 279.9258pt x 238.0092pt>
 File: Images/rot_inf.png Graphic file (type png)
 <use Images/rot_inf.png>
-Package pdftex.def Info: Images/rot_inf.png  used on input line 653.
+Package pdftex.def Info: Images/rot_inf.png  used on input line 652.
 (pdftex.def)             Requested size: 233.88402pt x 198.86226pt.
 
-[19 <./Images/rot_inf.png>]) ("Chapters/4_Force-Guided Robot Alignment.tex"
-[20]
+Underfull \vbox (badness 1019) has occurred while \output is active []
+
+ [19 <./Images/rot_inf.png>]) ("Chapters/4_Force-Guided Robot Alignment.tex" [2
+0]
 Chapter 4.
 [21
 
@@ -1091,43 +1097,48 @@ Underfull \vbox (badness 2277) has occurred while \output is active []
  [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31 <./Images/adm ctrl.png>] [32] [33]
-<Images/sensor_comp 1.png, id=473, 249.5724pt x 173.448pt>
+ [31 <./Images/adm ctrl.png>] [32] [33] [34]
+<Images/sensor_comp 1.png, id=481, 249.5724pt x 173.448pt>
 File: Images/sensor_comp 1.png Graphic file (type png)
 <use Images/sensor_comp 1.png>
-Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 488.
+Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 524.
 (pdftex.def)             Requested size: 272.86073pt x 189.63947pt.
- [34 <./Images/sensor_comp 1.png>]
-<Images/sensor_comp 2.png, id=480, 198.9834pt x 163.812pt>
+<Images/sensor_comp 2.png, id=483, 198.9834pt x 163.812pt>
 File: Images/sensor_comp 2.png Graphic file (type png)
 <use Images/sensor_comp 2.png>
-Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 518.
+Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 554.
 (pdftex.def)             Requested size: 272.86073pt x 224.64603pt.
- [35 <./Images/sensor_comp 2.png>]
-<Images/motion planning_flow chart.png, id=490, 293.65405pt x 429.96075pt>
+
+Underfull \vbox (badness 1221) has occurred while \output is active []
+
+ [35 <./Images/sensor_comp 1.png>]
+<Images/motion planning_flow chart.png, id=493, 293.65405pt x 429.96075pt>
 File: Images/motion planning_flow chart.png Graphic file (type png)
 <use Images/motion planning_flow chart.png>
 Package pdftex.def Info: Images/motion planning_flow chart.png  used on input l
-ine 596.
+ine 632.
 (pdftex.def)             Requested size: 194.90137pt x 285.37578pt.
-<Images/motion planning_motion.png, id=491, 295.8252pt x 241.3818pt>
+<Images/motion planning_motion.png, id=494, 295.8252pt x 241.3818pt>
 File: Images/motion planning_motion.png Graphic file (type png)
 <use Images/motion planning_motion.png>
 Package pdftex.def Info: Images/motion planning_motion.png  used on input line 
-604.
+640.
 (pdftex.def)             Requested size: 194.90137pt x 159.03624pt.
-<Images/mass spring.png, id=492, 249.93375pt x 81.30376pt>
+ [36 <./Images/sensor_comp 2.png>]
+<Images/mass spring.png, id=502, 249.93375pt x 81.30376pt>
 File: Images/mass spring.png Graphic file (type png)
 <use Images/mass spring.png>
-Package pdftex.def Info: Images/mass spring.png  used on input line 615.
+Package pdftex.def Info: Images/mass spring.png  used on input line 651.
 (pdftex.def)             Requested size: 233.88402pt x 76.0856pt.
- [36] [37 <./Images/motion planning_flow chart.png> <./Images/motion planning_m
-otion.png>] [38 <./Images/mass spring.png>])
-("Chapters/5_Control of Endodontic File Rotation.tex" [39] [40
+ [37 <./Images/motion planning_flow chart.png>]
+Underfull \vbox (badness 4595) has occurred while \output is active []
 
-]
+ [38 <./Images/motion planning_motion.png> <./Images/mass spring.png>])
+("Chapters/5_Control of Endodontic File Rotation.tex" [39] [40]
 Chapter 5.
-) ("Chapters/6_Experiment Results.tex" [41] [42
+) ("Chapters/6_Experiment Results.tex" [41
+
+] [42
 
 ]
 Chapter 6.
@@ -1161,13 +1172,13 @@ Package rerunfilecheck Info: File `thesis.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 15851 strings out of 481165
- 285365 string characters out of 2902091
- 588221 words of memory out of 3000000
+ 15855 strings out of 481165
+ 285421 string characters out of 2902091
+ 588217 words of memory out of 3000000
  30581 multiletter control sequences out of 15000+200000
  632256 words of font info for 288 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,27n,50p,1428b,757s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,27n,50p,1436b,757s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
 c}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
 t.enc}{C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1195,9 +1206,9 @@ ype1/urw/times/utmb8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/urw/times/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/urw/times/utmr8a.pfb><C:/Users/yicha/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (63 pages, 1659296 bytes).
+Output written on thesis.pdf (63 pages, 1663748 bytes).
 PDF statistics:
- 826 PDF objects out of 1000 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
+ 831 PDF objects out of 1000 (max. 8388607)
+ 202 named destinations out of 1000 (max. 500000)
  86434 words of extra memory for PDF output out of 89155 (max. 10000000)
 
