@@ -94,6 +94,7 @@ Before examining the geometric Jacobian matrix, it will be necessary to find the
 \par\noindent
 Based on the translation matrix in Equation \ref{eq:translation matrix}, we obtain the relationship between the position and joints' angles.
 \begin{equation}
+\label{eq:lin vel}
 \begin{split}
 ^0\boldsymbol{p}_\mathrm{6org}
 = 
@@ -109,9 +110,10 @@ y(\theta _1, \theta _2, \cdots, \theta _6)\\
 z(\theta _1, \theta _2, \cdots, \theta _6)
 \end{bmatrix} 
 \end{split}
-\end{equation}\label{eq:lin vel}
+\end{equation}
 Moreover, we dissect the relationship between the axis angle and joints' angles.
 \begin{equation}
+\label{eq:ang vel_axis}
 \begin{split}
 \begin{bmatrix}
 \theta _x \\
@@ -161,7 +163,7 @@ Moreover, we dissect the relationship between the axis angle and joints' angles.
 \theta _6
 \end{bmatrix}
 \end{split}
-\end{equation}\label{eq:ang vel_axis}
+\end{equation}
 We can differentiate Equation \ref{eq:lin vel} and \ref{eq:ang vel_axis} to obtain Jacobian matrices.
 \begin{equation}
 \begin{split}

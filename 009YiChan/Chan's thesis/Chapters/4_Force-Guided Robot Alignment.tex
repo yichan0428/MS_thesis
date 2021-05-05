@@ -415,7 +415,7 @@ z \\
 \theta _z 
 \end{bmatrix}
 =
-\frac{1}{\mathbf{M}\mathrm{S}^2+\mathbf{B}\mathrm{S}+\mathbf{K}}
+\frac{1}{\mathbf{M}s^2+\mathbf{B}s+\mathbf{K}}
 \begin{bmatrix}
 f_x \\
 f_y \\
@@ -440,7 +440,7 @@ z \\
 \theta _z 
 \end{bmatrix}
 =
-\frac{1}{\mathbf{M}\mathrm{S}^2+\mathbf{B}\mathrm{S}}
+\frac{1}{\mathbf{M}s^2+\mathbf{B}s}
 \begin{bmatrix}
 f_x \\
 f_y \\
@@ -475,25 +475,26 @@ Considering that the singularity problem is an imperative subject in robotics, w
 \par
 Finally, we designate MoveJointsVel $\left(\dot{\theta}_1, \dot{\theta}_2,\cdots , \dot{\theta}_6 \right)$ as our main command. Thanks to the property of Jacobian matrix shown in Equation \ref{eq:jg6}, we can transform $\boldsymbol{\dot{x}}$ into $\boldsymbol{\dot{q}}$. Then we multiply it an integrator $\frac{1}{\mathrm{S}}$
 to obtain $\boldsymbol{q}$. Note that, As F/T sensor is mounted on the frame\{6\}, we should use Equation \ref{eq:jg6} rather than Equation \ref{eq:jg0}. 
-\subsubsection{Implementation In Discrete Time}
+\subsubsection{Implementation in Discrete Time}
 \quad
 To implement it in practice, we use the bilinear transformation, also known as Tustin method, to control it in discrete time.
 \begin{equation}
+\label{eq:z_domain eq}
 \begin{split}
-\frac{\boldsymbol{\dot{x}(s)}}{\boldsymbol{\dot{f}(s)}}
-				&= \frac{1}{\mathbf{M}\mathrm{S}+\mathbf{B}}				\\
+\frac{\boldsymbol{v}(s)}{\boldsymbol{f}(s)}
+				&= \left( \mathbf{M}s+\mathbf{B}\right)^{-1}			\\
 \Rightarrow 
-\frac{\boldsymbol{\dot{x}(z)}}{\boldsymbol{\dot{f}(z)}}
-				&= \frac{\mathrm{T}(1+z^{-1})}{(\mathbf{B}\mathrm{T}+2\mathbf{M})+(\mathbf{B}\mathrm{T}-2\mathbf{M})z^{-1}}
+\frac{\boldsymbol{v}(z)}{\boldsymbol{f}(z)}
+				&= \frac{\mathrm{T}(1+z^{-1})}{(\mathrm{T}\cdot\mathbf{B}+2\mathbf{M})+(\mathrm{T}\mathbf{B}-2\mathbf{M})\cdot z^{-1}}
 \end{split}
 \end{equation}
 \quad and,
 \begin{equation}
 \begin{split}
-\frac{\boldsymbol{q(s)}}{\boldsymbol{\dot{q}(s)}}
-				&= \frac{\mathbf{K}}{\mathrm{S}}				\\
+\frac{\boldsymbol{\theta}(s)}{\boldsymbol{w}(s)}
+				&= \frac{\mathbf{K}}{s}				\\
 \Rightarrow 
-\frac{\boldsymbol{q(z)}}{\boldsymbol{\dot{q}(z)}}
+\frac{\boldsymbol{\theta}(z)}{\boldsymbol{w}(z)}
 				&= \frac{\mathrm{T}\mathbf{K}}{2}	
 					\frac{1+z^{-1}}{1-z^{-1}}
 \end{split}
@@ -501,14 +502,14 @@ To implement it in practice, we use the bilinear transformation, also known as T
 Therefore,
 \begin{equation}
 \begin{split}
-&\boldsymbol{\dot{x}[k+1]} = \frac{\mathrm{T}}{\mathbf{B}\mathrm{T}+2\mathbf{M}}
-							\cdot \left(	\boldsymbol{f[k+1]} + \boldsymbol{f[k]}		\right)
-						 - \frac{\mathbf{B}\mathrm{T}-2\mathbf{M}}{\mathbf{B}\mathrm{T}+2\mathbf{M}}
-						 	\cdot \boldsymbol{\dot{x}[k]}												\\
-&\boldsymbol{q[k+1]} = \boldsymbol{q[k]} + \frac{\mathbf{K}\mathrm{T}}{2}
-												\left( \boldsymbol{\dot{q}[k+1]} + \boldsymbol{\dot{q}[k]} \right)
+&\boldsymbol{v}[k+1] = \frac{\mathrm{T}}{\mathrm{T}\mathbf{B}+2\mathbf{M}}
+							\cdot \left(	\boldsymbol{f}[k+1] + \boldsymbol{f}[k]		\right)
+						 - \frac{\mathrm{T}\mathbf{B}-2\mathbf{M}}{\mathrm{T}\mathbf{B}+2\mathbf{M}}
+						 	\cdot \boldsymbol{v}[k]												\\
+&\boldsymbol{\theta}[k+1] = \boldsymbol{\theta}[k] + \frac{\mathrm{T}\mathbf{K}}{2}
+												\left( \boldsymbol{w}[k+1] + \boldsymbol{w}[k] \right)
 \\
-&\text{where } \mathrm{T} \text{ is the sampling period.												}
+&\text{where } \mathrm{T} \text{ is the sampling time.												}
 \end{split}
 \end{equation}
 \section{Self-Alignment Mode}
@@ -645,7 +646,7 @@ Flow chart of motion planning
 \end{figure}
 \section{Affections of Parameters Setting}
 \label{sec:affection}
-Because our system is similar to a mass- damper system, we focus on the performance of the velocity $\boldsymbol{\dot{x}}$ whereby the system could be considered as
+\hspace*{6mm}Because our system is similar to a mass- damper system, we focus on the performance of the velocity $\boldsymbol{\dot{x}}$ whereby the system could be considered as
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.6\linewidth]{Images/mass spring.png}
@@ -678,9 +679,15 @@ Hence,the transient response can be derived as
 \end{split}
 \end{equation}
 \par
-In theory, when $\boldsymbol{\tau}$ is larger, the pole is farther from the origin in $\mathrm{S}$ domain, the system is more stable. Besides, when $\boldsymbol{\tau}$ is larger, the response speed is faster. Furthermore, when gain $\frac{\mathbf{K}}{\mathbf{B}}$ is larger, the robot arm moves more. Therefore, the coarse-tune parameter $\mathbf{K}$ to adjust the whole gain of the system and determine the mode of the system is "Dragging Mode" or "Self-Alignment Mode". Last but not least, we fine-tune diagonal parameters of $\mathbf{B}$ separately because the inertial and spring properties of each axis are discrepant. 
+In theory, when $\boldsymbol{\tau}$ is larger, the pole is farther from the origin in $\mathrm{S}$ domain, the system is more stable. Besides, when $\boldsymbol{\tau}$ is larger, the response speed is faster. Furthermore, when the gain $\frac{\mathbf{K}}{\mathbf{B}}$ is larger, the robot arm moves more. Therefore, we coarse-tune parameter $\mathbf{K}$ to adjust the whole gain of the system and determine the mode of the system is "Dragging Mode" or "Self-Alignment Mode". Last but not least, we fine-tune diagonal parameters of $\mathbf{B}$ separately because the inertial and spring properties of each axis are discrepant. 
 \par
-In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\boldsymbol{\tau} = \frac{\mathbf{M}}{\mathbf{B}} = 0.001)$, then the system rises up to $98\%$ after $0.003$ second. Further, we can utilize $\mathbf{K}$ to easily . In Table \ref{tab: para_adm}, we show detailed parameters with "Dragging Mode" and "Self-Alignment Mode".
+In practice, we implement it in discrete time. From Equation \ref{eq:z_domain eq}, we can further derive the final value in discrete time shown as 
+\begin{equation}
+\begin{split}
+\text{gain} = \lim_{z \to 1} (z-1)\cdot \frac{\mathrm{T}\mathbf{K}(z+1)}{(\mathrm{T}\mathbf{B}+2\mathbf{M})z+\mathrm{T}\mathbf{B}-2\mathbf{M}}\cdot \frac{1}{\frac{2}{\mathrm{T}}\frac{z-1}{z+1}} = \frac{\mathbf{K}\mathrm{T}}{\mathbf{B}}
+\end{split}
+\end{equation}
+Compared to the gain in continuous time, the sampling time in discrete time also effect the gain. Because the sampling time we set is $0.002$s, we set $(m_i : b_i = 1 : 500)$  to make $(\tau _i = \frac{m_i}{b_i} = 0.002)$, then the system will rise up to $98\%$ after $0.004$ second. Further, we can alter $\mathbf{K}$ to easily regulate the gain. In Table \ref{tab: para_adm}, we show detailed parameters with "Dragging Mode" and "Self-Alignment Mode".
 \begin{table}[htbp]
 \centering
 \caption{Parameters setting of Admittance control.}
@@ -689,7 +696,7 @@ In practice, we set $(\mathbf{M} : \mathbf{B} = 1 : 1000)$  to make $(\boldsymbo
 \hline \hline
 Parameter	&Dragging Mode		&Self-Alignment Mode	\\
 \hline
-k			&$1200$				&$350$					\\
+k			&$200000$			&$100000$				\\
 $b_1$		&$1.2$				&$0.7$					\\
 $b_2$		&$0.6$				&$0.7$					\\
 $b_3$		&$1.1$				&$0.7$					\\
@@ -708,4 +715,4 @@ $b_6$		&$1.8$				&$2$					\\
 \end{tabular}
 \end{table}
 \par
-In "Dragging Mode", we hold the handpiece to move as shown in Fig. Due to different level arms, the forces we apply in each axis are all different. Therefore, to provide users a good experience, we set each parameter of $mathbf{B}$ of "Dragging mode"  with different values. With these different values, the users can comfortably move the robot arm to the desired position and orientation. On the other hand, in "Self-Alignment Mode", an external force is applied at the tool, and we have already transformed the reference frame of the F/T sensor. We set the first three variables relative to the linear velocity as the same values. Besides, We set the last three variables relative to the angular velocity as the other same values.
+In "Dragging Mode", we hold the handpiece to move as shown in Fig. Due to different level arms, the forces we apply in each axis are all different. Therefore, to provide users a good experience, we set each parameter of $\mathbf{B}$ of "Dragging mode"  with different values. With these different values, the users can comfortably move the robot arm to the desired position and orientation. On the other hand, in "Self-Alignment Mode", an external force is applied at the tool, and we have already transformed the reference frame of the F/T sensor. We set the first three variables relative to the linear velocity as the same values. Besides, We set the last three variables relative to the angular velocity as the other same values.
