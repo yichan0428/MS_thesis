@@ -3,11 +3,12 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces The endodontic therapy steps }}{3}{figure.1.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Workspace of Meca500 }}{13}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Coordinate Definition }}{14}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic diagram for Tool Center Point. The translation vector $^\mathrm {6}\tmspace -\thinmuskip {.1667em}\boldsymbol {p}_\mathrm {H_{org}}$ denotes the origin position relative to the frame\{6\}. }}{24}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Schematic diagram for obtaining the tool vector. }}{26}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Illustration of finding the rotation matrix }}{27}{figure.3.5}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The DentiBot and an acyclic tooth model }}{11}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Workspace of Meca500 }}{12}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Coordinate Definition }}{13}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Schematic diagram for Tool Center Point. The translation vector $^\mathrm {6}\tmspace -\thinmuskip {.1667em}\boldsymbol {p}_\mathrm {H_{org}}$ denotes the origin position relative to the frame\{6\}. }}{23}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Schematic diagram for obtaining the tool vector. }}{25}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Illustration of finding the rotation matrix }}{26}{figure.3.6}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Data Analysis of F/T sensor. }}{31}{figure.4.1}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Control scheme. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value detected by F/T sensor and is also a forces and torques vector. $\boldsymbol {\dot {x}}$ denotes [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$]. $\mathbf {J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol {\dot {q}}$ denotes [$\dot {\theta _1}, \dot {\theta _2}, \dot {\theta _3}, \dot {\theta _4}, \dot {\theta _5}, \dot {\theta _6}$]. $\boldsymbol {q}$ denotes $\left [\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 \right ] $. }}{40}{figure.4.2}%
@@ -16,6 +17,7 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Flow chart of motion planning }}{48}{figure.4.5}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Flow chart of motion planning }}{49}{figure.4.6}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Control scheme. $\mathbf {M},\mathbf {B},\mathbf {K}$ are all diagonal positive definite matrices, whose diagonal indexes are respectively related to $x,y,z,\theta _x,\theta _y,\theta _z$. $\mathbf {M},\mathbf {B}$ are related to the inertial and damping respectively, and $\mathbf {K}$ is a proportional gain. }}{49}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Holding gesture in "Dragging Mode" }}{52}{figure.4.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

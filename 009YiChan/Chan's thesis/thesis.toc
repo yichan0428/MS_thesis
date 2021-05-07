@@ -4,23 +4,23 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Previous Work and Problem Definition}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}The Proposed Method}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.3}The Proposed Method}{5}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Main Contributions of the Thesis}{6}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Organization of the Thesis}{7}{section.1.5}%
-\contentsline {chapter}{\numberline {2}State-of-the-Art}{9}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot - DentiBot}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Requirement and Specification}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Design of the DentiBot}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Kinematics Analysis}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Coordinate Definition}{13}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Forward and Inverse Kinematics}{15}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Jacobian matrix}{16}{subsection.3.3.3}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{17}{section*.5}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{6\}}{19}{section*.6}%
-\contentsline {subsubsection}{Analytical Jacobian}{21}{section*.7}%
-\contentsline {section}{\numberline {3.4}Coordinate Transformation of the Robot Arm}{22}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Translation Analysis - Tool Center Point}{23}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Rotation Analysis}{26}{subsection.3.4.2}%
+\contentsline {section}{\numberline {1.5}Organization of the Thesis}{6}{section.1.5}%
+\contentsline {chapter}{\numberline {2}State-of-the-Art}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot - DentiBot}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Requirement and Specification}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Design of the DentiBot}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Kinematics Analysis}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Coordinate Definition}{12}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Forward and Inverse Kinematics}{14}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Jacobian matrix}{15}{subsection.3.3.3}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{16}{section*.5}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{6\}}{18}{section*.6}%
+\contentsline {subsubsection}{Analytical Jacobian}{20}{section*.7}%
+\contentsline {section}{\numberline {3.4}Coordinate Transformation of the Robot Arm}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Translation Analysis - Tool Center Point}{22}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Rotation Analysis}{25}{subsection.3.4.2}%
 \contentsline {chapter}{\numberline {4}Force-Guided Robot Alignment}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Problem Definition}{30}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Integration of F/T sensor}{31}{section.4.2}%
