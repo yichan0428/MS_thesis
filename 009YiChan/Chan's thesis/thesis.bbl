@@ -58,6 +58,13 @@ J.~Agrawal, P.~K. Shenai, L.~Chatra, P.~Y. Kumar \emph{et~al.}, ``Evaluation of
   perspective study,'' \emph{Indian Journal of Dental Research}, vol.~26,
   no.~4, p. 361, 2015.
 
+\bibitem{web4}
+``Meca500, mecademic,'' 2021, \url{https://www.mecademic.com/}.
+
+\bibitem{web5}
+``Mini40, ati industrial automation, inc.'' 2021,
+  \url{https://www.ati-ia.com/index.aspx}.
+
 \bibitem{yang2017four}
 C.~Yang, J.~Wang, L.~Mi, X.~Liu, Y.~Xia, Y.~Li, S.~Ma, and Q.~Teng, ``A
   four-point measurement model for evaluating the pose of industrial robot and
@@ -74,5 +81,11 @@ T.~{Tang}, H.~{Lin}, {Yu Zhao}, {Wenjie Chen}, and M.~{Tomizuka}, ``Autonomous
 P.~{Zou}, Q.~{Zhu}, J.~{Wu}, and J.~{Jin}, ``An approach for peg-in-hole
   assembling based on force feedback control,'' in \emph{2019 Chinese
   Automation Congress (CAC)}, 2019, pp. 3269--3273.
+
+\bibitem{boessler2009effect}
+C.~Boessler, F.~Paque, and O.~A. Peters, ``The effect of electropolishing on
+  torque and force during simulated root canal preparation with protaper
+  shaping files,'' \emph{Journal of Endodontics}, vol.~35, no.~1, pp. 102--106,
+  2009.
 
 \end{thebibliography}

@@ -627,23 +627,8 @@ _{\{ \mathrm{S}\}}
 \end{equation}
 \subsection{Motion Planning: Based on Admittance Control}
 \label{sec:motion planning} 
-Finally, we plan a series of motions to simulate the cleaning procedure of the root canal treatment. Endodontist uses their professional experience to determine how many force to apply and when to reverse the file to release the torque caused by the contact force. Because the root canal resembles a cone, the profundity of the file is larger, the resultant force composed of contact forces is more significant. Namely, the endodontist will apply more and more pressure in the insertion direction during the surgery. To simulate this series of motions, we could directly command the robot arm to move with the series of actions. However, commanding the robot arm is a dilemma because we have already use admittance control which also commands the robot arm to move. Therefore,  to solve the conflict, we continue to utilize admittance control and propose a method based on admittance control to simulate the series of motions shown in Fig \ref{fig:motion planning_flow chart}.
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=0.5\linewidth]{Images/motion planning_flow chart.png}
-\hspace*{6mm}\caption{
-Flow chart of motion planning
-}\label{fig:motion planning_flow chart}
-\end{center}
-\end{figure}
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=0.5\linewidth]{Images/motion planning_motion.png}
-\caption{
-Flow chart of motion planning
-}\label{fig:motion planning_motion}
-\end{center}
-\end{figure}
+\hspace*{6mm}Here we plan a series of motions to simulate the cleaning procedure of the root canal treatment. Endodontist uses their professional experience to determine how many force to apply and when to reverse the file to release the torque caused by the contact force. Because the root canal resembles a cone. The profundity of the file is larger, then the resultant force composed of contact forces is more significant. Namely, the endodontist will apply more and more pressure in the insertion direction during the surgery. To simulate this series of motions, we could directly command the robot arm to move with the series of actions. However, commanding the robot arm is a dilemma because we have already use admittance control which also commands the robot arm to move. Therefore, to solve the conflict, we continue to utilize admittance control and propose a method based on admittance control to simulate the series of motions. Because we know the tool frame from section \ref{sec:ref_robot}, we can regulate $F_des$ to make the robot move. That means if we want to insert along with the tool direction, we could set $[0 0 F_z 0 0 0]$. While $F_z$ is larger, the robot moves faster.
+
 \section{Affections of Parameters Setting}
 \label{sec:affection}
 \hspace*{6mm}Because our system is similar to a mass- damper system, we focus on the performance of the velocity $\boldsymbol{\dot{x}}$ whereby the system could be considered as
@@ -696,13 +681,13 @@ Compared to the gain in continuous time, the sampling time in discrete time also
 \hline \hline
 Parameter	&Dragging Mode		&Self-Alignment Mode	\\
 \hline
-k			&$200000$			&$100000$				\\
-$b_1$		&$1.2$				&$0.7$					\\
-$b_2$		&$0.6$				&$0.7$					\\
-$b_3$		&$1.1$				&$0.7$					\\
-$b_4$		&$1.7$				&$2$					\\
-$b_5$		&$4$				&$2$					\\
-$b_6$		&$1.8$				&$2$					\\
+k			&$60$			&$10$				\\
+$b_1$		&$80$				&$80$					\\
+$b_2$		&$80$				&$80$					\\
+$b_3$		&$80$				&$80$					\\
+$b_4$		&$160$				&$80$					\\
+$b_5$		&$160$				&$80$					\\
+$b_6$		&$160$				&$80$					\\
 %$m_1$		&$0.004$			&$0.012$				\\
 %$m_2$		&$0.004$			&$0.006$				\\
 %$m_3$		&$0.004$			&$0.011$				\\
@@ -715,10 +700,10 @@ $b_6$		&$1.8$				&$2$					\\
 \end{tabular}
 \end{table}
 \par
-In "Dragging Mode", we hold the handpiece to move as shown in Fig \ref{fig:holding gesture}. Due to different level arms, the forces we apply in each axis are all different. Therefore, to provide users a good experience, we set each parameter of $\mathbf{B}$ of "Dragging mode"  with different values. With these different values, the users can comfortably move the robot arm to the desired position and orientation. On the other hand, in "Self-Alignment Mode", an external force is applied at the tool, and we have already transformed the reference frame of the F/T sensor. We set the first three variables relative to the linear velocity as the same values. Besides, We set the last three variables relative to the angular velocity as the other same values.
+Note that we change the different sensor frames with "Dragging Mode" and "Self-Alignment Mode". As shown in Fig \ref{fig:holding gesture}, Point A and B are two origins of the sensor frame. In "Dragging Mode", we transform the sensor frame to the point A, and the operator can hold the point $\mathrm{G_1}$ and $\mathrm{G_2}$ to move the entire handpiece. On the other hand, in "Self-Alignment Mode" we set  the point B as the new sensor frame because we focus on forces and torques the file bears. Due to different level arms, the forces we apply in each axis will be different. There are same level arms ($\overline{\mathrm{AO}}$ and $\overline{\mathrm{OG_2}}$ both are $13.2$ mm) if we set the point A as the sensor frame and grasp $\mathrm{G_1}$ and $\mathrm{G_2}$ to move the entire handpiec. Therefore, to provide users a good experience, we should regulate parameters of $\mathbf{B}$ in "Dragging mode" with suitable values. With these values, the users can smoothly move the robot arm to the desired position and orientation. We set the first three variables relative to the linear velocity as the same values. Besides, We set the last three variables relative to the angular velocity as the other same values.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=0.7\linewidth]{Images/holding_gesture.png}
+\includegraphics[width=0.8\linewidth]{Images/holding_gesture.png}
 \caption{
 Holding gesture in "Dragging Mode"
 }\label{fig:holding gesture}

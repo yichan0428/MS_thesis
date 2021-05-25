@@ -1,2 +1,16 @@
 \chapter{Conclusions and Future works}
-(Patient move tracking via cable, root canals searching)
+\hspace*{6mm}An endodontic treatment is a challenging surgery for dentists due to complex conditions of teeth. Therefore, building a robot-assisted system for the endodontic robot requires comprehensive consideration on whole surgery procedures. Review the section \ref{sec:contributions}, we advocated the four parts of the project prospect. We highlight two main parts of the prospect and have proved the feasibility of our proposed approaches. The whole work of the thesis is concluded in this chapter.
+\section{Conclusions}
+\hspace*{6mm}Nowadays, despite that there are more and more dental robot springing up, there are still few teams specific to the endodontic treatment. In view of this, our team have built the robot-assisted system, Dentibot, composed of a 6-DoF robot arm, a 6-DoF F/T sensor, and a modified handpiece. Integration issues between the above devices are reviewed and solved. The DentiBot can assist dentists performing the endontic treatment as a result of the following functions. 
+\par
+Admittance control is ushered in to enable the dentist to move the DentiBot above an infected tooth. Also, a framework based on admittance control for robot alignment regarding the position and orientation of root canal is presented. "Dragging Mode" and "Self-Alignment Mode" are separately implemented for the above functions.
+\par
+Last but not least, instrument fracture is a serious problem for dentists. It will even lead to medical dispute. With the torque monitoring system, file feedrate control is applied to reduce the possibility of instrument fracture . 
+\par
+Experiments indicated that the above functions had good performances on force-guided alignment and file feedrate control. It has proven the feasibility in technical and clinical perspectives. Undoubtedly, the DentiBot can help dentists perform better clinical results.
+\section{Discussion and Future Works}
+\hspace*{6mm}The thesis is the pioneer of the endodontic project. Despite that the thesis develop the DentiBot and present the above functions, there are undoubtedly some works remained and rooms for improvement on the modified hardware and functions. The modified handpiece made by 3D-print is not durable for time consuming endodontic treatment. It is necessary to do machining for more stable results. 
+\par 
+In the thesis, we assume that a dentist move the DentiBot above the root, then the DentiBot do "Cleaning" procedure. However, sometimes there is not only one root in the tooth. For instance, There are three to four roots in molars. Therefore, we wish that the DentiBot will have the ability to search all root canals after the dentist move it above the infected tooth. 
+\par
+On top of that, we proposed the alignment method while the DentiBot do drilling. It not only align the root path but also patient tracking. However, the patient tracking belongs to a minor range movement. Therefore, the DentiBot is expected to be applied to patient tracking with large movement via string potentiometers in the future.			
