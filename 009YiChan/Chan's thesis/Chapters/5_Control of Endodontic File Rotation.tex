@@ -1,34 +1,10 @@
 \chapter{File Feedrate Control}
 \section{Problem Definition}
-\hspace*{6mm}Instrument fracture is a potential crisis for endodontic treatment. If a dentist improperly operates a endodontic file, it will increase the possibility of instrument fracture. Most largely, the instrument fracture will happen while a file is inserted into the one-third place far from the root apex. It is barely possible to take out in a small root canal. Removal of broken files is technically tricky, so it is critical to reduce the probability of the instrument fracture. Therefore, to protect the endodontic file from fracturing, we need to be familiar with its physical property and its correct operations. 
+\hspace*{6mm}Instrument fracture is a potential crisis for endodontic treatment. If a dentist improperly operates an endodontic file, it will increase the possibility of instrument fracture. Most largely, the instrument fracture will happen while a file is inserted into the one-third place far from the root apex. It is barely possible to take out in a small root canal. Removal of broken files is technically tricky, so it is critical to reducing the probability of the instrument fracture.
 \par
-We delve into the physical properties of an endodontic file. A file is made of alloys of Nickel and Titanium, which is a superelastic material. The Ni-Ti file has significantly more elastic and incorruptible property. This feature allows it to bend when inserted into a curve root canal and thereby reduce the possibility of stuck.
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=1\linewidth]{Images/Endodontic_File.png}
-\caption{The illustration of an endodontic file
-}\label{fig: Endodontic File}
-\end{center}
-\end{figure}	
-\par
-In Fig \ref{fig: Endodontic File}, an endodontic file is illustrated. There are four types of total length - $21$, $25$, $28$, and $31$ mm. They all have the same work length - $16$ mm. Each file has their own number such as $\#15, \#20, \#25, \cdots, \#40$, which represent the diameter of files. Take a $\#15$ file with $2\%$ taper for example,
-\par\noindent
-the diameter of the tooltip $D_1$ is
-\begin{equation*}
-\begin{split}
-15/100=0.15 \text{ (mm)}
-\end{split}
-\end{equation*}
-and the diameter at the end of the work length $D_2$ is
-\begin{equation*}
-\begin{split}
-0.15 + 16 \cdot 6\% = 1.11 \text{ (mm)}
-\end{split}
-\end{equation*}
-\par
-There is a technical solution to detect a status of a file. When a file suffers a force, it will lead to the crystalline phase transformation. However, it can only be observed from a microscope. It is impracticable to usually monitor it during the surgery. A previous literature shows there are two main causes of fractured files are torsional fracture and flexural fatigue, account for 55.7\% and 44.3\% separately\cite{SATTAPAN2000161}. Therefore, we can reduce the torque a file bears to prevent the instrument fracture.
+There is a technical solution to detect a status of a file. When a file suffers a force, it will lead to the crystalline phase transformation. However, it can only be observed from a microscope. It is impracticable to usually monitor it during the surgery. Previous literature shows there are two main causes of fractured files are torsional fracture and flexural fatigue, which account for 55.7\% and 44.3\% separately\cite{SATTAPAN2000161}. Therefore, we can reduce the torque a file bears to prevent the instrument fracture.
 \section{The Proposed Method and Theorem}
-\hspace*{6mm}In order to protect an endodontic file from fracturing, we need to reduce the file torque. The easiest and most effective way to solve this issue would be monitoring the torque which the file is enduring. Therefore, we implement a torque monitoring system on DentiBot. We utilize current feedback to keep track of the torque. A increase in the current of the motor is indicative of contact resistance of the file. Also, We propose two approaches both based on feedrate control to release the file torque. One is inverse rotation control discussed in section \ref{sec:Inver Rotation Control}and the other is feed control discussed in section \ref{sec:Feed Control}, they are both efficient way to release the file torque. Once the current of the file is in excess of a threshold, it will inversely rotate or decline the feedrate to release torque. 
+\hspace*{6mm}In order to protect an endodontic file from fracturing, we need to reduce the file torque. The easiest and most effective way to solve this issue would be monitoring the torque which the file is enduring. Therefore, we implement a torque monitoring system on DentiBot. We utilize current feedback to keep track of the torque. An increase in the current of the motor is indicative of the contact resistance of the file. Also, We propose two approaches both based on feedrate control to release the file torque. One is inverse rotation control discussed in section \ref{sec:Inver Rotation Control}and the other is feed control discussed in section \ref{sec:Feed Control}, they are both efficient ways to release the file torque. Once the current of the file is in excess of a threshold, it will inversely rotate or decline the feedrate to release torque. 
 \subsubsection{Theorem}
 \hspace*{6mm}A motor can be modeled as an RL circuit. In this way, we can get the following formula 
 \begin{equation}
@@ -38,7 +14,7 @@ V = R \cdot I + L  \cdot \frac{\mathrm{d}I}{\mathrm{d}t} + \varepsilon
 \end{equation}
 where $V$ represents the input voltage, $I$ represents the input current, and $\varepsilon $ represents the back EMF produced by the motor motion.
 \par
-Since the value of inductance of DC motor is small, we ignore the inductance term L. After transposition, we can get the following relation between current and the back EMF.
+Since the value of the inductance of DC motor is small, we ignore the inductance term L. After transposition, we can get the following relation between the current and the back EMF.
 \begin{equation}
 \label{eq:current and the back EMF}
 \begin{split}
@@ -80,17 +56,16 @@ I_{max} < \frac{62}{\mathrm{GR} \cdot K_m}
 In reality, $\mathrm{GR}$ is $67$ and $K_m$ is $16 \text{mNm/A}$
 \subsection{Feedrate Control - Inverse Rotation Control}
 \label{sec:Inver Rotation Control}
-\hspace*{6mm} Once the current of the file exceed the specific threshold, it will inversely rotate for 90 degrees to release torque and then continue drilling in the original direction. Before designing the DentiBot, we have validated this function with the first prototype of DentiBot shown as Fig \ref{fig: prototype}.
+\hspace*{6mm}Once the current of the file exceeds the specific threshold, it will inversely rotate for 90 degrees to release torque and then continue drilling in the original direction. Before designing the DentiBot, we have validated this function with the prototype of DentiBot shown as Fig \ref{fig: prototype}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{Images/Prototype.png}
-\caption{The first prototype of DentiBot
+\caption{The prototype of DentiBot
 }\label{fig: prototype}
 \end{center}
 \end{figure}	
 \par
-It is a drilling system mounted on a magnetic
-stand. The modified handpiece, a hand-held dental electric device, with a single axis mechanism can validate the inverse rotation control. We designed a motion planning to perform the drilling procedure. The root canal is divided into several sections. In Fig \ref{fig: inverse_rotation}, we propose a motion planning to validate the function.In the beginning, the robot move to the start point and then repetitively drill one section back and forth at least ten times until the current feedback decrease under the specific threshold. If the current exceed the threshold, the endodontic file will inversely rotate for $90^o$ to release the torque and then drill the same section again. After one section is cleaned thoroughly, the drilling file will move to the next section. Every section will be cleaned for at least $10$ rounds. If there is reverse rotation, it will be more than $10$ rounds. When to be finished is contingent on whether the endodontic file reaches the final section.
+It is a drilling system mounted on a magnetic stand. The modified handpiece, a hand-held dental electric device, with a single axis mechanism can validate the inverse rotation control. 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.8\linewidth]{Images/inverse_rotation.png}
@@ -98,12 +73,26 @@ stand. The modified handpiece, a hand-held dental electric device, with a single
 }\label{fig: inverse_rotation}
 \end{center}
 \end{figure}
+\par
+We designed motion planning to perform the drilling procedure. The root canal is divided into several sections. In Fig \ref{fig: inverse_rotation}, we propose a motion planning to validate the function.In the beginning, the robot moves to the start point and then repetitively drills one section back and forth at least ten times until the current feedback decrease under the specific threshold. If the current exceeds the threshold, the endodontic file will inversely rotate for $90^o$ to release the torque and then drill the same section again. After one section is cleaned thoroughly, the drilling file will move to the next section. Every section will be cleaned for at least $10$ rounds. If there is reverse rotation, it will be more than $10$ rounds. When to be finished is contingent on whether the endodontic file reaches the final section.
 \subsection{Feedrate Control - Feed Control}
 \label{sec:Feed Control}
+\hspace*{6mm}As mentioned above, we can detect the current to estimate the torque and inversely rotate the motor if the current exceeds the threshold current. However, inverse rotation control is just mimicking a dentist to perform endodontic treatment. Time-consuming is still a problem. Therefore, we propose the other method to improve this problem. Previous literature which dedicate to a form drilling with torque control is similar to our root drilling \cite{boessler2009effect}. We propose a similar control scheme for our root drilling.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/feedrate_control.png}
+\caption{Control scheme of Feedrate Control.}
+}\label{fig: feed_control}
+\end{center}
+\end{figure}
+\par
+To put it simply, we regulate the feedrate to control the torque the file bears.
+
+
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.8\linewidth]{Images/torque_control.png}
-\caption{Flow chart of Feed Control}
+\caption{Flow chart of Feed Control. $f$ represents force vector}
 }\label{fig: feed_control}
 \end{center}
 \end{figure}

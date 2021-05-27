@@ -12,52 +12,56 @@
 \contentsline {subsubsection}{Main Contributions}{7}{section*.8}%
 \contentsline {section}{\numberline {1.5}Organization of the Thesis}{7}{section.1.5}%
 \contentsline {chapter}{\numberline {2}State-of-the-Art}{9}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot - DentiBot}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Requirement and Specification}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Design of the DentiBot}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Kinematics Analysis}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Coordinate Definition}{14}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Forward and Inverse Kinematics}{14}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Jacobian matrix}{16}{subsection.3.3.3}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{17}{section*.9}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{6\}}{19}{section*.10}%
-\contentsline {subsubsection}{Analytical Jacobian}{21}{section*.11}%
-\contentsline {section}{\numberline {3.4}Coordinate Transformation of the Robot Arm}{22}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Translation Analysis - Tool Center Point}{23}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Rotation Analysis}{26}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Force-Guided Robot Alignment}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Problem Definition}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Integration of F/T sensor}{31}{section.4.2}%
-\contentsline {subsubsection}{The Centroid Position of End Effector}{32}{section*.12}%
-\contentsline {subsubsection}{Gravity Compensation and Initial Value Reset}{35}{section*.13}%
-\contentsline {subsubsection}{External Force Evaluation}{39}{section*.14}%
-\contentsline {section}{\numberline {4.3}Dragging Mode}{39}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Admittance Control based on F/T sensor}{40}{subsection.4.3.1}%
-\contentsline {subsubsection}{Control Scheme}{40}{section*.15}%
-\contentsline {subsubsection}{Selection of Admittance Control Model}{41}{section*.16}%
-\contentsline {subsubsection}{Robot Command Decision}{42}{section*.17}%
-\contentsline {subsubsection}{Implementation in Discrete Time}{43}{section*.18}%
-\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{44}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Coordinate Transformation of F/T sensor}{45}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{47}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Affections of Parameters Setting}{48}{section.4.5}%
-\contentsline {chapter}{\numberline {5}File Feedrate Control}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Problem Definition}{53}{section.5.1}%
-\contentsline {section}{\numberline {5.2}The Proposed Method and Theorem}{55}{section.5.2}%
-\contentsline {subsubsection}{Theorem}{55}{section*.19}%
-\contentsline {subsection}{\numberline {5.2.1}Feedrate Control - Inverse Rotation Control}{57}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Feedrate Control - Feed Control}{59}{subsection.5.2.2}%
-\contentsline {chapter}{\numberline {6}Preliminary Experiment Result}{61}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Experimental Setup}{61}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Admittance Control}{61}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Automatically Direction Changing}{62}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Repetitive Experiment}{62}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusions and Future works}{63}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusions}{63}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Discussion and Future Works}{64}{section.7.2}%
-\contentsline {chapter}{\numberline {8}Appendix}{67}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Forward Kinematics}{67}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Jacobian matrix}{69}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1} Jg0 }{70}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2} Jg6 }{73}{subsection.8.2.2}%
-\contentsline {chapter}{Reference}{75}{chapter*.20}%
+\contentsline {section}{\numberline {2.1}Dental Robot}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Peg-in-Hole}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Torque Control}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}File property}{12}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot - DentiBot}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Requirement and Specification}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Design of the DentiBot}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Kinematics Analysis}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Coordinate Definition}{16}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Forward and Inverse Kinematics}{16}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Jacobian matrix}{18}{subsection.3.3.3}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{19}{section*.9}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{6\}}{21}{section*.10}%
+\contentsline {subsubsection}{Analytical Jacobian}{23}{section*.11}%
+\contentsline {section}{\numberline {3.4}Coordinate Transformation of the Robot Arm}{24}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Translation Analysis - Tool Center Point}{25}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Rotation Analysis}{28}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Force-Guided Robot Alignment}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problem Definition}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Integration of F/T sensor}{33}{section.4.2}%
+\contentsline {subsubsection}{The Centroid Position of End Effector}{34}{section*.12}%
+\contentsline {subsubsection}{Gravity Compensation and Initial Value Reset}{37}{section*.13}%
+\contentsline {subsubsection}{External Force Evaluation}{41}{section*.14}%
+\contentsline {section}{\numberline {4.3}Dragging Mode}{41}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Admittance Control based on F/T sensor}{42}{subsection.4.3.1}%
+\contentsline {subsubsection}{Control Scheme}{42}{section*.15}%
+\contentsline {subsubsection}{Selection of Admittance Control Model}{43}{section*.16}%
+\contentsline {subsubsection}{Robot Command Decision}{44}{section*.17}%
+\contentsline {subsubsection}{Implementation in Discrete Time}{45}{section*.18}%
+\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{46}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Coordinate Transformation of F/T sensor}{47}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Motion Planning: Based on Admittance Control}{49}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Affections of Parameters Setting}{50}{section.4.5}%
+\contentsline {chapter}{\numberline {5}File Feedrate Control}{55}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Problem Definition}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.2}The Proposed Method and Theorem}{56}{section.5.2}%
+\contentsline {subsubsection}{Theorem}{56}{section*.19}%
+\contentsline {subsection}{\numberline {5.2.1}Feedrate Control - Inverse Rotation Control}{58}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Feedrate Control - Feed Control}{60}{subsection.5.2.2}%
+\contentsline {chapter}{\numberline {6}Preliminary Experiment Result}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Experimental Setup}{63}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Admittance Control}{64}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Automatically Direction Changing}{66}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Repetitive Experiment}{66}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusions and Future works}{67}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusions}{67}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Discussion and Future Works}{68}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Appendix}{71}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Forward Kinematics}{71}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Jacobian matrix}{73}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1} Jg0 }{74}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2} Jg6 }{77}{subsection.8.2.2}%
+\contentsline {chapter}{Reference}{79}{chapter*.20}%

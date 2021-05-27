@@ -1,11 +1,37 @@
 \chapter{Preliminary Experiment Result}
+\hspace*{6mm}For checking and validating the proposed method, we set up experiments from technical and clinical perspective. In technical perspective, admittance control, force-guided alignment, and file feedrate control were conducted and verified. On the other hand, The acrylic root model before and after the experiment were also compared in this chapter. 
 \section{Experimental Setup}
-Use present tense.\par\noindent
-(Communication protocol – EtherCAT, RTOS – NI target)						
-\par\noindent
-For 6.2 experiment: (Stewart-Platform + PhaseSpace + markers)				
-\par\noindent
-For 6.3 6.4 experiments: (Acrylic root canal model + truth tooth)
+\hspace*{6mm}To control devices with low latency, a communication protocol - EtherCAT and a real-time oprating system (RTOS) are interfaced. Every devices are connected in Daisy-chain shown in Fig \ref{fig:EtherCAT}. EtherCAT (Ethernet for Control Automation Technology) is constructed on EtherNET and uses "processing on the fly" technology to provide short cycle time (less than 100 $\mu$s) and low jitter \cite{web5}.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Images/EtherCAT.png}
+\caption{System integration and communication protocol.}
+}\label{fig:EtherCAT}
+\end{center}
+\end{figure}
+\par
+Moreover, for the position information and simulating patient moving, A motion capture system and a steward platform were set up. All of the specifications of the hardware and software environments are listed in Table \ref{tab:exp_specification}.
+\begin{table}[htbp]
+\centering
+\caption{Specifications of the hardware and software environments}
+\label{tab:exp_specification}
+\begin{tabular}{c|c} 
+\hline \hline
+Item											&Specification					\\	\hline
+Development Environment							&LabVIEW 2018					\\	\hline
+\multirow{2}{*}{Real-Time Operating System}		&National Instrument-RT target	\\
+												&CPU: Intel Core 8				\\	\hline
+Communication Protocol							&EtherCAT						\\	\hline
+Robot Arm										&Mecademic-Meca500				\\	\hline
+F/T Sensor										&ATI-Mini40						\\	\hline
+\multirow{2}{*}{Motor}							&Maxon 24V DC motor				\\
+												&Gear ratio: 67					\\	\hline
+\multirow{2}{*}{Motion Capture System}			&PhaseSpace-Impulse X2E 		\\
+												&Resolution: 1mm				\\	\hline
+Steward Platform								&Linear Actuator: 				\\	
+\hline \hline
+\end{tabular}
+\end{table}
 \section{Admittance Control}
 \hspace*{6mm}In order to prove the validation of admittance control, we set up this experiment. Here we built a Stewart platform, which had six degrees of freedom and provided a slight movement. We used a Stewart platform to simulate a motion of a patient. Basically, when the patient moves to a position, our system should move to the same place. Therefore, we planned to observe the target's and the handpiece's position to validate that our system can track the patient. Besides, we use PhaseSpace to obtain their motion in real-time. PhaseSpace is a motion capture device whose resolution is around $1$ mm. Before starting this experiment, we should fix a relative position between the file and the acrylic tooth. We made the file rotate and get stuck in the root canal of an acrylic model. Then we used "Doctor dragging" mode to install the acrylic model on the Stewart platform. Therefore, we can guarantee that the relative position between the file and the acrylic tooth.
 \par
