@@ -470,11 +470,17 @@ Types										&Commands			&Input parameters\\
 \hline \hline
 \end{tabular}
 \end{table}
+
+
 \par
-Considering that the singularity problem is an imperative subject in robotics, we intend to use MoveJoints or MoveJointsVel to set the axes' angles directly. Despite that it's easier to implement admittance control via other commands, the system would touch the singularity point at any time. It undoubtedly exposes patients to danger because of the uncertainty of the system. In our case, we could detect whether it is a singularity or not before commanding the robot. Therefore, position command - MoveJoints and velocity command - MoveJointsVel is our option. Why we choose the command MoveJoints is that Meca500 has a default time-out value to ensure its safety. Even though we could set this value from 0.001 to 2 seconds, Meca500 is still restricted to move with this value. For example, the value of time-out is set $0.1$ sec. While the robot receives a command, the robot move for $0.1$ sec then immediately stops. It's not easy to control via velocity command due to this default property.
+Position commands is better than velocity commands because Meca500 has a default time-out value to ensure its safety. Even though we could set this value from 0.001 to 2 seconds, Meca500 is still restricted to move with this value. For example, the value of time-out is set $0.1$ sec. While the robot receives a command, the robot move for $0.1$ sec then immediately stops. It's not easy to control via velocity command due to this default property.
 \par
-Finally, we designate MoveJointsVel $\left(\dot{\theta}_1, \dot{\theta}_2,\cdots , \dot{\theta}_6 \right)$ as our main command. Thanks to the property of Jacobian matrix shown in Equation \ref{eq:jg6}, we can transform $\boldsymbol{\dot{x}}$ into $\boldsymbol{\dot{q}}$. Then we multiply it an integrator $\frac{1}{\mathrm{S}}$
-to obtain $\boldsymbol{q}$. Note that, As F/T sensor is mounted on the frame\{6\}, we should use Equation \ref{eq:jg6} rather than Equation \ref{eq:jg0}. 
+Therefore, there are two suitable ways to command robot - MovePose and MoveJoints. Implementation of MovePose $(x,y,z,\alpha ,\beta ,\gamma)$ is easier than MoveJoints because MovePose is considered in tool frame. That means it will move $(x,y,z,\alpha ,\beta ,\gamma)$ based on the current tool frame.  $(x,y,z)$ can be obtained by multiplying an integrator with $(\dot{x},\dot{y},\dot{z})$. As for $(\alpha ,\beta ,\gamma)$, $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$ can be obtained by multiplying the inverse matrix of analytical jacobian which was mentioned in Equation \ref{eq:jacobian_euler} with $\dot{\theta _x},\dot{\theta _y},\dot{\theta _z}$, and then $(\alpha ,\beta ,\gamma)$ can be obtained by multiplying an integrator with $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$.
+\par
+However, considering that the singularity problem is an imperative subject in robotics, we intend to use MoveJoints to set the axes' angles directly. Despite that it's easier to implement admittance control via other commands, the system would touch the singularity point at any time. It undoubtedly exposes patients to danger because of the uncertainty of the system. In our case, we could detect whether it is a singularity or not before commanding the robot. Therefore, position command - MoveJoints and velocity command - MoveJointsVel is our option. 
+\par
+Finally, we designate MoveJoints $\theta _1, \theta _2 ,\theta _3 ,\theta _4 ,\theta _5 , \theta _6 $ as our main command. Thanks to the property of Jacobian matrix shown in Equation \ref{eq:jg6}, we can transform $\boldsymbol{\dot{x}}$ into $\boldsymbol{\dot{q}}$. Then we multiply it an integrator $\frac{1}{\mathrm{S}}$
+to obtain $\boldsymbol{q}$. Note that, because F/T sensor is mounted on the frame\{6\}, we should use Equation \ref{eq:jg6} rather than Equation \ref{eq:jg0}. 
 \subsubsection{Implementation in Discrete Time}
 \quad
 To implement it in practice, we use the bilinear transformation, also known as Tustin method, to control it in discrete time.

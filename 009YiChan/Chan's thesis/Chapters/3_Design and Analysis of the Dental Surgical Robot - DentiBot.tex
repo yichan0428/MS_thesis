@@ -13,18 +13,26 @@ The DentiBot and an acyclic tooth model
 }\label{fig:DentiBot}
 \end{center}
 \end{figure}	
-To meet the requirement of workspace we have to select suitable devices according to those requirements as shown in Fig \ref{fig:DentiBot}. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6 DOF robot arm  \cite{web4} . Its feature is high repeatability (precision: 5 \textmu m), and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections \cite{web5}. As for the end effector, we modify an existing dental handpiece that equips a tool change mechanism. The modified handpiece weighs around 139 grams. We also design adapters to assemble these devices.
+To meet the requirement of workspace we have to select suitable devices according to those requirements as shown in Fig \ref{fig:DentiBot}. First, We choose Meca500 manufactured by Mecadamic Inc. as our 6-DOF robot arm  \cite{web4} . Its feature is high repeatability (precision: 5 \textmu m), and it is equipped with zero-backlash speed reducers. In addition, it is compact and portable for laboratory investigation. Second, Mini40 manufactured by ATI Inc. is the corresponding F/T sensor with three force and three torque detections \cite{web5}. As for the end effector, we modify an existing dental handpiece that equips a file exchange mechanism shown in Fig \ref{fig:modified_handpiece}. The rotation of endodontic file   is driven by a servo motor. The modified handpiece with a motor total weighs around 139 grams.  Also, Adapters are designed to assemble these devices.
 \par
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Images/modified_handpiece.png}
+\caption{
+Modified handpiece
+}\label{fig:modified_handpiece}
+\end{center}
+\end{figure}	
 Therefore, DentiBot totally has seven degrees of freedom. Six degree of freedom come from Meca500, and the other thanks to our modified handpiece. The rotation of the root canal file is driven by a servo motor whose maximum rotation speed is more than 600 rpm.
 																
 \section{Kinematics Analysis}
 \label{sec:kinematics}
-The purpose of this section and section \ref{sec:ref_robot} is to serve as a tutorial and provide some crucial approaches when combining a robot arm and an end effector. We derive the forward and inverse kinematics in section \ref{sec:forward} and describe the Jacobian matrix in section \ref{sec:jacobian}. 
+\hspace*{6mm}The purpose of this section and section \ref{sec:ref_robot} is to serve as a tutorial and provide some crucial approaches when combining a robot arm and an end effector. We derive the forward and inverse kinematics in section \ref{sec:forward} and describe the Jacobian matrix in section \ref{sec:jacobian}. 
 \subsection{Coordinate Definition}
-In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axes of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
+\hspace*{6mm}In Fig \ref{fig:frames} , we define frame\{0\} to frame\{6\} which represent each frame of axes of the Meca500, frame\{S\} which represent the frame of the ATI-mini40 and frame\{H\} which represent the frame of the handpiece.
 \begin{figure}[htbp]
 \begin{center}
-\hspace*{6mm}\hspace*{6mm}\includegraphics[width=0.72\linewidth]{Images/Coordinates.png}
+\includegraphics[width=0.72\linewidth]{Images/Coordinates.png}
 \caption{
 Coordinate Definition
 }\label{fig:frames}
@@ -41,11 +49,11 @@ Coordinate Definition
 $i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			&$d_i$ (mm)	\\
 \hline
 1   					&0    					&0				&$\theta _1$				&135 \\
-2   					&-90   					&0				&$\theta _2$				&0 \\
+2   					&-90   					&0				&$\theta _2-90$				&0 \\
 3  						&0    					&135			&$\theta _3$ 				&0 \\
 4   					&-90    				&38				&$\theta _4$ 				&120 \\
 5   					&90   					&0				&$\theta _5$ 				&0 \\
-6						&-90  					&0				&$\theta _6$ 				&70 \\
+6						&-90  					&0				&$\theta _6+180$ 				&70 \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -281,7 +289,7 @@ f_z \\
 where $\boldsymbol{\tau }$ is the vector of joints' torques and $\boldsymbol{f}$ is the vector composed of inertial forces and torques of the robot arm.
 \subsubsection{Geometric Jacobian Based on Frame\{6\}}
 \label{sec:jg6}
-Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:adm ctrl} we will apply admittance control and it will use F/T sensor mounted on frame\{6\} instead of frame\{0\} to detect forces and torques. To start with Equation \ref{eq:jg0}
+\hspace*{6mm}Why we need geometric Jacobian based on frame\{6\} is that in section \ref{sec:adm ctrl} we will apply admittance control and it will use F/T sensor mounted on frame\{6\} instead of frame\{0\} to detect forces and torques. To start with Equation \ref{eq:jg0}
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -411,7 +419,7 @@ where
 \end{split}
 \end{equation*}
 \subsubsection{Analytical Jacobian}
-The linear velocity of analytical Jacobian and geometric Jacobian is the same as shown in Eq \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector into consideration. First of all, we investigate the relationship between the axis angle and the orientation of the end effector as following.
+\hspace*{6mm}The linear velocity of analytical Jacobian and geometric Jacobian is the same as shown in Eq \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the orientation ($\alpha$,$\beta$,$\gamma$) of the end effector into consideration. First of all, we investigate the relationship between the axis angle and the orientation of the end effector as following.
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -472,6 +480,7 @@ Then, utilize this generalized vector to get its Jacobian matrix $\mathbf{J_{we}
 \end{equation}
 where
 \begin{equation}
+\label{eq:jacobian_euler}
 \begin{split}
 \mathbf{J_{we}}
 =
@@ -541,7 +550,7 @@ Schematic diagram for Tool Center Point. The translation vector $^\mathrm{6}\!\b
 }\label{fig:tcp}
 \end{center}
 \end{figure}
-Tool Center Point (TCP) is a critical problem for robot arm control \cite{yang2017four}. In the previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics, we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has the capability to translate and rotate with the origin of the frame\{6\}. The overhead motions are like a remote center motion (RCM). We should find the position of the tooltip and make it be an RCM point. Nevertheless, it's inefficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
+\hspace*{6mm}Tool Center Point (TCP) is a critical problem for robot arm control \cite{yang2017four}. In the previous section, we have calculated the forward and inverse kinematics of the robot arm. By Calculating kinematics, we can keep track of the origin of the frame\{6\}, which is observed from the base frame. The robot arm has the capability to translate and rotate with the origin of the frame\{6\}. The overhead motions are like a remote center motion (RCM). We should find the position of the tooltip and make it be an RCM point. Nevertheless, it's inefficient to recalculate the transformation matrix via mechanism dimension when changing an end effector or a tool (root canal reamer).
 \par
 In order to overcome this problem, we interpret the four-points method to obtain the tooltip position, which is also the translation vector.
 \par\noindent
@@ -645,7 +654,7 @@ Schematic diagram for obtaining the tool vector.
 }\label{fig:tcp2}
 \end{center}
 \end{figure}
-We are turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. We can obtain the translation vector from the origin of frame\{6\} to the tooltip through the TCP method. Accordingly, we use two root canal files with different lengths and apply the TCP method to separately obtain two vectors illustrated as Fig \ref{fig:tcp2}. Hence, 
+\hspace*{6mm}We are turning now to the discussion about the rotation vector. Above all, we have to find the vector of tool insertion direction $\boldsymbol{t}$. We can obtain the translation vector from the origin of frame\{6\} to the tooltip through the TCP method. Accordingly, we use two root canal files with different lengths and apply the TCP method to separately obtain two vectors illustrated as Fig \ref{fig:tcp2}. Hence, 
 \begin{equation}
 \begin{split}
 \boldsymbol{t} =\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,short}}
@@ -687,4 +696,4 @@ Assume $\boldsymbol{t} = [x,y,z]$,
 \end{equation}
 $\alpha$ and $\beta$ are Euler angles, which meet the command demand.
 \par
-In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm will recognize frame\{T\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.
+In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm can recognize frame\{T\} and translate and orientate along with frame\{T\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.

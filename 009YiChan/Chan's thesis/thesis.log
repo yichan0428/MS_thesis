@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.12)  27 MAY 2021 10:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.12)  3 JUN 2021 22:59
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -709,11 +709,7 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
 4.
  (C:\Users\chan\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (thesis.aux
-
-LaTeX Warning: Label `fig: feed_control' multiply defined.
-
-)
+) (thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -961,13 +957,13 @@ l.50 \tableofcontents
 page.iii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 ... Surgical Robot - DentiBot}{15}{chapter.3}
+l.19 ...{3.3}Kinematics Analysis}{15}{section.3.3}
                                                   % [3]pdfTeX warning (ext4): d
 estination with the same identifier (name{page.iv}) has been already used, dupl
 icate ignored
 <to be read again> 
                    \relax 
-l.52 ...se Rotation Control}{60}{subsection.5.2.1}
+l.52 ...rline {6}Experiment Result}{69}{chapter.6}
                                                   % [4])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
@@ -992,24 +988,24 @@ Overfull \hbox (18.18398pt too wide) in paragraph at lines 19--19
 ted to $\OML/lmm/m/it/12 x; y; z; []; []; []$\OT1/ptm/m/n/12 (-20) . 
  []
 
-)
+[8])
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
- [8] (thesis.lot)
+ [9] [10
+
+] (thesis.lot)
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
- [9
-
-] [10
+ [11] [12
 
 ] (Chapters/1_Introduction.tex
 Chapter 1.
 [1
 
 ]
-<Images/endo-procedure.png, id=246, 451.6875pt x 406.51875pt>
+<Images/endo-procedure.png, id=260, 451.6875pt x 406.51875pt>
 File: Images/endo-procedure.png Graphic file (type png)
 <use Images/endo-procedure.png>
 Package pdftex.def Info: Images/endo-procedure.png  used on input line 15.
@@ -1028,29 +1024,22 @@ Underfull \vbox (badness 3482) has occurred while \output is active []
 
 ]
 Chapter 2.
-<Images/YOMI.png, id=309, 457.71pt x 339.51843pt>
+<Images/YOMI.png, id=323, 457.71pt x 339.51843pt>
 File: Images/YOMI.png Graphic file (type png)
 <use Images/YOMI.png>
 Package pdftex.def Info: Images/YOMI.png  used on input line 8.
 (pdftex.def)             Requested size: 350.82008pt x 260.23845pt.
 [9]
-<Images/NCTU_1.png, id=321, 392.21532pt x 399.74344pt>
+<Images/NCTU_1.png, id=336, 392.21532pt x 399.74344pt>
 File: Images/NCTU_1.png Graphic file (type png)
 <use Images/NCTU_1.png>
 Package pdftex.def Info: Images/NCTU_1.png  used on input line 20.
 (pdftex.def)             Requested size: 272.86073pt x 278.1167pt.
- [10 <./Images/YOMI.png>]
-<Images/Endodontic_File.png, id=327, 497.6994pt x 129.1224pt>
-File: Images/Endodontic_File.png Graphic file (type png)
-<use Images/Endodontic_File.png>
-Package pdftex.def Info: Images/Endodontic_File.png  used on input line 37.
-(pdftex.def)             Requested size: 389.80275pt x 101.13078pt.
-
-Underfull \vbox (badness 1509) has occurred while \output is active []
-
- [11 <./Images/NCTU_1.png>])
+ [10 <./Images/YOMI.png>])
 (Chapters/3_Design and Analysis of the Dental Surgical Robot - DentiBot.tex
-[12 <./Images/Endodontic_File.png>]
+[11 <./Images/NCTU_1.png>] [12
+
+]
 Chapter 3.
 
 Overfull \hbox (0.78905pt too wide) in paragraph at lines 4--5
@@ -1062,267 +1051,263 @@ e-ter of a root canal is $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 28
 
 Underfull \vbox (badness 4378) has occurred while \output is active []
 
- [13
-
-]
-<Images/DentiBot.png, id=348, 999.735pt x 484.81125pt>
+ [13]
+<Images/DentiBot.png, id=359, 999.735pt x 484.81125pt>
 File: Images/DentiBot.png Graphic file (type png)
 <use Images/DentiBot.png>
 Package pdftex.def Info: Images/DentiBot.png  used on input line 10.
 (pdftex.def)             Requested size: 389.80275pt x 189.03123pt.
 
 [14 <./Images/DentiBot.png>]
-<Images/Coordinates.png, id=361, 532.389pt x 510.2262pt>
+<Images/modified_handpiece.png, id=369, 423.984pt x 480.3546pt>
+File: Images/modified_handpiece.png Graphic file (type png)
+<use Images/modified_handpiece.png>
+Package pdftex.def Info: Images/modified_handpiece.png  used on input line 20.
+(pdftex.def)             Requested size: 272.86073pt x 309.14835pt.
+<Images/Coordinates.png, id=374, 532.389pt x 510.2262pt>
 File: Images/Coordinates.png Graphic file (type png)
 <use Images/Coordinates.png>
-Package pdftex.def Info: Images/Coordinates.png  used on input line 27.
+Package pdftex.def Info: Images/Coordinates.png  used on input line 35.
 (pdftex.def)             Requested size: 280.65845pt x 268.97829pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-[16 <./Images/Coordinates.png>]
+[16 <./Images/modified_handpiece.png>] [17 <./Images/Coordinates.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
-LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 94.
-
-Underfull \vbox (badness 5274) has occurred while \output is active []
 
  [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 102.
+
+Underfull \vbox (badness 5274) has occurred while \output is active []
 
  [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-Underfull \vbox (badness 3503) has occurred while \output is active []
-
- [21]
-[22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
-[24]
-<Images/TCP.png, id=443, 542.77782pt x 452.4403pt>
+ [21]
+Underfull \vbox (badness 3503) has occurred while \output is active []
+
+ [22]
+[23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+[25]
+<Images/TCP.png, id=461, 542.77782pt x 452.4403pt>
 File: Images/TCP.png Graphic file (type png)
 <use Images/TCP.png>
-Package pdftex.def Info: Images/TCP.png  used on input line 538.
+Package pdftex.def Info: Images/TCP.png  used on input line 547.
 (pdftex.def)             Requested size: 272.86073pt x 227.45535pt.
- [25] [26 <./Images/TCP.png>]
-<Images/TCP2.png, id=460, 550.30594pt x 458.46281pt>
+ [26] [27 <./Images/TCP.png>]
+<Images/TCP2.png, id=479, 550.30594pt x 458.46281pt>
 File: Images/TCP2.png Graphic file (type png)
 <use Images/TCP2.png>
-Package pdftex.def Info: Images/TCP2.png  used on input line 642.
+Package pdftex.def Info: Images/TCP2.png  used on input line 651.
 (pdftex.def)             Requested size: 272.86073pt x 227.32803pt.
- [27]
-<Images/rot_inf.png, id=468, 279.9258pt x 238.0092pt>
+ [28]
+<Images/rot_inf.png, id=487, 279.9258pt x 238.0092pt>
 File: Images/rot_inf.png Graphic file (type png)
 <use Images/rot_inf.png>
-Package pdftex.def Info: Images/rot_inf.png  used on input line 656.
+Package pdftex.def Info: Images/rot_inf.png  used on input line 665.
 (pdftex.def)             Requested size: 233.88402pt x 198.86226pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28 <./Images/TCP2.png>]
+ [29 <./Images/TCP2.png>]
 Underfull \vbox (badness 5519) has occurred while \output is active []
 
- [29 <./Images/rot_inf.png>]) (Chapters/4_Force-Guided Robot Alignment.tex [30]
+ [30 <./Images/rot_inf.png>]) (Chapters/4_Force-Guided Robot Alignment.tex [31]
+ [32
 
+]
 Chapter 4.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31
-
-]
-[32]
-<Images/gravity compensation.png, id=506, 558.4062pt x 273.6624pt>
+ [33]
+[34]
+<Images/gravity compensation.png, id=529, 558.4062pt x 273.6624pt>
 File: Images/gravity compensation.png Graphic file (type png)
 <use Images/gravity compensation.png>
 Package pdftex.def Info: Images/gravity compensation.png  used on input line 13
 .
 (pdftex.def)             Requested size: 389.80275pt x 191.04039pt.
- [33 <./Images/gravity compensation.png>] [34] [35] [36] [37] [38] [39]
+ [35 <./Images/gravity compensation.png>] [36] [37] [38] [39] [40] [41]
 Underfull \vbox (badness 3601) has occurred while \output is active []
 
- [40]
-[41]
-<Images/adm ctrl.png, id=585, 597.432pt x 197.538pt>
+ [42]
+[43]
+<Images/adm ctrl.png, id=607, 597.432pt x 197.538pt>
 File: Images/adm ctrl.png Graphic file (type png)
 <use Images/adm ctrl.png>
 Package pdftex.def Info: Images/adm ctrl.png  used on input line 398.
 (pdftex.def)             Requested size: 389.80275pt x 128.88948pt.
- [42 <./Images/adm ctrl.png>] [43] [44] [45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [44 <./Images/adm ctrl.png>] [45] [46]
+Underfull \vbox (badness 1205) has occurred while \output is active []
 
- [46]
-<Images/sensor_comp 1.png, id=627, 249.5724pt x 173.448pt>
+ [47]
+[48]
+<Images/sensor_comp 1.png, id=651, 249.5724pt x 173.448pt>
 File: Images/sensor_comp 1.png Graphic file (type png)
 <use Images/sensor_comp 1.png>
-Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 525.
+Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 531.
 (pdftex.def)             Requested size: 272.86073pt x 189.63947pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47 <./Images/sensor_comp 1.png>]
-<Images/sensor_comp 2.png, id=635, 198.9834pt x 163.812pt>
+<Images/sensor_comp 2.png, id=653, 198.9834pt x 163.812pt>
 File: Images/sensor_comp 2.png Graphic file (type png)
 <use Images/sensor_comp 2.png>
-Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 555.
+Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 561.
 (pdftex.def)             Requested size: 272.86073pt x 224.64603pt.
- [48 <./Images/sensor_comp 2.png>] [49]
-<Images/mass spring.png, id=651, 249.93375pt x 81.30376pt>
+ [49] [50 <./Images/sensor_comp 1.png> <./Images/sensor_comp 2.png>]
+[51]
+<Images/mass spring.png, id=675, 249.93375pt x 81.30376pt>
 File: Images/mass spring.png Graphic file (type png)
 <use Images/mass spring.png>
-Package pdftex.def Info: Images/mass spring.png  used on input line 637.
+Package pdftex.def Info: Images/mass spring.png  used on input line 643.
 (pdftex.def)             Requested size: 233.88402pt x 76.0856pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3148) has occurred while \output is active []
 
- [50 <./Images/mass spring.png>] [51]
-<Images/holding_gesture.png, id=669, 734.745pt x 546.3612pt>
+ [52]
+[53 <./Images/mass spring.png>]
+<Images/holding_gesture.png, id=692, 734.745pt x 546.3612pt>
 File: Images/holding_gesture.png Graphic file (type png)
 <use Images/holding_gesture.png>
-Package pdftex.def Info: Images/holding_gesture.png  used on input line 706.
+Package pdftex.def Info: Images/holding_gesture.png  used on input line 712.
 (pdftex.def)             Requested size: 311.84338pt x 231.89613pt.
-) (Chapters/5_Control of Endodontic File Rotation.tex [52] [53 <./Images/holdin
-g_gesture.png>] [54
+)
+(Chapters/5_Control of Endodontic File Rotation.tex [54] [55 <./Images/holding_
+gesture.png>] [56
 
 ]
 Chapter 5.
 
 Underfull \vbox (badness 3514) has occurred while \output is active []
 
- [55]
-[56]
-<Images/Prototype.png, id=701, 847.0044pt x 522.753pt>
+ [57]
+<Images/Endodontic_File.png, id=713, 497.6994pt x 129.1224pt>
+File: Images/Endodontic_File.png Graphic file (type png)
+<use Images/Endodontic_File.png>
+Package pdftex.def Info: Images/Endodontic_File.png  used on input line 11.
+(pdftex.def)             Requested size: 389.80275pt x 101.13078pt.
+
+[58 <./Images/Endodontic_File.png>]
+<Images/files.jpg, id=722, 1173.63469pt x 880.79062pt>
+File: Images/files.jpg Graphic file (type jpg)
+<use Images/files.jpg>
+Package pdftex.def Info: Images/files.jpg  used on input line 34.
+(pdftex.def)             Requested size: 272.86073pt x 204.76826pt.
+ [59 <./Images/files.jpg>] [60]
+<Images/Prototype.png, id=740, 847.0044pt x 522.753pt>
 File: Images/Prototype.png Graphic file (type png)
 <use Images/Prototype.png>
-Package pdftex.def Info: Images/Prototype.png  used on input line 62.
+Package pdftex.def Info: Images/Prototype.png  used on input line 97.
 (pdftex.def)             Requested size: 389.80275pt x 240.573pt.
- [57]
-<Images/inverse_rotation.png, id=712, 472.76625pt x 574.145pt>
+ [61]
+<Images/inverse_rotation.png, id=750, 472.76625pt x 574.145pt>
 File: Images/inverse_rotation.png Graphic file (type png)
 <use Images/inverse_rotation.png>
-Package pdftex.def Info: Images/inverse_rotation.png  used on input line 71.
-(pdftex.def)             Requested size: 311.84338pt x 378.71785pt.
+Package pdftex.def Info: Images/inverse_rotation.png  used on input line 105.
+(pdftex.def)             Requested size: 194.90137pt x 236.69756pt.
 
-! Extra }, or forgotten \endgroup.
-l.73 }
-      \label{fig: inverse_rotation}
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+[62 <./Images/Prototype.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58 <./Images/Prototype.png>] [59 <./Images/inverse_rotation.png>]
-<Images/feedrate_control.png, id=726, 919.7562pt x 180.1932pt>
+ [63 <./Images/inverse_rotation.png>]
+<Images/feedrate_control.png, id=765, 919.7562pt x 180.1932pt>
 File: Images/feedrate_control.png Graphic file (type png)
 <use Images/feedrate_control.png>
-Package pdftex.def Info: Images/feedrate_control.png  used on input line 83.
+Package pdftex.def Info: Images/feedrate_control.png  used on input line 127.
 (pdftex.def)             Requested size: 389.80275pt x 76.368pt.
-
-! Extra }, or forgotten \endgroup.
-l.85 }
-      \label{fig: feed_control}
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-<Images/torque_control.png, id=727, 543.02875pt x 512.91624pt>
+ [64]
+<Images/torque_control.png, id=771, 543.02875pt x 512.91624pt>
 File: Images/torque_control.png Graphic file (type png)
 <use Images/torque_control.png>
-Package pdftex.def Info: Images/torque_control.png  used on input line 94.
-(pdftex.def)             Requested size: 311.84338pt x 294.56453pt.
-! Extra }, or forgotten \endgroup.
-l.96 }
-      \label{fig: feed_control}
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+Package pdftex.def Info: Images/torque_control.png  used on input line 138.
+(pdftex.def)             Requested size: 272.86073pt x 257.74103pt.
+<Images/complete flow chart.png, id=772, 840.13875pt x 783.92876pt>
+File: Images/complete flow chart.png Graphic file (type png)
+<use Images/complete flow chart.png>
+Package pdftex.def Info: Images/complete flow chart.png  used on input line 147
+.
+(pdftex.def)             Requested size: 389.80275pt x 363.72166pt.
+) (Chapters/6_Experiment Results.tex
+Underfull \vbox (badness 4132) has occurred while \output is active []
 
-) (Chapters/6_Experiment Results.tex [60 <./Images/feedrate_control.png>]
-[61 <./Images/torque_control.png>] [62
+ [65 <./Images/feedrate_control.png>] [66 <./Images/torque_control.png>] [67 <.
+/Images/complete flow chart.png>] [68
 
 ]
 Chapter 6.
-<Images/EtherCAT.png, id=744, 455.7828pt x 294.8616pt>
+<Images/EtherCAT.png, id=794, 455.7828pt x 308.352pt>
 File: Images/EtherCAT.png Graphic file (type png)
 <use Images/EtherCAT.png>
 Package pdftex.def Info: Images/EtherCAT.png  used on input line 7.
-(pdftex.def)             Requested size: 272.86073pt x 176.52238pt.
-! Extra }, or forgotten \endgroup.
-l.9 }
-     \label{fig:EtherCAT}
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+(pdftex.def)             Requested size: 272.86073pt x 184.59857pt.
+<Images/System.jpg, id=795, 1174.3875pt x 1565.85pt>
+File: Images/System.jpg Graphic file (type jpg)
+<use Images/System.jpg>
+Package pdftex.def Info: Images/System.jpg  used on input line 15.
+(pdftex.def)             Requested size: 233.88402pt x 311.82645pt.
+[69] [70 <./Images/EtherCAT.png> <./Images/System.jpg>]
+<Images/GUI.png, id=808, 673.01437pt x 423.08063pt>
+File: Images/GUI.png Graphic file (type png)
+<use Images/GUI.png>
+Package pdftex.def Info: Images/GUI.png  used on input line 48.
+(pdftex.def)             Requested size: 389.80275pt x 245.04478pt.
+ [71]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[63] [64 <./Images/EtherCAT.png>] [65])
-(Chapters/7_Conclusions and Future Works.tex [66]
+ [72 <./Images/GUI.png>]) (Chapters/7_Conclusions and Future Works.tex [73] [74
+
+]
 Chapter 7.
-[67
-
-] [68]) (Chapters/8_Appendix.tex [69] [70
+[75] [76]) (Chapters/8_Appendix.tex [77] [78
 
 ]
 Chapter 8.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [79]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72]
+ [80]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [73]
+ [81]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74]
+ [82]
 Overfull \vbox (182.65828pt too high) has occurred while \output is active []
 
 
-[75]
+[83]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [76]
+ [84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77])
+ [85])
 (thesis.bbl (thesis.brf)
 \tf@brf=\write7
 \openout7 = `thesis.brf'.
 
- [78] [79
+ [86] [87
 
-] [80]) [81] (thesis.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `thesis.brf' has changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `thesis.brf':
-(rerunfilecheck)             Before: 546B973DB236CF248B689775DD29C395;1239
-(rerunfilecheck)             After:  C82DAB9429E9B5B059F322F83168A147;1239.
+] [88]) [89] (thesis.aux)
+Package rerunfilecheck Info: File `thesis.brf' has not changed.
+(rerunfilecheck)             Checksum: CF83B8950F045783C95CA8F891032D7A;1239.
  ) 
 Here is how much of TeX's memory you used:
- 18388 strings out of 479287
- 315547 string characters out of 2853534
- 652359 words of memory out of 3000000
- 34876 multiletter control sequences out of 15000+600000
- 500994 words of font info for 289 fonts, out of 8000000 for 9000
+ 18439 strings out of 479287
+ 316480 string characters out of 2853534
+ 654252 words of memory out of 3000000
+ 34905 multiletter control sequences out of 15000+600000
+ 501113 words of font info for 291 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,27n,107p,1436b,889s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc
@@ -1352,9 +1337,9 @@ pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr
 8a.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on thesis.pdf (95 pages, 5626587 bytes).
+Output written on thesis.pdf (105 pages, 6808676 bytes).
 PDF statistics:
- 1147 PDF objects out of 1200 (max. 8388607)
- 280 named destinations out of 1000 (max. 500000)
- 86533 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1204 PDF objects out of 1440 (max. 8388607)
+ 293 named destinations out of 1000 (max. 500000)
+ 86534 words of extra memory for PDF output out of 89155 (max. 10000000)
 
