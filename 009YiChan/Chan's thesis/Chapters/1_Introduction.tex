@@ -1,7 +1,7 @@
 \chapter{Introduction}
-\hspace*{6mm}The robot-assisted system for endodontic treatment - DentiBot is presented in this thesis. The definition of a robot-assisted system in the thesis refers to be a dental assistant. That means we wish DentiBot could help dentists perform better clinical results. This chapter will give brief introductions of the endodontic treatment, previous work, problem definition, and the proposed method.
+\hspace*{6mm}The robot-assisted system for endodontic treatment - DentiBot is presented in this thesis. The definition of a robot-assisted system in the thesis refers to be a dental assistant, which means we wish DentiBot could help dentists perform better clinical results and reduce the risks associated with free-hnad surgery. This chapter will give brief introductions of the endodontic treatment, previous work, problem definition, and the proposed method.
 \section{Motivation}
-\hspace*{6mm}A qualified dentist with a certification can operate an endodontic treatment. They accumulate their experience, thereby increasing the success rate of surgery. With enough clinical experience, the dentist can acquire an endodontist license. According to statistics from the Ministry of Health and Welfare, R.O.C. (Taiwan) \cite{web1}, the number of dentists in Taiwan is $15,178$. However, according to The Academy of Endodontology, R.O.C. (Taiwan) \cite{web2}, there are only $238$ dentists to acquire an endodontist license. Thus, performing an endodontic treatment requires the dentist's self expertise of endodontics. The performance of endodontic treatment depends on a dentist's long-term experience. 
+\hspace*{6mm}A qualified dentist with a certification can operate an endodontic treatment. They accumulate their experience, thereby increasing the success rate of surgery. With enough clinical experience, the dentist can acquire an endodontist license. According to statistics from the Ministry of Health and Welfare, R.O.C. (Taiwan) \cite{web1}, the number of dentists in Taiwan is $15,178$. However, according to The Academy of Endodontology, R.O.C. (Taiwan) \cite{web2}, there are only $238$ dentists to acquire an endodontist license. Thus, performing an endodontic treatment requires the dentist's self knowledge and expertise of endodontics. The performance of endodontic treatment depends on a dentist's long-term clinician experience and skill. 
 \par
 Besides, root canal treatment is a tedious and time-consuming surgery for a dentist due to different complicated conditions of each tooth. A patient who suffered from an infected tooth spends countless hours see a dentist. Endodontic treatment takes at least two to three rounds of treatments, even more than two months in the worst case.  
 \par
@@ -12,10 +12,9 @@ Therefore, our team looks forward to designing a robot-assisted system to accomp
 \textit{Endodontic treatment}, also known as root canal treatment and nerve extraction, is performed to cure an infected tooth. The main procedure of endodontic treatment is divided into three parts - Opening, Cleaning, and Filling shown in  Figure \ref{fig:endo-procedure}.
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=0.7\linewidth]{Images/endo-procedure.png}
-\caption{
-The endodontic therapy steps
-}\label{fig:endo-procedure}
+\includegraphics[width=0.75\linewidth]{Images/endo-procedure.png}
+\caption[The endodontic treatment procedure]{The endodontic treatment procedure \cite{web7}}
+\label{fig:endo-procedure}
 \end{center}
 \end{figure}
 \par
@@ -44,8 +43,8 @@ To overcome the problem that the root canal cannot be visually observed. We use 
 To protect the endodontic file from fracturing during the endodontic treatment, we use current feedback to keep track of the file's torque. With the torque feedback, we can regulate the feedrate of the endodontic file to control the file torque. It successfully prevent instrument fracture.
 \section{Main Contributions of the Thesis}
 \label{sec:contributions}
+\hspace*{6mm}To build an appropriate robot system for endodontic treatment, it is necessary to contemplate requirements and specifications comprehensively from technical and clinical perspectives. There are four subjects of the proposed robot-assisted project. 
 \subsubsection{Prospect}
-\hspace*{6mm}There are four parts of the robot-assisted project. 
 \begin{enumerate}
 	\item Dentist could move the DentiBot to the infected tooth. 
 	\item The DentiBot could search all root canals of the infected tooth.
@@ -53,7 +52,7 @@ To protect the endodontic file from fracturing during the endodontic treatment, 
 	\item The DentiBot continues drilling until detecting the apex of the root canal.
 \end{enumerate}	
 \subsubsection{Main Contributions}
-\hspace*{6mm}The entire endodontic project is huge. The thesis is the beginning of the project and focus on the first and the third parts of the project. In conclusion, there are three main contributions of the thesis.
+\hspace*{6mm}The entire endodontic project is huge. The thesis is the beginning of the project and focus on the first and the third part of the project. In conclusion, there are three main contributions of the thesis.
 \begin{enumerate}
 	\item	Integrate a 6-DoF robotic manipulator with 6-DoF F/T sensor for performing endodontic treatment.
 	\item	Develop a framework for robot alignment regarding the position and orientation of root canal. 

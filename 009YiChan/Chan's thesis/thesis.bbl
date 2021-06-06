@@ -22,11 +22,15 @@
 \BIBdecl
 
 \bibitem{web1}
-``the ministry of health and welfare,'' 2018,
+``The ministry of health and welfare,'' 2018,
   \url{https://dep.mohw.gov.tw/dos/cp-1735-3245-113.html}.
 
 \bibitem{web2}
-``the acadamy of endodontology,'' 2021, \url{http://www.aeroc.org.tw/about/}.
+``The acadamy of endodontology,'' 2021, \url{http://www.aeroc.org.tw/about/}.
+
+\bibitem{web7}
+``Root canal procedure, tower endodontics,'' 2020, \url{
+  https://www.towerendodontics.com/find-out-more-about-our-services/introduction/}.
 
 \bibitem{Kim2009ASO}
 G.~Kim, H.~Seo, S.~Im, D.~Kang, and S.~Jeong, ``A study on simulator of
@@ -42,10 +46,39 @@ J.~Li, Z.~Shen, W.~Xu, W.~Y. Lam, R.~T.~C. Hsung, E.~H. Pow, K.~Kosuge, and
 \bibitem{web3}
 ``Yomi, neocis,'' 2017, \url{https://www.neocis.com/}.
 
+\bibitem{dong2006wip}
+J.~Dong, S.~Hong, and G.~Hesselgren, ``Wip: a study on the development of
+  endodontic micro robot,'' in \emph{Proceedings of the 2006 IJME-INTERTECH
+  Conference}.\hskip 1em plus 0.5em minus 0.4em\relax Citeseer, 2006.
+
 \bibitem{SATTAPAN2000161}
 B.~Sattapan, G.~J. Nervo, J.~E. Palamara, and H.~H. Messer, ``Defects in rotary
   nickel-titanium files after clinical use,'' \emph{Journal of Endodontics},
   vol.~26, no.~3, pp. 161--165, 2000.
+
+\bibitem{rawtiya2014application}
+M.~Rawtiya, K.~Verma, P.~Sethi, and K.~Loomba, ``Application of robotics in
+  dentistry,'' \emph{Indian J Dent Adv}, vol.~6, no.~4, pp. 1700--1706, 2014.
+
+\bibitem{s21103308}
+P.~Ahmad, M.~K. Alam, A.~Aldajani, A.~Alahmari, A.~Alanazi, M.~Stoddart, and
+  M.~G. Sghaireen, ``Dental robotics: A disruptive technology,''
+  \emph{Sensors}, vol.~21, no.~10, 2021.
+
+\bibitem{bhat2017robotics}
+B.~D. Bhat, S.~Bhandary, R.~Naik, D.~Shetty \emph{et~al.}, ``Robotics in
+  dentistry: Fiction or reality,'' \emph{Journal of Dental Research and
+  Review}, vol.~4, no.~3, p.~67, 2017.
+
+\bibitem{haidar2017autonomous}
+Z.~Haidar, ``Autonomous robotics: A fresh era of implant dentistry… is a
+  reality!'' \emph{Journal of Oral Research}, vol.~6, no.~9, pp. 230--231,
+  2017.
+
+\bibitem{wu2019robotics}
+Y.~Wu, F.~Wang, S.~Fan, and J.~K.-F. Chow, ``Robotics in dental implantology,''
+  \emph{Oral and Maxillofacial Surgery Clinics}, vol.~31, no.~3, pp. 513--518,
+  2019.
 
 \bibitem{9026216}
 T.~Iijima, T.~Matsunaga, T.~Shimono, K.~Ohnishi, S.~Usuda, and H.~Kawana,
@@ -53,15 +86,25 @@ T.~Iijima, T.~Matsunaga, T.~Shimono, K.~Ohnishi, S.~Usuda, and H.~Kawana,
   in \emph{2020 IEEE/SICE International Symposium on System Integration (SII)},
   2020, pp. 52--57.
 
-\bibitem{dong2006wip}
-J.~Dong, S.~Hong, and G.~Hesselgren, ``Wip: a study on the development of
-  endodontic micro robot,'' in \emph{Proceedings of the 2006 IJME-INTERTECH
-  Conference}.\hskip 1em plus 0.5em minus 0.4em\relax Citeseer, 2006.
-
 \bibitem{bolding2021accuracy}
 S.~L. Bolding and U.~N. Reebye, ``Accuracy of haptic robotic guidance of dental
   implant surgery for completely edentulous arches,'' \emph{The Journal of
   prosthetic dentistry}, 2021.
+
+\bibitem{BOLDING2021}
+------, ``Accuracy of haptic robotic guidance of dental implant surgery for
+  completely edentulous arches,'' \emph{The Journal of Prosthetic Dentistry},
+  2021.
+
+\bibitem{intraoral_splint}
+``Implant surgery with robotic guidance – digital workflows for patient
+  care,'' 2019,
+  \url{https://www.oralhealthgroup.com/features/implant-surgery-with-robotic-guidance-digital-workflows-for-patient-care/}.
+
+\bibitem{everett2014feasibility}
+H.~Everett, ``Feasibility study of single-axis microrobot for endodontic
+  treatment,'' Ph.D. dissertation, University of Cincinnati. College of
+  Engineering and Applied Science, 2014.
 
 \bibitem{dong2010design}
 J.~Dong and S.~Y. Hong, ``Design of z axis actuator and quick tool change
@@ -109,5 +152,9 @@ C.~Boessler, F.~Paque, and O.~A. Peters, ``The effect of electropolishing on
   torque and force during simulated root canal preparation with protaper
   shaping files,'' \emph{Journal of Endodontics}, vol.~35, no.~1, pp. 102--106,
   2009.
+
+\bibitem{web8}
+``Motion capture system - impulse x2e, phasespace,'' 2021,
+  \url{https://www.phasespace.com/}.
 
 \end{thebibliography}
