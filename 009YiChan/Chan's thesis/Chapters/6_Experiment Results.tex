@@ -1,4 +1,5 @@
 \chapter{Experiment Result}
+\label{chapter6}
 \hspace*{6mm}For checking and validating the proposed method, we set up experiments from technical and clinical perspective. In technical perspective, admittance control, force-guided alignment, and file feedrate control were conducted and verified. On the other hand, in pre-clinical task, acrylic root models before and after the experiment were also compared in this chapter. 
 \section{Experimental Setup}
 \hspace*{6mm}To control and communicate with all devices in low latency and high speed, a communication protocol - Ethernet for Control Automation Technology (EtherCAT) and a real-time oprating system (RTOS) are interfaced. EtherCAT is constructed on EtherNET and utilizes "processing on the fly" technology. Therefore, it provide a short cycle time (less than 100 $\mu$s) and a low jitter \cite{web5}. Besides, EhterCAT supports every types of network topologies such as star, ring, daisy chain, and so on.	 Our devices are connected in Daisy-chain with EtherCAT as shown in Fig \ref{fig:EtherCAT}.
@@ -68,17 +69,17 @@ Stewart Platform								&Actuoanix - Linear Actuator				\\
 \par
 \begin{tabular}{|c|c|} 
 \hline
-Payload						&0.5 kg					\\	\hline
-Repeatability				&0.005 mm					\\	\hline
-Reach (at wrist center)		&260 mm	\\ \hline
-Total weight				&4.5 kg						\\	\hline
-\multirow{6}{*}{Joint range}&joint 1: −175° to +175°				\\	
-							&joint 2: −70° to +90°				\\	
-							&joint 3: −135° to +70°				\\	
-							&joint 4: −170° to +170°				\\	
-							&joint 5: −115° to +115°				\\	
-							&joint 6: ±100 revolutions				\\	\hline
-Speed of joints 1–6 &{150, 150, 180, 300, 300, 500} °/s				\\	\hline
+Payload						&$0.5$ kg					\\	\hline
+Repeatability				&$0.005$ mm					\\	\hline
+Reach (at wrist center)		&$260$ mm	\\ \hline
+Total weight				&$4.5$ kg						\\	\hline
+\multirow{6}{*}{Joint range}&joint 1: $-175^\text{o}$ to $+175^\text{o}$				\\	
+							&joint 2: $-70^\text{o}$ to $+90^\text{o}$				\\	
+							&joint 3: $-135^\text{o}$ to $+70^\text{o}$				\\	
+							&joint 4: $-170^\text{o}$ to $+170^\text{o}$				\\	
+							&joint 5: $-115^\text{o}$ to $+115^\text{o}$				\\	
+							&joint 6: $\pm 100$ revolutions				\\	\hline
+Speed of joints 1–6 &${150, 150, 180, 300, 300, 500}$ $^\text{o}\text{/s}$				\\	\hline
 Brakes 				&on joints 1, 2 and 3				\\	\hline
 Robot mounting 		&any orientation				\\	\hline
 Safety module		&Category 3, PL d				\\	\hline
@@ -124,14 +125,23 @@ Height										&12.2 mm 	\\	\hline
 
 \newpage
 \section{Force-Guided Alignment}
-\hspace*{6mm}In order to prove the validation of force-guided alignment, we set up three experiments with different scenarios. The aim of these experiments was for validating whether it was possible that the DentiBot inserted an endodontic file into a small root and confronted a patient moving at the same time. Therefore, three experiment were designed with more and more functions.
+\hspace*{6mm}In order to prove the validation of force-guided alignment, we set up three experiments with different scenarios. The aim of these experiments was for validating whether it was possible that the DentiBot inserted an endodontic file into a small root and confronted a patient moving at the same time. Therefore, three experiment were designed with more and more functions listed below and shown in Fig \ref{fig:exp_motion planning}.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/Exp1_motion planning.png}
+\caption{Flow charts for force-guided alignment experiment}
+\label{fig:exp_motion planning}
+\end{center}
+\end{figure}	
+
 \begin{enumerate}
 \item[1.1] Inserting without file rotation
 \item[1.2] Inserting with file rotation
 \item[1.3] Inserting with file rotation and file feedrate control
 \end{enumerate}
 \par
-To simulate a patient movingA Stewart platform with six degrees of freedom was incorporated. It could provide a slight movement. Basically, when the patient moved to a point, our system should move to the same place. Therefore, the target's and the handpiece's positions should be compared to check if our system tracked the patient or not. PhaseSpace - Impulse X2E was involved in obtaining the above positions in real-time. 
+To simulate a patient moving, a Stewart platform with six degrees of freedom was incorporated.  When the patient moved to a point, our system should move to the same place. Therefore, the target's and the handpiece's positions should be compared to check if our system tracked the patient or not. PhaseSpace - Impulse X2E was involved in obtaining the above positions in real-time. 
 \par
 The Stewart platform is scheduled for motion planning. It will move to (0, 0, 0), (15, 0, 0), (15, 0, 15), (0, 0, 15) related to Stewart frame with a constant velocity. These points formed a square composed of two horizontal and two vertical lines. The command position trajectory is illustrated in Fig \ref{fig: position command}. The Stewart platform is planned to go along with the square with a velocity, then stop for $10$ seconds, then go along with the square with a faster velocity, and so on. The velocities of four rounds are $3$ mm/s, $4$ mm/s, $5$ mm/s, and $6$ mm/s.
 	
@@ -142,37 +152,128 @@ The Stewart platform is scheduled for motion planning. It will move to (0, 0, 0)
 \label{fig: position command}
 \end{center}
 \end{figure}	
-
-Parameters setting of admittance control in Experiment 1. Before starting this experiment, we made the file rotate and get stuck in the root canal of an acrylic model. Then we used "Doctor dragging" mode to install the acrylic model on the Stewart platform. Therefore, we can guarantee that the relative position between the file and the acrylic tooth. The first experiment is a file without rotation 
+\par
+Parameters setting of admittance control in Experiment 1 was shown is Table \ref{tab: para_adm_exp1}. The parameter $\mathbf{K}$ was proportional to the gain and $\mathbf{B}$ was inversely proportional to the gain. Therefore, the same values were set in all experiment expect $b_6$. $b_6$ was relevant to the rotation along with z-axis. The rotation along with z-axis driven by the robot arm should be deactivated in Exp 1-1 and 1-2 because the file rotation was driven by the motor. If the rotation along with z-axis was on duty and the file was drilling, the robot arm would rotate along with z-axis in opposite direction. A slow inserting is required when performing the endodontic treatment. Therefore, The maximum value of $f_z$ was set $0.5$ in Exp 1-3 to limit the the highest velocity. Note that, the root acrylic model had drilled thoroughly by a file and formed a cone shape in advance.
 \par
 \begin{table}[htbp]
 \centering
+\tabcolsep=25pt
 \caption{Parameters setting of admittance control in Experiment 1.}
 \label{tab: para_adm_exp1}
 \begin{tabular}{cccc} 
 \hline \hline
-Parameter	&1-1		&1-2		&1-3	\\
+Parameter	&Exp 1-1		&Exp 1-2		&Exp 1-3	\\
 \hline
 $k$			&$500$		&$500$		&$500$				\\
-$f_z$		&$1$		&$1$		&$-0.5 \sim 0.5$	\\
+$f_z$		&$1$		&$1$		&$-0.2 \sim 0.5$	\\
 $b_1$		&$80$		&$80$		&$80$				\\
 $b_2$		&$80$		&$80$		&$80$				\\
 $b_3$		&$80$		&$80$		&$80$				\\
 $b_4$		&$80$		&$80$		&$80$				\\
 $b_5$		&$80$		&$80$		&$80$				\\
-$b_6$		&$80$		&$999999$	&$999999$			\\
-\hline	
-\multicolumn{4}{*}{$\mathbf{K} = \text{diag}(k,k,k,k,k,k),\mathbf{B} = \text{diag}(b_1,b_2,b_3,b_4,b_5,b_6)$}\\
+$b_6$		&$80$		&$\infty$	&$\infty$			\\
+\hline
+\multicolumn{4}{c}{ $\mathbf{K} = \text{diag}(k,k,k,k,k,k), \mathbf{B} = \text{diag}(b_1,b_2,b_3,b_4,b_5,b_6)$} \\
 \hline\hline	
 \end{tabular}
 \end{table}
-We moved the Stewart platform in horizontal and vertical directions separately. The motion planning in the horizontal direction is a square which is $10\times 10$ mm and in the vertical direction is a linear motion from $0$ to $40$ mm.
+\subsubsection{Result}
+\hspace*{6mm} There were three metric types of figures to show the results of Exp 1-1, 1-2, and 1-3. An imperative metric was whether the robot could move as the root move. Therefore, the first figure was the position information. The position of robot and root were compared and the relative distance between them was evaluated. The left y-axis of the first figure was for the position of robot and root and the right one was for the relative distance. Second, the input of admittance control was force vector and output was velocity vector. Hence, the force and the velocity were compared in the second figure. Last, the force and the position of robot were compared in the third figure. Note that the real position and velocity data were transformed from the PhaseSpace frame to the Stewart platform frame. The force information were also transformed to the Stewart platform frame from the handpiece frame.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_1_1.png}
+\caption{Exp 1-1: The position of robot and root and their relative distance}
+\label{fig: exp1_1_1}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_1_2.png}
+\caption{Exp 1-1: The force vs the velocity}
+\label{fig: exp1_1_2}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_1_3.png}
+\caption{Exp 1-1: The force vs the position}
+\label{fig: exp1_1_3}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_2_1.png}
+\caption{Exp 1-2: The position of robot and root and their relative distance}
+\label{fig: exp1_2_1}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_2_2.png}
+\caption{Exp 1-2: The force vs the velocity}
+\label{fig: exp1_2_2}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_2_3.png}
+\caption{Exp 1-2: The force vs the position}
+\label{fig: exp1_2_3}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_3_1.png}
+\caption{Exp 1-3: The position of robot and root and their relative distance}
+\label{fig: exp1_3_1}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_3_2.png}
+\caption{Exp 1-3: The force vs the velocity}
+\label{fig: exp1_3_2}
+\end{center}
+\end{figure}	
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp1_3_3.png}
+\caption{Exp 1-3: The force vs the position}
+\label{fig: exp1_3_3}
+\end{center}
+\end{figure}	
+
+\newpage
+
 \section{Pre-Clinical Trial}
-Validation of Self-alignment Mode
-\par\noindent
-(Metrics: time, completeness and file breakage)								
-\par\noindent
+\hspace*{6mm}We have verified that it is feasible to apply parts of our proposed technical approaches in experiment 1. In what follows, an algorithm that combines all functions including force-guided alignment, inverse rotation control, and feed control were implemented in the pre-clinical trial as shown in Fig \ref{fig: exp2_motion planning}.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/algorithm.png}
+\end{center}
+\caption{
+Algorithm for robot-assisted endodontic treatment
+}\label{fig: exp2_motion planning}
+\end{figure}
+\par
+The metrics of the pre-clinical trial were completeness of root preparation and whether instrument fracture happened.
 (Completeness definition: comparison of pixel area before and after experiment via image)
 validation of repetitive experiment
-\par\noindent
-(Metrics: file breakage, compare with and without reverse)
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/roots.png}
+\caption{Exp 2: Roots before and after drilling for two times. $T_{des}$ were set 40 in A,B,C and 50 in D,E,6}
+\label{fig: exp2_roots}
+\end{center}
+\end{figure}	
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/exp/exp2_torque.png}
+\caption{Exp 2: The torque measured by F/T sensor and $f_z$}
+\label{fig: exp2_torque}
+\end{center}
+\end{figure}	
+ In this experiment, the performance of root preparation using our robot was demonstrated. 
