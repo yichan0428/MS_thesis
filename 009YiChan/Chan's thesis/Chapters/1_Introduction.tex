@@ -34,13 +34,13 @@ On the other hand, instrument fracture is the other concern during the therapy. 
 \item How to protect the endodontic file from fracturing during the surgery?
 \end{enumerate}	
 \section{The Proposed Method}
-\hspace*{6mm}To assist dentists in accomplishing an endodontic treatment, we build a robot - DentiBot to provide more precise and safer treatment. DentiBot consists of a robot arm, a force/torque sensor, and a modified end effector. They make DentiBot satisfy the requirements of the endodontic treatment, it will be discussed in Section \ref{sec:requirement}. 
+\hspace*{6mm}To assist dentists in accomplishing an endodontic treatment, a robot-assisted system -- DentiBot is developed to provide more precise and safer surgery. DentiBot consists of a 6-DoF robot arm, a 1-DoF modified end effector, and a 6-DoF force/torque sensor. The proposed 7-DoF robotic manipulator enables to manifest various motions such as drilling and reciprocation. Therefore, DentiBot can assist dentists in performing the second procedure -- Cleaning.
 \par
-Thanks to the robot arm and the modified end effector, we could make the system manifest various motions such as drilling and reciprocation. It enables the DentiBot to assist dentists in performing the second procedure - cleaning.
+Due to the lack of visual feedback in endodontic treatment, force-guided alignment based on admittance control techniques is proposed to guide the robot's motion. Force-guided alignment enables our system to adjust the surgical path and compensate for the patient's movement in real-time. That means the Dentibot could align the root canal path by force feedback without vision feedback. Hence, force-guided alignment could solve the first failure factor -- incomplete root preparation.
 \par
-To overcome the problem that the root canal cannot be visually observed. We use force-guided alignment with the feedback of the F/T sensor. That means the Dentibot could align the root canal path by force feedback without vision feedback.
-\par
-To protect the endodontic file from fracturing during the endodontic treatment, we use current feedback to keep track of the file's torque. With the torque feedback, we can regulate the feedrate of the endodontic file to control the file torque. It successfully prevent instrument fracture.
+To protect endodontic files from fracturing particularly when the file gets stuck in the root canal. Inverse rotation control and file feedrate control are proposed. These two functions are both based on on torque control. Inverse rotation control could remove debris and prevent files from getting stuck. File feedrate control utilizes the measured file torque to regulate the file feedrate. These two proposed approaches are combined to protect endodontic files and achieve high performance in the root preparation procedure. 
+\par 
+A new idea that combines all proposed functions -- force guided alignment, inverse rotation control, and file feedrate control will be presented.
 \section{Main Contributions of the Thesis}
 \label{sec:contributions}
 \hspace*{6mm}To build an appropriate robot system for endodontic treatment, it is necessary to contemplate requirements and specifications comprehensively from technical and clinical perspectives. There are four subjects of the proposed robot-assisted project. 
@@ -52,17 +52,15 @@ To protect the endodontic file from fracturing during the endodontic treatment, 
 	\item The DentiBot continues drilling until detecting the apex of the root canal.
 \end{enumerate}	
 \subsubsection{Main Contributions}
-\hspace*{6mm}The entire endodontic project is huge. The thesis is the beginning of the project and focus on the first and the third part of the project. In conclusion, there are three main contributions of the thesis.
+\hspace*{6mm}The thesis is the beginning of the project and focus on the first and the third part of the project. In conclusion, there are three main contributions of the thesis.
 \begin{enumerate}
 	\item	Integrate a 6-DoF robotic manipulator with 6-DoF F/T sensor for performing endodontic treatment.
 	\item	Develop a framework for robot alignment regarding the position and orientation of root canal. 
 	\item	Protect the endodontic file from fracturing by controlling file rotation speed.
 \end{enumerate}
 \newpage
-\section{Organization of the Thesis}
-\hspace*{6mm}The structure of this thesis is as follows.
-\par
-In Chapter \ref{chapter2}, The state-of-the-art of dental robots for implant placement and endodontic treatment are surveyed and summarized. Four implant robots including a commercial robot are reviewed and an endodontic robot is dissected. 
+\section*{Organization of the Thesis}
+\hspace*{6mm}In Chapter \ref{chapter2}, The state-of-the-art of dental robots for implant placement and endodontic treatment are surveyed and summarized. Four implant robots including a commercial robot are reviewed and an endodontic robot is dissected. 
 \par
 Our proposed robot- DentiBot is highlighted in chapter \ref{chapter3}. Technical solutions to system integration with a robot arm are presented. The kinematics of the robot arm is derived. Moreover, the problem of how to find the tool center point (TCP) and tool angle is explained.  
 \par
@@ -71,4 +69,4 @@ Chapter \ref{chapter4} demonstrates how to solve the system integration problem 
 The proposed approach for protecting an endodontic file from fracturing is shown in Chapter \ref{chapter5}. File property is discussed and the methods for estimating torque are interpreted. Inverse rotation control and file feedrate control which are used to prevent instrument fracture are defined. Ultimately, the most important thing is that an algorithm for robot-assisted endodontic treatment is proposed.
 \par
 Experiment results are shown and analyzed in Chapter \ref{chapter6}. Technical and pre-clinical experiments are conducted. Force-guided alignment is confirmed by the first experiment and the proposed algorithm including all functions is proven by the second experiment.
-In the end, Chapter \ref{chapter7} makes a summary and lists future work for this thesis, and Chapter \ref{chapter8} is appendixes of parameters.
+In the end, Chapter \ref{chapter7} makes a summary and lists future work for this thesis.

@@ -27,25 +27,27 @@
 \hoffset = -0.2cm
 %\overfullrule=5pt%%
 
-\pagenumbering{roman}% \thispagestyle{myheadings}
-\setcounter{page}{1}
-%\thispagestyle{empty}
+\usepackage{titlesec}
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{-20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-60pt}{10pt}
 
 \begin{document}
-\title{\textbf{Robot-Assisted Endodontic Treatment Based on Force-Guided Alignment and File Feedrate Control}}
 
+\begin{titlepage}
+\pagestyle{empty}
+\title{\textbf{Robot-Assisted Endodontic Treatment Based on Force-Guided Alignment and File Feedrate Control}}
 \author{ \\  \\ \\
 {\it Yi-Chan Li}\\
-{\it Advisor: Cheng-Wei Chen} \\ \\ \\ \\  \\
+{\it Advisor: Cheng-Wei Chen} \\ \\ \\ \\ 
 {\it Graduate Institute of Electronics Engineering}\\
 {\it National Taiwan University} \\
 {\it Taipei, Taiwan}\\ }
-
 {\date{June 2021}}
-
 \maketitle
+\end{titlepage}
 
-\frontmatter
+\frontmatter %turns off chapter numbering and uses roman numerals for page numbers
 \input{Chapters/0_Abstract.tex}
 \tableofcontents
 \listoffigures
@@ -55,7 +57,9 @@
 % Thesis Body -- begin
 %------------------------------------
 
-\mainmatter
+\titlespacing*{\chapter}{0pt}{-40pt}{35pt}
+
+\mainmatter %turns on chapter numbering, resets page numbering and uses arabic numerals for page numbers
 
 \input{Chapters/1_Introduction.tex}
 \input{Chapters/2_State-of-the-Art.tex}

@@ -1,19 +1,28 @@
-\chapter{Experiment Result}
+\chapter{Experiment Results}
 \label{chapter6}
-\hspace*{6mm}For checking and validating the proposed method, we set up experiments from technical and clinical perspective. In technical perspective, admittance control, force-guided alignment, and file feedrate control were conducted and verified. On the other hand, in pre-clinical task, acrylic root models before and after the experiment were also compared in this chapter. 
+\hspace*{6mm}For checking and validating the proposed method, we set up experiments from technical and pre-clinical perspective. In technical perspective, admittance control, force-guided alignment, and file feedrate control were conducted and verified. On the other hand, in pre-clinical evaluation, acrylic root models before and after performing endodontic treatment with DentiBot were also compared in this chapter. 
 \section{Experimental Setup}
-\hspace*{6mm}To control and communicate with all devices in low latency and high speed, a communication protocol - Ethernet for Control Automation Technology (EtherCAT) and a real-time oprating system (RTOS) are interfaced. EtherCAT is constructed on EtherNET and utilizes "processing on the fly" technology. Therefore, it provide a short cycle time (less than 100 $\mu$s) and a low jitter \cite{web5}. Besides, EhterCAT supports every types of network topologies such as star, ring, daisy chain, and so on.	 Our devices are connected in Daisy-chain with EtherCAT as shown in Fig \ref{fig:EtherCAT}.
+\subsubsection{Software and Firmware Setup}
+\hspace*{6mm}To control and communicate with all devices in low latency, low jitter, and high speed, a communication protocol - Ethernet for Control Automation Technology (EtherCAT) and a real-time oprating system (RTOS) are interfaced. EtherCAT is constructed on EtherNET and utilizes "processing on the fly" technology. Therefore, it provide a short cycle time (less than 100 \textmu s) and a low jitter \cite{web5}. Besides, EhterCAT supports every types of network topologies such as star, ring, daisy chain, and so on.	 All devices are connected in Daisy-chain with EtherCAT as shown in Fig \ref{fig:EtherCAT}. Graph user interface and fundamental framework are constructed to reduce and eliminate future developing problems as shown in Fig \ref{fig:GUI}.
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.7\linewidth]{Images/EtherCAT.png}
-\caption{Communication protocol - EtherCAT. Master device is RT-target and slave devices are robot arm, F/T sensor and modified handpiece.}
-\label{fig:EtherCAT}
-
+\caption{Communication protocol -- EtherCAT. Master device is RT-target and slave devices are robot arm, F/T sensor and modified handpiece.}
 \end{center}
 \end{figure}
+\label{fig:EtherCAT}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=1\linewidth]{Images/GUI.png}
+\caption{Graph user interface with LabVIEW 2018}
+\label{fig:GUI}
+\end{center}
+\end{figure}
+
 \par
-In Fig \ref{fig:system}, a motion capture system was incorporated to obtain the position information \cite{web8}. There are four cameras with high resolution sensor around the robot. It can capture LEDs and calculate their Cartesian position for $960$ frames per second and its resolution is around $1$ mm. Moreover, a Stewart Platform on which a root acrylic model is mounted was set up to simulate a small patient moving. To record the handpiece and root positions, a LED marker is located on the driller and other three LED markers forming a equilateral triangle are seated on the Stewart platform and. Therefore, the handpiece position is directly obtained and the root position is calculated as following equation
+\subsubsection{Hardware Setup}
+\hspace*{6mm}In Fig \ref{fig:system}, a motion capture system was incorporated to obtain the position information \cite{web8}. There are four cameras with high resolution sensor around the robot. It can capture LEDs and calculate their Cartesian position for $960$ frames per second and its resolution is around $1$ mm. Moreover, a Stewart Platform on which a root acrylic model is mounted was set up to simulate a small patient moving. To record the handpiece and root positions, a LED marker is located on the driller and other three LED markers forming a equilateral triangle are seated on the Stewart platform and. Therefore, the handpiece position is directly obtained and the root position is calculated as following equation
 \begin{equation*}
 \begin{split}
 p_{root} = \frac{p_{1} + p_{2} + p_{3}}{3}
@@ -21,7 +30,7 @@ p_{root} = \frac{p_{1} + p_{2} + p_{3}}{3}
 \end{equation*}
 where $p_{root}$ denotes the root position and $p_{i}$ denote the positions of LEDs obtained from the motion capture system. 
 \par
-Note that there is a vertical distance between the root and handpiece in this setup and an error come from inaccurate 3-D print support used to stick three LEDs. Besides, once less than three cameras concurrently capture a LED due to the shooting angle, the position information will be incorrect.  
+Note that there is a original vertical distance between the root and handpiece in this setup and an error come from inaccurate 3-D print support used to stick three LEDs. Besides, once the motion capture system captures a LED with less than three cameras, the position information will be incorrect. 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.7\linewidth]{Images/System.jpg}
@@ -30,16 +39,18 @@ Note that there is a vertical distance between the root and handpiece in this se
 \end{center}
 \end{figure}
 \par
-The specifications of the hardware and software environment set in the experiments are listed in Table \ref{tab:exp_specification}. Graph user interface and fundamental framework are constructed to reduce and eliminate the developing problems.  The detail specifications of the robot arm and F/T sensor are shown in Table \ref{tab:meca_specification} and Table \ref{tab:mini40_specification}.
+The specifications of the hardware and software environment set in the experiments are listed in Table \ref{tab:exp_specification}. The detail specifications of the robot arm and F/T sensor are shown in Table \ref{tab:meca_specification} and Table \ref{tab:mini40_specification}.
 
 \begin{table}[htbp]
 \centering
+\tabcolsep=20pt
+\arrayrulewidth=1pt
 \caption{Specifications of the hardware and software environments}
 \label{tab:exp_specification}
 \par
 \begin{tabular}{|c|c|} 
 \hline
-Item											&Specification					\\	\hline
+\rowcolor{lightgray!40}Item						&Specification				\\	\hline
 Development Environment							&LabVIEW 2018					\\	\hline
 \multirow{2}{*}{Real-Time Operating System}		&National Instrument-RT target	\\
 												&CPU: Intel Core 8				\\	\hline
@@ -55,37 +66,32 @@ Stewart Platform								&Actuoanix - Linear Actuator				\\
 \end{tabular}
 \end{table}
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=1\linewidth]{Images/GUI.png}
-\caption{Graph user interface with LabVIEW 2018}
-\label{fig:GUI}
-\end{center}
-\end{figure}
 \begin{table}[htbp]
 \centering
+\tabcolsep=18pt
+\arrayrulewidth=1pt
 \caption{Technical specifications of the robot arm - meca500}
 \label{tab:meca_specification}
 \par
-\begin{tabular}{|c|c|} 
+\begin{tabular}{|>{\columncolor{lightgray!20}}c|l|} 
 \hline
 Payload						&$0.5$ kg					\\	\hline
 Repeatability				&$0.005$ mm					\\	\hline
 Reach (at wrist center)		&$260$ mm	\\ \hline
 Total weight				&$4.5$ kg						\\	\hline
-\multirow{6}{*}{Joint range}&joint 1: $-175^\text{o}$ to $+175^\text{o}$				\\	
+\multirow{6}{*}{}Joint range&joint 1: $-175^\text{o}$ to $+175^\text{o}$				\\	
 							&joint 2: $-70^\text{o}$ to $+90^\text{o}$				\\	
 							&joint 3: $-135^\text{o}$ to $+70^\text{o}$				\\	
 							&joint 4: $-170^\text{o}$ to $+170^\text{o}$				\\	
 							&joint 5: $-115^\text{o}$ to $+115^\text{o}$				\\	
 							&joint 6: $\pm 100$ revolutions				\\	\hline
 Speed of joints 1–6 &${150, 150, 180, 300, 300, 500}$ $^\text{o}\text{/s}$				\\	\hline
-Brakes 				&on joints 1, 2 and 3				\\	\hline
-Robot mounting 		&any orientation				\\	\hline
+Brakes 				&On joints 1, 2 and 3				\\	\hline
+Robot mounting 		&Any orientation				\\	\hline
 Safety module		&Category 3, PL d				\\	\hline
 Power supply 		&90-264 VAC, 50-60 Hz (in) / 24 VDC (out)				\\	\hline
 Communication 		&TCP/IP, EtherCAT, Ethernet/IP				\\	\hline
-Controller 			&embedded in robot base				\\	\hline
+Controller 			&Embedded in robot base				\\	\hline
 Protection rating 	&IP 40								\\	
 \hline
 \end{tabular}
@@ -93,31 +99,33 @@ Protection rating 	&IP 40								\\
 
 \begin{table}[htbp]
 \centering
+\tabcolsep=10pt
+\arrayrulewidth=1pt
 \caption{Technical specifications of the F/T sensor - mini40}
 \label{tab:mini40_specification}
 \par
-\begin{tabular}{|c|c|} 
+\begin{tabular}{|>{\columncolor{lightgray!20}}c|l|} 
 \hline
 Weight										&0.0499 kg	\\  \hline
 Diameter									&40 mm  	\\ 	\hline
 Height										&12.2 mm 	\\	\hline
-\multirow{4}{*}{Sensing range}					&Fx,Fy: 20 N\\
+\multirow{4}{*}{}Sensing range					&Fx,Fy: 20 N\\
 											&Fz: 60 N\\
 											&Tx,Ty: 1 Nm\\	
 											&Tz: 1 Nm\\	\hline
-\multirow{4}{*}{Resolution}						&Fx,Fy: 1/100 N	\\
+\multirow{4}{*}{}Resolution						&Fx,Fy: 1/100 N	\\
 											&Fz: 1/50 N\\
 											&Tx,Ty: 1/4000 Nm\\	
 											&Tz: 1/4000 Nm\\	\hline										
-\multirow{4}{*}{Single-axis overload} 			&Fxy: ±810 N  \\	
+\multirow{4}{*}{}Single-axis overload 			&Fxy: ±810 N  \\	
 											&Fz	±2400 N  \\
 											&Txy	±19 Nm  \\
 											&Tz	±20 Nm  \\ \hline
-\multirow{4}{*}{Stiffness (calculated)}   		&X-axis \& Y-axis forces (Kx, Ky): 1.1x107 N/m   \\	
+\multirow{4}{*}{}Stiffness (calculated)   		&X-axis \& Y-axis forces (Kx, Ky): 1.1x107 N/m   \\	
 											&Z-axis force (Kz): 2.0x107 N/m   \\	
 											&X-axis \& Y-axis torque (Ktx, Kty): 2.8x103 Nm/rad   \\	
 											&Z-axis torque (Ktz): 4.0x103 Nm/rad   \\	 \hline
-\multirow{2}{*}{Resonant Frequency} 			&Fx, Fy, Tz: 3200 Hz  \\
+\multirow{2}{*}{}Resonant Frequency 			&Fx, Fy, Tz: 3200 Hz  \\
 											&Fz, Tx, Ty: 4900 Hz  \\
 \hline
 \end{tabular}
@@ -246,7 +254,7 @@ $b_6$		&$80$		&$\infty$	&$\infty$			\\
 
 \newpage
 
-\section{Pre-Clinical Trial}
+\section{Pre-Clinical Evaluation}
 \hspace*{6mm}We have verified that it is feasible to apply parts of our proposed technical approaches in experiment 1. In what follows, an algorithm that combines all functions including force-guided alignment, inverse rotation control, and feed control were implemented in the pre-clinical trial as shown in Fig \ref{fig: exp2_motion planning}.
 \begin{figure}[htbp]
 \begin{center}
@@ -264,7 +272,7 @@ validation of repetitive experiment
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{Images/exp/roots.png}
-\caption{Exp 2: Roots before and after drilling for two times. $T_{des}$ were set 40 in A,B,C and 50 in D,E,6}
+\caption{Exp 2: Roots before and after drilling for two times. $T_{des}$ were set 40 in A,B,C and 50 in D,E,F}
 \label{fig: exp2_roots}
 \end{center}
 \end{figure}	

@@ -1,6 +1,7 @@
 \chapter{File Feedrate Control}
 \label{chapter5}
-\section{Problem Definition}
+\section{Problem Definition and the Proposed Method}
+\subsubsection{Problem Definition}
 \hspace*{6mm}Instrument fracture is a potential crisis for endodontic treatment. If a dentist improperly operates an endodontic file, it will increase the possibility of instrument fracture. Most largely, the instrument fracture will happen while a file is inserted into the one-third place far from the root apex. It is barely possible to take out in a small root canal. Removal of broken files is technically tricky, so it is critical to reducing the probability of the instrument fracture.
 \par
 
@@ -37,7 +38,7 @@ and the diameter at the end of the work length $D_2$ is
 }\label{fig: files}
 \end{center}
 \end{figure}	
-\section{The Proposed Method}
+\subsubsection{The Proposed Method}
 \hspace*{6mm}In order to protect an endodontic file from fracturing, we need to reduce the file torque. The easiest and most effective way to solve this issue would be monitoring the torque which the file is enduring. Therefore, we implement a torque monitoring system on DentiBot. We utilize current feedback to keep track of the torque. An increase in the current of the motor is indicative of the contact resistance of the file. Also, We propose two approaches to release the file torque. One is inverse rotation control discussed in section \ref{sec:Inverse Rotation Control} and the other is feed control discussed in section \ref{sec:Feed Control}, they are both efficient ways to release the file torque. Once the torque of the file is in excess of a threshold, it will inversely rotate or decline the feedrate to release torque. 
 \subsubsection{How to measure the file torque}
 \hspace*{6mm}There are two approaches to measure the file torque. One is detecting the current of motor which drives the file rotation to estimate the file torque. The other is directly obtained from the F/T sensor after changing the reference frame to the tool frame. 
@@ -90,17 +91,16 @@ I_{max} < \frac{62}{\mathrm{GR} \cdot K_m}
 \end{split}
 \end{equation} 
 In realistic implementation, $\mathrm{GR}$ is $67$ and $K_m$ is $16 \text{mNm/A}$
-\subsection{Inverse Rotation Control}
+\section{Inverse Rotation Control}
 \label{sec:Inverse Rotation Control}
-\hspace*{6mm}Once the current of the file exceeds the specific threshold, it will inversely rotate for 90 degrees to release torque and then continue drilling in the original direction. Before designing the DentiBot, we have validated this function with the prototype of DentiBot shown as Fig \ref{fig: prototype}. This prototype is a drilling system mounted on a magnetic stand. The modified handpiece, a hand-held dental electric device, with a single axis mechanism can validate the inverse rotation control. 
+\hspace*{6mm}This proposed approach is an effective way to protect endodontic file from fracturing. Also, it can remove root debris cut by file and prevent file from getting stuck in root. Once the current of the file exceeds the specific threshold, it will inversely rotate for 90 degrees to release torque and then continue drilling in the original direction. Before designing the DentiBot, we have validated this function with the prototype of DentiBot shown as Fig \ref{fig: prototype}. This prototype is a drilling system mounted on a magnetic stand. The modified handpiece, a hand-held dental electric device, with a single axis mechanism can validate the inverse rotation control. 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=1\linewidth]{Images/Prototype.png}
-\caption{The prototype of DentiBot}
+\includegraphics[width=0.9\linewidth]{Images/Prototype.png}
+\caption{The prototype of DentiBot. A single z-axis manipulator with a modified handpiece}
 \label{fig: prototype}
 \end{center}
 \end{figure}	
-
 \par
 In Fig \ref{fig: inverse_rotation}, a motion planning is designed to perform the drilling procedure. The root canal is divided into several sections to be cleaned. In the beginning, the robot moves to the start point and then repetitively drills one section back and forth at least ten times until the current feedback decrease under the specific threshold. If the torque exceeds the threshold, the endodontic file will inversely rotate for $90$ degrees to release the torque and then drill the same section again. After one section is cleaned thoroughly, the drilling file will move to the next section. Every section will be cleaned for at least $10$ rounds. If there is reverse rotation, it will be more than $10$ rounds. When to finish is contingent on whether the endodontic file reaches the final section.
 \begin{figure}[htbp]
@@ -112,7 +112,7 @@ In Fig \ref{fig: inverse_rotation}, a motion planning is designed to perform the
 \end{figure}
 \par
 In conclusion, by the preliminary experiment with the prototype of DentiBot, it has been proved that the inverse control rotation is an effective approach to reduce the torque. Therefore, we can detect the current to estimate the torque and inversely rotate the motor if the current exceeds the threshold current. 
-\subsection{Feedrate Control}
+\section{Feedrate Control}
 \label{sec:Feed Control}
 \hspace*{6mm}As mentioned above, we have validated the inverse rotation control with the prototype. However, inverse rotation control is just mimicking a dentist to perform endodontic treatment. It is still time-consuming. Hence, the other method - feed control is proposed to improve this problem. Note that this method can only be valid with DentiBot instead of its prototype because admittance control will be involved. Previous literature which dedicate to a form drilling with torque control is similar to our root drilling \cite{boessler2009effect}. Regulating the feedrate to control the torque is a effective way to reduce time. 
 \begin{equation*}
@@ -143,8 +143,17 @@ Entire flow chart is shown in Fig \ref{fig: feedrate_control_fc}. Considering th
 \end{center}
 \end{figure}
 
-\subsection{Algorithm for Robot-Assisted Endodontic Treatment}
-\hspace*{6mm}In clinical tests, cleaning root only with feedrate control is impracticable. The endodontic file is easy to get stuck in the root due to the uncertain condition with each root. Therefore, it is essential to rotate inverse and withdraw to get rid of chips cut by the file. In view of this, a new algorithm that combines inverse rotation control with feed control is proposed as shown in Fig \ref{fig: complete_flowchart}.
+\section{Automated Endodontic Treatment}
+\hspace*{6mm}After pre-clinical evaluation, we found that cleaning root only with force-guided alignment and feedrate control is impracticable. The endodontic file is easy to get stuck in the root due to root debris. Once the stuck happens, the file torque will increase dramatically. File feedrate control can not handle the dramatic increase. The effective way to solve this problem is to rotate inverse the file. Because it is essential to withdraw to get rid of root debris cut by file. The new idea that combines for-guided alignment, inverse rotation control, and file feedrate control is proposed.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7\linewidth]{Images/combine.png}
+\end{center}
+\caption{Methods of Automated Endodontic Treatment}
+\label{fig: combine}
+\end{figure}
+\par
+In view of this, a new algorithm for automated endodontic treatment that combines for-guided alignment, inverse rotation control, and file feedrate control  is proposed as shown in Fig \ref{fig: complete_flowchart}.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{Images/algorithm.png}
@@ -153,6 +162,5 @@ Entire flow chart is shown in Fig \ref{fig: feedrate_control_fc}. Considering th
 Algorithm for robot-assisted endodontic treatment
 }\label{fig: complete_flowchart}
 \end{figure}
-\par	
-Based on the flow chart of feedrate control in Fig \ref{fig: feedrate_control_fc}, inverse rotation control is involved as shown in the left part. The minimum and maximum saturation is from $-0.5$ to $0.5$. When the file torque exceeds the desired torque, Feedrate control will slow down the feed by output $f^*_z$ with a negative value. If  the file torque exceeds a little and $f^*_z$ does not reach $-0.2$, the file will keep clockwise drilling. The above function is essential because it provides the feedrate control a feasibility to regulate the torque.  On the contrary, once the file torque exceeds much and  $f^*_z$  is smaller than $-0.2$, it will trigger the inverse rotation control. That means the file torque increases dramatically so that the feedrate control can not handle with. 
-
+\par
+ Based on the flow chart of feedrate control in Fig \ref{fig: feedrate_control_fc}, inverse rotation control is involved as shown in the left part. The minimum and maximum saturation is from $-0.5$ to $0.5$. When the file torque exceeds the desired torque, Feedrate control will slow down the feed by output $f^*_z$ with a negative value. If  the file torque exceeds a little and $f^*_z$ does not reach $-0.2$, the file will keep clockwise drilling. The above function is essential because it provides the feedrate control a feasibility to regulate the torque.  On the contrary, once the file torque exceeds much and  $f^*_z$  is smaller than $-0.2$, it will trigger the inverse rotation control. That means the file torque increases dramatically so that the feedrate control can not handle with. 
