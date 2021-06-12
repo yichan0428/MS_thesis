@@ -38,19 +38,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Communication protocol -- EtherCAT. Master device is RT-target and slave devices are robot arm, F/T sensor and modified handpiece.}}{80}{figure.6.1}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Graph user interface with LabVIEW 2018}}{80}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Experimental setup with Dentibot, a motion capture system, and a Stewart platform}}{82}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Flow charts for force-guided alignment experiment}}{87}{figure.6.4}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Experimental setup with Dentibot, a motion capture system, and a Stewart platform}}{81}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Flow charts for force-guided alignment experiment. The left and top figure is inserting without file rotation. The right and top figure is inserting with file rotation. The bottom figure is inserting with file rotation and file feedrate control.}}{87}{figure.6.4}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Position command of Stewart platform for force-guided alignment experiment}}{88}{figure.6.5}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Exp 1-1: The position of robot and root and their relative distance}}{91}{figure.6.6}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Exp 1-1: The force vs the velocity}}{92}{figure.6.7}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Exp 1-1: The force vs the position}}{93}{figure.6.8}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Exp 1-2: The position of robot and root and their relative distance}}{94}{figure.6.9}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Exp 1-2: The force vs the velocity}}{95}{figure.6.10}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Exp 1-2: The force vs the position}}{96}{figure.6.11}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Exp 1-3: The position of robot and root and their relative distance}}{97}{figure.6.12}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Exp 1-3: The force vs the velocity}}{98}{figure.6.13}%
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Exp 1-3: The force vs the position}}{99}{figure.6.14}%
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Algorithm for robot-assisted endodontic treatment }}{100}{figure.6.15}%
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Exp 2: Roots before and after drilling for two times. $T_{des}$ were set 40 in A,B,C and 50 in D,E,F}}{101}{figure.6.16}%
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Exp 2: The torque measured by F/T sensor and $f_z$}}{102}{figure.6.17}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Exp 1-1: The position of handpiece and root and their relative distance}}{91}{figure.6.6}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Exp 1-2: The position of handpiece and root and their relative distance}}{92}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Exp 1-3: The position of handpiece and root and their relative distance}}{93}{figure.6.8}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Patient moving simulated by the Stewart platform }}{94}{figure.6.9}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Exp 1-1: The force vs the velocity}}{96}{figure.6.10}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Exp 1-1: The force vs the velocity}}{97}{figure.6.11}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Exp 1-1: The force vs the velocity}}{98}{figure.6.12}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Zoom-in of Force vs Velocity on Z-axis from 80th to 90th second}}{99}{figure.6.13}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Exp 1-2: The force vs the handpiece position}}{100}{figure.6.14}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Exp 1-2: The force vs the handpiece position}}{101}{figure.6.15}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Exp 1-2: The force vs the handpiece position}}{102}{figure.6.16}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Algorithm for robot-assisted endodontic treatment }}{104}{figure.6.17}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Acrylic root phantom used in operative technique practice}}{105}{figure.6.18}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Exp 2: Roots before and after drilling for two times. $T_{des}$ were set 40 in A,B,C and 50 in D,E,F}}{106}{figure.6.19}%
 \addvspace {10\p@ }

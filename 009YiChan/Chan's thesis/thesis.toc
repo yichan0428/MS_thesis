@@ -56,12 +56,15 @@
 \contentsline {subsubsection}{Software and Firmware Setup}{79}{section.6.1}%
 \contentsline {subsubsection}{Hardware Setup}{81}{figure.6.2}%
 \contentsline {section}{\numberline {6.2}Force-Guided Alignment}{86}{section.6.2}%
-\contentsline {subsubsection}{Result}{89}{table.6.4}%
-\contentsline {section}{\numberline {6.3}Pre-Clinical Evaluation}{100}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Conclusions and Future works}{103}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusions}{103}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Discussion and Future Works}{104}{section.7.2}%
-\contentsline {chapter}{Appedix}{107}{chapter*.5}%
-\contentsline {section}{A \hskip 1em\relax Forward Kinematics}{107}{chapter*.5}%
-\contentsline {section}{B \hskip 1em\relax Jacobian Matrix }{108}{chapter*.5}%
-\contentsline {chapter}{Reference}{113}{chapter*.6}%
+\contentsline {subsubsection}{Results}{90}{table.6.4}%
+\contentsline {subsubsection}{Conclusion of Force-Guided Alignment Experiment}{103}{figure.6.16}%
+\contentsline {section}{\numberline {6.3}Pre-Clinical Evaluation}{104}{section.6.3}%
+\contentsline {subsubsection}{Result}{106}{figure.6.18}%
+\contentsline {subsubsection}{Conclusion of pre-clinical evaluation}{107}{table.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusions and Future works}{109}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusions}{109}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Discussion and Future Works}{110}{section.7.2}%
+\contentsline {chapter}{Appedix}{113}{chapter*.5}%
+\contentsline {section}{A \hskip 1em\relax Forward Kinematics}{113}{chapter*.5}%
+\contentsline {section}{B \hskip 1em\relax Jacobian Matrix }{114}{chapter*.5}%
+\contentsline {chapter}{Reference}{119}{chapter*.6}%
