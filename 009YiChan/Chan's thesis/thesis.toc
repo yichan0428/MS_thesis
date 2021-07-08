@@ -1,70 +1,72 @@
 \contentsline {chapter}{Abstract}{i}{chapter*.1}%
-\contentsline {chapter}{List of Figures}{v}{chapter*.3}%
+\contentsline {chapter}{List of Figures}{iv}{chapter*.3}%
 \contentsline {chapter}{List of Tables}{ix}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Previous Work and Problem Definition}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Problem Definition and Previous Work}{2}{section.1.2}%
+\contentsline {subsubsection}{Endodontic treatment}{2}{section.1.2}%
 \contentsline {subsubsection}{Previous Work}{4}{figure.1.1}%
 \contentsline {subsubsection}{Problem Definition}{5}{figure.1.1}%
-\contentsline {section}{\numberline {1.3}The Proposed Method}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Main Contributions of the Thesis}{7}{section.1.4}%
-\contentsline {subsubsection}{Prospect}{7}{section.1.4}%
-\contentsline {subsubsection}{Main Contributions}{7}{Item.7}%
-\contentsline {chapter}{\numberline {2}State-of-the-Art}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Surgical Robots Applied in Dentistry}{11}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Robot-Assisted Endodontic Treatment}{15}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot - DentiBot}{21}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Requirement and Specification}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Design of the DentiBot}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Kinematics Analysis}{25}{section.3.3}%
-\contentsline {subsubsection}{Coordinate Definition}{25}{section.3.3}%
-\contentsline {subsubsection}{Forward and Inverse Kinematics}{26}{table.3.1}%
-\contentsline {subsubsection}{Jacobian matrix}{27}{equation.3.3.2}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{28}{equation.3.3.2}%
-\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{6\}}{30}{equation.3.3.7}%
-\contentsline {subsubsection}{Analytical Jacobian}{32}{equation.3.3.12}%
-\contentsline {section}{\numberline {3.4}Tool-tip Coordinate}{34}{section.3.4}%
-\contentsline {subsubsection}{Translation Analysis - Tool Center Point}{35}{section.3.4}%
-\contentsline {subsubsection}{Rotation Analysis}{38}{equation.3.4.21}%
-\contentsline {chapter}{\numberline {4}Force-Guided Robot Alignment}{41}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Problem Definition and the Proposed method}{41}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Integration of F/T sensor}{43}{section.4.2}%
-\contentsline {subsubsection}{The Centroid Position of End Effector}{44}{figure.4.1}%
-\contentsline {subsubsection}{Gravity Compensation and Initial Value Reset}{47}{equation.4.2.9}%
-\contentsline {subsubsection}{External Force Evaluation}{51}{equation.4.2.19}%
-\contentsline {section}{\numberline {4.3}Dragging Mode}{51}{section.4.3}%
-\contentsline {subsubsection}{Admittance Control based on F/T sensor}{52}{section.4.3}%
-\contentsline {subsubsection}{Control Scheme}{52}{section.4.3}%
-\contentsline {subsubsection}{Selection of Admittance Control Model}{53}{equation.4.3.22}%
-\contentsline {subsubsection}{Robot Command Decision}{54}{equation.4.3.23}%
-\contentsline {subsubsection}{Implementation in Discrete Time}{56}{table.4.2}%
-\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{56}{section.4.4}%
-\contentsline {subsubsection}{Coordinate Transformation of F/T sensor}{57}{section.4.4}%
-\contentsline {subsubsection}{Motion Planning: Based on Admittance Control}{60}{equation.4.4.30}%
-\contentsline {section}{\numberline {4.5}Parameter Selection}{61}{section.4.5}%
-\contentsline {chapter}{\numberline {5}File Feedrate Control}{65}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Problem Definition and the Proposed Method}{65}{section.5.1}%
-\contentsline {subsubsection}{Problem Definition}{65}{section.5.1}%
-\contentsline {subsubsection}{File Property}{66}{section.5.1}%
-\contentsline {subsubsection}{The Proposed Method}{67}{figure.5.2}%
-\contentsline {subsubsection}{How to measure the file torque}{68}{figure.5.2}%
-\contentsline {section}{\numberline {5.2}Inverse Rotation Control}{69}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Feedrate Control}{72}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Automated Endodontic Treatment}{74}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Experiment Results}{79}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Experimental Setup}{79}{section.6.1}%
-\contentsline {subsubsection}{Software and Firmware Setup}{79}{section.6.1}%
-\contentsline {subsubsection}{Hardware Setup}{81}{figure.6.2}%
-\contentsline {section}{\numberline {6.2}Force-Guided Alignment}{86}{section.6.2}%
-\contentsline {subsubsection}{Results}{90}{table.6.4}%
-\contentsline {subsubsection}{Conclusion of Force-Guided Alignment Experiment}{103}{figure.6.16}%
-\contentsline {section}{\numberline {6.3}Pre-Clinical Evaluation}{104}{section.6.3}%
-\contentsline {subsubsection}{Result}{106}{figure.6.18}%
-\contentsline {subsubsection}{Conclusion of pre-clinical evaluation}{107}{table.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusions and Future works}{109}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusions}{109}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Discussion and Future Works}{110}{section.7.2}%
-\contentsline {chapter}{Appedix}{113}{chapter*.5}%
-\contentsline {section}{A \hskip 1em\relax Forward Kinematics}{113}{chapter*.5}%
-\contentsline {section}{B \hskip 1em\relax Jacobian Matrix }{114}{chapter*.5}%
-\contentsline {chapter}{Reference}{119}{chapter*.6}%
+\contentsline {section}{\numberline {1.3}Proposed Method}{6}{section.1.3}%
+\contentsline {subsubsection}{Prospect}{6}{section.1.3}%
+\contentsline {subsubsection}{Design of DentiBot}{6}{Item.7}%
+\contentsline {subsubsection}{Force-Guided Robot Alignment}{7}{Item.7}%
+\contentsline {subsubsection}{File Rotation and Feedrate Control}{7}{Item.7}%
+\contentsline {section}{\numberline {1.4}Main Contributions}{8}{section.1.4}%
+\contentsline {subsubsection}{Main Contributions of the thesis}{8}{section.1.4}%
+\contentsline {subsubsection}{Organization of the Thesis}{8}{Item.10}%
+\contentsline {chapter}{\numberline {2}State-of-the-Art}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Surgical Robots Applied in Dentistry}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Robot-Assisted Endodontic Treatment}{14}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Design and Analysis of the Dental Surgical Robot -- DentiBot}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Requirement and Specification}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Design of DentiBot}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Kinematics Analysis}{23}{section.3.3}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{0\}}{25}{equation.3.3.2}%
+\contentsline {subsubsection}{Geometric Jacobian Based on Frame\{H\}}{28}{equation.3.3.8}%
+\contentsline {subsubsection}{Analytical Jacobian}{30}{equation.3.3.13}%
+\contentsline {section}{\numberline {3.4}Tool-tip Coordinate}{32}{section.3.4}%
+\contentsline {subsubsection}{Translation Analysis - Tool Center Point}{32}{section.3.4}%
+\contentsline {subsubsection}{Rotation Analysis}{36}{equation.3.4.22}%
+\contentsline {chapter}{\numberline {4}Force-Guided Robot Alignment}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problem Definition and Proposed Method}{39}{section.4.1}%
+\contentsline {subsubsection}{Problem Definition}{39}{section.4.1}%
+\contentsline {subsubsection}{Proposed Method}{40}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Integration of F/T sensor}{41}{section.4.2}%
+\contentsline {subsubsection}{Gravity Compensation and Initial Value Reset}{41}{figure.4.1}%
+\contentsline {subsubsection}{External Force Evaluation}{49}{equation.4.2.17}%
+\contentsline {section}{\numberline {4.3}Dragging Mode}{49}{section.4.3}%
+\contentsline {subsubsection}{Admittance Control based on F/T sensor}{50}{section.4.3}%
+\contentsline {subsubsection}{Selection of Admittance Control Model}{51}{equation.4.3.20}%
+\contentsline {subsubsection}{Robot Command Decision}{52}{equation.4.3.21}%
+\contentsline {subsubsection}{Implementation in Discrete Time}{54}{table.4.2}%
+\contentsline {section}{\numberline {4.4}Self-Alignment Mode}{54}{section.4.4}%
+\contentsline {subsubsection}{Reference Frame Changing}{55}{section.4.4}%
+\contentsline {subsubsection}{Measurement Point Changing}{56}{equation.4.4.25}%
+\contentsline {section}{\numberline {4.5}Parameter Selection}{59}{section.4.5}%
+\contentsline {chapter}{\numberline {5}File Rotation and Feedrate Control}{63}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Problem Definition and Proposed Method}{63}{section.5.1}%
+\contentsline {subsubsection}{Problem Definition}{63}{section.5.1}%
+\contentsline {subsubsection}{File Property}{64}{section.5.1}%
+\contentsline {subsubsection}{Proposed Method}{65}{figure.5.2}%
+\contentsline {subsubsection}{How to measure the file torque}{66}{figure.5.2}%
+\contentsline {section}{\numberline {5.2}Inverse Rotation Control}{68}{section.5.2}%
+\contentsline {section}{\numberline {5.3}File Feedrate Control}{70}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Automated Endodontic Treatment}{73}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Experimental Results}{76}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Experimental Setup}{76}{section.6.1}%
+\contentsline {subsubsection}{Software and Firmware Setup}{76}{section.6.1}%
+\contentsline {subsubsection}{Hardware Setup}{78}{figure.6.2}%
+\contentsline {section}{\numberline {6.2}Force-Guided Alignment}{83}{section.6.2}%
+\contentsline {subsubsection}{Results}{87}{table.6.4}%
+\contentsline {subsubsection}{Conclusion of Force-Guided Alignment Experiment}{97}{figure.6.16}%
+\contentsline {section}{\numberline {6.3}Pre-Clinical Evaluation}{101}{section.6.3}%
+\contentsline {subsubsection}{Result}{103}{figure.6.18}%
+\contentsline {subsubsection}{Conclusion of pre-clinical evaluation}{104}{table.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusions and Future work}{105}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusions}{105}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Discussion and Future Work}{106}{section.7.2}%
+\contentsline {chapter}{Appendices}{108}{section*.5}%
+\contentsline {section}{A \hskip 1em\relax Forward Kinematics}{109}{section*.5}%
+\contentsline {section}{B \hskip 1em\relax Jacobian Matrix }{110}{section*.5}%
+\contentsline {chapter}{Reference}{116}{appendix*.6}%

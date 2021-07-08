@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.12)  13 JUN 2021 01:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.12)  15 JUN 2021 17:39
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -954,13 +954,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Chapters/0_Abstract.tex) [1
 
 
-] [2
+] (thesis.toc [2
 
-] (thesis.toc [3])
+])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [4] (thesis.lof
+ [3] (thesis.lof
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
 7.
 
@@ -970,23 +970,29 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
 
-[5
+[4
 
 ]
-Overfull \hbox (18.18398pt too wide) in paragraph at lines 27--27
- \OT1/ptm/m/n/12 (-20) ces, whose di-ag-o-nal in-dexes are re-spec-tively re-la
-ted to $\OML/lmm/m/it/12 x; y; z; []; []; []$\OT1/ptm/m/n/12 (-20) . 
+Overfull \hbox (18.10886pt too wide) in paragraph at lines 24--24
+ []$ \OT1/ptm/m/n/12 (-20) de-notes the real value mea-sured by F/T sen-sor. $[
+]$, [$[]\OML/lmm/m/it/12 ; []; []; []; []; []$\OT1/ptm/m/n/12 (-20) ], 
  []
 
-[6]
-Underfull \vbox (badness 1917) has occurred while \output is active []
 
- [7])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Overfull \hbox (48.55482pt too wide) in paragraph at lines 35--35
+ [][] [][][]\OT1/ptm/m/n/12 (-20) Flow chart of File Fee-drate Con-trol with De
+n-ti-Bot. $[] []$, [$\OML/lmm/m/it/12 f[]; f[]; f[]; []; []; []$\OT1/ptm/m/n
+/12 (-20) ] 
+ []
+
+[6] [7])
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
-
-[8] (thesis.lot)
+ [8] (thesis.lot)
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
@@ -1001,606 +1007,631 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.6 B
-     esides, root canal treatment is a tedious and time-consuming surgery fo...
+     esides, endodontic treatment is a tedious and time-consuming surgery fo...
 [1
 
 ]
-<Images/endo-procedure.png, id=298, 451.6875pt x 406.51875pt>
+<Images/endo-procedure.png, id=313, 451.6875pt x 406.51875pt>
 File: Images/endo-procedure.png Graphic file (type png)
 <use Images/endo-procedure.png>
-Package pdftex.def Info: Images/endo-procedure.png  used on input line 15.
+Package pdftex.def Info: Images/endo-procedure.png  used on input line 17.
 (pdftex.def)             Requested size: 292.35205pt x 263.12991pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.22 \par
-          [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./Images/endo-procedure.png>]
-Underfull \vbox (badness 1152) has occurred while \output is active []
+          [2] [3 <./Images/endo-procedure.png>]
+Underfull \vbox (badness 1629) has occurred while \output is active []
 
  [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \vbox (badness 2460) has occurred while \output is active []
-
- [6]
-[7] [8]) (Chapters/2_State-of-the-Art.tex
-Underfull \vbox (badness 1430) has occurred while \output is active []
-
- [9]
-[10]
+[5] [6] [7] [8]) (Chapters/2_State-of-the-Art.tex [9]
 Chapter 2.
-<Images/hongkong_1.png, id=372, 721.19438pt x 416.30531pt>
+<Images/hongkong_1.png, id=387, 721.19438pt x 416.30531pt>
 File: Images/hongkong_1.png Graphic file (type png)
 <use Images/hongkong_1.png>
 Package pdftex.def Info: Images/hongkong_1.png  used on input line 10.
-(pdftex.def)             Requested size: 350.82008pt x 202.50494pt.
-[11
+(pdftex.def)             Requested size: 272.86073pt x 157.50525pt.
+[10
 
 ]
-<Images/korea.png, id=387, 690.32906pt x 542.025pt>
-File: Images/korea.png Graphic file (type png)
-<use Images/korea.png>
-Package pdftex.def Info: Images/korea.png  used on input line 22.
-(pdftex.def)             Requested size: 272.86073pt x 214.24226pt.
-<Images/Japan.png, id=389, 837.1275pt x 551.81157pt>
+<Images/Japan.png, id=400, 837.1275pt x 551.81157pt>
 File: Images/Japan.png Graphic file (type png)
 <use Images/Japan.png>
-Package pdftex.def Info: Images/Japan.png  used on input line 27.
+Package pdftex.def Info: Images/Japan.png  used on input line 21.
 (pdftex.def)             Requested size: 272.86073pt x 179.85867pt.
- [12 <./Images/hongkong_1.png>]
-<Images/YOMI.png, id=401, 457.71pt x 339.51843pt>
+<Images/korea.png, id=405, 690.32906pt x 542.025pt>
+File: Images/korea.png Graphic file (type png)
+<use Images/korea.png>
+Package pdftex.def Info: Images/korea.png  used on input line 31.
+(pdftex.def)             Requested size: 272.86073pt x 214.24226pt.
+ [11 <./Images/hongkong_1.png> <./Images/Japan.png>]
+<Images/YOMI.png, id=417, 457.71pt x 339.51843pt>
 File: Images/YOMI.png Graphic file (type png)
 <use Images/YOMI.png>
-Package pdftex.def Info: Images/YOMI.png  used on input line 38.
+Package pdftex.def Info: Images/YOMI.png  used on input line 42.
 (pdftex.def)             Requested size: 311.84338pt x 231.32536pt.
- [13 <./Images/korea.png> <./Images/Japan.png>] [14 <./Images/YOMI.png>]
-<Images/patient_tracking.png, id=419, 490.9542pt x 512.1534pt>
+ [12 <./Images/korea.png>] [13 <./Images/YOMI.png>]
+<Images/patient_tracking.png, id=434, 490.9542pt x 512.1534pt>
 File: Images/patient_tracking.png Graphic file (type png)
 <use Images/patient_tracking.png>
-Package pdftex.def Info: Images/patient_tracking.png  used on input line 49.
+Package pdftex.def Info: Images/patient_tracking.png  used on input line 51.
 (pdftex.def)             Requested size: 331.3347pt x 345.64955pt.
- [15 <./Images/patient_tracking.png>]
-<Images/NCTU_2.png, id=430, 628.59843pt x 587.94656pt>
+ [14 <./Images/patient_tracking.png>]
+<Images/NCTU_2.png, id=445, 628.59843pt x 587.94656pt>
 File: Images/NCTU_2.png Graphic file (type png)
 <use Images/NCTU_2.png>
-Package pdftex.def Info: Images/NCTU_2.png  used on input line 60.
+Package pdftex.def Info: Images/NCTU_2.png  used on input line 62.
 (pdftex.def)             Requested size: 370.31142pt x 346.35616pt.
- [16 <./Images/NCTU_2.png>]
-<Images/NCTU_4.png, id=442, 475.02469pt x 235.63031pt>
+ [15 <./Images/NCTU_2.png>]
+<Images/NCTU_4.png, id=457, 475.02469pt x 235.63031pt>
 File: Images/NCTU_4.png Graphic file (type png)
 <use Images/NCTU_4.png>
-Package pdftex.def Info: Images/NCTU_4.png  used on input line 72.
-(pdftex.def)             Requested size: 311.84338pt x 154.69313pt.
- [17 <./Images/NCTU_4.png>]
-<Images/NCTU_1.png, id=450, 392.21532pt x 399.74344pt>
+Package pdftex.def Info: Images/NCTU_4.png  used on input line 74.
+(pdftex.def)             Requested size: 331.3347pt x 164.36122pt.
+<Images/NCTU_1.png, id=460, 392.21532pt x 399.74344pt>
 File: Images/NCTU_1.png Graphic file (type png)
 <use Images/NCTU_1.png>
-Package pdftex.def Info: Images/NCTU_1.png  used on input line 82.
-(pdftex.def)             Requested size: 233.88402pt x 238.3779pt.
-<Images/NCTU_3.png, id=454, 383.93437pt x 319.1925pt>
+Package pdftex.def Info: Images/NCTU_1.png  used on input line 83.
+(pdftex.def)             Requested size: 214.3927pt x 218.51155pt.
+<Images/NCTU_3.png, id=462, 383.93437pt x 319.1925pt>
 File: Images/NCTU_3.png Graphic file (type png)
 <use Images/NCTU_3.png>
-Package pdftex.def Info: Images/NCTU_3.png  used on input line 94.
-(pdftex.def)             Requested size: 272.86073pt x 226.86203pt.
-)
+Package pdftex.def Info: Images/NCTU_3.png  used on input line 91.
+(pdftex.def)             Requested size: 233.88402pt x 194.44899pt.
+ [16 <./Images/NCTU_4.png>] [17 <./Images/NCTU_1.png> <./Images/NCTU_3.png>])
 (Chapters/3_Design and Analysis of the Dental Surgical Robot - DentiBot.tex
-[18 <./Images/NCTU_1.png>] [19 <./Images/NCTU_3.png>] [20
+[18]
+Chapter 3.
+[19
 
 ]
-Chapter 3.
-
-Overfull \hbox (0.78905pt too wide) in paragraph at lines 5--6
-\OT1/ptm/m/n/12 (-20) cated surgery op-er-a-tions be-cause the av-er-age di-am-
-e-ter of a root canal is $\OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 28
-(\OMS/lmsy/m/n/12 \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 08)$
- []
-
-[21]
-<Images/DentiBot.png, id=479, 999.735pt x 484.81125pt>
+<Images/DentiBot.png, id=497, 999.735pt x 484.81125pt>
 File: Images/DentiBot.png Graphic file (type png)
 <use Images/DentiBot.png>
-Package pdftex.def Info: Images/DentiBot.png  used on input line 11.
+Package pdftex.def Info: Images/DentiBot.png  used on input line 14.
 (pdftex.def)             Requested size: 389.80275pt x 189.03123pt.
-<Images/modified_handpiece.png, id=484, 423.984pt x 480.3546pt>
+<Images/modified_handpiece.png, id=500, 422.0568pt x 432.6564pt>
 File: Images/modified_handpiece.png Graphic file (type png)
 <use Images/modified_handpiece.png>
-Package pdftex.def Info: Images/modified_handpiece.png  used on input line 20.
-(pdftex.def)             Requested size: 233.88402pt x 264.98744pt.
- [22 <./Images/DentiBot.png>] [23 <./Images/modified_handpiece.png>]
-[24]
-<Images/Coordinates.png, id=505, 532.389pt x 510.2262pt>
+Package pdftex.def Info: Images/modified_handpiece.png  used on input line 23.
+(pdftex.def)             Requested size: 272.86073pt x 279.72472pt.
+ [20 <./Images/DentiBot.png>]
+Underfull \vbox (badness 6252) has occurred while \output is active []
+
+ [21 <./Images/modified_handpiece.png>] [22]
+<Images/Coordinates.png, id=516, 532.389pt x 510.2262pt>
 File: Images/Coordinates.png Graphic file (type png)
 <use Images/Coordinates.png>
-Package pdftex.def Info: Images/Coordinates.png  used on input line 37.
-(pdftex.def)             Requested size: 233.88402pt x 224.14987pt.
-
-Underfull \vbox (badness 3138) has occurred while \output is active []
-
- [25 <./Images/Coordinates.png>]
+Package pdftex.def Info: Images/Coordinates.png  used on input line 40.
+(pdftex.def)             Requested size: 331.3347pt x 317.5437pt.
+ [23 <./Images/Coordinates.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 112.
+
+[25]
+Underfull \vbox (badness 7012) has occurred while \output is active []
 
  [26]
-[27]
-LaTeX Font Info:    Font shape `OMS/ptm/b/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 107.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-[30] [31]
-Underfull \vbox (badness 4779) has occurred while \output is active []
-
- [32]
-[33]
-<Images/TCP.png, id=576, 542.77782pt x 452.4403pt>
+[27] [28] [29] [30] [31]
+<Images/TCP.png, id=585, 542.77782pt x 452.4403pt>
 File: Images/TCP.png Graphic file (type png)
 <use Images/TCP.png>
-Package pdftex.def Info: Images/TCP.png  used on input line 564.
+Package pdftex.def Info: Images/TCP.png  used on input line 579.
 (pdftex.def)             Requested size: 272.86073pt x 227.45535pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
-Underfull \vbox (badness 2970) has occurred while \output is active []
-
- [35 <./Images/TCP.png>]
-<Images/four point.png, id=591, 460.119pt x 460.119pt>
+ [32] [33 <./Images/TCP.png>]
+<Images/four point.png, id=599, 460.119pt x 460.119pt>
 File: Images/four point.png Graphic file (type png)
 <use Images/four point.png>
-Package pdftex.def Info: Images/four point.png  used on input line 624.
+Package pdftex.def Info: Images/four point.png  used on input line 639.
 (pdftex.def)             Requested size: 214.3927pt x 214.39543pt.
- [36] [37 <./Images/four point.png>]
-<Images/TCP2.png, id=608, 550.30594pt x 458.46281pt>
+ [34] [35 <./Images/four point.png>]
+<Images/TCP2.png, id=616, 550.30594pt x 458.46281pt>
 File: Images/TCP2.png Graphic file (type png)
 <use Images/TCP2.png>
-Package pdftex.def Info: Images/TCP2.png  used on input line 683.
+Package pdftex.def Info: Images/TCP2.png  used on input line 699.
 (pdftex.def)             Requested size: 272.86073pt x 227.32803pt.
-<Images/rot_inf.png, id=609, 279.9258pt x 238.0092pt>
+<Images/rot_inf.png, id=617, 278.9622pt x 237.5274pt>
 File: Images/rot_inf.png Graphic file (type png)
 <use Images/rot_inf.png>
-Package pdftex.def Info: Images/rot_inf.png  used on input line 691.
-(pdftex.def)             Requested size: 233.88402pt x 198.86226pt.
- [38 <./Images/TCP2.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39 <./Images/rot_inf.png>]) (Chapters/4_Force-Guided Robot Alignment.tex [40]
-
+Package pdftex.def Info: Images/rot_inf.png  used on input line 707.
+(pdftex.def)             Requested size: 233.88402pt x 199.14833pt.
+ [36 <./Images/TCP2.png>] [37 <./Images/rot_inf.png>])
+(Chapters/4_Force-Guided Robot Alignment.tex [38]
 Chapter 4.
-[41
+[39
 
 ]
-<Images/gravity compensation.png, id=641, 558.4062pt x 273.6624pt>
+<Images/gravity compensation.png, id=654, 558.4062pt x 273.6624pt>
 File: Images/gravity compensation.png Graphic file (type png)
 <use Images/gravity compensation.png>
-Package pdftex.def Info: Images/gravity compensation.png  used on input line 14
+Package pdftex.def Info: Images/gravity compensation.png  used on input line 16
 .
 (pdftex.def)             Requested size: 389.80275pt x 191.04039pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1629) has occurred while \output is active []
 
- [42]
-[43 <./Images/gravity compensation.png>] [44]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [40]
+[41 <./Images/gravity compensation.png>] [42] [43] [44]
 
- [45]
-Underfull \vbox (badness 2409) has occurred while \output is active []
+LaTeX Warning: Reference `{eq:frrgf}' on page 45 undefined on input line 258.
 
- [46]
-[47] [48] [49]
-Underfull \vbox (badness 3601) has occurred while \output is active []
-
- [50]
-[51]
-<Images/adm ctrl.png, id=722, 597.432pt x 197.538pt>
+[45] [46] [47] [48]
+<Images/adm ctrl.png, id=727, 597.9138pt x 193.6836pt>
 File: Images/adm ctrl.png Graphic file (type png)
 <use Images/adm ctrl.png>
-Package pdftex.def Info: Images/adm ctrl.png  used on input line 399.
-(pdftex.def)             Requested size: 389.80275pt x 128.88948pt.
-
+Package pdftex.def Info: Images/adm ctrl.png  used on input line 411.
+(pdftex.def)             Requested size: 350.82008pt x 113.64282pt.
+ [49] [50 <./Images/adm ctrl.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
-Underfull \vbox (badness 2970) has occurred while \output is active []
-
- [53 <./Images/adm ctrl.png>] [54]
+ [51]
+[52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55]
-[56]
-Underfull \vbox (badness 1152) has occurred while \output is active []
-
- [57]
-<Images/sensor_comp 1.png, id=767, 249.5724pt x 173.448pt>
+ [53]
+[54]
+<Images/sensor_comp 1.png, id=771, 238.9728pt x 161.8848pt>
 File: Images/sensor_comp 1.png Graphic file (type png)
 <use Images/sensor_comp 1.png>
-Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 531.
-(pdftex.def)             Requested size: 272.86073pt x 189.63947pt.
-<Images/sensor_comp 2.png, id=769, 198.9834pt x 163.812pt>
+Package pdftex.def Info: Images/sensor_comp 1.png  used on input line 550.
+(pdftex.def)             Requested size: 233.88402pt x 158.43852pt.
+ [55 <./Images/sensor_comp 1.png>]
+<Images/sensor_comp 2.png, id=780, 197.538pt x 157.5486pt>
 File: Images/sensor_comp 2.png Graphic file (type png)
 <use Images/sensor_comp 2.png>
-Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 560.
-(pdftex.def)             Requested size: 272.86073pt x 224.64603pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [58 <./Images/sensor_comp 1.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59 <./Images/sensor_comp 2.png>] [60]
-<Images/mass spring.png, id=789, 277.035pt x 110.4125pt>
+Package pdftex.def Info: Images/sensor_comp 2.png  used on input line 582.
+(pdftex.def)             Requested size: 253.3694pt x 202.0822pt.
+ [56 <./Images/sensor_comp 2.png>]
+[57] [58]
+<Images/mass spring.png, id=802, 426.59375pt x 194.7275pt>
 File: Images/mass spring.png Graphic file (type png)
 <use Images/mass spring.png>
-Package pdftex.def Info: Images/mass spring.png  used on input line 642.
-(pdftex.def)             Requested size: 233.88402pt x 93.21422pt.
- [61 <./Images/mass spring.png>]
-<Images/holding_gesture.png, id=801, 734.745pt x 546.3612pt>
+Package pdftex.def Info: Images/mass spring.png  used on input line 694.
+(pdftex.def)             Requested size: 214.3927pt x 97.86565pt.
+ [59 <./Images/mass spring.png>]
+<Images/holding_gesture.png, id=811, 734.745pt x 546.3612pt>
 File: Images/holding_gesture.png Graphic file (type png)
 <use Images/holding_gesture.png>
-Package pdftex.def Info: Images/holding_gesture.png  used on input line 711.
-(pdftex.def)             Requested size: 311.84338pt x 231.89613pt.
-)
-(Chapters/5_Control of Endodontic File Rotation.tex [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [63]
-[64 <./Images/holding_gesture.png>]
+Package pdftex.def Info: Images/holding_gesture.png  used on input line 763.
+(pdftex.def)             Requested size: 272.86073pt x 202.90079pt.
+ [60])
+(Chapters/5_Control of Endodontic File Rotation.tex [61] [62 <./Images/holding_
+gesture.png>]
 Chapter 5.
-<Images/Endodontic_File.png, id=819, 497.6994pt x 129.1224pt>
-File: Images/Endodontic_File.png Graphic file (type png)
-<use Images/Endodontic_File.png>
-Package pdftex.def Info: Images/Endodontic_File.png  used on input line 13.
-(pdftex.def)             Requested size: 389.80275pt x 101.13078pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65
+[63
 
 ]
-<Images/files.jpg, id=826, 1173.63469pt x 880.79062pt>
+<Images/Endodontic_File.png, id=835, 497.6994pt x 129.1224pt>
+File: Images/Endodontic_File.png Graphic file (type png)
+<use Images/Endodontic_File.png>
+Package pdftex.def Info: Images/Endodontic_File.png  used on input line 15.
+(pdftex.def)             Requested size: 389.80275pt x 101.13078pt.
+ [64 <./Images/Endodontic_File.png>]
+<Images/files.jpg, id=843, 1173.63469pt x 880.79062pt>
 File: Images/files.jpg Graphic file (type jpg)
 <use Images/files.jpg>
-Package pdftex.def Info: Images/files.jpg  used on input line 36.
+Package pdftex.def Info: Images/files.jpg  used on input line 38.
 (pdftex.def)             Requested size: 272.86073pt x 204.76826pt.
-
-[66 <./Images/Endodontic_File.png>]
-Underfull \vbox (badness 1584) has occurred while \output is active []
-
- [67 <./Images/files.jpg>] [68]
-<Images/Prototype.png, id=850, 847.0044pt x 522.753pt>
+ [65 <./Images/files.jpg>] [66]
+<Images/Prototype.png, id=859, 847.0044pt x 522.753pt>
 File: Images/Prototype.png Graphic file (type png)
 <use Images/Prototype.png>
-Package pdftex.def Info: Images/Prototype.png  used on input line 99.
+Package pdftex.def Info: Images/Prototype.png  used on input line 101.
 (pdftex.def)             Requested size: 350.82008pt x 216.51569pt.
- [69]
-<Images/inverse_rotation.png, id=860, 472.76625pt x 574.145pt>
+
+[67]
+<Images/inverse_rotation.png, id=872, 472.76625pt x 574.145pt>
 File: Images/inverse_rotation.png Graphic file (type png)
 <use Images/inverse_rotation.png>
-Package pdftex.def Info: Images/inverse_rotation.png  used on input line 108.
-(pdftex.def)             Requested size: 311.84338pt x 378.71785pt.
- [70 <./Images/Prototype.png>]
-Underfull \vbox (badness 1360) has occurred while \output is active []
+Package pdftex.def Info: Images/inverse_rotation.png  used on input line 112.
+(pdftex.def)             Requested size: 253.3694pt x 307.70332pt.
+ [68 <./Images/Prototype.png>]
+Underfull \vbox (badness 1888) has occurred while \output is active []
 
- [71 <./Images/inverse_rotation.png>]
-
-LaTeX Warning: Reference `fig: feedrate_control' on page 72 undefined on input 
-line 125.
-
-<Images/feedrate_control.png, id=872, 840.13875pt x 187.70125pt>
+ [69 <./Images/inverse_rotation.png>]
+<Images/feedrate_control.png, id=885, 629.2308pt x 138.7584pt>
 File: Images/feedrate_control.png Graphic file (type png)
 <use Images/feedrate_control.png>
-Package pdftex.def Info: Images/feedrate_control.png  used on input line 128.
-(pdftex.def)             Requested size: 389.80275pt x 87.08827pt.
-[72]
-<Images/feedrate_control_flow_chart.png, id=878, 543.02875pt x 512.91624pt>
+Package pdftex.def Info: Images/feedrate_control.png  used on input line 133.
+(pdftex.def)             Requested size: 389.80275pt x 85.95944pt.
+ [70]
+<Images/feedrate_control_flow_chart.png, id=890, 543.02875pt x 512.91624pt>
 File: Images/feedrate_control_flow_chart.png Graphic file (type png)
 <use Images/feedrate_control_flow_chart.png>
 Package pdftex.def Info: Images/feedrate_control_flow_chart.png  used on input 
-line 140.
-(pdftex.def)             Requested size: 389.80275pt x 368.2037pt.
+line 154.
+(pdftex.def)             Requested size: 311.84338pt x 294.56453pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 1430) in paragraph at lines 156--156
+[]\OT1/ptm/m/n/12 (+20) Figure 5.6: []Flow chart of File Fee-drate Con-trol wit
+h Den-ti-Bot. $[] []$,
+ []
 
- [73 <./Images/feedrate_control.png>]
-<Images/combine.png, id=885, 470.2368pt x 419.6478pt>
+[71 <./Images/feedrate_control.png>] [72 <./Images/feedrate_control_flow_chart.
+png>]
+<Images/combine.png, id=903, 470.2368pt x 419.6478pt>
 File: Images/combine.png Graphic file (type png)
 <use Images/combine.png>
-Package pdftex.def Info: Images/combine.png  used on input line 150.
-(pdftex.def)             Requested size: 272.86073pt x 243.51115pt.
- [74 <./Images/feedrate_control_flow_chart.png>]
-<Images/algorithm.png, id=892, 539.616pt x 542.025pt>
+Package pdftex.def Info: Images/combine.png  used on input line 167.
+(pdftex.def)             Requested size: 233.88402pt x 208.72202pt.
+<Images/algorithm.png, id=905, 482.2818pt x 467.8278pt>
 File: Images/algorithm.png Graphic file (type png)
 <use Images/algorithm.png>
-Package pdftex.def Info: Images/algorithm.png  used on input line 159.
-(pdftex.def)             Requested size: 389.80275pt x 391.55618pt.
-)
-(Chapters/6_Experiment Results.tex [75 <./Images/combine.png>] [76 <./Images/al
-gorithm.png>] [77] [78
+Package pdftex.def Info: Images/algorithm.png  used on input line 176.
+(pdftex.def)             Requested size: 389.80275pt x 378.13893pt.
+) (Chapters/6_Experiment Results.tex [73 <./Images/combine.png>]
+Underfull \vbox (badness 1466) has occurred while \output is active []
 
-]
+ [74 <./Images/algorithm.png>] [75]
 Chapter 6.
-<Images/EtherCAT.png, id=915, 455.7828pt x 308.352pt>
+<Images/EtherCAT.png, id=924, 455.7828pt x 308.352pt>
 File: Images/EtherCAT.png Graphic file (type png)
 <use Images/EtherCAT.png>
-Package pdftex.def Info: Images/EtherCAT.png  used on input line 10.
+Package pdftex.def Info: Images/EtherCAT.png  used on input line 12.
 (pdftex.def)             Requested size: 272.86073pt x 184.59857pt.
-<Images/GUI.png, id=916, 673.01437pt x 423.08063pt>
+<Images/GUI.png, id=925, 673.01437pt x 423.08063pt>
 File: Images/GUI.png Graphic file (type png)
 <use Images/GUI.png>
-Package pdftex.def Info: Images/GUI.png  used on input line 17.
+Package pdftex.def Info: Images/GUI.png  used on input line 19.
 (pdftex.def)             Requested size: 389.80275pt x 245.04478pt.
-<Images/System.jpg, id=919, 1174.3875pt x 1565.85pt>
+<Images/System.jpg, id=927, 1174.3875pt x 1565.85pt>
 File: Images/System.jpg Graphic file (type jpg)
 <use Images/System.jpg>
-Package pdftex.def Info: Images/System.jpg  used on input line 28.
+Package pdftex.def Info: Images/System.jpg  used on input line 29.
 (pdftex.def)             Requested size: 233.88402pt x 311.82645pt.
-[79] [80 <./Images/EtherCAT.png> <./Images/GUI.png>]
-Underfull \vbox (badness 5726) has occurred while \output is active []
+[76
 
- [81 <./Images/System.jpg>] [82]
-Overfull \hbox (1.69482pt too wide) in paragraph at lines 78--100
+] [77 <./Images/EtherCAT.png> <./Images/GUI.png>] [78 <./Images/System.jpg>] [7
+9]
+Overfull \hbox (1.69482pt too wide) in paragraph at lines 79--101
  [][] 
  []
 
 
-Overfull \hbox (4.88951pt too wide) in paragraph at lines 109--134
+Overfull \hbox (4.88951pt too wide) in paragraph at lines 110--135
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 2.44003pt on input line 134.
+LaTeX Warning: Float too large for page by 2.44003pt on input line 135.
 
-[83] [84] [85]
-<Images/Exp1_motion planning.png, id=956, 765.86125pt x 795.97375pt>
+[80] [81] [82]
+<Images/Exp1_motion planning.png, id=962, 764.8575pt x 865.2325pt>
 File: Images/Exp1_motion planning.png Graphic file (type png)
 <use Images/Exp1_motion planning.png>
 Package pdftex.def Info: Images/Exp1_motion planning.png  used on input line 14
-1.
-(pdftex.def)             Requested size: 389.80275pt x 405.12749pt.
-<Images/position command.png, id=959, 886.9938pt x 446.6286pt>
+2.
+(pdftex.def)             Requested size: 389.80275pt x 440.95909pt.
+<Images/position command.png, id=965, 886.9938pt x 446.6286pt>
 File: Images/position command.png Graphic file (type png)
 <use Images/position command.png>
-Package pdftex.def Info: Images/position command.png  used on input line 160.
+Package pdftex.def Info: Images/position command.png  used on input line 161.
 (pdftex.def)             Requested size: 389.80275pt x 196.27866pt.
- [86] [87 <./Images/Exp1_motion planning.png>] [88 <./Images/position command.p
+ [83] [84 <./Images/Exp1_motion planning.png>] [85 <./Images/position command.p
 ng>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [89]
-<Images/exp/exp1_1_1.png, id=979, 462.22687pt x 800.23969pt>
+ [86]
+<Images/exp/exp1_1_1.png, id=986, 462.22687pt x 800.23969pt>
 File: Images/exp/exp1_1_1.png Graphic file (type png)
 <use Images/exp/exp1_1_1.png>
-Package pdftex.def Info: Images/exp/exp1_1_1.png  used on input line 200.
+Package pdftex.def Info: Images/exp/exp1_1_1.png  used on input line 201.
 (pdftex.def)             Requested size: 350.82008pt x 607.37038pt.
 
 
-LaTeX Warning: Float too large for page by 24.62656pt on input line 204.
+LaTeX Warning: Float too large for page by 51.16656pt on input line 205.
 
-<Images/exp/exp1_2_1.png, id=980, 466.74374pt x 794.2172pt>
+<Images/exp/exp1_2_1.png, id=987, 466.74374pt x 794.2172pt>
 File: Images/exp/exp1_2_1.png Graphic file (type png)
 <use Images/exp/exp1_2_1.png>
-Package pdftex.def Info: Images/exp/exp1_2_1.png  used on input line 208.
+Package pdftex.def Info: Images/exp/exp1_2_1.png  used on input line 209.
 (pdftex.def)             Requested size: 350.82008pt x 596.98238pt.
 
-LaTeX Warning: Float too large for page by 14.23856pt on input line 212.
+LaTeX Warning: Float too large for page by 40.77856pt on input line 213.
 
-<Images/exp/exp1_3_1.png, id=981, 469.00218pt x 801.74532pt>
+<Images/exp/exp1_3_1.png, id=988, 469.00218pt x 801.74532pt>
 File: Images/exp/exp1_3_1.png Graphic file (type png)
 <use Images/exp/exp1_3_1.png>
-Package pdftex.def Info: Images/exp/exp1_3_1.png  used on input line 216.
+Package pdftex.def Info: Images/exp/exp1_3_1.png  used on input line 217.
 (pdftex.def)             Requested size: 350.82008pt x 599.71715pt.
 
-LaTeX Warning: Float too large for page by 16.97333pt on input line 220.
+LaTeX Warning: Float too large for page by 43.51334pt on input line 221.
 
-<Images/exp/platform moving.png, id=987, 421.575pt x 316.18124pt>
+<Images/exp/platform moving.png, id=994, 421.575pt x 316.18124pt>
 File: Images/exp/platform moving.png Graphic file (type png)
 <use Images/exp/platform moving.png>
-Package pdftex.def Info: Images/exp/platform moving.png  used on input line 226
+Package pdftex.def Info: Images/exp/platform moving.png  used on input line 227
 .
 (pdftex.def)             Requested size: 311.84338pt x 233.88843pt.
-[90] [91 <./Images/exp/exp1_1_1.png>] [92 <./Images/exp/exp1_2_1.png>] [93 <./I
-mages/exp/exp1_3_1.png>] [94 <./Images/exp/platform moving.png (PNG copy)>]
-<Images/exp/exp1_1_2.png, id=1015, 465.99094pt x 804.75656pt>
+[87] [88 <./Images/exp/exp1_1_1.png>] [89 <./Images/exp/exp1_2_1.png>] [90 <./I
+mages/exp/exp1_3_1.png>] [91 <./Images/exp/platform moving.png (PNG copy)>]
+<Images/exp/exp1_1_2.png, id=1022, 465.23813pt x 804.75656pt>
 File: Images/exp/exp1_1_2.png Graphic file (type png)
 <use Images/exp/exp1_1_2.png>
-Package pdftex.def Info: Images/exp/exp1_1_2.png  used on input line 242.
-(pdftex.def)             Requested size: 350.82008pt x 605.8745pt.
+Package pdftex.def Info: Images/exp/exp1_1_2.png  used on input line 243.
+(pdftex.def)             Requested size: 350.82008pt x 606.85686pt.
 
 
-LaTeX Warning: Float too large for page by 23.13068pt on input line 246.
+LaTeX Warning: Float too large for page by 24.11304pt on input line 247.
 
-<Images/exp/exp1_2_2.png, id=1016, 469.00218pt x 806.26219pt>
+<Images/exp/exp1_2_2.png, id=1023, 469.00218pt x 806.26219pt>
 File: Images/exp/exp1_2_2.png Graphic file (type png)
 <use Images/exp/exp1_2_2.png>
-Package pdftex.def Info: Images/exp/exp1_2_2.png  used on input line 250.
+Package pdftex.def Info: Images/exp/exp1_2_2.png  used on input line 251.
 (pdftex.def)             Requested size: 350.82008pt x 603.09583pt.
 
-LaTeX Warning: Float too large for page by 20.352pt on input line 254.
+LaTeX Warning: Float too large for page by 20.352pt on input line 255.
 
-<Images/exp/exp1_3_2.png, id=1017, 469.755pt x 807.7678pt>
+<Images/exp/exp1_3_2.png, id=1024, 570.63188pt x 981.6675pt>
 File: Images/exp/exp1_3_2.png Graphic file (type png)
 <use Images/exp/exp1_3_2.png>
-Package pdftex.def Info: Images/exp/exp1_3_2.png  used on input line 258.
-(pdftex.def)             Requested size: 350.82008pt x 603.24832pt.
+Package pdftex.def Info: Images/exp/exp1_3_2.png  used on input line 259.
+(pdftex.def)             Requested size: 350.82008pt x 603.51971pt.
 
-LaTeX Warning: Float too large for page by 20.5045pt on input line 262.
+LaTeX Warning: Float too large for page by 20.7759pt on input line 263.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [95]
-[96 <./Images/exp/exp1_1_2.png>] [97 <./Images/exp/exp1_2_2.png>] [98 <./Images
+ [92]
+[93 <./Images/exp/exp1_1_2.png>] [94 <./Images/exp/exp1_2_2.png>] [95 <./Images
 /exp/exp1_3_2.png>]
-<Images/exp/zoom_in.png, id=1042, 382.42876pt x 371.13657pt>
+<Images/exp/zoom_in.png, id=1048, 264.23718pt x 264.99pt>
 File: Images/exp/zoom_in.png Graphic file (type png)
 <use Images/exp/zoom_in.png>
-Package pdftex.def Info: Images/exp/zoom_in.png  used on input line 269.
-(pdftex.def)             Requested size: 233.88402pt x 226.97626pt.
-<Images/exp/exp1_1_3.png, id=1043, 462.97969pt x 799.48688pt>
+Package pdftex.def Info: Images/exp/zoom_in.png  used on input line 270.
+(pdftex.def)             Requested size: 233.88402pt x 234.5505pt.
+<Images/exp/exp1_1_3.png, id=1049, 462.97969pt x 799.48688pt>
 File: Images/exp/exp1_1_3.png Graphic file (type png)
 <use Images/exp/exp1_1_3.png>
-Package pdftex.def Info: Images/exp/exp1_1_3.png  used on input line 279.
+Package pdftex.def Info: Images/exp/exp1_1_3.png  used on input line 280.
 (pdftex.def)             Requested size: 350.82008pt x 605.81087pt.
 
 
-LaTeX Warning: Float too large for page by 23.06705pt on input line 283.
+LaTeX Warning: Float too large for page by 23.06705pt on input line 284.
 
-<Images/exp/exp1_2_3.png, id=1044, 461.47406pt x 799.48688pt>
+[96 <./Images/exp/zoom_in.png>]
+<Images/exp/exp1_2_3.png, id=1055, 461.47406pt x 799.48688pt>
 File: Images/exp/exp1_2_3.png Graphic file (type png)
 <use Images/exp/exp1_2_3.png>
-Package pdftex.def Info: Images/exp/exp1_2_3.png  used on input line 287.
+Package pdftex.def Info: Images/exp/exp1_2_3.png  used on input line 288.
 (pdftex.def)             Requested size: 350.82008pt x 607.78712pt.
 
-LaTeX Warning: Float too large for page by 25.0433pt on input line 291.
 
-<Images/exp/exp1_3_3.png, id=1045, 462.97969pt x 800.9925pt>
+LaTeX Warning: Float too large for page by 25.0433pt on input line 292.
+
+<Images/exp/exp1_3_3.png, id=1056, 462.97969pt x 800.9925pt>
 File: Images/exp/exp1_3_3.png Graphic file (type png)
 <use Images/exp/exp1_3_3.png>
-Package pdftex.def Info: Images/exp/exp1_3_3.png  used on input line 295.
+Package pdftex.def Info: Images/exp/exp1_3_3.png  used on input line 296.
 (pdftex.def)             Requested size: 350.82008pt x 606.95175pt.
 
-LaTeX Warning: Float too large for page by 24.20793pt on input line 299.
+LaTeX Warning: Float too large for page by 24.20793pt on input line 300.
 
-[99 <./Images/exp/zoom_in.png>] [100 <./Images/exp/exp1_1_3.png>] [101 <./Image
-s/exp/exp1_2_3.png>] [102 <./Images/exp/exp1_3_3.png>] [103]
+[97] [98 <./Images/exp/exp1_1_3.png>] [99 <./Images/exp/exp1_2_3.png>] [100 <./
+Images/exp/exp1_3_3.png>]
 File: Images/algorithm.png Graphic file (type png)
 <use Images/algorithm.png>
-Package pdftex.def Info: Images/algorithm.png  used on input line 312.
-(pdftex.def)             Requested size: 389.80275pt x 391.55618pt.
+Package pdftex.def Info: Images/algorithm.png  used on input line 313.
+(pdftex.def)             Requested size: 389.80275pt x 378.13893pt.
 
-Underfull \vbox (badness 1831) has occurred while \output is active []
-
- [104]
-<Images/root_single.png, id=1080, 76.6062pt x 121.8954pt>
-File: Images/root_single.png Graphic file (type png)
-<use Images/root_single.png>
-Package pdftex.def Info: Images/root_single.png  used on input line 330.
-(pdftex.def)             Requested size: 58.46803pt x 93.0339pt.
-
-[105 <./Images/root_single.png>]
-<Images/exp/roots.png, id=1088, 548.2884pt x 274.1442pt>
-File: Images/exp/roots.png Graphic file (type png)
-<use Images/exp/roots.png>
-Package pdftex.def Info: Images/exp/roots.png  used on input line 343.
-(pdftex.def)             Requested size: 389.80275pt x 194.90308pt.
- [106 <./Images/exp/roots.png>])
-(Chapters/7_Conclusions and Future Works.tex [107] [108
-
-]
-Chapter 7.
-[109]) (Chapters/8_Appendix.tex [110] [111] [112
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 12.0pt
-(hyperref)                replaced by space on input line 5.
-
-[113]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 12.0pt
-(hyperref)                replaced by space on input line 48.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--98
-
- []
-
-[114]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [115])
-Underfull \hbox (badness 10000) in paragraph at lines 100--76
+ [101]
+<Images/root_single.png, id=1086, 76.6062pt x 121.8954pt>
+File: Images/root_single.png Graphic file (type png)
+<use Images/root_single.png>
+Package pdftex.def Info: Images/root_single.png  used on input line 331.
+(pdftex.def)             Requested size: 58.46803pt x 93.0339pt.
+
+[102 <./Images/root_single.png>]
+<Images/exp/roots.png, id=1094, 548.2884pt x 274.1442pt>
+File: Images/exp/roots.png Graphic file (type png)
+<use Images/exp/roots.png>
+Package pdftex.def Info: Images/exp/roots.png  used on input line 344.
+(pdftex.def)             Requested size: 350.82008pt x 175.40984pt.
+ [103 <./Images/exp/roots.png>])
+(Chapters/7_Conclusions and Future Works.tex [104]
+Chapter 7.
+[105
+
+] [106]) (Chapters/8_Appendix.tex [107] [108
+
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 12.0pt
+(hyperref)                replaced by space on input line 6.
+
+[109
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 12.0pt
+(hyperref)                replaced by space on input line 47.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--97
 
  []
 
-[116] (thesis.bbl (thesis.brf)
+[110]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [111])
+Overfull \hbox (22.06389pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S
+[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \O
+ML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S[]
+S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12  
+ []
+
+
+Overfull \hbox (29.97781pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S
+[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \O
+ML/lmm/m/it/12 []C[]S[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 C[]C[]C[]C[]
+C[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 C[]C[]C[]S[]S[] \OT1/lmr/m/n/12 +
+ []
+
+
+Overfull \hbox (27.75162pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]C[]C[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[
+]C[]C[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[]C[]C[]S[] \OT1/lmr/m/n/1
+2 + \OML/lmm/m/it/12 []C[]C[]C[]C[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C
+[]C[]C[]C[]S[] \OT1/lmr/m/n/12 +
+ []
+
+
+Overfull \hbox (14.39444pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]C[]C[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[
+]C[]C[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]S[]S[] \OMS/lmsy/m/n
+/12   \OML/lmm/m/it/12 []C[]C[]S[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 
+[]C[]C[]S[]S[]S[]$ 
+ []
+
+
+Overfull \hbox (29.14458pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S
+[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \O
+ML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]
+S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12  
+ []
+
+
+Overfull \hbox (26.67076pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S
+[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \O
+ML/lmm/m/it/12 []C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]
+S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]S[]S[] \OT1/lmr/m/n/12 +
+ []
+
+
+Overfull \hbox (42.6648pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []S[]S[]S[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []S[]S[]S[
+]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []S[]S[]S[]S[] \OT1/lmr/m/n/12 + \OML/
+lmm/m/it/12 C[]C[]C[]C[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 C[]C[]S[]S[]S[]
+ \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[]C[]C[]C[] \OMS/lmsy/m/n/12  
+ []
+
+
+Overfull \hbox (25.10226pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C
+[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []C[]C[]C[]S[]S[] \OMS/lmsy/m/
+n/12   \OML/lmm/m/it/12 []C[]C[]C[]S[]S[] \OMS/lmsy/m/n/12   \OML/lmm/m/it/12 
+[]C[]C[]C[]S[]S[] \OMS/lmsy/m/n/12  
+ []
+
+
+Overfull \hbox (16.67358pt too wide) in paragraph at lines 99--77
+\OML/lmm/m/it/12 []C[]C[]S[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[]S[
+]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[]S[]S[] \OT1/lmr/m/n/12 + \OML/
+lmm/m/it/12 []C[]C[]S[]S[] \OT1/lmr/m/n/12 + \OML/lmm/m/it/12 []C[]C[]S[]S[] 
+\OMS/lmsy/m/n/12   \OML/lmm/m/it/12 []S[]S[]S[]S[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--77
+
+ []
+
+[112]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [113]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [114]
+(thesis.bbl (thesis.brf)
 \tf@brf=\write7
 \openout7 = `thesis.brf'.
 
- [117] [118
+ [115]
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+\OT1/ptm/m/n/12 (+20) 2019, [][]$http : / / www . aeroc . org . tw / member / d
+ownload / 1080107-[] % E5 % B0 %
+ []
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+\OT1/ptm/m/n/12 (+20) 88 % E7 % A7 % 91 % E9 % 86 % AB % E5 % B8 % AB % E5 % 90
+ % 8D % E5 % 96 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
 []\OT1/ptm/m/n/12 (+20) ``Root canal pro-ce-dure, tower en-dodon-tics,'' 2020, 
 [][]$https : / / www .
  []
 
-[119] [120]
-Underfull \hbox (badness 6047) in paragraph at lines 103--103
+[116
+
+] [117] [118]
+Underfull \hbox (badness 6047) in paragraph at lines 134--134
 []\OT1/ptm/m/n/12 (+20) ``Implant surgery with robotic guid-ance { dig-i-tal wo
 rk-flows for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 \OT1/ptm/m/n/12 (+20) pa-tient care,'' 2019, [][]$https : / / www . oralhealthg
 roup . com / features /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 \OT1/ptm/m/n/12 (+2) implant-[]surgery-[]with-[]robotic-[]guidance-[]digital-[]
 workows-[]for-[]patient-[]care/$[][].
  []
 
-
-Underfull \vbox (badness 3568) has occurred while \output is active []
-
- [121]
-[122]) [123] (thesis.aux)
+[119] [120] [121]) [122] (thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: 9C5B836076E4A46F360C182D27BFEEF9;2031.
+(rerunfilecheck)             Checksum: 66E5D7F32A2357D5ACDEC0F96F2DCD1D;2031.
  ) 
 Here is how much of TeX's memory you used:
- 19003 strings out of 479287
- 325270 string characters out of 2853534
- 669366 words of memory out of 3000000
- 35385 multiletter control sequences out of 15000+600000
- 502788 words of font info for 299 fonts, out of 8000000 for 9000
+ 19068 strings out of 479287
+ 326314 string characters out of 2853534
+ 672909 words of memory out of 3000000
+ 35429 multiletter control sequences out of 15000+600000
+ 503485 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,30n,107p,1436b,898s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc
-}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.
-enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-math
-ex.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
-athsy.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base
+ 105i,27n,107p,1436b,902s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
+.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mat
+hex.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-
+mathsy.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
+lm-rm.enc}{C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base
 /8r.enc}<C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmbsy10.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/lm/lmbx12.pfb><C:/Users/chan/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/lm/lmbx6.pfb><C:/Users/chan/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/lm/lmbx8.pfb><C:/Users/chan/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Users/chan/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/chan/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/chan/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/chan/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmib10.pfb><C:/Users/chan/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/chan/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/chan/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/chan/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/chan/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Users/chan/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb
-><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.
-pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr
-8a.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/u
-tmr8a.pfb><C:/Users/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/time
-s/utmri8a.pfb>
-Output written on thesis.pdf (135 pages, 16827016 bytes).
+X 2.9/fonts/type1/public/lm/lmbx8.pfb><C:/Users/chan/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmex10.pfb><C:/Users/chan/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/chan/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/chan/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/chan/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/lm/lmmib10.pfb><C:/Users/chan/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/chan/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/chan/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/chan/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/chan/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Users/chan/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/chan/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/ch
+an/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users
+/chan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (134 pages, 16893156 bytes).
 PDF statistics:
- 1479 PDF objects out of 1728 (max. 8388607)
- 337 named destinations out of 1000 (max. 500000)
+ 1490 PDF objects out of 1728 (max. 8388607)
+ 346 named destinations out of 1000 (max. 500000)
  88614 words of extra memory for PDF output out of 89155 (max. 10000000)
 

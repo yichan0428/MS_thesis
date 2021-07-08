@@ -22,15 +22,43 @@
 \BIBdecl
 
 \bibitem{web1}
-``The ministry of health and welfare,'' 2018,
-  \url{https://dep.mohw.gov.tw/dos/cp-1735-3245-113.html}.
+``Number of licensed medical and paramedical personnel, statistics of general
+  health and welfare 2018, ministry of health and welfare,'' 2019,
+  \url{https://www.mohw.gov.tw/dl-18078-fd3fad52-83c8-4690-a8f1-64c468ab123a.html}.
 
 \bibitem{web2}
-``The acadamy of endodontology,'' 2021, \url{http://www.aeroc.org.tw/about/}.
+``Number of licensed endodontists personnel, the acadamy of endodontology,''
+  2019,
+  \url{http://www.aeroc.org.tw/member/download/1080107-\%E5\%B0\%88\%E7\%A7\%91\%E9\%86\%AB\%E5\%B8\%AB\%E5\%90\%8D\%E5\%96\%AE.pdf}.
+
+\bibitem{GUTMANN2011150}
+J.~L. Gutmann and P.~E. Lovdahl, ``Chapter 8 - problem solving in tooth
+  isolation, access openings, and identification of orifice locations,'' in
+  \emph{Problem Solving in Endodontics (Fifth Edition)}, J.~L. Gutmann and
+  P.~E. Lovdahl, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Saint Louis:
+  Mosby, 2011, pp. 150--176.
+
+\bibitem{GUTMANN2011195}
+------, ``Chapter 10 - problem-solving clinical techniques in enlarging and
+  shaping the root canal,'' in \emph{Problem Solving in Endodontics (Fifth
+  Edition)}, J.~L. Gutmann and P.~E. Lovdahl, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax Saint Louis: Mosby, 2011, pp. 195--208.
+
+\bibitem{GUTMANN2011218}
+------, ``Chapter 12 - problem-solving challenges in root canal obturation,''
+  in \emph{Problem Solving in Endodontics (Fifth Edition)}, J.~L. Gutmann and
+  P.~E. Lovdahl, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Saint Louis:
+  Mosby, 2011, pp. 218--240.
 
 \bibitem{web7}
 ``Root canal procedure, tower endodontics,'' 2020, \url{
   https://www.towerendodontics.com/find-out-more-about-our-services/introduction/}.
+
+\bibitem{GUTMANN2011209}
+J.~L. Gutmann and P.~E. Lovdahl, ``Chapter 11 - problem solving in cleaning and
+  disinfecting the root canal system,'' in \emph{Problem Solving in Endodontics
+  (Fifth Edition)}, J.~L. Gutmann and P.~E. Lovdahl, Eds.\hskip 1em plus 0.5em
+  minus 0.4em\relax Saint Louis: Mosby, 2011, pp. 209--217.
 
 \bibitem{Kim2009ASO}
 G.~Kim, H.~Seo, S.~Im, D.~Kang, and S.~Jeong, ``A study on simulator of
@@ -43,13 +71,16 @@ J.~Li, Z.~Shen, W.~Xu, W.~Y. Lam, R.~T.~C. Hsung, E.~H. Pow, K.~Kosuge, and
   Z.~Wang, ``A compact dental robotic system using soft bracing technique,''
   \emph{IEEE Robotics and Automation Letters}, vol.~4, pp. 1271--1278, 2019.
 
-\bibitem{web3}
-``Yomi, neocis,'' 2017, \url{https://www.neocis.com/}.
-
 \bibitem{dong2006wip}
 J.~Dong, S.~Hong, and G.~Hesselgren, ``Wip: a study on the development of
   endodontic micro robot,'' in \emph{Proceedings of the 2006 IJME-INTERTECH
   Conference}.\hskip 1em plus 0.5em minus 0.4em\relax Citeseer, 2006.
+
+\bibitem{GUTMANN201197}
+J.~L. Gutmann and P.~E. Lovdahl, ``Chapter 5 - problem solving in the diagnosis
+  of treatment failure,'' in \emph{Problem Solving in Endodontics (Fifth
+  Edition)}, J.~L. Gutmann and P.~E. Lovdahl, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax Saint Louis: Mosby, 2011, pp. 97--118.
 
 \bibitem{SATTAPAN2000161}
 B.~Sattapan, G.~J. Nervo, J.~E. Palamara, and H.~H. Messer, ``Defects in rotary
@@ -112,6 +143,23 @@ J.~Dong and S.~Y. Hong, ``Design of z axis actuator and quick tool change
   Mechanical Engineering Congress and Exposition}, vol. 44472, 2010, pp.
   507--511.
 
+\bibitem{Neha2017MicroR}
+S.~Neha, P.~Shantipriya, K.~Shekhar, R.~Smitha, C.~Ravichandra, and
+  G.~Sindhura, ``Micro robot - a revolution in endodontics,'' \emph{Annals of
+  International medical and Dental Research}, vol.~3, 2017.
+
+\bibitem{5334530}
+B.~Benyo, L.~Szilagyi, T.~Haidegger, L.~Kovacs, and C.~Nagy-Dobo, ``Detection
+  of the root canal's centerline from dental micro-ct records,'' in \emph{2009
+  Annual International Conference of the IEEE Engineering in Medicine and
+  Biology Society}, 2009, pp. 3517--3520.
+
+\bibitem{7806263}
+S.~Yeotikar, A.~M. Parimi, and Y.~V. Daseswar~Rao, ``Automation of end effector
+  guidance of robotic arm for dental implantation using computer vision,'' in
+  \emph{2016 IEEE Distributed Computing, VLSI, Electrical Circuits and Robotics
+  (DISCOVER)}, 2016, pp. 84--89.
+
 \bibitem{wu2002does}
 M.-K. Wu, D.~Barkis, A.~Roris, and P.~Wesselink, ``Does the first file to bind
   correspond to the diameter of the canal in the apical region?''
@@ -122,13 +170,6 @@ J.~Agrawal, P.~K. Shenai, L.~Chatra, P.~Y. Kumar \emph{et~al.}, ``Evaluation of
   normal range of mouth opening using three finger index: South india
   perspective study,'' \emph{Indian Journal of Dental Research}, vol.~26,
   no.~4, p. 361, 2015.
-
-\bibitem{web4}
-``Meca500, mecademic,'' 2021, \url{https://www.mecademic.com/}.
-
-\bibitem{web5}
-``Mini40, ati industrial automation, inc.'' 2021,
-  \url{https://www.ati-ia.com/index.aspx}.
 
 \bibitem{yang2017four}
 C.~Yang, J.~Wang, L.~Mi, X.~Liu, Y.~Xia, Y.~Li, S.~Ma, and Q.~Teng, ``A
@@ -142,19 +183,42 @@ T.~{Tang}, H.~{Lin}, {Yu Zhao}, {Wenjie Chen}, and M.~{Tomizuka}, ``Autonomous
   in \emph{2016 IEEE International Conference on Automation Science and
   Engineering (CASE)}, 2016, pp. 162--167.
 
+\bibitem{pihwithflex}
+L.~Bodenhagen, A.~Fugl, M.~Willatzen, H.~Petersen, and N.~Krüger, ``Learning
+  peg-in-hole actions with flexible objects,'' \emph{ICAART 2012 - Proceedings
+  of the 4th International Conference on Agents and Artificial Intelligence},
+  vol.~1, 01 2012.
+
+\bibitem{Xu201511}
+Y.~Xu, Y.~Hu, and L.~Hu, ``Precision peg-in-hole assembly strategy using
+  force-guided robot,'' in \emph{Proceedings of the 2015 3rd International
+  Conference on Machinery, Materials and Information Technology
+  Applications}.\hskip 1em plus 0.5em minus 0.4em\relax Atlantis Press,
+  2015/11, pp. 1406--1412.
+
+\bibitem{8294275}
+K.~Van~Wyk, M.~Culleton, J.~Falco, and K.~Kelly, ``Comparative peg-in-hole
+  testing of a force-based manipulation controlled robotic hand,'' \emph{IEEE
+  Transactions on Robotics}, vol.~34, no.~2, pp. 542--549, 2018.
+
 \bibitem{8997006}
 P.~{Zou}, Q.~{Zhu}, J.~{Wu}, and J.~{Jin}, ``An approach for peg-in-hole
   assembling based on force feedback control,'' in \emph{2019 Chinese
   Automation Congress (CAC)}, 2019, pp. 3269--3273.
+
+\bibitem{admctrl}
+A.~Q. Keemink, H.~van~der Kooij, and A.~H. Stienen, ``Admittance control for
+  physical human–robot interaction,'' \emph{The International Journal of
+  Robotics Research}, vol.~37, no.~11, pp. 1421--1444, 2018.
+
+\bibitem{erdogan2014gravity}
+C.~Erdogan, M.~Zafar, and M.~Stilman, ``Gravity and drift in force/torque
+  measurements,'' Tech. Rep., 2014.
 
 \bibitem{boessler2009effect}
 C.~Boessler, F.~Paque, and O.~A. Peters, ``The effect of electropolishing on
   torque and force during simulated root canal preparation with protaper
   shaping files,'' \emph{Journal of Endodontics}, vol.~35, no.~1, pp. 102--106,
   2009.
-
-\bibitem{web8}
-``Motion capture system - impulse x2e, phasespace,'' 2021,
-  \url{https://www.phasespace.com/}.
 
 \end{thebibliography}

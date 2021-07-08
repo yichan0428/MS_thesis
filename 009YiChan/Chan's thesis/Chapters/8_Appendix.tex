@@ -1,5 +1,6 @@
-\chapter*{Appendix}
-\addcontentsline{toc}{chapter}{Appedix}  
+\begin{appendices}
+\clearpage
+%\addcontentsline{toc}{chapter}{Appedix}  
 \section*{Appendix A \quad Forward Kinematics}
 \label{appendix:forward}
 \addcontentsline{toc}{section}{A \quad Forward Kinematics}  
@@ -41,8 +42,6 @@ $t_{32} =\ 	- S_6(S_5(C_3S_2 - S_3-C_2) + C_4C_5(C_3-C_2 + S_2S_3)) - C_6S_4(C_3
 $t_{33} =\ 	C_4S_5(C_3-C_2 + S_2S_3) - C_5(C_3S_2 - S_3-C_2)$\\
 $t_{34} =\ 	120S_3-C_2 - 120C_3S_2 - 38C_3-C_2 - 38S_2S_3 - 135-C_2\\
 			- 70C_5(C_3S_2 - S_3-C_2) + 70C_4S_5(C_3-C_2 + S_2S_3) + 135$
-
-
 \section*{Appendix B \quad Jacobian Matrix}
 \label{appendix:jacobian}
 \addcontentsline{toc}{section}{B \quad Jacobian Matrix }  
@@ -119,3 +118,28 @@ $j_{g6,23} =\  38S_5S_6 - 120C_6S_4 - 70C_4S_6 - 120C_4C_5S_6 - 70C_5C_6S_4$\\
 $j_{g6,24} =\  70C_6S_5$\\
 $j_{g6,25} =\  -70S_6$\\
 $j_{g6,26} =\  0$\\
+$j_{g6,31} =\  S_4S_5(135S_2 + 23961^(0.5)cos(\theta _2 + \theta _3 - \tan ^{-1}(19/60)))$\\
+$j_{g6,32} =\  38C_5 + 135C_3C_5 + 120C_4S_5 - 135C_4S_3S_5$\\
+$j_{g6,33} =\  38C_5 + 120C_4S_5$\\
+$j_{g6,34} =\  0$\\
+$j_{g6,35} =\  0$\\
+$j_{g6,36} =\  0$\\
+$j_{g6,41} =\  C_2C_3S_4S_6 + C_2C_6S_3S_5 + C_3C_6S_2S_5 - S_2S_3S_4S_6 + \theta _2C_2C_3C_6S_5 + \theta _3C_2C_3C_6S_5 + \theta _4C_2C_3C_4S_6 + \theta _5C_2C_5C_6S_3 + \theta _5C_3C_5C_6S_2 + \theta _6C_2C_3C_6S_4 - \theta _2C_2S_3S_4S_6 - \theta _2C_3S_2S_4S_6 - \theta _2C_6S_2S_3S_5 - \theta _3C_2S_3S_4S_6 - \theta _3C_3S_2S_4S_6 - \theta _3C_6S_2S_3S_5 - \theta _4C_4S_2S_3S_6 - \theta _6C_6S_2S_3S_4 - \theta _6C_2S_3S_5S_6 - \theta _6C_3S_2S_5S_6 - C_2C_3C_4C_5C_6 + C_4C_5C_6S_2S_3 + \theta_2C_2C_4C_5C_6S_3 + \theta _2C_3C_4C_5C_6S_2 + \theta _3C_2C_4C_5C_6S_3 + \theta _3C_3C_4C_5C_6S_2 + \theta _4C_2C_3C_5C_6S_4 + \theta _5C_2C_3C_4C_6S_5 + \theta_6C_2C_3C_4C_5S_6 - \theta _4C_5C_6S_2S_3S_4 - \theta _5C_4C_6S_2S_3S_5 - \theta _6C_4C_5S_2S_3S_6$\\
+$j_{g6,42} =\  C_4S_6 + \theta _6C_4C_6 - \theta _4S_4S_6 + C_5C_6S_4 + \theta _4C_4C_5C_6 - \theta _5C_6S_4S_5 - \theta _6C_5S_4S_6$\\
+$j_{g6,43} =\  C_4S_6 + \theta _6C_4C_6 - \theta _4S_4S_6 + C_5C_6S_4 + \theta _4C_4C_5C_6 - \theta _5C_6S_4S_5 - \theta _6C_5S_4S_6$\\
+$j_{g6,44} =\  \theta _6S_5S_6 - \theta _5C_5C_6 - C_6S_5$\\
+$j_{g6,45} =\  S_6 + \theta _6C_6$\\
+$j_{g6,46} =\  0$\\
+$j_{g6,51} =\  C_2C_3C_6S_4 - C_6S_2S_3S_4 - C_2S_3S_5S_6 - C_3S_2S_5S_6 + \theta _4C_2C_3C_4C_6 - \theta _2C_2C_6S_3S_4 - \theta _2C_3C_6S_2S_4 - \theta _2C_2C_3S_5S_6 - \theta _3C_2C_6S_3S_4 - \theta _3C_3C_6S_2S_4 - \theta _3C_2C_3S_5S_6 - \theta _4C_4C_6S_2S_3 - \theta _5C_2C_5S_3S_6 - \theta _5C_3C_5S_2S_6 - \theta _6C_2C_3S_4S_6 - \theta _6C_2C_6S_3S_5 - \theta _6C_3C_6S_2S_5 + \theta _2S_2S_3S_5S_6 + \theta _3S_2S_3S_5S_6 + \theta _6S_2S_3S_4S_6 + C_2C_3C_4C_5S_6 - C_4C_5S_2S_3S_6 + \theta _6C_2C_3C_4C_5C_6  - \theta _2C_2C_4C_5S_3S_6 - \theta _2C_3C_4C_5S_2S_6 - \theta _3C_2C_4C_5S_3S_6 - \theta _3C_3C_4C_5S_2S_6 - \theta _4C_2C_3C_5S_4S_6 - \theta _5C_2C_3C_4S_5S_6 - \theta _6C_4C_5C_6S_2S_3 + \theta _4C_5S_2S_3S_4S_6 + \theta _5C_4S_2S_3S_5S_6$\\
+$j_{g6,52} =\  C_4C_6 - C_5S_4S_6 - \theta _4C_6S_4 - \theta _6C_4S_6 - \theta _4C_4C_5S_6 - \theta _6C_5C_6S_4 + \theta _5S_4S_5S_6$\\
+$j_{g6,53} =\  C_4C_6 - C_5S_4S_6 - \theta _4C_6S_4 - \theta _6C_4S_6 - \theta _4C_4C_5S_6 - \theta _6C_5C_6S_4 + \theta _5S_4S_5S_6$\\
+$j_{g6,54} =\  S_5S_6 + \theta _5C_5S_6 + \theta _6C_6S_5$\\
+$j_{g6,55} =\  C_6 - \theta _6S_6$\\
+$j_{g6,56} =\  0$\\
+$j_{g6,61} =\  \theta _2C_5S_2S_3 - C_3C_5S_2 - \theta _2C_2C_3C_5 - \theta _3C_2C_3C_5 - C_2C_5S_3 + \theta _3C_5S_2S_3 + \theta _5C_2S_3S_5 + \theta _5C_3S_2S_5 - C_2C_3C_4S_5 + C_4S_2S_3S_5 - \theta _5C_2C_3C_4C_5 + \theta _2C_2C_4S_3S_5 + \theta _2C_3C_4S_2S_5 + \theta _3C_2C_4S_3S_5 + \theta _3C_3C_4S_2S_5 + \theta _4C_2C_3S_4S_5 + \theta _5C_4C_5S_2S_3 - \theta _4S_2S_3S_4S_5$\\
+$j_{g6,62} =\  S_4S_5 + \theta _4C_4S_5 + \theta _5C_5S_4$\\
+$j_{g6,63} =\  S_4S_5 + \theta _4C_4S_5 + \theta _5C_5S_4$\\
+$j_{g6,64} =\  C_5 - \theta _5S_5$\\
+$j_{g6,65} =\  0$\\
+$j_{g6,66} =\  1$\\
+\end{appendices}

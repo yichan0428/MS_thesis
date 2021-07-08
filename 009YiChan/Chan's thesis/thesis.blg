@@ -10,54 +10,76 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: reference.bib
-Repeated entry---line 357 of file reference.bib
- :  @misc{web7
- :            ,
+You're missing a field name---line 354 of file reference.bib
+ : 
+ : % Title = {YOMI, Neocis},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 360 of file reference.bib
+ : 
+ : % Title = {Meca500, Mecademic},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 366 of file reference.bib
+ : 
+ : % Title = {Mini40, ATI Industrial Automation, Inc.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 372 of file reference.bib
+ : 
+ : %% Title = {EtherCAT, Beckhoff Automation},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 385 of file reference.bib
+ : 
+ : % Title = {Motion capture system - Impulse X2E, PhaseSpace},
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--missing institution in erdogan2014gravity
 
 Done.
-You've used 28 entries,
+You've used 37 entries,
             4024 wiz_defined-function locations,
-            1065 strings with 15360 characters,
-and the built_in function-call counts, 18370 in all, are:
-= -- 1457
-> -- 452
-< -- 130
-+ -- 252
-- -- 83
-* -- 847
-:= -- 2751
-add.period$ -- 57
-call.type$ -- 28
-change.case$ -- 36
-chr.to.int$ -- 288
-cite$ -- 28
-duplicate$ -- 1392
-empty$ -- 1510
-format.name$ -- 101
-if$ -- 4219
+            1123 strings with 17772 characters,
+and the built_in function-call counts, 28129 in all, are:
+= -- 2216
+> -- 747
+< -- 219
++ -- 410
+- -- 135
+* -- 1347
+:= -- 4130
+add.period$ -- 81
+call.type$ -- 37
+change.case$ -- 51
+chr.to.int$ -- 507
+cite$ -- 38
+duplicate$ -- 2053
+empty$ -- 2298
+format.name$ -- 171
+if$ -- 6519
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 264
-newline$ -- 107
-num.names$ -- 20
-pop$ -- 651
+int.to.str$ -- 37
+missing$ -- 372
+newline$ -- 134
+num.names$ -- 43
+pop$ -- 903
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1441
+skip$ -- 2176
 stack$ -- 0
-substring$ -- 726
-swap$ -- 1065
-text.length$ -- 34
+substring$ -- 1237
+swap$ -- 1651
+text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 28
-warning$ -- 0
-while$ -- 64
-width$ -- 30
-write$ -- 273
-(There was 1 error message)
+type$ -- 37
+warning$ -- 1
+while$ -- 112
+width$ -- 39
+write$ -- 370
+(There were 5 error messages)
