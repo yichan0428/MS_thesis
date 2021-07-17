@@ -70,20 +70,20 @@ $i$ (link number)		&$\alpha _{i-1}$ (deg)	&$a_{i-1}$ (mm)	& $\theta _i$ (deg)			
 ^0_6\mathbf{T} =
 \ ^0_1\mathbf{T} \cdot \ ^1_2\mathbf{T} \cdot \ ^2_3\mathbf{T} \cdot \ ^3_4\mathbf{T} \cdot \ ^4_5\mathbf{T} \cdot \ ^5_6\mathbf{T} =
 \begin{bmatrix}
-^0_6\mathbf{R}	&^0\boldsymbol{p}_\mathrm{6org}\\
+^0_6\mathbf{R}	&^0\boldsymbol{p}_\mathrm{6}\\
 0				&1\\
 \end{bmatrix}\\
 \end{split}
 \end{equation}
-where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown in Appendix A.
+where $^0_6\mathbf{R}$ is the rotation matrix from frame\{6\} to frame\{0\}, $^0\boldsymbol{p}_\mathrm{6}$ is the origin of the frame\{6\} observed from frame\{0\}. All detailed indexes of $^0_6\mathbf{T}$ are shown in Appendix A.
 \par
-By the way, there is an alternative to calculate the transformation matrix $^0_6\mathbf{T} $ in real-time. The robot arm command -- GetPose -- provide position information ($x$, $y$, $z$, $\alpha$, $\beta$, $\gamma$). ($x$, $y$, $z$) is exactly $^0\boldsymbol{p}_\mathrm{6org}$. $(\alpha$, $\beta$, $\gamma)$ are Euler angles and denote (raw, pitch, yaw).  Hence, we can use these information to derive the following equation.
+By the way, there is an alternative to calculate the transformation matrix $^0_6\mathbf{T} $ in real-time. The robot arm command -- GetPose -- provide position information ($x$, $y$, $z$, $\alpha$, $\beta$, $\gamma$). ($x$, $y$, $z$) is exactly $^0\boldsymbol{p}_\mathrm{6}$. $(\alpha$, $\beta$, $\gamma)$ are Euler angles and denote (raw, pitch, yaw).  Hence, we can use these information to derive the following equation.
 \begin{equation}
 \begin{split}
 ^0_6\mathbf{T} 
 &=
 \begin{bmatrix}
-^0_6\mathbf{R}	&^0\boldsymbol{p}_\mathrm{6org}\\
+^0_6\mathbf{R}	&^0\boldsymbol{p}_\mathrm{6}\\
 0				&1\\
 \end{bmatrix}\\
 &= 
@@ -111,15 +111,15 @@ where $C_{\star} $, $ S_{\star}$ denote $\cos \left(\star \right)$, $\sin \left(
 \hspace*{6mm}Jacobian matrix has geometric Jacobian and analytical Jacobian. Therefore, geometric Jacobian based on frame\{0\}, geometric Jacobian based on frame\{H\}, and analytical Jacobian are evaluated in this subsection.
 \subsubsection{Geometric Jacobian Based on Frame\{0\}}
 \hspace*{6mm}\
-First, we should clarify the difference between geometric Jacobian and analytical Jacobian. They both use the same linear velocity but different angular velocity. The angular velocity which geometric Jacobian applies is relevant to the axis angles ($\theta _x$, $\theta _y$, $\theta _z$). In contrast, the angular velocity which analytical Jacobian contemplates is related to the orientation ($\alpha$, $\beta$, $\gamma$) of the end effector. Therefore, the geometric Jacobian has a clear physical meaning due to the differential ($\theta _x$, $\theta _y$, $\theta _z$) is the angular velocity . Besides, because the geometric Jacobian can be considered in different frames, it is important to clearly understand and familiar with which frame is our option.
+First, we should clarify the difference between geometric Jacobian and analytical Jacobian. They both use the same linear velocity but different angular velocity. The angular velocity which geometric Jacobian applies is relevant to the angular velocity ($\theta _x$, $\theta _y$, $\theta _z$). In contrast, the angular velocity which analytical Jacobian contemplates is related to the orientation ($\alpha$, $\beta$, $\gamma$) of the end effector. Therefore, the geometric Jacobian has a clear physical meaning due to the differential ($\theta _x$, $\theta _y$, $\theta _z$) is the angular velocity . Besides, because the geometric Jacobian can be considered in different frames, it is important to clearly understand and familiar with which frame is our option.
 \par
-Before examining the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the axis angle and the joints' angles.
+Before examining the geometric Jacobian matrix, it will be necessary to find the relationship between the position and joints' angles and the relationship between the angular velocity and the joints' angles.
 \par
 Based on the translation matrix in Equation \ref{eq:translation matrix}, we obtain the relationship between the position and joints' angles.
 \begin{equation}
 \label{eq:lin vel}
 \begin{split}
-^0\boldsymbol{p}_\mathrm{6org}
+^0\boldsymbol{p}_\mathrm{6}
 = 
 \begin{bmatrix}
 x\\
@@ -134,7 +134,7 @@ z(\theta _1, \theta _2, \cdots, \theta _6)
 \end{bmatrix} 
 \end{split}
 \end{equation}
-Moreover, the relationship between the axis angle and joints' angles is 
+Moreover, the relationship between the angular velocity and derivative of joints' angles is 
 \begin{equation}
 \label{eq:ang vel_axis}
 \begin{split}
@@ -271,7 +271,7 @@ where
 \dot{\theta _z}
 \end{bmatrix}_{\!\{0\}}
 ,\ 
-\boldsymbol{\dot{q}}
+\boldsymbol{\dot{\theta}}
 =
 \begin{bmatrix}
 \dot{\theta _1} \\ 
@@ -313,9 +313,9 @@ f_z \\
 where $\boldsymbol{\tau }$ is the vector of joints' torques and $\boldsymbol{f}$ is the vector composed of inertial forces and torques of the robot arm.
 \subsubsection{Geometric Jacobian Based on Frame\{H\}}
 \label{sec:jg6}
-\hspace*{6mm}Why the geometric Jacobian based on frame\{H\} $^{\mathrm{H}}\!\mathbf{J_g}$ is important is that in section \ref{sec:adm ctrl} admittance control is applied and it will use F/T sensor mounted on frame\{H\} instead of frame\{0\} to detect forces and torques. 
+\hspace*{6mm}Why the geometric Jacobian based on frame\{H\} $^{\mathrm{H}}\!\mathbf{J_g}$ is important is that in section \ref{sec:adm ctrl} admittance control is applied and use F/T sensor detect forces and torques relative to frame\{H\} instead of frame\{0\}. 
 \par
-$^{\mathrm{H}}\!\mathbf{J_g}$ can be derived from $\mathbf{^0\!J_g}$. To start with Equation \ref{eq:jg0}
+To obtain $^{\mathrm{H}}\!\mathbf{J_g}$, we derive it from $\mathbf{^0\!J_g}$. Therefore, to start with Equation \ref{eq:jg0}.
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -338,13 +338,13 @@ $^{\mathrm{H}}\!\mathbf{J_g}$ can be derived from $\mathbf{^0\!J_g}$. To start w
 \end{bmatrix}\\
 \end{split}
 \end{equation}
-Left-multiply a augmented rotation matrix 
+Then, left-multiply an augmented rotation matrix composed of $^{\mathrm{H}}_0\mathbf{R}$.
 \begin{equation}
 \label{eq:jg6_leftmul}
 \begin{split}
 \begin{bmatrix}
-^0_{\mathrm{H}}\mathbf{R} & 0_{ 3\times 3} \\ 
-0_{ 3\times 3} & ^0_{\mathrm{H}}\mathbf{R}
+^{\mathrm{H}}_0\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^{\mathrm{H}}_{0}\mathbf{R}
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
@@ -372,7 +372,7 @@ Left-multiply a augmented rotation matrix
 \end{bmatrix}\\
 \end{split}
 \end{equation}
-According to the transformation coordinate relationship between frame\{0\} and frame\{6\}
+Since the transformation coordinate relationship between frame\{0\} and frame\{6\} is 
 \begin{equation}
 \label{eq: t06}
 \begin{split}
@@ -399,25 +399,39 @@ According to the transformation coordinate relationship between frame\{0\} and f
 \end{bmatrix}_{\!\{0\}}
 \end{split}
 \end{equation}
-Substitute Equation \ref{eq: t06} into Equation \ref{eq:jg6_leftmul}, then the relationship between $\mathbf{^\mathrm{H}\!J_g}$  and $\mathbf{^0\!J_g}$ is
+Substitute Equation \ref{eq: t06} into Equation \ref{eq:jg6_leftmul}.
 \begin{equation}
 \begin{split}
-\mathbf{^\mathrm{H}\!J_g}
-= 
+\begin{bmatrix}
+\dot{x}\\
+\dot{y}\\
+\dot{z}\\
+\dot{\theta _x}\\
+\dot{\theta _y}\\
+\dot{\theta _z}
+\end{bmatrix}_{\!\{\mathrm{H}\}}
+=
 \begin{bmatrix}
 ^{\mathrm{H}}_0\mathbf{R} & 0_{ 3\times 3} \\ 
-0_{ 3\times 3} & ^{\mathrm{H}}_0\mathbf{R}
+0_{ 3\times 3} & ^{\mathrm{H}}_{0}\mathbf{R}
 \end{bmatrix}
 \cdot
-\mathbf{^0\!J_g}
+\mathbf{^0\!J_g} \cdot 
+\begin{bmatrix}
+\dot{\theta _1} \\ 
+\dot{\theta _2} \\ 
+\dot{\theta _3} \\ 
+\dot{\theta _4} \\ 
+\dot{\theta _5} \\ 
+\dot{\theta _6} 
+\end{bmatrix}\\
 \end{split}
 \end{equation}
-Notably,
+Because 
 \begin{equation}
 \label{eq:jg6}
 \begin{split}
-\boldsymbol{\dot{x}} &= \ ^{\mathrm{H}}\!\mathbf{J_g} \cdot \boldsymbol{\dot{\theta}}		\\ 
-\boldsymbol{\dot{\theta}} &= \ ^{\mathrm{H}}\!\mathbf{J_g}^{-1} \cdot \boldsymbol{\dot{x}}
+\boldsymbol{\dot{x}} &= \ ^{\mathrm{H}}\!\mathbf{J_g} \cdot \boldsymbol{\dot{\theta}}		
 \end{split}
 \end{equation}
 where
@@ -432,7 +446,7 @@ where
 \dot{\theta _x}\\
 \dot{\theta _y}\\
 \dot{\theta _z}
-\end{bmatrix}_{\!\{H\}}
+\end{bmatrix}_{\!\{\mathrm{H}\}}
 ,\ 
 \boldsymbol{\dot{\theta}}
 =
@@ -446,11 +460,26 @@ where
 \end{bmatrix}
 \end{split}
 \end{equation*}
+Therefore the relationship between $\mathbf{^\mathrm{H}\!J_g}$ and $\mathbf{^0\!J_g}$ is obtained.
+\begin{equation}
+\begin{split}
+\mathbf{^\mathrm{H}\!J_g}
+= 
+\begin{bmatrix}
+^{\mathrm{H}}_0\mathbf{R} & 0_{ 3\times 3} \\ 
+0_{ 3\times 3} & ^{\mathrm{H}}_0\mathbf{R}
+\end{bmatrix}
+\cdot
+\mathbf{^0\!J_g}
+\end{split}
+\end{equation}
+In conclusion, $^{\mathrm{H}}\!\mathbf{J_g}$ can be derived from $\mathbf{^0\!J_g}$, and then we can analyze kinematics on frame\{H\} with $^{\mathrm{H}}\!\mathbf{J_g}$.
 \subsubsection{Analytical Jacobian}
 \hspace*{6mm}The linear velocity of analytical Jacobian and geometric Jacobian is the same as shown in Equation \ref{eq:lin vel}. Nevertheless, as for angular velocity, analytical Jacobian takes the orientation ($\alpha$, $\beta$, $\gamma$) of the end effector into consideration. 
 \par
-Analytical Jacobian can be derived from geometric Jacobian. First, we investigate the relationship between the axis angle and the orientation of the end effector as following.
+Analytical Jacobian can be derived from geometric Jacobian. First, we investigate the relationship between the angular velocity and derivative of orientation of the end effector as following.
 \begin{equation}
+\label{eq: Jwe}
 \begin{split}
 \begin{bmatrix}
 \theta _x \\ 
@@ -578,7 +607,7 @@ Tool Center Point (TCP) is a critical problem for robot arm control \cite{yang20
 \begin{center}
 \includegraphics[width=0.7\linewidth]{Images/TCP.png}
 \caption{
-Schematic diagram for tool center point (TCP). The translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ denotes the origin position relative to the frame\{6\}.
+Schematic diagram for tool center point (TCP). The translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}$ denotes the origin position relative to the frame\{6\}.
 }\label{fig:tcp}
 \end{center}
 \end{figure}
@@ -593,30 +622,30 @@ and can be rewritten as
 \begin{equation}
 \begin{split}																												
 \begin{bmatrix}
-_{\mathrm{H}}^{\mathrm{0}}\mathbf{R} & ^\mathrm{0}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
+_{\mathrm{H}}^{\mathrm{0}}\mathbf{R} & ^\mathrm{0}\!\boldsymbol{p}_\mathrm{H}\\ 
 0 & 1
 \end{bmatrix} &=
 \begin{bmatrix}
-_{\mathrm{6}}^{\mathrm{0}}\mathbf{R} & ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}\\ 
+_{\mathrm{6}}^{\mathrm{0}}\mathbf{R} & ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}\\ 
 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
-_{\mathrm{H}}^{\mathrm{6}}\mathbf{R} & ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}\\ 
+_{\mathrm{H}}^{\mathrm{6}}\mathbf{R} & ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}\\ 
 0 & 1
 \end{bmatrix}\\
 %----------------------------------------------------------------------------------------------------------------------------
 &= 
 \begin{bmatrix}
-_{\mathrm{6}}^{\mathrm{0}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{6}}\!\mathbf{R} & _{\mathrm{6}}^{\mathrm{0}}\mathbf{R} \cdot ^\mathrm{6}\!\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}\\ 
+_{\mathrm{6}}^{\mathrm{0}}\mathbf{R} \cdot _{\mathrm{H}}^{\mathrm{6}}\!\mathbf{R} & _{\mathrm{6}}^{\mathrm{0}}\mathbf{R} \cdot ^\mathrm{6}\!\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}\\ 
 0 & 1
 \end{bmatrix}\\
 \end{split}
 \end{equation}
-where $\mathbf{R}$ is the rotation matrix, $^0\boldsymbol{p}_\mathrm{6org}$ is the origin of the frame\{6\} observed from frame\{0\}, and $^\mathrm{6}\!\!\boldsymbol{p}_\mathrm{H_{org}}$ is the origin of the frame\{H\} observed from frame\{6\}.
+where $\mathbf{R}$ is the rotation matrix, $^0\boldsymbol{p}_\mathrm{6}$ is the origin of the frame\{6\} observed from frame\{0\}, and $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}$ is the origin of the frame\{H\} observed from frame\{6\}.
 Consequently, a crucial equation is obtained
 \begin{equation}
 \begin{split}
-^\mathrm{0}\!\boldsymbol{p}_\mathrm{H_{org}} &=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}\\
+^\mathrm{0}\!\boldsymbol{p}_\mathrm{H} &=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}\\
 \end{split}
 \end{equation}
 \par\noindent
@@ -624,13 +653,13 @@ Now, we move the tool-tip to a fixed point with four different poses including p
 \begin{equation}
 \label{eq:four-points}
 \begin{split}			
-^\mathrm{0}\!\boldsymbol{p}_\mathrm{H_{org}}&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^1 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^1\\
+^\mathrm{0}\!\boldsymbol{p}_\mathrm{H}&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^1 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^1\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  						&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^2 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^2\\
+					  						&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^2 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^2\\
 %----------------------------------------------------------------------------------------------------------------------------
-					  						&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^3 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^3\\
+					  						&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^3 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^3\\
 %----------------------------------------------------------------------------------------------------------------------------
-					 					 	&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^4 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^4\\
+					 					 	&=\  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^4 \cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} +\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^4\\
 %----------------------------------------------------------------------------------------------------------------------------
 \end{split}
 \end{equation}
@@ -644,7 +673,7 @@ Four points method. Align a fixed point with four different poses.
 \end{figure}
 \newpage
 \noindent
-In order to extract $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Equation \ref{eq:four-points}, we subtract the second to forth equation from the first equation.
+$^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}$ is unknown. In order to extract $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}$ from Equation \ref{eq:four-points}, we subtract the second to forth equation from the first equation.
 \begin{equation}
 \begin{split}	
 \begin{bmatrix}
@@ -652,12 +681,12 @@ In order to extract $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}$ from Equation
 \  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^{3}\\ 
 \  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^{1} - \  _{\mathrm{6}}^{\mathrm{0}}\mathbf{R}^{4}
 \end{bmatrix}
-\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}}
+\cdot\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H}
 =
 \begin{bmatrix}
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{2} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{3} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{4} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{2} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} \\ 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{3} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} \\ 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{4} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} 
 \end{bmatrix}
 \end{split}
 \end{equation}
@@ -672,26 +701,26 @@ where we define
 \end{bmatrix}_{9 \times 3}, 
 \boldsymbol{p} = 
 \begin{bmatrix}
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{2} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{3} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} \\ 
-\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{4} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6_{org}}^{1} 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{2} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} \\ 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{3} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} \\ 
+\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{4} -\ ^\mathrm{0}\!\boldsymbol{p}_\mathrm{6}^{1} 
 \end{bmatrix}_{9 \times 1}
 \end{split}
 \end{equation*}
 Therefore,
 \begin{equation*}
 \begin{split}
-^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} 	&= \mathbf{R}^{\dagger} \cdot \boldsymbol{p}\\
+^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} 	&= \mathbf{R}^{\dagger} \cdot \boldsymbol{p}\\
 					  							&= \left( \mathbf{R}^\top\mathbf{R}\right) ^{-1}\mathbf{R}^\top \cdot \boldsymbol{p}
 \end{split}
 \end{equation*}
-Finally, we can utilize the four-points method to obtain the translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org}} $.
+Finally, we can utilize the four-points method to obtain the translation vector $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H} $.
 \subsubsection{Rotation Analysis}
 \label{sec:rot inf}
-\hspace*{6mm}Turning now to the discussion about the rotation vector. Above all, the vector of tool insertion direction $\boldsymbol{t}$ should be obtained. By applying the TCP method with two endodontic files with different lengths, two vectors $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,long}} ,\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,short}}$ are obtained and illustrated as Figure \ref{fig:tcp2}. Hence, 
+\hspace*{6mm}Turning now to the discussion about the rotation vector. Above all, the vector of tool insertion direction $\boldsymbol{t}$ should be obtained. By applying the TCP method with two endodontic files with different lengths, two vectors $^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{long}} ,\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{short}}$ are obtained and illustrated as Figure \ref{fig:tcp2}. Hence, 
 \begin{equation}
 \begin{split}
-\boldsymbol{t} =\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,long}} -\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{org,short}}
+\boldsymbol{t} =\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{long}} -\ ^\mathrm{6}\!\boldsymbol{p}_\mathrm{H_{short}}
 \end{split}
 \end{equation}
 \begin{figure}[htbp]
@@ -711,13 +740,13 @@ Illustration of finding the rotation matrix with the tool vector
 \end{center}
 \end{figure} 
 \par
-For analyzing it easily, we depict it in Figure \ref{fig:rot_inf}. Note that here we only discuss rotation, so we assume that we have done translation and matched the frame\{S\} with frame\{6\}. Because we hope to send a Z-axis command to achieve tool insertion, we should align the original Z-axis to the target vector. Nevertheless, Z-axis alignment without other restrictions will produce many solutions. We choose one of the solutions to align Z-axis to the target vector. According to the figure, we assume the target vector $\boldsymbol{t}$ is [$x$ $y$ $z$], whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is [0 $y$ $z$]. Initially, we rotate $\alpha$ degree around X-axis to make original Z-axis align the projection [$0$ $y$ $z$]. Next, we rotate $\beta$ degree around Y' axis and finally align the original Z-axis to the target vector [$x$ $y$ $z$]. Therefore, 
+For analyzing it easily, we depict it in Figure \ref{fig:rot_inf}. Note that here we only discuss rotation, so we assume that we have done translation and matched the frame\{H\} with frame\{6\}. Because we hope to send a Z-axis command to achieve tool insertion, we should align the original Z-axis to the tool vector $\boldsymbol{t}$. Nevertheless, Z-axis alignment without other restrictions will produce many solutions. We choose one of the solutions to align Z-axis to the tool vector. According to the figure, we assume the tool vector $\boldsymbol{t}$ is [$t_x$ $t_y$ $t_z$], whose projection to yz-plane $\mathrm{proj_{(y-z)}}\boldsymbol{t}$ is [0 $t_y$ $t_z$]. Initially, we rotate $\alpha$ degree around X-axis to make original Z-axis align the projection [$0$ $y$ $z$]. Next, we rotate $\beta$ degree around Y' axis and finally align the original Z-axis to the tool vector [$t_x$ $t_y$ $t_z$]. Therefore, 
 \begin{equation}
 \begin{split}
 \ \  _{\mathrm{6}}^{\mathrm{H}}\mathbf{R} = \mathbf{R}_x(\alpha )\mathbf{R}_y(\beta )
 \end{split}
 \end{equation}
-where
+, and 
 \begin{equation}
 \begin{split}
 \alpha &= 
@@ -728,15 +757,17 @@ where
 								  			  {\left \| \textbf{t}\right \| 	\cdot \left \| \mathrm{proj_{(y-z)}}\boldsymbol{t} \right \|} \right)\ 
 \end{split}
 \end{equation}
-Assume $\boldsymbol{t} = $ [$x$ $y$ $z$] ,
-\begin{equation}
-\begin{split}
-\alpha &= 
--\mathrm{sign}(y)\cdot \cos^{-1}	\left( \frac{z^2}{\sqrt{y^2+z^2}} \right) \mathrm{rad}\\
-\beta  &= 
-\mathrm{sign}(x)\cdot \cos^{-1} \left( \frac{y^2+z^2}{\sqrt{x^2+y^2+z^2}\sqrt{x^2+y^2+z^2}} \right) \mathrm{rad}
-\end{split}
-\end{equation}
-$\alpha$ and $\beta$ are Euler angles, which meet the command demand.
+where $\alpha,\beta$ are Euler angles which could be applied with the robot command "SetTCP", $\hat{k}$ is the unit vector of in the direction of the z-axis, and $\boldsymbol{t}$, [$t_x$ $t_y$ $t_z$], is the tool vector.
+%\par
+%Assume $\boldsymbol{t} = $ [$x$ $y$ $z$] ,
+%\begin{equation}
+%\begin{split}
+%\alpha &= 
+%-\mathrm{sign}(y)\cdot \cos^{-1}	\left( \frac{z^2}{\sqrt{y^2+z^2}} \right) \mathrm\\
+%\beta  &= 
+%\mathrm{sign}(x)\cdot \cos^{-1} \left( \frac{y^2+z^2}{\sqrt{x^2+y^2+z^2}\sqrt{x^2+y^2+z^2}} \right) \mathrm
+%\end{split}
+%\end{equation}
+%$\alpha$ and $\beta$ are Euler angles, which meet the command demand.
 \par
-In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. It's easy to input the results of section \ref{sec:tcp} and section \ref{sec:rot inf} via the command setTRF, the robot arm can recognize frame\{H\} and translate and orientate along with frame\{H\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.
+In this section, we have demonstrated two key aspects of reference frame changing of the robot arm. By the translation and rotation information, it's easy to input the results of them via the command setTRF. The robot arm can recognize frame\{H\}, then translate and orientate along with frame\{H\}. Having discussed how to combine a robot arm with an end effector, the next section addresses ways of combining an F/T sensor.

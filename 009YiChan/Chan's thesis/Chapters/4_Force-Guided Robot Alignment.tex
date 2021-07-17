@@ -10,61 +10,60 @@
 \hspace*{6mm}To solve the first problem -- without image processing, admittance control based on F/T sensor is reviewed. The literature on peg-in-hole based on F/T sensor  \cite{7743375, pihwithflex, Xu201511, 8294275} are surveyed because the cleaning procedure is similar to it. To apply in different situation, two operating modes -- "Dragging Mode" and "Self-Alignment Mode" are designed. In "Dragging Mode", Dentists can hold the handpiece to the desired position and orientation. In "Self-Alignment Mode", the handpiece can automatically align the root canal direction with any complicated conditions. Two modes are set by change reference frame and parameter setting.
 \section{Integration of F/T sensor}
 \label{sec:grav compen}
-\hspace*{6mm}In this section, technical solution to system integration with an F/T sensor is discuused. In Figure \ref{fig:gravity compensation} shows that initial value and gravity load affect the value of F/T sensor. Hence, gravity compensation and initial value are compensated and discussed followd by external force evaluation.
+\hspace*{6mm}In this section, technical solution to system integration with an F/T sensor is discuused. In Figure \ref{fig:gravity compensation} shows that initial value and gravity load both affect the value of F/T sensor. Hence, in this section, initial value are obtained off-line and gravity load is compensated in real-time. Finally, external force evaluation is discussed.
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=1\linewidth]{Images/gravity compensation.png}
 \caption{
-Data analysis of F/T sensor.
+Data analysis of F/T sensor. Initial Value is the initial value of F/T sensor without reset. Gravity Load is the gravity of end effector. External Force is the value of force or torque.
 }\label{fig:gravity compensation}
 \end{center}
 \end{figure}
 \subsubsection{Gravity Compensation and Initial Value Reset}
-\hspace*{6mm}Gravity compensation is a critical technical issue when combining an F/T sensor with a robot arm and an end effector \cite{8997006}. 
-Fundamentally, we should receive stable data when a static F/T sensor bears the same load or force. Nevertheless, our F/T sensor is installed on the robot arm and move with the pose of the robot arm. On account of its mobility, the gravity of the end effector will significantly affect the actual value we received. Moreover, starting without resetting the F/T sensor to zero would lead to an initial value. If we could not analyze the actual value to an initial value and a gravity load, we would obtain an unstable actual value, not to mention the external force caused by contact force. Therefore, we illustrate a method, which is to analyze the actual value of the F/T sensor to an initial value and gravity load in real-time. It's worth noting that with this approach, we can get the installation angle between the F/T sensor and the robot arm, including assembly error, and we no longer need to reset the F/T sensor to zero every time.
+\hspace*{6mm}Gravity compensation is a critical technical issue when combining an F/T sensor with a robot arm and an end effector \cite{8997006}. Fundamentally, stable data is received when a static F/T sensor bears the same load or force. Nevertheless, our F/T sensor is installed on the robot arm and move with the pose of the robot arm. On account of its mobility, the gravity of the end effector will significantly affect the actual value we received. Moreover, starting without resetting the F/T sensor to zero would lead to an initial value. If we could not analyze the actual value to an initial value and a gravity load, we would obtain an unstable actual value, not to mention the external force caused by contact force. Therefore, we illustrate a method, which is to analyze the actual value of the F/T sensor to an initial value and gravity load in real-time. It's worth noting that with this approach, we can get the installation angle between the F/T sensor and the robot arm, including assembly error, and we no longer need to reset the F/T sensor to zero every time.
 \par
 The actual value measured by F/T sensor is expressed as [$f_{x}$ $f_{y}$ $f_{z}$ $\tau_{x}$ $\tau_{y}$ $\tau_{z}$], which is affected by initial value expressed as [$f_{0x}$ $f_{0y}$ $f_{0z}$ $\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$] and gravity load expressed as [$f_{gx}$ $f_{gy}$ $f_{gz}$ $\tau_{gx}$ $\tau_{gy}$ $\tau_{gz}$]. Initial value is the value without resetting F/T sensor and gravity load is the gravity of the end effector.
 \begin{equation}\label{eq:gc_iga}
 \begin{split}
 \text{Actual Value} &= \text{Initial value}	+ \text{Gravity Load}\\
-\boldsymbol{f} 		&= 	\boldsymbol{f_0}		+\boldsymbol{f_g}	\\ 
-\boldsymbol{\tau}	&=	\boldsymbol{\tau_0}		+\boldsymbol{\tau_g}
+\ ^\mathrm{S}\!\boldsymbol{f} 		&= \ ^\mathrm{S}\!\boldsymbol{f_0}		+ \ ^\mathrm{S}\!\boldsymbol{f_g}	\\ 
+\ ^\mathrm{S}\boldsymbol{\tau}	&= \ ^\mathrm{S}\boldsymbol{\tau_0}	+ \ ^\mathrm{S}\boldsymbol{\tau_g}
 \end{split}
 \end{equation}
 where 
 \begin{equation*}
 \begin{split}
-\boldsymbol{f} = 
+\ ^\mathrm{S}\!\boldsymbol{f} = 
 \begin{bmatrix}
 f_{x}	\\
 f_{y}	\\
 f_{z}
 \end{bmatrix},\ 
-\boldsymbol{f_0} = 
+^\mathrm{S}\!\boldsymbol{f_0} = 
 \begin{bmatrix}
 f_{0x}	\\
 f_{0y}	\\
 f_{0z}
 \end{bmatrix},\ 
-\boldsymbol{f_g} = 
+^\mathrm{S}\!\boldsymbol{f_g} = 
 \begin{bmatrix}
 f_{gx}	\\
 f_{gy}	\\
 f_{gz}
 \end{bmatrix}\\
-\boldsymbol{\tau} = 
+\ ^\mathrm{S}\boldsymbol{\tau} = 
 \begin{bmatrix}
 \tau_{x}		\\
 \tau_{y}		\\
 \tau_{z}	
 \end{bmatrix},\ 
-\boldsymbol{\tau_0} = 
+\ ^\mathrm{S}\boldsymbol{\tau_0} = 
 \begin{bmatrix}
 \tau_{0x}		\\
 \tau_{0y}		\\
 \tau_{0z}	
 \end{bmatrix},\ 
-\boldsymbol{\tau_g} = 
+\ ^\mathrm{S}\boldsymbol{\tau_g} = 
 \begin{bmatrix}
 \tau_{gx}		\\
 \tau_{gy}		\\
@@ -77,21 +76,32 @@ And, by terms of moment arm formula,
 \begin{equation}
 \label{eq:moment arm}
 \begin{split}
-\boldsymbol{\tau_g}	&= \boldsymbol{r} \times \boldsymbol{f_g} \\
+\ ^\mathrm{S}\boldsymbol{\tau_g}	&= \boldsymbol{r} \times \ ^\mathrm{S}\!\boldsymbol{f_g} \\
 \end{split}
 \end{equation}
-where $\boldsymbol{r}$ denotes the centroid position of the end effector in the sensor frame.
+where $\boldsymbol{r}$ denotes the centroid position of the end effector on frame\{S\} and 
+\begin{equation*}
+\begin{split}
+\boldsymbol{r}
+=
+\begin{bmatrix}
+x		\\
+y		\\
+z	
+\end{bmatrix}
+\end{split}
+\end{equation*}
 \par\noindent
 Combines Equation \ref{eq:gc_iga} and Equation \ref{eq:moment arm},
 \begin{equation}
 \label{eq: middle}
 \begin{split}
-\boldsymbol{\tau}	&=	\boldsymbol{\tau_0}		+\boldsymbol{\tau_g}			\\
-					&= 	\boldsymbol{\tau_0}	 	+\boldsymbol{r} \times \boldsymbol{f_g}	\\
-					&=  \boldsymbol{\tau_0}		+\boldsymbol{r}	\times \left( \boldsymbol{f} - \boldsymbol{f_0} \right) 
+\ ^\mathrm{S}\boldsymbol{\tau}	&=	\ ^\mathrm{S}\boldsymbol{\tau_0}		+\ ^\mathrm{S}\boldsymbol{\tau_g}			\\
+					&= 	\ ^\mathrm{S}\boldsymbol{\tau_0}	 	+\boldsymbol{r} \times \ ^\mathrm{S}\!\boldsymbol{f_g}	\\
+					&=  \ ^\mathrm{S}\boldsymbol{\tau_0}		+\boldsymbol{r}	\times \left( \ ^\mathrm{S}\!\boldsymbol{f} - \ ^\mathrm{S}\!\boldsymbol{f_0} \right) 
 \end{split}
 \end{equation}
-Equation \ref{eq: middle} can be extend as 
+Then, Equation \ref{eq: middle} can be extend as 
 \begin{equation}
 \begin{split}
 \tau _{x}	&=	\tau _{0x} 	+ \left( f_z - f_{0z}\right) \cdot y - \left( f_y - f_{0y}\right) \cdot z\\
@@ -132,7 +142,7 @@ k_2 = \tau _{0y} - \left( f_{0x} \cdot z + f_{0z} \cdot x \right)  \\
 k_3 = \tau _{0z} - \left( f_{0y} \cdot x + f_{0x} \cdot y \right)  
 \end{split}
 \end{equation}
-To extract [$x$, $y$, $z$, $k_1$, $k_2$, $k_3$], we move the robot arm to $n\ (n\geq3)$ positions with different poses. By recording $n$ torque vectors and corresponding $n$ force vectors from F/T sensor, we can expand Equation \ref{eq:matrix_mfrk} as
+[$x$, $y$, $z$, $k_1$, $k_2$, $k_3$] is an unknown vector. To extract it, the robot arm moves to $n\ (n\geq3)$ positions with different poses. By recording $n$ torque vectors and corresponding $n$ force vectors from F/T sensor, Equation \ref{eq:matrix_mfrk} is expanded to 
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
@@ -176,7 +186,7 @@ which is defined as
 \boldsymbol{m}_{\left(3n \times 1\right)} = \mathbf{F}_{\left(3n \times 6\right)} \cdot \boldsymbol{p}_{\left(6 \times 1\right)}
 \end{split}
 \end{equation*}
-Due to the full column rank of $\mathbf{F}$, we can apply Moore-Penrose pseudoinverse. Then, 
+Due to the full column rank of $\mathbf{F}$, Moore-Penrose pseudoinverse is applied here. Then, 
 \begin{equation*}
 \begin{split}
 \boldsymbol{p} 	&= \mathbf{F}^{\dagger} \cdot \boldsymbol{m}\\
@@ -186,19 +196,18 @@ Due to the full column rank of $\mathbf{F}$, we can apply Moore-Penrose pseudoin
 \par
 So far, we have obtained a middle information [$x$ $y$ $z$ $k_1$ $k_2$ $k_3$]. Note that [$x$ $y$ $z$] is the centroid position of end effector related to the sensor frame. [$k_1$ $k_2$ $k_3$] is still coupled by initial forces [$f_{0x}$ $f_{0y}$ $f_{0z}$] and torque values [$\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$].
 \par
-To decouple [$k_1$ $k_2$ $k_3$], let us return to the first equation in Figure \ref{fig:gravity compensation}. We continue to use this formula and contemplate it from the perspective of coordinate transformation relation. Here we hypothesize that the end effector weighs $g$ kilograms relative to the frame\{0\} which is also the world frame. That means the gravity vector of the end effector $^{\{0\}}\boldsymbol{g}$ is [$0$ $0$ $-g$] related to the frame\{0\}. Then,
+To decouple [$k_1$ $k_2$ $k_3$], let us return to the first equation in Figure \ref{fig:gravity compensation}. We continue to use this formula and contemplate it from the perspective of coordinate transformation relation. Here we hypothesize that the end effector weighs $g$ kilograms relative to the frame\{0\} which is also the world frame. That means the gravity vector of the end effector $^{0}\boldsymbol{g}$ is [$0$ $0$ $-g$] related to the frame\{0\}. Then,
 \begin{equation}
 \label{eq:ffrrg}
 \begin{split}
 \text{Actual Value} &= \text{Initial value}	+ \text{Gravity Load}\\
-\Rightarrow
-\boldsymbol{f}		&= \boldsymbol{f_0} +\boldsymbol{f_g}\\
-					&= \boldsymbol{f_0} +\ ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g}
+\Rightarrow\ 
+^\mathrm{S}\!\boldsymbol{f}		&= \ ^\mathrm{S}\!\boldsymbol{f_0} +\ ^\mathrm{S}\!\boldsymbol{f_g}\\
+					&= \ ^\mathrm{S}\!\boldsymbol{f_0} +\ ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g}
 \end{split}
 \end{equation}
 \par\noindent
-which is relative to frame \{6\}.
-Hence, we assume an installation angle $\theta$ including assembly error.
+where an installation angle $\theta$ including assembly error is assumed and  
 \begin{equation}
 \begin{split}
  ^\mathrm{S}_6\mathbf{R}
@@ -210,7 +219,7 @@ Hence, we assume an installation angle $\theta$ including assembly error.
 \end{bmatrix}
 \end{split}
 \end{equation}
-Besides, we can easily calculate $^6_0\mathbf{R}$ from Equation \ref{eq:translation matrix}.
+Besides, we can easily calculate $^6_0\mathbf{R}$ from forward kinematics in Equation \ref{eq:translation matrix}.
 \begin{equation}
 \begin{split}
 ^6_0\mathbf{R} 	&=\ ^0_6\mathbf{R}^\top\\
@@ -226,6 +235,12 @@ Therefore,
 \begin{equation}
 \label{eq:frrgf}
 \begin{split}
+\begin{bmatrix}
+f_x\\
+f_y\\
+f_z
+\end{bmatrix}
+= 
 \begin{bmatrix}
 f_{0x}\\
 f_{0y}\\
@@ -247,15 +262,11 @@ r_{31}		&r_{32}		&r_{33}
 0\\
 -g
 \end{bmatrix}
-=
-\begin{bmatrix}
-f_x\\
-f_y\\
-f_z
-\end{bmatrix}
 \end{split}
 \end{equation}
-Equation \ref{{eq:frrgf}} can be rewritten as 
+Note that it is discussed on frame\{S\}.
+\par
+Equation \ref{eq:frrgf} can be rewritten as 
 \begin{equation}
 \label{eq:matrix_rgf0f}
 \begin{split}
@@ -280,8 +291,9 @@ f_z
 \end{bmatrix}
 \end{split}
 \end{equation}
-To extract $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ with the least square solution, $n(n\geq3)$ third columns of ration matrices and corresponding $n$ force vectors from F/T sensor are recorded in real-time. Therefore, Equation \ref{eq:matrix_rgf0f} can be expended as
+$[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ is an unknown vector and is extracted by the least square solution. First, $n(n\geq3)$ third columns of ration matrices and corresponding $n$ force vectors from F/T sensor are recorded in real-time. Therefore, Equation \ref{eq:matrix_rgf0f} can be expended as
 \begin{equation}
+\label{eq:rgf}
 \begin{split}
 \begin{bmatrix}
 -r_{13}^1		&-r_{23} ^1		&0			&1		&0		&0\\
@@ -331,7 +343,7 @@ Due to the full column rank of $\mathbf{M}$, we can apply Moore-Penrose pseudoin
 				&= \left( \mathbf{M}^\top\mathbf{M}\right) ^{-1}\mathbf{M}^\top \cdot \boldsymbol{f}
 \end{split}
 \end{equation*}
-So far, the load gravity $\boldsymbol{^0\!g}$ and the initial forces [$f_{0x}$ $f_{0y}$ $f_{0z}$] are obtained. Substitute the initial forces [$f_{0x}$ $f_{0y}$ $f_{0z}$] into Equation \ref{eq:k1k2k3}, then
+So far, the load gravity $\boldsymbol{^0\!g}$ and the initial forces [$f_{0x}$ $f_{0y}$ $f_{0z}$] are obtained. Then, Substitute the initial forces [$f_{0x}$ $f_{0y}$ $f_{0z}$] into Equation \ref{eq:k1k2k3}, then
 \begin{equation}
 \begin{split}
 \tau _{0x}	=	k_1	+ \left( f_{0z} \cdot y + f_{0y} \cdot z \right) \\
@@ -339,23 +351,25 @@ So far, the load gravity $\boldsymbol{^0\!g}$ and the initial forces [$f_{0x}$ $
 \tau _{0z} 	=	k_3 + \left( f_{0y} \cdot x + f_{0x} \cdot y \right)
 \end{split}
 \end{equation}
-Therefore, [$k_1$ $k_2$ $k_3$] are decoupled and the initial torque values [$\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$] are obtained. Substitute the load gravity $\boldsymbol{^0\!g}$ into Equation \ref{eq:moment arm} and Equation \ref{eq:ffrrg}, then
+Therefore, [$k_1$ $k_2$ $k_3$] are decoupled and the initial torque values [$\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$] are obtained. Last, Substitute the load gravity $\boldsymbol{^0\!g}$ into Equation \ref{eq:moment arm} and Equation \ref{eq:ffrrg}, then
 \begin{equation}
 \begin{split}
-\boldsymbol{f_g} &= \boldsymbol{f_0} +\ ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g}	\\
-\boldsymbol{\tau_g}	&= \boldsymbol{r} \times \boldsymbol{f_g} 
+\ ^\mathrm{S}\!\boldsymbol{f_g} &= \ ^\mathrm{S}_6\mathbf{R} \cdot ^6_0\!\mathbf{R} \cdot \boldsymbol{^0\!g}	\\
+\ ^\mathrm{S}\boldsymbol{\tau_g}	&= \boldsymbol{r} \times \ ^\mathrm{S}\!\boldsymbol{f_g} 
 \end{split}
 \end{equation}  
+\par\noindent
+Finally, by gravity compensation method, the initial value [$f_{0x}$ $f_{0y}$ $f_{0z}$ $\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$] and the load gravity [$f_{gx}$ $f_{gy}$ $f_{gz}$ $\tau_{gx}$ $\tau_{gy}$ $\tau_{gz}$] are all evaluated. Besides, the weight of the end effector $g$ and the installation angle $\theta$ including assembly error are also obtained.
 \par
-Finally, by gravity compensation method, the initial value [$f_{0x}$ $f_{0y}$ $f_{0z}$ $\tau_{0x}$ $\tau_{0y}$ $\tau_{0z}$] and the load gravity [$f_{gx}$ $f_{gy}$ $f_{gz}$ $\tau_{gx}$ $\tau_{gy}$ $\tau_{gz}$] are all evaluated.
+In conclusion, with the force vector $^\mathrm{S}\!\boldsymbol{f}$ and the torque vector $^\mathrm{S}\boldsymbol{\tau}$ received from F/T sensor, the centroid position of the end effector $\boldsymbol{r}$ and the coupled vector $\boldsymbol{k}$ are obtained first. Then the initial values $\ ^\mathrm{S}\!\boldsymbol{f_0}$, $\ ^\mathrm{S}\boldsymbol{\tau_0}$ are calculated off-line, and subsequently the gravity load $\ ^\mathrm{S}\!\boldsymbol{f_0}$, $\ ^\mathrm{S}\boldsymbol{\tau_0}$ are evaluated on-line.
 \par
-Furthermore, the weight of the end effector $g$ can also be obtained. As for installation angle $\theta$ including assembly error, there is an further discussion. Undoubtedly, we can derive it as
+There is an further discussion about the installation angle $\theta$ including assembly error. Undoubtedly, we can derive it from Equation \ref{eq:rgf}as
 \begin{equation}
 \begin{split}
 \theta = \cos^{-1}\left(\frac{g\cos(\theta)}{g}\right)\ \text{or} \ \sin^{-1}\left(\frac{g\sin(\theta)}{g}\right)\
 \end{split}
 \end{equation}
-In theory, By either the arccos function or arcsin function, we can derive the same value. However, we estimate $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ by using the least square solution which produce a approximated answer rather than the correct answer. A subtle bias caused by the least square solution will be enlarged through the arc function. 
+In theory, by either the arccos function or arcsin function, we can derive the same value. However, we estimate $[g\cos(\theta),g\sin(\theta),g,f_{0x},f_{0y},f_{0z}]$ by using the least square solution which produce a approximated answer rather than the correct answer. A subtle bias caused by the least square solution will be enlarged through the arc function. 
 Thankfully, we originally designed an adapter to connect the robot arm and F/T sensor, and the installation angle is exactly zero degrees. Therefore, here we only need to concern about the subtle bias result from assembly errors.\\
 Here we take the same bias and compare arccos to arcsin. 
 \begin{table}[htbp]
@@ -387,11 +401,11 @@ Ultimately, we have successfully dissected the actual value of the F/T sensor in
 \begin{equation}
 \begin{split}
 \text{External Force}	&= \text{Actual Value} 	-\text{Initial value}	-\text{Gravity Load}\\
-\boldsymbol{f_e}		&= \boldsymbol{f}		-\boldsymbol{f_0}		-\boldsymbol{f_g}\\ 
-\boldsymbol{\tau_e}		&= \boldsymbol{\tau}	-\boldsymbol{\tau_0}	-\boldsymbol{\tau_g}		
+\ ^\mathrm{S}\!\boldsymbol{f_e}		&= \ ^\mathrm{S}\!\boldsymbol{f}		-\ ^\mathrm{S}\!\boldsymbol{f_0}		-\ ^\mathrm{S}\!\boldsymbol{f_g}\\ 
+\ ^\mathrm{S}\boldsymbol{\tau_e}		&= \ ^\mathrm{S}\boldsymbol{\tau}	-\ ^\mathrm{S}\boldsymbol{\tau_0}	-\ ^\mathrm{S}\boldsymbol{\tau_g}		
 \end{split}
 \end{equation}
-where $\boldsymbol{f_e}$ is [$f_{ex} f_{ey} f_{ez}$], $\boldsymbol{\tau_e}$ is [$\tau_{ex}$ $\tau_{ey}$ $\tau_{ez}$] , and 
+where $\ ^\mathrm{S}\!\boldsymbol{f_e}$ is [$f_{ex} f_{ey} f_{ez}$], $\ ^\mathrm{S}\boldsymbol{\tau_e}$ is [$\tau_{ex}$ $\tau_{ey}$ $\tau_{ez}$] , and 
 \begin{equation}
 \begin{split}
 f_{ex} &= f_x - f_{0x} 	+ g\cos(\theta)r_{13} 	+ g\sin(\theta)r_{23}\\
@@ -416,17 +430,25 @@ Control scheme. $\boldsymbol{f_d}$ denotes the desired forces and torques vector
 \end{figure}
 \hspace*{6mm}Admittance control makes the robot move like a spring-mass-damper system. Forces and torques can be mapped into the movements such as position or velocity. Most importantly, admittance control enables a robot arm to cooperate with humans in a safe work environment \cite{admctrl}. Since Meca500 is an industrial robot arm without admittance control, we subsequently combine the robot arm with the F/T sensor to adopt admittance control. With force and torque feedback, the F/T sensor makes Meca500 be like a collaborative robot arm. a control scheme is proposed and depicted in Figure \ref{fig:adm ctrl}. It's worth noting that in this approach, the admittance control function is triggered by the end effector mounted on the F/T sensor instead of detecting each wrist torque of the robot arm.
 \par
-A standard equation of admittance control is represented as Equation \ref{eq:adm_mbk}. The values we obtain from the F/T sensor are $\left[f_x, f_y, f_z,\tau _x, \tau _y, \tau _z \right]$, whose forces $ \left[f_x, f_y, f_z\right]$ are related to the translations $ \left[x, y, z\right]$ and torques $ \left[\tau _x, \tau _y, \tau _z\right]$ are related to the axis angle $ \left[\theta _x,\theta _y,\theta _z\right]$. 
+A standard equation of admittance control is represented as Equation \ref{eq:adm_xaf}. The values we obtain from the F/T sensor are $\left[f_x, f_y, f_z,\tau _x, \tau _y, \tau _z \right]$, whose forces $ \left[f_x, f_y, f_z\right]$ are related to the translations $ \left[x, y, z\right]$ and torques $ \left[\tau _x, \tau _y, \tau _z\right]$ are related to the axis angle $ \left[\theta _x,\theta _y,\theta _z\right]$. Take the first element for example,
+\begin{equation}
+\label{eq:adm_xaf}
+\begin{split}
+x(s)&= \frac{1}{m_1s^2+b_1s+k_1} \cdot f_x(s)	\\
+  	&\coloneqq \mathrm{A}(s) \cdot f_x(s) = a(t)\otimes f_x(t)
+\end{split}
+\end{equation}
+Therefore, 
 \begin{equation}
 \label{eq:adm_mbk}
 \begin{split}
 \begin{bmatrix}
-x \\
-y \\
-z \\
-\theta _x \\
-\theta _y \\
-\theta _z 
+x(s) \\
+y(s) \\
+z(s) \\
+\theta _x(s) \\
+\theta _y(s) \\
+\theta _z(s) 
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -436,12 +458,12 @@ z \\
 0   &\cdots & 0 & \frac{1}{m_6s^2+b_6s+k_6}
 \end{bmatrix}
 \begin{bmatrix}
-f_x \\
-f_y \\
-f_z \\
-\tau _x \\
-\tau _y \\
-\tau _z 
+f_x(s) \\
+f_y(s) \\
+f_z(s) \\
+\tau _x(s) \\
+\tau _y(s) \\
+\tau _z(s) 
 \end{bmatrix}
 \end{split}
 \end{equation}
@@ -452,12 +474,12 @@ where $[m_1,m_2,\cdots,m_6]$, $[b_1,b_2,\cdots,b_6]$, $[k_1,k_2,\cdots,k_6]$ are
 \label{eq:adm_mb}
 \begin{split}
 \begin{bmatrix}
-\dot{x} \\
-\dot{y} \\
-\dot{z} \\
-\dot{\theta _x} \\
-\dot{\theta _y }\\
-\dot{\theta _z }
+\dot{x}(s) \\
+\dot{y}(s) \\
+\dot{z}(s) \\
+\dot{\theta _x}(s) \\
+\dot{\theta _y}(s)\\
+\dot{\theta _z}(s)
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -467,12 +489,12 @@ where $[m_1,m_2,\cdots,m_6]$, $[b_1,b_2,\cdots,b_6]$, $[k_1,k_2,\cdots,k_6]$ are
 0   &\cdots & 0 & \frac{1}{m_6s+b_6}
 \end{bmatrix}
 \begin{bmatrix}
-f_x \\
-f_y \\
-f_z \\
-\tau _x \\
-\tau _y \\
-\tau _z 
+f_x(s)  \\
+f_y(s)  \\
+f_z(s)  \\
+\tau _x(s) \\
+\tau _y(s)  \\
+\tau _z(s)  
 \end{bmatrix}
 \end{split}
 \end{equation}
@@ -496,38 +518,36 @@ f_z \\
 \end{tabular}
 \end{table}
 \par
-Position commands is better than velocity commands because Meca500 has a default time-out value to ensure its safety. Even though we could set this value from 0.001 to 2 seconds, Meca500 is still restricted to move with this value. For example, the value of time-out is set $0.1$ sec. While the robot receives a command, the robot move for $0.1$ sec then immediately stops. It's not easy to control via velocity command due to this default property.
+Position commands is better than velocity commands because Meca500 has a default time-out value to ensure its safety. Even though we could set this value from $0.001$ to $1$ seconds  via the command "SetVelTimeout", Meca500 is still restricted to move with this value. For instance, the value of time-out is set $0.1$ sec. While the robot receives a command, the robot move for $0.1$ sec then immediately stops. Therefore, it's not easy to control via velocity command due to this default property.
 \par
-Therefore, there are two suitable ways to command robot - MovePose and MoveJoints. Implementation of MovePose $(x,y,z,\alpha ,\beta ,\gamma)$ is easier than MoveJoints because MovePose is considered in tool frame. That means it will move $(x,y,z,\alpha ,\beta ,\gamma)$ based on the current tool frame.  $(x,y,z)$ can be obtained by multiplying an integrator with $(\dot{x},\dot{y},\dot{z})$. As for $(\alpha ,\beta ,\gamma)$, $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$ can be obtained by multiplying the inverse matrix of analytical jacobian which was mentioned in Equation \ref{eq:jacobian_euler} with $\dot{\theta _x},\dot{\theta _y},\dot{\theta _z}$, and then $(\alpha ,\beta ,\gamma)$ can be obtained by multiplying an integrator with $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$.
+There are two suitable ways to command robot - MovePose and MoveJoints. Implementation of MovePose $(x,y,z,\alpha ,\beta ,\gamma)$ is easier than MoveJoints because MovePose is considered in tool-tip frame. That means the robot arm will move $(x,y,z,\alpha ,\beta ,\gamma)$ based on the current tool-tip frame.  $(x,y,z)$ can be obtained by multiplying an integrator with $(\dot{x},\dot{y},\dot{z})$. As for $(\alpha ,\beta ,\gamma)$, $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$ can be obtained by multiplying the inverse matrix of analytical Jacobian which was mentioned in Equation \ref{eq: Jwe} with $\dot{\theta _x},\dot{\theta _y},\dot{\theta _z}$, and then $(\alpha ,\beta ,\gamma)$ can be obtained by multiplying an integrator with $(\dot{\alpha} ,\dot{\beta} ,\dot{\gamma)}$.
 \par
 However, considering that the singularity problem is an imperative subject in robotics, we intend to use MoveJoints to set the axes' angles directly. Despite that it's easier to implement admittance control via other commands, the system would touch the singularity point at any time. It undoubtedly exposes patients to danger because of the uncertainty of the system. In our case, we could detect whether it is a singularity or not before commanding the robot. Therefore, position command - MoveJoints and velocity command - MoveJointsVel is our option. 
 \par
 Finally, we designate MoveJoints $\theta _1, \theta _2 ,\theta _3 ,\theta _4 ,\theta _5 , \theta _6 $ as our main command. Thanks to the property of Jacobian matrix shown in Equation \ref{eq:jg6}, we can transform $\boldsymbol{\dot{x}}$ into $\boldsymbol{\dot{\theta}}$. Then we multiply it an integrator $\frac{1}{\mathrm{s}}$
-to obtain $\boldsymbol{\theta}$. Note that, because admittance control is based on frame \{H\}, we should use Equation \ref{eq:jg6} rather than Equation \ref{eq:jg0}. 
+to obtain $\boldsymbol{\theta}$. Note that, because admittance control is based on frame \{H\}, we should use $\ ^{\mathrm{H}}\!\mathbf{J_g}$ in Equation \ref{eq:jg6} rather than $\ ^{0}\!\mathbf{J_g}$ in Equation \ref{eq:jg0}. 
 \subsubsection{Implementation in Discrete Time}
 \hspace*{6mm}To implement it in digital control, the bilinear transformation, also known as Tustin method, is used to control it in discrete time.
 \begin{equation}
 \label{eq:z_domain eq}
 \begin{split}
-\frac{v_i(s)}{f_i(s)} &= \frac{1}{m_is+b_i}\\
+\mathcal{L}\left\lbrace \frac{v_i(t)}{f_i(t)} \right\rbrace = \frac{V_i(s)}{F_i(s)} &= \frac{1}{m_is+b_i}\\
 \Rightarrow 
-\frac{v_i(z)}{f_i(z)} &= \frac{t_s \cdot (1+z^{-1})}{(t_s \cdot b_i+2m_i)+(t_s \cdot b_i-2m_i)\cdot z^{-1}}
+\mathcal{Z}\left\lbrace \frac{v_i(\mathrm{k})}{f_i(\mathrm{k})} \right\rbrace = \frac{V_i(z)}{F_i(z)} &= \frac{t_s \cdot (1+z^{-1})}{(t_s \cdot b_i+2m_i)+(t_s \cdot b_i-2m_i)\cdot z^{-1}}
 \end{split}
 \end{equation}
 and
 \begin{equation}
 \begin{split}
-\frac{\theta_i(s)}{w_i(s)}
-				&= \frac{k}{s}\\
+\mathcal{L}\left\lbrace \frac{\theta_i(t)}{w_i(t)} \right\rbrace = \frac{\theta_i(s)}{W_i(s)} 	&= \frac{k}{s}\\
 \Rightarrow 
-\frac{\theta_i(z)}{w_i(z)}
-				&= \frac{t_s \cdot k}{2}	
-					\frac{1+z^{-1}}{1-z^{-1}}
+\mathcal{Z}\left\lbrace \frac{\theta_i(\mathrm{k})}{w_i(\mathrm{k})} \right\rbrace = \frac{\theta_i(z)}{W_i(z)}	&= \frac{t_s \cdot k}{2}	
+				\frac{1+z^{-1}}{1-z^{-1}}
 \end{split}
 \end{equation}
-where $i = 1,2,\cdots, n$. $(v_1$,$v_2$,$\cdots$,$v_6)$ denote $(\dot{x}$,$\dot{y}$,$\dot{z}$,$\dot{\theta _x}$,$\dot{\theta _y}$,$\dot{\theta _z})$. $(f_1,f_2$,$\cdots,f_6)$ denote $(f_x$,$f_y$,$f_z$,$\tau _x$,$\tau _y$,$\tau _z )$. $(w_1,w_2$,$\cdots,w_6)$ denote $(\dot{\theta _1}, \dot{\theta _2} ,\cdots , \dot{\theta _6} )$. $k$ represents the constant gain. $t_s$ represents the sampling time. $(m_1$,$m_2$,$\cdots$,$m_6)$ and $(b_1$,$b_2$,$\cdots$,$b_6)$ represent inertial and dampoing parameters of admittance control.
+where $i$ = $1$, $2$, $\cdots$ , $n$. ($v_1$, $v_2$, $\cdots$ , $v_6)$ denotes ($\dot{x}$, $\dot{y}$, $\dot{z}$, $\dot{\theta _x}$, $\dot{\theta _y}$, $\dot{\theta _z})$. ($f_1$, $f_2$, $\cdots , f_6)$ denotes ($f_x$, $f_y$, $f_z$, $\tau _x$, $\tau _y$, $\tau _z )$. ($w_1$, $w_2$, $\cdots , w_6)$ denotes ($\dot{\theta _1}$, $\dot{\theta _2}$ , $\cdots$ , $\dot{\theta _6}$). $k$ represents the constant gain. $t_s = 0.002$ represents the sampling time. $(m_1$, $m_2$, $\cdots$ , $m_6)$ and $(b_1$, $b_2$, $\cdots$ , $b_6)$ represent inertial and damping parameters of admittance control.
 \par\noindent
-Therefore,
+Therefore, the crucial equations are derived as 
 \begin{equation}
 \begin{split}
 &v_i[\mathrm{k}+1] = \frac{t_s}{t_s \cdot b_i+2m_i}
@@ -543,60 +563,55 @@ Therefore,
 \subsection*{Coordinate Transformation of F/T sensor}
 \label{sec:rfc}
 \vspace*{-5mm}
-\hspace*{6mm}In "Self-Alignment Mode" DentiBot amend the inserting direction by itself to lower the contact resistance. DentiBot should rotate and move the endodontic file related to the tool-tip frame. Nevertheless, the F/T sensor has its own reference coordinates initially. The F/T sensor originally recognizes its coordinate rather than the tool-tip frame. Namely, the F/T sensor receives unmatched data when the tool contacts an obstacle due to the wrong reference frame \cite{erdogan2014gravity}. Therefore, it is essential to change the reference coordinate of F/T sensor from its original coordinate, frame\{S\}, to tool-tip coordinate, frame\{H\}. We analyze it from two perspectives - reference frame changing and measurement point changing.
+\hspace*{6mm}In "Self-Alignment Mode," DentiBot amends the inserting direction by itself to lower the contact resistance. DentiBot should rotate and move the endodontic file related to the tool-tip frame. Nevertheless, the F/T sensor has its own reference coordinates initially. The F/T sensor originally recognizes its coordinate rather than the tool-tip frame. Namely, the F/T sensor receives unmatched data when the tool contacts an obstacle due to the wrong reference frame \cite{erdogan2014gravity}. Therefore, it is essential to change the reference coordinate of F/T sensor from its original coordinate, frame\{S\}, to tool-tip coordinate, frame\{H\}. We analyze it from two perspectives - reference frame changing and measurement point changing.
 \subsubsection{Reference Frame Changing}
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=0.6\linewidth]{Images/sensor_comp 1.png}
-\caption{
-Illustration of changing reference frame from $\{\mathrm{S}\} $ to $\{\mathrm{H}\}$. $\boldsymbol{f}_\mathrm{p}$ and $\boldsymbol{\tau}_\mathrm{p}$ respectively denote a force vector and a torque vector applied at point p and observed from \{S\} and \{H\}.
-}\label{fig:sensor_comp1}
-\end{center}
-\end{figure}
-\par\noindent
 \hspace{6mm}Figure \ref{fig:sensor_comp1} illustrates a force and a torque applied at point p. The force and torque related to \{S\} and \{H\} are compared and described as   
 \begin{equation}
 \begin{split}
 \begin{bmatrix}
-\boldsymbol{f}_\mathrm{p}\\ 
-\boldsymbol{\tau}_\mathrm{p}
+^\mathrm{H}\boldsymbol{f}_\mathrm{p}\\ 
+^\mathrm{H}\boldsymbol{\tau}_\mathrm{p}
 \end{bmatrix}
-_{\{ \mathrm{H}\}}
 =
 \begin{bmatrix}
 _\mathrm{S}^\mathrm{H}\mathbf{R} & \boldsymbol{0}\\ 
 \boldsymbol{0} & _\mathrm{S}^\mathrm{H}\mathbf{R}
 \end{bmatrix}
 \begin{bmatrix}
-\boldsymbol{f}_\mathrm{p}\\ 
-\boldsymbol{\tau}_\mathrm{p}
+^\mathrm{S}\boldsymbol{f}_\mathrm{p}\\ 
+^\mathrm{S}\boldsymbol{\tau}_\mathrm{p}
 \end{bmatrix}
-_{\{ \mathrm{S}\}}
 \end{split}
 \end{equation}
 where $\boldsymbol{f}_\mathrm{p}$ and $\boldsymbol{\tau}_\mathrm{p}$ denote the force and the torque applied at point p respectively. $_\mathrm{S}^\mathrm{H}\mathbf{R}$ is the rotation matrix from frame \{S\} to \{H\}.
-\subsubsection{Measurement Point Changing}
 \begin{figure}[htbp]
-\label{fig:sensor_comp2}
 \begin{center}
-\includegraphics[width=0.65	\linewidth]{Images/sensor_comp 2.png}
+\includegraphics[width=0.6\linewidth]{Images/sensor_comp 1.jpg}
 \caption{
-Illustration of changing measurement point from point p to point q. $\boldsymbol{f}$ denote a force vector applied at frame \{H\} and observed from point p and q. $r_{\mathrm{p}},r_{\mathrm{q}}$ are distances between point p, q and their projections on $\boldsymbol{f}$.
-}
+Illustration of changing reference frame from $\{\mathrm{S}\} $ to $\{\mathrm{H}\}$. $^\mathrm{S}\boldsymbol{f}_\mathrm{p}$ and $^\mathrm{S}\boldsymbol{\tau}_\mathrm{p}$ respectively denote a force vector and a torque vector applied at point p and observed from \{S\}.
+}\label{fig:sensor_comp1}
 \end{center}
 \end{figure}
-\par\noindent
+\subsubsection{Measurement Point Changing}
 \hspace{6mm}On the other hand, in Figure \ref{fig:sensor_comp2} the relationship of a force and a torque observed at the same frame but at different points is derived as
 \begin{equation}
 \begin{split}
-\boldsymbol{f}				&= \boldsymbol{f}_\mathrm{p} = \boldsymbol{f}_\mathrm{q}\\
-\boldsymbol{\tau}_\mathrm{q} 	&= r_\mathrm{q} \cdot \boldsymbol{f}\\
-			 				&= r_\mathrm{p} \cdot \boldsymbol{f}+\boldsymbol{u} \times \boldsymbol{f}_\mathrm{p}\\
+^\mathrm{H}\boldsymbol{f}_\mathrm{q} &= \ ^\mathrm{H}\boldsymbol{f}_\mathrm{p}\\
+^\mathrm{H}\boldsymbol{\tau}_\mathrm{q} 	&= \ r_\mathrm{q} \cdot \ ^\mathrm{H}\boldsymbol{f_q}\\
+			 				&= \ r_\mathrm{p} \cdot \ ^\mathrm{H}\boldsymbol{f_p}+\boldsymbol{u} \times \ ^\mathrm{H}\boldsymbol{f}_\mathrm{p}\\
 			 				&= \boldsymbol{\tau}_\mathrm{p} + \boldsymbol{u}\times \boldsymbol{f}_\mathrm{p}
 \end{split}
 \end{equation}
 \par\noindent
 where $\boldsymbol{f}_\mathrm{p}$ and $\boldsymbol{f}_\mathrm{q}$ are respectively represent the same force measured at point p and q. $\boldsymbol{\tau}_\mathrm{p}$ and $\boldsymbol{\tau}_\mathrm{q}$ are respectively represent the same torque measured at point p and q. $\boldsymbol{u}$ denotes the vector from q to p.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.65	\linewidth]{Images/sensor_comp 2.jpg}
+\caption{
+Illustration of changing measurement point from point p to point q. $\boldsymbol{f}$ denote a force vector applied at frame \{H\} and observed from point p and q. $r_{\mathrm{p}},r_{\mathrm{q}}$ are distances between point p, q and their projections on $\boldsymbol{f}$.
+}\label{fig:sensor_comp2}
+\end{center}
+\end{figure}
 \par\noindent
 Assume  
 \begin{equation*}
@@ -679,12 +694,29 @@ _\mathrm{S}^\mathrm{H}\mathbf{R} & \boldsymbol{0}\\
 \boldsymbol{f}_\mathrm{p}\\ 
 \boldsymbol{\tau}_\mathrm{p}
 \end{bmatrix}
-_{\{ \mathrm{S}\}}
+_{\{ \mathrm{S}\}}\\
 \end{split}
 \end{equation}
+To implement it in the DentiBot, the corresponding points and vecotors are illustrated in Figure \ref{fig:sensor_comp3}. It is worth noting that the point $\mathrm{p}$ is the origin on the frame\{S\}, the point $\mathrm{q}$ is the origin on the frame\{H\}, and $\boldsymbol{u}$ is the vector which is the origin of frame\{H\} observed from the frame\{S\}. Therefore,
+\begin{equation}
+\begin{split}
+\boldsymbol{u} = \ ^\mathrm{S}\boldsymbol{p}_\mathrm{H} = \ ^\mathrm{S}\boldsymbol{p_6} + \ ^\mathrm{6}\boldsymbol{p}_\mathrm{H}
+\end{split}
+\end{equation}
+where $ \ ^\mathrm{i}\boldsymbol{p_j}$ ($\mathrm{i} = 6,\mathrm{S}$ and $\mathrm{j} = 6,\mathrm{H}$) denotes the origin of frame\{$\mathrm{j}$\} observed from frame\{$\mathrm{i}$\}. $ \ ^\mathrm{6}\boldsymbol{p}_\mathrm{H}$ is obtained by the TCP method mentioned in Section \ref{sec:tcp}. $ \ ^\mathrm{S}\boldsymbol{p_6}$ is a known variable obtained by the mechanism design.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.7	\linewidth]{Images/sensor_comp 3.jpg}
+\caption{
+Implementation of Sensor compensation in the DentiBot.
+}\label{fig:sensor_comp3}
+\end{center}
+\end{figure}
+
+
 \subsection*{Motion Planning Based on Admittance Control}
 \label{sec:motion planning} 
-\hspace*{6mm}Here we plan a series of motions to simulate the cleaning procedure of the root canal treatment. Endodontist uses their professional experience to determine how many force to apply and when to reverse the file to release the torque caused by the contact force. Because the root canal resembles a cone. The profundity of the file is larger, then the resultant force composed of contact forces is more significant. Namely, the endodontist will apply more and more pressure in the insertion direction during the surgery. To simulate this series of motions, we could directly command the robot arm to move with the series of actions. However, commanding the robot arm is a dilemma because we have already use admittance control which also commands the robot arm to move. Therefore, to solve the conflict, we continue to utilize admittance control and propose a method based on admittance control to simulate the series of motions. Because we know the tool frame from section \ref{sec:ref_robot}, we can regulate $\boldsymbol{f_d}$ to make the robot move. That means if we want to insert along with the tool direction, we could set [$0$ $0$ $f_z$ $0$ $0$ $0$]. While $f_z$ is larger, the robot moves faster.
+\hspace*{6mm}Here we plan a series of motions to simulate the cleaning procedure of the root canal treatment. Endodontist uses their professional experience to determine how many force to apply and when to reverse the file to release the torque caused by the contact force. Because the root canal resembles a cone. The profundity of the file is larger, then the resultant force composed of contact forces is more significant. Namely, the endodontist will apply more and more pressure in the insertion direction during the surgery. To simulate this series of motions, we could directly command the robot arm to move with the series of actions. However, commanding the robot arm is a dilemma because we have already use admittance control which also commands the robot arm to move. Therefore, to solve the conflict, we continue to utilize admittance control and propose a method based on admittance control to simulate the series of motions. Because we know the tool-tip frame from section \ref{sec:ref_robot}, we can regulate $\boldsymbol{f_d}$ to make the robot move. That means if we want to insert along with the tool direction, we could set [$0$ $0$ $f_z$ $0$ $0$ $0$]. While $f_z$ is larger, the robot moves faster.
 
 \section{Parameter Selection}
 \label{sec:affection}
@@ -747,14 +779,15 @@ $b_3$		&$80$				&$80$					\\
 $b_4$		&$160$				&$80$					\\
 $b_5$		&$160$				&$80$					\\
 $b_6$		&$160$				&$\infty$					\\
-%$m_1$		&$0.004$			&$0.012$				\\
-%$m_2$		&$0.004$			&$0.006$				\\
-%$m_3$		&$0.004$			&$0.011$				\\
-%$m_4$		&$0.008$			&$0.017$				\\
-%$m_5$		&$0.008$			&$0.04$					\\
-%$m_6$		&$0.008$			&$0.018$		
+$m_1$		&$0.08$				&$0.08$				\\
+$m_2$		&$0.08$				&$0.08$				\\
+$m_3$		&$0.08$				&$0.08$				\\
+$m_4$		&$0.16$				&$0.08$				\\
+$m_5$		&$0.16$				&$0.08$					\\
+$m_6$		&$0.16$				&$\infty$		\\
 \hline	
 &$\mathbf{K} = \text{diag}(k,k,k,k,k,k),$ &$\mathbf{B} = \text{diag}(b_1,b_2,b_3,b_4,b_5,b_6)$\\
+& &$\mathbf{M} = \text{diag}(	m_1,m_2,m_3,m_4,m_5,m_6)$\\
 \hline\hline	
 \end{tabular}
 \end{table}

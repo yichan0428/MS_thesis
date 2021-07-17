@@ -15,44 +15,45 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces DentiBot formed by a 6 DoF robotic manipulator }}{20}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Modified dental handpiece composed of a servo motor, a coupler, and the endodontic file. }}{21}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Coordinate definition of DentiBot. \{0\} to \{6\} represent frames of robot arm axes. \{S\} represents the frame of F/T sensor. \{H\} represents the handpiece tool-tip frame. }}{23}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Schematic diagram for tool center point (TCP). The translation vector $^\mathrm {6}\!\boldsymbol {p}_\mathrm {H_{org}}$ denotes the origin position relative to the frame\{6\}. }}{33}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Four points method. Align a fixed point with four different poses. }}{35}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Schematic diagram for obtaining the tool vector. }}{36}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Illustration of finding the rotation matrix with the tool vector }}{37}{figure.3.7}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Schematic diagram for tool center point (TCP). The translation vector $^\mathrm {6}\tmspace -\thinmuskip {.1667em}\boldsymbol {p}_\mathrm {H}$ denotes the origin position relative to the frame\{6\}. }}{34}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Four points method. Align a fixed point with four different poses. }}{36}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Schematic diagram for obtaining the tool vector. }}{37}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Illustration of finding the rotation matrix with the tool vector }}{38}{figure.3.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Data analysis of F/T sensor. }}{41}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Control scheme. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value measured by F/T sensor. $\boldsymbol {\dot {x}}$, [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$], denotes the velocity of end effector. $\mathbf {J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol {\dot {\theta }}$, [$\dot {\theta _1}, \dot {\theta _2}, \dot {\theta _3}, \dot {\theta _4}, \dot {\theta _5}, \dot {\theta _6}$], denotes the joints' angular velocities. $\boldsymbol {\theta }$, [$\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 $], denotes the joints' angles. $\mathbf {M}$ is an inertial diagonal matrix, diag($m_1,m_2,\cdots ,m_6$), and $\mathbf {B}$ is a damping diagonal matrix, diag($b_1,b_2,\cdots ,b_6$). $\mathbf {K}$ is a constant gain diagonal matrix, diag($k,k,k,k,k,k$). }}{50}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Illustration of changing reference frame from $\{\mathrm {S}\} $ to $\{\mathrm {H}\}$. $\boldsymbol {f}_\mathrm {p}$ and $\boldsymbol {\tau }_\mathrm {p}$ respectively denote a force vector and a torque vector applied at point p and observed from \{S\} and \{H\}. }}{55}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustration of changing measurement point from point p to point q. $\boldsymbol {f}$ denote a force vector applied at frame \{H\} and observed from point p and q. $r_{\mathrm {p}},r_{\mathrm {q}}$ are distances between point p, q and their projections on $\boldsymbol {f}$. }}{56}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Admittance Control. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value measured by F/T sensor. $\boldsymbol {\dot {x}}$, [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$], denotes the velocity of end effector. $\mathbf {M}$ is an inertial diagonal matrix, diag($m_1,m_2,\cdots ,m_6$), and $\mathbf {B}$ is a damping diagonal matrix, diag($b_1,b_2,\cdots ,b_6$). $\mathbf {K}$ is a constant gain diagonal matrix, diag($k,k,k,k,k,k$). }}{59}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Reference point A in Dragging Mode. Reference point B and holding points $G_1,G_2$ in Self-Alignment Mode. }}{62}{figure.4.6}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Data analysis of F/T sensor. Initial Value is the initial value of F/T sensor without reset. Gravity Load is the gravity of end effector. External Force is the value of force or torque. }}{42}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Control scheme. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value measured by F/T sensor. $\boldsymbol {\dot {x}}$, [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$], denotes the velocity of end effector. $\mathbf {J_g}$ denotes the geometric Jacobian matrix. $\boldsymbol {\dot {\theta }}$, [$\dot {\theta _1}, \dot {\theta _2}, \dot {\theta _3}, \dot {\theta _4}, \dot {\theta _5}, \dot {\theta _6}$], denotes the joints' angular velocities. $\boldsymbol {\theta }$, [$\theta _1, \theta _2, \theta _3, \theta _4, \theta _5, \theta _6 $], denotes the joints' angles. $\mathbf {M}$ is an inertial diagonal matrix, diag($m_1,m_2,\cdots ,m_6$), and $\mathbf {B}$ is a damping diagonal matrix, diag($b_1,b_2,\cdots ,b_6$). $\mathbf {K}$ is a constant gain diagonal matrix, diag($k,k,k,k,k,k$). }}{53}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Illustration of changing reference frame from $\{\mathrm {S}\} $ to $\{\mathrm {H}\}$. $^\mathrm {S}\boldsymbol {f}_\mathrm {p}$ and $^\mathrm {S}\boldsymbol {\tau }_\mathrm {p}$ respectively denote a force vector and a torque vector applied at point p and observed from \{S\}. }}{59}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Illustration of changing measurement point from point p to point q. $\boldsymbol {f}$ denote a force vector applied at frame \{H\} and observed from point p and q. $r_{\mathrm {p}},r_{\mathrm {q}}$ are distances between point p, q and their projections on $\boldsymbol {f}$. }}{60}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Implementation of Sensor compensation in the DentiBot. }}{62}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Admittance Control. $\boldsymbol {f_d}$ denotes the desired forces and torques vector. $\boldsymbol {f_s}$ denotes the real value measured by F/T sensor. $\boldsymbol {\dot {x}}$, [$\dot {x}, \dot {y}, \dot {z}, \dot {\theta _x}, \dot {\theta _y}, \dot {\theta _z}$], denotes the velocity of end effector. $\mathbf {M}$ is an inertial diagonal matrix, diag($m_1,m_2,\cdots ,m_6$), and $\mathbf {B}$ is a damping diagonal matrix, diag($b_1,b_2,\cdots ,b_6$). $\mathbf {K}$ is a constant gain diagonal matrix, diag($k,k,k,k,k,k$). }}{63}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Reference point A in Dragging Mode. Reference point B and holding points $G_1,G_2$ in Self-Alignment Mode. }}{65}{figure.4.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The illustration of an endodontic file }}{64}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Endodontic files with different diameters }}{65}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The prototype of DentiBot. A single z-axis manipulator with a modified handpiece to verify our proposed method -- Inverse Rotation Control}}{68}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Motion planning of Inverse Rotation Control with the prototype of DentiBot. $\mathrm {I_{max}}$ denotes the maximum bearing current}}{69}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Control scheme of File Feedrate Control with DentiBot. $\tau _d$ represents the desired torque. $\tau _z$ represents the file torque.$f_z$ is the third element of the input of admittance control.}}{71}{figure.5.5}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Flow chart of File Feedrate Control with DentiBot. $^{\mathrm {\lbrace H \rbrace }}\!\boldsymbol {f}$, [$f_x, f_y, f_z,\tau _x, \tau _y, \tau _z$] , is measured by F/T sensor related to frame \{H\}. $\boldsymbol {f_d}$ denotes the desired force. }}{72}{figure.5.6}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Methods of autonomous endodontic treatment}}{73}{figure.5.7}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the algorithm for autonomous endodontic treatment }}{74}{figure.5.8}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The illustration of an endodontic file }}{69}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Endodontic files with different diameters }}{70}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The prototype of DentiBot. A single z-axis manipulator with a modified handpiece to verify our proposed method -- Inverse Rotation Control}}{73}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Motion planning of Inverse Rotation Control with the prototype of DentiBot. $\mathrm {I_{max}}$ denotes the maximum bearing current}}{74}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Control scheme of File Feedrate Control with DentiBot. $\tau _d$ represents the desired torque. $\tau _z$ represents the file torque.$f_z$ is the third element of the input of admittance control.}}{76}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Flow chart of File Feedrate Control with DentiBot. $^{\mathrm {\lbrace H \rbrace }}\tmspace -\thinmuskip {.1667em}\boldsymbol {f}$, [$f_x, f_y, f_z,\tau _x, \tau _y, \tau _z$] , is measured by F/T sensor related to frame \{H\}. $\boldsymbol {f_d}$ denotes the desired force. }}{77}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Methods of autonomous endodontic treatment}}{78}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the algorithm for autonomous endodontic treatment }}{79}{figure.5.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Communication protocol -- EtherCAT. Master device is RT-target and slave devices are robot arm, F/T sensor and modified handpiece.}}{77}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Graph user interface with LabVIEW 2018}}{77}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Experimental setup with DentiBot, a motion-capture system capturing LEDs, and a Stewart platform simulating patient moving}}{78}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Flow charts for force-guided alignment experiment. (a) shows Config.A -- inserting without file rotation. (b) shows Config.B -- inserting with file rotation. (c) shows Config.C -- inserting with file rotation and file feedrate control.}}{84}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Position command of Stewart platform for force-guided alignment experiment}}{85}{figure.6.5}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Config. A: Handpiece position vs root position root and their relative distance}}{88}{figure.6.6}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Config. B: Handpiece position vs root position root and their relative distance}}{89}{figure.6.7}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Config. C: Handpiece position vs root position root and their relative distance}}{90}{figure.6.8}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Patient trajectory simulated by Stewart platform }}{91}{figure.6.9}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Config. A: Force vs Velocity and Velocity command}}{93}{figure.6.10}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Config. B: Force vs Velocity and Velocity command}}{94}{figure.6.11}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Config. C: Force vs Velocity and Velocity command}}{95}{figure.6.12}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Zoom-in plot of Force vs Velocity on Z-axis from 80th to 90th second}}{96}{figure.6.13}%
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Config. A: Force vs Handpiece position}}{98}{figure.6.14}%
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Config. B: Force vs Handpiece position}}{99}{figure.6.15}%
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Config. C: Force vs Handpiece position}}{100}{figure.6.16}%
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Flowchart of the algorithm for autonomous endodontic treatment }}{101}{figure.6.17}%
-\contentsline {figure}{\numberline {6.18}{\ignorespaces Acrylic root phantom used in operative technique practice}}{102}{figure.6.18}%
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Experiment 2: A comparison of completeness before and after drilling for two times. $\tau _d$ were set 40 in A,B,C and 50 in D,E,F}}{103}{figure.6.19}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Communication protocol -- EtherCAT. Master device is RT-target and slave devices are robot arm, F/T sensor and modified handpiece.}}{82}{figure.6.1}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Graph user interface with LabVIEW 2018}}{83}{figure.6.2}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Experimental setup with DentiBot, a motion-capture system capturing LEDs, and a Stewart platform simulating patient moving}}{84}{figure.6.3}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Flow charts for force-guided alignment experiment. (a) shows Config.A -- inserting without file rotation. (b) shows Config.B -- inserting with file rotation. (c) shows Config.C -- inserting with file rotation and file feedrate control.}}{90}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Position command of Stewart platform for force-guided alignment experiment}}{91}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Patient trajectory simulated by Stewart platform}}{94}{figure.6.6}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Config. A: Handpiece position vs root position root and their relative distance}}{96}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Config. B: Handpiece position vs root position root and their relative distance}}{97}{figure.6.8}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Config. C: Handpiece position vs root position root and their relative distance}}{98}{figure.6.9}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Zoom-in plot of Force vs Velocity on Z-axis from 80th to 90th second}}{99}{figure.6.10}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Config. A: Force vs Velocity and Velocity command}}{100}{figure.6.11}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Config. B: Force vs Velocity and Velocity command}}{101}{figure.6.12}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Config. C: Force vs Velocity and Velocity command}}{102}{figure.6.13}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Config. A: Force vs Handpiece position}}{104}{figure.6.14}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Config. B: Force vs Handpiece position}}{105}{figure.6.15}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Config. C: Force vs Handpiece position}}{106}{figure.6.16}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Flowchart of the algorithm for autonomous endodontic treatment }}{107}{figure.6.17}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Acrylic root phantom used in operative technique practice}}{108}{figure.6.18}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Experiment 2: A comparison of completeness before and after two times drilling. $\tau _d$ were set 40 in A,B,C and 50 in D,E,F}}{109}{figure.6.19}%
 \addvspace {10\p@ }
